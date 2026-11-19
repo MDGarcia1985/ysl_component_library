@@ -1622,3 +1622,72 @@ Leave Windows unverified. Do not mark AC-307 or the page views as covered on Win
 
 ---
 
+### TEST-2026-11-19-022 — P5 packaging under the Ventuno Q G4 scope
+
+**Date:** 2026-11-19  
+**Time:** 17:03 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** BLOCKED
+
+#### Scope
+
+P5 packaging for the G4 statement that authorizes `arduino/ventuno-q` only. AC-502 through AC-505.
+
+#### Files Under Validation
+
+- docs/planning/CLI_IMPLEMENTATION_PLAN.md
+- docs/planning/CLI_ACCEPTANCE_TESTS.md
+- docs/planning/CLI_PAGE_CONTRACT.md
+- docs/reviews/g4-approval-2026-11-19.md
+- pyproject.toml
+
+#### Objective
+
+Determine whether the frozen packaging contract can build a distribution for `arduino/ventuno-q` without also packaging the other four definitions.
+
+#### Preconditions
+
+Clean checkout of commit `bbf013354b3ac7d4fdc9be8b44090634b431b118`. The user statement is "authorized for the Ventuno Q." No broader packaging approval was received.
+
+#### Procedure
+
+1. Bind the statement to that commit and to `hardware/controllers/arduino/ventuno_q/definition.yml`.
+2. Compare the statement with P5, AC-502, AC-503, AC-401, the page-contract denial table, and the five-entry identity registry.
+3. Parse `pyproject.toml` and check for a build backend, a project table, `packaging_enabled`, and a `dist/` directory.
+4. Do not invoke a builder.
+
+#### Expected Result
+
+A contract path that packages the authorized definition alone would allow a wheel and sdist. A contract that packages the five-definition catalog would block that build.
+
+#### Actual Result
+
+The contract packages the five-definition catalog as one unit. AC-502 requires the installed command to serve that catalog and to include all approved schemas and data. AC-503 treats missing catalog data as a failure. No row defines a one-component distribution. The build was not started. `pyproject.toml` has only the tool table, `packaging_enabled` is false, and `dist/` is absent. The Ventuno Q definition digest is `db3c7fe1af1a69a61dae54787cf7f70b5222a9c066284c75e7f83e455d6826c2`.
+
+#### Evidence
+
+- Candidate commit `bbf013354b3ac7d4fdc9be8b44090634b431b118`, tree `4eb01ea1ec9bea7bf7d537da5495890f9e03f0f3`, clean before this record.
+- `python3` `tomllib` parse of `pyproject.toml`: keys `['tool']`, `packaging_enabled` false, no project table, no build backend, `dist/` absent.
+- `pyproject.toml` SHA-256 `5d5782d73c9c2ea0630b2090b7739ac30f055919032f5dba7d186e1f8fe6ec18`, unchanged from the candidate.
+
+#### Failures / Observations
+
+AC-502 through AC-505 were not executed. Windows remains not executed. No independent reviewer ran this inspection. The six VENTUNO discrepancies remain unresolved and verification remains `not_verified`. The existing unittest suite was not re-run.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-011.
+
+#### Related Tests
+
+TEST-2026-11-19-020, TEST-2026-11-19-021.
+
+#### Disposition
+
+Do not implement P5 on this statement. Do not publish. Packaging remains on the AC-501 denial path. A later human decision has to cover the catalog package, or revise the contract, before a wheel or sdist is built.
+
+---
+
+---
+

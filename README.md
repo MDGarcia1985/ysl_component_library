@@ -85,8 +85,12 @@ under the [query contract](docs/planning/CLI_QUERY_CONTRACT.md). The user approv
 G3 for that query draft; the cross-reference is
 [g3-approval-2026-11-19.md](docs/reviews/g3-approval-2026-11-19.md). Windows query
 coverage was not run. Generated pages follow the
-[page contract](docs/planning/CLI_PAGE_CONTRACT.md). Packaging remains
-unimplemented; `pyproject.toml` still has no build backend or project entry point.
+[page contract](docs/planning/CLI_PAGE_CONTRACT.md). The user authorized G4
+packaging for `arduino/ventuno-q` only; the cross-reference is
+[g4-approval-2026-11-19.md](docs/reviews/g4-approval-2026-11-19.md). That scope
+does not cover the other four definitions. Packaging remains unimplemented;
+`pyproject.toml` still has no build backend or project entry point. Publishing
+is not authorized.
 
 The schema set includes six modular schemas and synthetic board/family/module
 examples. Historical [schema review evidence](docs/evidence/schema-review-2026-11-19/README.md)

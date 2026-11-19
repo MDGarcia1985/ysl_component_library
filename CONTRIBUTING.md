@@ -186,8 +186,11 @@ The planned catalog/CLI migration follows the
 [test-first acceptance contracts](docs/planning/CLI_ACCEPTANCE_TESTS.md). The proposed
 schema/ID candidate was explicitly approved by the user, P2 migration was
 approved at G2 for that draft, and local queries now follow the query contract.
-The user approved G3 for that query draft. Packaging has not been authorized.
-Packaging requires the explicit human evidence review defined by gate G4.
+The user approved G3 for that query draft. A later statement authorized G4
+packaging for `arduino/ventuno-q` only
+([g4-approval-2026-11-19.md](docs/reviews/g4-approval-2026-11-19.md)).
+That statement does not authorize the other four definitions or publication.
+Packaging has not started, because the plan's package is the five-definition catalog.
 
 ## Submission checklist
 

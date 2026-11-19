@@ -1,6 +1,6 @@
 # P4 page and evidence contract
 
-**Status:** Frozen for P4 implementation. G4 review is still open.  
+**Status:** Frozen for P4 implementation. A later statement authorized G4 for `arduino/ventuno-q` only and did not open packaging. The denial table below is unchanged.  
 **Revision:** 1  
 **Date:** 2026-11-19  
 **Related decision:** DEV-2026-11-19-009  
@@ -108,3 +108,8 @@ authorization. This phase has no successful packaging path.
 The last row stays closed because G4 has not been decided and this phase does
 not fill in packaging. `pyproject.toml` stays a scaffold: no build backend, no
 project table, and `packaging_enabled` false.
+
+A later human statement, recorded in
+[g4-approval-2026-11-19.md](../reviews/g4-approval-2026-11-19.md), authorized
+packaging for `arduino/ventuno-q` only. It does not change this denial table
+and does not define a package that contains one definition instead of the catalog.

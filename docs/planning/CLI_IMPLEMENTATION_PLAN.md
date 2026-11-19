@@ -1,8 +1,8 @@
 # Phased Hardware Catalog and CLI Plan
 
-**Status:** G3 approved by the user for the current P3 draft. P4 generates browsing pages from the migrated definitions and denies packaging without a distribution. G4 and G5 remain pending; no independent evaluator is claimed. Windows AC-307 was not executed.  
+**Status:** The user authorized G4 packaging for `arduino/ventuno-q` only, bound to commit `bbf013354b3ac7d4fdc9be8b44090634b431b118`. That scope does not authorize the other four definitions or publication. P5 has not started, because this plan packages the five-definition catalog as one unit. G5 remains pending. No independent evaluator is claimed. Windows AC-307 was not executed.  
 **Date:** 2026-11-19  
-**Gates:** User approval covers the schema/ID candidate, P2 execution, G2 for that draft, and G3 for the P3 query draft. Windows AC-307 remains not executed. G4 and G5 remain pending.  
+**Gates:** User approval covers the schema/ID candidate, P2 execution, G2 for that draft, G3 for the P3 query draft, and a G4 scope limited to `arduino/ventuno-q` on the P4 candidate. That G4 scope does not authorize packaging the catalog. Windows AC-307 remains not executed. G5 remains pending. Publishing is not authorized.  
 **Related decision:** DEV-2026-11-19-002
 
 ## Objective and scope
@@ -271,8 +271,10 @@ contracts; its local tests do not replace this phase's independent validation.
 **Local candidate:** pages are generated from the migrated contract under
 [CLI_PAGE_CONTRACT.md](CLI_PAGE_CONTRACT.md). Evidence is under
 [docs/evidence/pages-2026-11-19](../evidence/pages-2026-11-19/README.md).
-G4 human validation has not been given. Packaging stays closed. The local run
-is self-evaluated and does not include Windows.
+A later human statement authorized packaging for `arduino/ventuno-q` only. The
+[G4 cross-reference](../reviews/g4-approval-2026-11-19.md) records that scope.
+It does not open P5, because this plan packages the five-definition catalog.
+Packaging stays closed. The local run is self-evaluated and does not include Windows.
 
 Deliverables:
 

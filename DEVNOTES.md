@@ -860,3 +860,63 @@ Independent evaluator infrastructure, Windows execution, G4 packaging approval, 
 ---
 
 ---
+
+### DEV-2026-11-19-011 — Record scoped G4 approval and stop before packaging
+
+**Date:** 2026-11-19  
+**Time:** 17:03 America/New_York  
+**Engineer:** Cursor cloud agent  
+**Status:** BLOCKED  
+**Type:** DECISION
+
+#### Problem
+
+The user authorized G4 packaging for the Ventuno Q only. The statement has to be recorded as a human decision, and P5 may start only if the packaging contract can ship that one definition without shipping the rest of the catalog.
+
+#### Context and Constraints
+
+The user statement is exactly: "authorized for the Ventuno Q." It names no other reviewer. The bound candidate is commit `bbf013354b3ac7d4fdc9be8b44090634b431b118`, the merge of pull request 3, with a clean tree when the statement was applied. The authorized identity is `arduino/ventuno-q`. The statement does not authorize the other four definitions or publication. An agent-written review file is only a cross-reference. The approval cannot be widened to make the contract fit.
+
+#### Solutions Considered
+
+- Package all five definitions because the candidate commit contains them.
+- Fill in `pyproject.toml` with only the Ventuno Q definition and call that the approved catalog.
+- Record the scoped approval and leave packaging closed, because neither package matches both the statement and the contract.
+
+#### Trade-offs
+
+The first option ships definitions the user did not authorize. The second option invents a one-component distribution the acceptance rows do not define, and it would omit catalog data AC-503 treats as part of the packaged catalog. Recording the block leaves the installable CLI unbuilt. That is the limit the statement and the contract together impose.
+
+#### Final Outcome
+
+G4 is approved for `arduino/ventuno-q` only, bound to commit `bbf013354b3ac7d4fdc9be8b44090634b431b118` and definition SHA-256 `db3c7fe1af1a69a61dae54787cf7f70b5222a9c066284c75e7f83e455d6826c2`. P5 does not start. The plan packages the five-definition catalog as one unit: P5 includes that catalog, AC-502 requires the installed command to serve it, and AC-503 fails missing catalog data. The page contract still denies an external G4 with `packaging_closed_until_external_g4`. No wheel, sdist, or installed command was produced. `pyproject.toml` stays the inactive scaffold. Publication and G5 remain unauthorized. The six VENTUNO discrepancies stay unresolved and verification stays `not_verified`.
+
+#### Implementation Impact
+
+- `docs/reviews/g4-approval-2026-11-19.md`: cross-reference of the user statement and the block.
+- Planning status text in `docs/planning/CLI_IMPLEMENTATION_PLAN.md`, `docs/planning/CLI_ACCEPTANCE_TESTS.md`, and `docs/planning/CLI_PAGE_CONTRACT.md`. The AC-502 through AC-505 rows and the denial table are unchanged.
+- `README.md` and `CONTRIBUTING.md`: current status points at the scoped decision.
+- `pyproject.toml`, `src/ysl_components/packaging.py`, schemas, and hardware definitions: unchanged.
+
+#### Verification Required
+
+Static inspection that the scaffold still has no project table, build backend, or `dist/` directory, and that the contract text still packages the whole catalog. Do not predict a packaging pass. AC-502 through AC-505 stay unexecuted. Do not claim an independent reviewer or a Windows run.
+
+#### Related Records
+
+- DEVNOTES: DEV-2026-11-19-002, DEV-2026-11-19-010
+- Tests: TEST-2026-11-19-022
+- Source: `docs/reviews/g4-approval-2026-11-19.md`;
+  `docs/planning/CLI_IMPLEMENTATION_PLAN.md`
+
+#### Next Steps
+
+None for packaging under this statement. A later human decision would have to cover the catalog package the contract defines, or revise that contract, before P5 can start. This entry does not request either choice.
+
+#### Deferred Decisions
+
+Publication, G5 review of an installed package, Windows execution, independent evaluation, and any contract revision that would define a one-component distribution remain separate.
+
+---
+
+---

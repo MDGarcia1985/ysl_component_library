@@ -4,7 +4,10 @@
 G3 for the current P3 draft. AC-301 through AC-308 have a frozen query contract.
 AC-401 through AC-405 and the AC-501 denial have a frozen page contract.
 Independently frozen fixtures and product acceptance are not established.
-Windows AC-307 was not executed. G4 remains pending.  
+Windows AC-307 was not executed. A later statement authorized G4 packaging for
+`arduino/ventuno-q` only, bound to commit `bbf013354b3ac7d4fdc9be8b44090634b431b118`.
+That scope does not approve a package of the five-definition catalog. The
+AC-502 through AC-505 rows below are unchanged and were not executed.  
 **Contract revision:** Draft 1, 2026-11-19  
 **Scope:** Schemas and IDs, migration, validation, local queries, generated browsing
 pages, evidence review, and subsequent CLI packaging.
