@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: src/ysl_components/reference_pages.py
 Purpose: Generate Markdown reference pages directly from hardware YAML.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

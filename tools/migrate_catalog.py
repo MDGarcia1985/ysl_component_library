@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tools/migrate_catalog.py
 Purpose: Reproduce the authorized P2 migration from preserved original snapshots.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

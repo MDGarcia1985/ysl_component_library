@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tests/migration_checks.py
 Purpose: Independently compare frozen source leaves with migrated destinations.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

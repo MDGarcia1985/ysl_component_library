@@ -1,4 +1,4 @@
-<!-- Generated from definition.yml; SHA-256: 9ecf194f374554e8be36e075231efe1a76573f278bf11598bf0e210dbf8e1502. Do not edit manually. -->
+<!-- Generated from definition.yml; SHA-256: ad4941e41c70630117326bc7bc72eb97260a83827acb7acab92a480eaba3a5e7. Do not edit manually. -->
 # ATtiny25 / ATtiny45 / ATtiny85
 
 [Catalog](../../../../docs/catalog.md) · [Hardware YAML](definition.yml)

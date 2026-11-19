@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tests/collect_preparation_evidence.py
 Purpose: Capture reproducible local evidence for layout and source enrichment.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

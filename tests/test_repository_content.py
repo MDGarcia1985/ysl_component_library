@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tests/test_repository_content.py
 Purpose: Check the requested layout, hardware enrichment, and generated references.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.
