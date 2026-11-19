@@ -4,8 +4,8 @@
 """File: src/ysl_components/__main__.py
 Purpose: Start the development catalog tool with python -m ysl_components.
 Author: Cursor cloud agent; contact: Pending confirmation; license: MPL-2.0.
-Constraints: No installed console script. The caller supplies PYTHONPATH and --catalog.
-Related decision: DEV-2026-11-19-006.
+Constraints: This path requires --catalog. The console script is ysl_components.cli.installed_main.
+Related decision: DEV-2026-11-19-006, DEV-2026-11-19-012.
 """
 
 import sys

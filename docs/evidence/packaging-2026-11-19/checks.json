@@ -1,0 +1,27 @@
+{
+  "export_exit": 0,
+  "list_exit": 0,
+  "offline_list_exit": 0,
+  "packaged_digests": {
+    "hardware/controllers/arduino/uno_r3/definition.yml": "75d1a787a0bc25efe6ea6e8b0a28a13e99536c6faf3a5f4a5891aef3410bf424",
+    "hardware/controllers/arduino/ventuno_q/definition.yml": "db3c7fe1af1a69a61dae54787cf7f70b5222a9c066284c75e7f83e455d6826c2",
+    "hardware/controllers/microchip/attiny_x5/definition.yml": "ad4941e41c70630117326bc7bc72eb97260a83827acb7acab92a480eaba3a5e7",
+    "hardware/drivers/ti/l293_family/definition.yml": "f06b44363eb83aede66911784cade72d2bf87dd2da7a9556cac2ad2a9d54dbaf",
+    "hardware/sensors/generic/hc_sr04/definition.yml": "87df349469095a0b91948b5d6a126b147656ce3700520abc6e47c6f31ca576a6",
+    "schemas/common.schema.json": "5b73aa2fc6df9750574ef6c47d79220fea219ae01c80ea7b209d4822be476d89",
+    "schemas/component.schema.json": "a1e6cad3ee234e821313d308776e7ec3bfdef7a097769f3a2da01c70fa0806fd",
+    "schemas/hardware.schema.json": "489cf4f87810ea9de156035b579b0e1031757533a2cb4d7193bbdc9943d45b37",
+    "schemas/identity-registry.json": "f25ec4890fe085a5a948b2bea2d98952244a780d618a73fcbdf0328cfa2620a6",
+    "schemas/identity-registry.schema.json": "277e25a3b28f50a9d9239fae5a733a0da4cf2cc70bbeb0f96b4baa04bc7f2c05",
+    "schemas/provenance.schema.json": "845a31e2c27a762da3c1631a6d385437692fc6b4d595712ba1c6613c7eb45bc9",
+    "schemas/relations.schema.json": "51d893f726a0e30ebfee2d5c4fb41c6b9d1e3096264343e0f56d2a8acc4ebdb8"
+  },
+  "pin_exit": 0,
+  "platform": "Linux-6.12.113+-x86_64-with-glibc2.39",
+  "published": false,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "sdist": "ysl_components-1.0.0a1.tar.gz",
+  "show_exit": 0,
+  "wheel": "ysl_components-1.0.0a1-py3-none-any.whl",
+  "wheel_has_user_manual": false
+}

@@ -1,6 +1,6 @@
 # P4 page and evidence contract
 
-**Status:** Frozen for P4 implementation. A later statement authorized G4 for `arduino/ventuno-q` only and did not open packaging. The denial table below is unchanged.  
+**Status:** Frozen for P4 page behavior. The widened G4 approval opened packaging for the five-definition catalog. Unapproved digests stay denied. Publication is not authorized.  
 **Revision:** 1  
 **Date:** 2026-11-19  
 **Related decision:** DEV-2026-11-19-009  
@@ -93,9 +93,9 @@ local run can match the first. That match is not an independent reviewer.
 
 ## AC-501 denial
 
-`request_package_build` classifies a request and returns. It does not call a
-builder, write a distribution, or read a local `approved: true` value as
-authorization. This phase has no successful packaging path.
+`request_package_build` classifies a request and returns. It does not read a
+local `approved: true` value as authorization. It calls a builder only for the
+approved candidate, and it does not upload.
 
 | Request | Reason |
 | --- | --- |
@@ -103,13 +103,13 @@ authorization. This phase has no successful packaging path.
 | `approved: true` or any channel other than `external` | `local_approval_is_not_authorization` |
 | External channel whose gate is not `G4` | `wrong_gate` |
 | External `G4` bound to a different candidate digest | `candidate_mismatch` |
-| External `G4` bound to the requested digest | `packaging_closed_until_external_g4` |
+| External `G4` bound to a digest other than `bbf013354b3ac7d4fdc9be8b44090634b431b118` | `candidate_not_approved` |
 
-The last row stays closed because G4 has not been decided and this phase does
-not fill in packaging. `pyproject.toml` stays a scaffold: no build backend, no
-project table, and `packaging_enabled` false.
-
-A later human statement, recorded in
-[g4-approval-2026-11-19.md](../reviews/g4-approval-2026-11-19.md), authorized
-packaging for `arduino/ventuno-q` only. It does not change this denial table
-and does not define a package that contains one definition instead of the catalog.
+Absent, local, wrong-gate, and mismatched requests stay denied, and their builder
+is not called. A later statement first limited G4 to `arduino/ventuno-q`
+([g4-approval-2026-11-19.md](../reviews/g4-approval-2026-11-19.md)). The user then
+authorized the five-definition catalog
+([g4-catalog-approval-2026-11-19.md](../reviews/g4-catalog-approval-2026-11-19.md)).
+The success path for that commit is the [packaging contract](CLI_PACKAGING_CONTRACT.md).
+It does not upload. Generated pages still say packaging is disabled; that sentence
+was not rewritten.

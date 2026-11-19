@@ -13,7 +13,6 @@ import hashlib
 import runpy
 import shutil
 import tempfile
-import tomllib
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -209,7 +208,7 @@ connectors: {{}}
             ({'approved': True, 'gate': 'G4', 'candidate': digest, 'channel': 'repository'}, 'local_approval_is_not_authorization'),
             ({'approved': True, 'gate': 'G3', 'candidate': digest, 'channel': 'external'}, 'wrong_gate'),
             ({'approved': True, 'gate': 'G4', 'candidate': 'other-candidate', 'channel': 'external'}, 'candidate_mismatch'),
-            ({'approved': True, 'gate': 'G4', 'candidate': digest, 'channel': 'external'}, 'packaging_closed_until_external_g4'),
+            ({'approved': True, 'gate': 'G4', 'candidate': digest, 'channel': 'external'}, 'candidate_not_approved'),
         ]
         for approval, reason in cases:
             result = packaging['request_package_build'](approval, digest, builder=builder)
@@ -218,10 +217,6 @@ connectors: {{}}
             self.assertFalse(result['distribution_written'])
             self.assertEqual(result['reason'], reason)
         self.assertEqual(called, [])
-        project = tomllib.loads((ROOT / 'pyproject.toml').read_text(encoding='utf-8'))
-        self.assertNotIn('build-system', project)
-        self.assertNotIn('project', project)
-        self.assertFalse(project['tool']['ysl_component_library']['packaging_enabled'])
         self.assertFalse((ROOT / 'dist').exists())
 
 

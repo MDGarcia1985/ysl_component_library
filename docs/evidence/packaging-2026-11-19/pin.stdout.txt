@@ -1,0 +1,61 @@
+{
+  "catalog": {
+    "digest": "566536c69fdbd0c909b5ce7b71b0aee7944f3b5ec9bb0ee5ad6d134af5917c3a",
+    "path": "/tmp/ysl-p5-evidence/venv/lib/python3.12/site-packages/ysl_components/data/catalog"
+  },
+  "envelope": {
+    "contract": "ysl-components-query",
+    "revision": "1",
+    "schema_version": "1.0.0-draft.1"
+  },
+  "operation": "pin",
+  "result": {
+    "aliases": [
+      "FDCAN2_RX"
+    ],
+    "capabilities": [
+      "gpio",
+      "can_rx",
+      "pwm"
+    ],
+    "component_id": "arduino/ventuno-q",
+    "constraints": [],
+    "direction": "bidirectional",
+    "facts": {
+      "connector": {
+        "source_refs": [
+          "digital",
+          "pwm"
+        ],
+        "status": "documented",
+        "value": "JDIGITAL"
+      }
+    },
+    "location": null,
+    "maps_to": "PB5",
+    "pin": "D5",
+    "provenance": {
+      "source_refs": [
+        "digital",
+        "pwm"
+      ],
+      "status": "documented"
+    },
+    "resolved_by": "key",
+    "selected_profile": null,
+    "selected_variant": null,
+    "shared_with": null,
+    "status": "ok",
+    "verification_status": "not_verified"
+  },
+  "safety": {
+    "bench_verification_inferred": false,
+    "connection_asserted_safe": false
+  },
+  "selection": {
+    "component": "arduino/ventuno-q",
+    "profile": null,
+    "resolved_by": "id",
+    "variant": null
+  }
+}

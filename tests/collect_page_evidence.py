@@ -160,7 +160,7 @@ def packaging_cases():
         ({'approved': True, 'gate': 'G4', 'candidate': digest, 'channel': 'repository'}, 'local_approval_is_not_authorization'),
         ({'approved': True, 'gate': 'G3', 'candidate': digest, 'channel': 'external'}, 'wrong_gate'),
         ({'approved': True, 'gate': 'G4', 'candidate': 'other-candidate', 'channel': 'external'}, 'candidate_mismatch'),
-        ({'approved': True, 'gate': 'G4', 'candidate': digest, 'channel': 'external'}, 'packaging_closed_until_external_g4'),
+        ({'approved': True, 'gate': 'G4', 'candidate': digest, 'channel': 'external'}, 'candidate_not_approved'),
     ]
     observed = []
     for approval, expected in requests:

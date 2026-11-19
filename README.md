@@ -32,7 +32,7 @@ README.md
 CONTRIBUTING.md
 DEVNOTES.md
 TEST_LOG.md
-pyproject.toml                 Inactive tooling scaffold; packaging disabled
+pyproject.toml                 Package metadata for ysl-components 1.0.0a1; upload not authorized
 hardware/
   controllers/
     arduino/
@@ -86,11 +86,10 @@ G3 for that query draft; the cross-reference is
 [g3-approval-2026-11-19.md](docs/reviews/g3-approval-2026-11-19.md). Windows query
 coverage was not run. Generated pages follow the
 [page contract](docs/planning/CLI_PAGE_CONTRACT.md). The user authorized G4
-packaging for `arduino/ventuno-q` only; the cross-reference is
-[g4-approval-2026-11-19.md](docs/reviews/g4-approval-2026-11-19.md). That scope
-does not cover the other four definitions. Packaging remains unimplemented;
-`pyproject.toml` still has no build backend or project entry point. Publishing
-is not authorized.
+packaging for the five-definition catalog; the cross-reference is
+[g4-catalog-approval-2026-11-19.md](docs/reviews/g4-catalog-approval-2026-11-19.md).
+The installed command is `ysl-components` at version `1.0.0a1`. Publishing is
+not authorized. G5 has not accepted the installed package.
 
 The schema set includes six modular schemas and synthetic board/family/module
 examples. Historical [schema review evidence](docs/evidence/schema-review-2026-11-19/README.md)

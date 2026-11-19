@@ -5,8 +5,8 @@
 Purpose: Parse the frozen invocation and write the JSON envelope.
 Author: Cursor cloud agent; contact: Pending confirmation; license: MPL-2.0.
 Constraints: Stdout is only the JSON document. Diagnostics go to stderr.
-Queries do not modify the catalog. Packaging is not invoked from here.
-Related decision: DEV-2026-11-19-006.
+Queries do not modify the catalog. python -m requires --catalog. The console script may use packaged data.
+Related decision: DEV-2026-11-19-006, DEV-2026-11-19-012.
 """
 
 import argparse
@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 from ysl_components import QUERY_CONTRACT, QUERY_REVISION, SUPPORTED_SCHEMA_VERSION
-from ysl_components.loader import diagnostic, load_catalog
+from ysl_components.loader import diagnostic, load_catalog, packaged_catalog_directory
 from ysl_components.query import (
     CATEGORIES,
     FACT_STATUSES,
@@ -162,8 +162,9 @@ def open_catalog(path):
     return load_catalog(catalog_path), None
 
 
-def run(argv):
+def run(argv, default_catalog=None):
     """Purpose: Execute one operation. Design: Invalid catalogs do not return component entries.
+    The default catalog is used only by the installed command. Development invocation passes None.
     Workflow: main after the fault seam. Data Handoff: Exit code.
     """
     if any(argument in ('-h', '--help') for argument in argv):
@@ -173,7 +174,9 @@ def run(argv):
     if not args.operation:
         return usage('operation is required')
     if not args.catalog:
-        return usage('catalog path is required')
+        if default_catalog is None:
+            return usage('catalog path is required')
+        args.catalog = str(default_catalog)
     if getattr(args, 'variant', None) and getattr(args, 'profile', None):
         return usage('pass only one of --variant or --profile', 'SELECTION_CONFLICT')
     if args.operation == 'search' and args.text is not None and args.text == '':
@@ -221,9 +224,10 @@ def run(argv):
         return emit(envelope(args.operation, catalog, None, failure.result), [query_diagnostic(failure, file_name)], failure.exit_code)
 
 
-def main(argv=None):
+def main(argv=None, default_catalog=None):
     """Purpose: Provide the process entry. Design: The fault seam runs before any catalog read.
-    Workflow: python -m ysl_components. Data Handoff: Exit code.
+    Workflow: python -m ysl_components, and the installed command when a default catalog is set.
+    Data Handoff: Exit code.
     """
     sys.stdout.reconfigure(encoding='utf-8', newline='\n')
     sys.stderr.reconfigure(encoding='utf-8', newline='\n')
@@ -231,8 +235,16 @@ def main(argv=None):
         return unexpected('forced unexpected failure')
     arguments = list(sys.argv[1:] if argv is None else argv)
     try:
-        return run(arguments)
+        return run(arguments, default_catalog)
     except UsageError as error:
         return usage(str(error))
     except Exception as error:
         return unexpected(f'{type(error).__name__}: {error}')
+
+
+def installed_main(argv=None):
+    """Purpose: Start the installed ysl-components command.
+    Design: Omit --catalog to read the packaged catalog. An explicit --catalog replaces it.
+    Workflow: Console script. Data Handoff: Exit code.
+    """
+    return main(argv, packaged_catalog_directory())

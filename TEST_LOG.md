@@ -1691,3 +1691,213 @@ Do not implement P5 on this statement. Do not publish. Packaging remains on the 
 
 ---
 
+### TEST-2026-11-19-023 — First installed-command launch
+
+**Date:** 2026-11-19  
+**Time:** 17:20 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T2  
+**Result:** FAIL
+
+#### Scope
+
+First wheel install of `ysl-components` 1.0.0a1 and the `list` command outside the repository.
+
+#### Files Under Validation
+
+- pyproject.toml
+- src/ysl_components/cli.py
+
+#### Objective
+
+The installed command starts and lists the packaged catalog.
+
+#### Preconditions
+
+Wheel built with hatchling `only-include` set to `ysl_components` and a source map. Virtual environment created outside the repository.
+
+#### Procedure
+
+1. Run `python3 -m unittest tests.test_packaging_contract -v`.
+2. The test builds the wheel, installs it, and runs `ysl-components list` from a temporary directory.
+
+#### Expected Result
+
+Exit 0 and the five catalog IDs.
+
+#### Actual Result
+
+The installed script exited 1. stderr was `ModuleNotFoundError: No module named 'ysl_components.cli'`. The wheel contained packaged data and metadata, and it did not contain the Python modules.
+
+#### Evidence
+
+- unittest `tests.test_packaging_contract.PackagingContractTests.test_ac502_installed_command_matches_approved_inputs`
+- Exit code 1. The assertion showed the traceback from `/tmp/.../venv/bin/ysl-components`.
+
+#### Failures / Observations
+
+The wheel file selection omitted `src/ysl_components`. Packaged definition bytes were not reached.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-012.
+
+#### Related Tests
+
+None.
+
+#### Disposition
+
+Block the installed-command claim. Correct the wheel package selection and retest. Do not publish.
+
+---
+
+---
+
+### TEST-2026-11-19-024 — Linux package install and catalog digest check
+
+**Date:** 2026-11-19  
+**Time:** 17:22 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** PASS
+
+#### Scope
+
+P5 wheel and sdist for the five-definition catalog, then the installed `ysl-components` command away from the repository. AC-501 boundary, AC-502, AC-503, Linux AC-504, and the no-publish part of AC-505.
+
+#### Files Under Validation
+
+- pyproject.toml
+- src/ysl_components/packaging.py
+- src/ysl_components/cli.py
+- src/ysl_components/loader.py
+- hardware/controllers/arduino/uno_r3/definition.yml
+- hardware/controllers/arduino/ventuno_q/definition.yml
+- hardware/controllers/microchip/attiny_x5/definition.yml
+- hardware/drivers/ti/l293_family/definition.yml
+- hardware/sensors/generic/hc_sr04/definition.yml
+- schemas/common.schema.json
+- schemas/component.schema.json
+- schemas/hardware.schema.json
+- schemas/identity-registry.schema.json
+- schemas/provenance.schema.json
+- schemas/relations.schema.json
+- schemas/identity-registry.json
+
+#### Objective
+
+Confirm the installed command lists, shows, queries, and exports the approved catalog without the working tree, and that packaged bytes match the G4 digests.
+
+#### Preconditions
+
+Clean checkout continuing from `cursor/g4-ventuno-scope-5aea`. Python 3.12.3. Build tools hatchling 1.26.3 and build 1.2.2. The widened G4 statement is recorded. No upload credentials were used.
+
+#### Procedure
+
+1. Run `python3 -m unittest discover -s tests -v`.
+2. Build a wheel and sdist outside the repository, install the wheel in a new virtual environment, and run `list`, `show`, `pin`, and `export` from a directory that is not the repository.
+3. Repeat `list` with socket connects blocked.
+4. Compare packaged definition and schema SHA-256 values with the literals in the packaging contract.
+5. Rebuild a wheel from the sdist and compare those digests again.
+
+#### Expected Result
+
+The suite passes. The installed commands exit 0. The five stable IDs are listed. VENTUNO D5 maps to PB5. Packaged digests match the approved inputs. The manual snapshot is absent. Nothing is uploaded.
+
+#### Actual Result
+
+40 tests passed in 69.094 seconds, including the packaging methods. A separate install wrote the transcripts below. `list`, `show`, `pin`, `export`, and the socket-blocked `list` each exited 0. Listed IDs were `arduino/uno-r3`, `arduino/ventuno-q`, `generic/hc-sr04`, `microchip/attiny-x5`, and `ti/l293-family`. The pin result mapped D5 to PB5. `checks.json` records the packaged digests. `user_manual.md` was not in the wheel. `dist/` and `build/` were not left in the repository. No upload command was run.
+
+#### Evidence
+
+- `python3 -m unittest discover -s tests -v` on Linux-6.12.113+-x86_64-with-glibc2.39, Python 3.12.3. Result: Ran 40 tests, OK.
+- docs/evidence/packaging-2026-11-19/list.stdout.txt
+- docs/evidence/packaging-2026-11-19/show.stdout.txt
+- docs/evidence/packaging-2026-11-19/pin.stdout.txt
+- docs/evidence/packaging-2026-11-19/export.stdout.txt
+- docs/evidence/packaging-2026-11-19/offline-list.stdout.txt
+- docs/evidence/packaging-2026-11-19/checks.json
+- Installed distribution: `ysl-components` 1.0.0a1. Wheel name: `ysl_components-1.0.0a1-py3-none-any.whl`.
+
+#### Failures / Observations
+
+Windows was not run. No independent reviewer ran the install. Generated pages still say packaging is disabled. The six VENTUNO discrepancies remain unresolved and verification remains `not_verified`.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-012.
+
+#### Related Tests
+
+TEST-2026-11-19-020, TEST-2026-11-19-022, TEST-2026-11-19-023.
+
+#### Disposition
+
+The Linux package can be reviewed at G5. Do not publish. Do not treat this result as Windows coverage, bench verification, or an independent evaluation.
+
+---
+
+---
+
+### TEST-2026-11-19-025 — Windows installed-command coverage
+
+**Date:** 2026-11-19  
+**Time:** 17:22 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** NOT_EXECUTED
+
+#### Scope
+
+Windows half of AC-504 for the installed `ysl-components` command.
+
+#### Files Under Validation
+
+- pyproject.toml
+- src/ysl_components/cli.py
+
+#### Objective
+
+Record that the wheel was not installed or run on Windows.
+
+#### Preconditions
+
+This session had a Linux checkout only. No Windows runner was available.
+
+#### Procedure
+
+No Windows command was run.
+
+#### Expected Result
+
+The same installed-command observations as TEST-2026-11-19-023, on Windows.
+
+#### Actual Result
+
+The procedure was not started. Linux coverage is TEST-2026-11-19-024. Windows is unverified.
+
+#### Evidence
+
+- `platform.platform()` during the Linux run: `Linux-6.12.113+-x86_64-with-glibc2.39`
+
+#### Failures / Observations
+
+Missing platform coverage remains an unresolved item.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-012.
+
+#### Related Tests
+
+TEST-2026-11-19-021, TEST-2026-11-19-024.
+
+#### Disposition
+
+Leave Windows unverified. Do not mark AC-504 as covered on Windows.
+
+---
+
+---
+

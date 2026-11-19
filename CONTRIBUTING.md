@@ -187,10 +187,9 @@ The planned catalog/CLI migration follows the
 schema/ID candidate was explicitly approved by the user, P2 migration was
 approved at G2 for that draft, and local queries now follow the query contract.
 The user approved G3 for that query draft. A later statement authorized G4
-packaging for `arduino/ventuno-q` only
-([g4-approval-2026-11-19.md](docs/reviews/g4-approval-2026-11-19.md)).
-That statement does not authorize the other four definitions or publication.
-Packaging has not started, because the plan's package is the five-definition catalog.
+packaging of the five-definition catalog
+([g4-catalog-approval-2026-11-19.md](docs/reviews/g4-catalog-approval-2026-11-19.md)).
+That statement does not authorize publication. G5 has not accepted the installed package.
 
 ## Submission checklist
 

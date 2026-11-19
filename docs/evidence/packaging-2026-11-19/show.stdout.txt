@@ -1,0 +1,3859 @@
+{
+  "catalog": {
+    "digest": "566536c69fdbd0c909b5ce7b71b0aee7944f3b5ec9bb0ee5ad6d134af5917c3a",
+    "path": "/tmp/ysl-p5-evidence/venv/lib/python3.12/site-packages/ysl_components/data/catalog"
+  },
+  "envelope": {
+    "contract": "ysl-components-query",
+    "revision": "1",
+    "schema_version": "1.0.0-draft.1"
+  },
+  "operation": "show",
+  "result": {
+    "aliases": [
+      "arduino_ventuno_q"
+    ],
+    "category": "controllers",
+    "connector_ids": [
+      "CAN_SCREW_TERMINAL",
+      "ETHERNET",
+      "HDMI",
+      "J3_1",
+      "J3_2",
+      "J3_3",
+      "JANALOG",
+      "JCTL",
+      "JDIGITAL",
+      "JHAT",
+      "JMEDIA",
+      "JMISC",
+      "JOMEGA",
+      "M2",
+      "QWIIC",
+      "USB_A",
+      "USB_C"
+    ],
+    "constraints": {
+      "debug_uart": {
+        "facts": {
+          "board_referenced_adapter_required": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "connector": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "JCTL"
+          },
+          "manufacturer_recommended_adapter": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "Arduino_Bughopper"
+          },
+          "tx_rx_backpowering_can_prevent_boot": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          }
+        },
+        "kind": "requirement",
+        "provenance": {
+          "source_refs": [
+            "manual"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve source constraint group: debug_uart"
+      },
+      "expansion": {
+        "facts": {
+          "camera_module_supported_by_manual": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "IMX577"
+          },
+          "camera_support_note": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "Support statement belongs to the manual snapshot, not an exhaustive hardware compatibility claim."
+          },
+          "m2_nvme_2230_only": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "power_off_before_connecting_external_devices": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          }
+        },
+        "kind": "requirement",
+        "provenance": {
+          "source_refs": [
+            "manual"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve source constraint group: expansion"
+      },
+      "multiplexing": {
+        "facts": {
+          "adc_and_dac_simultaneous_use_supported": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": false
+          },
+          "analog_gpio_and_alternate_functions_mutually_exclusive": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "hdmi_and_mipi_dsi_simultaneous_use_supported": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": false
+          },
+          "jhat_unavailable_while_bluetooth_active__0": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "JHAT_8"
+          },
+          "jhat_unavailable_while_bluetooth_active__1": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "JHAT_10"
+          },
+          "jhat_unavailable_while_bluetooth_active__2": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "JHAT_11"
+          },
+          "jhat_unavailable_while_bluetooth_active__3": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "JHAT_36"
+          },
+          "note": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "Listed alternate functions are not a guarantee of simultaneous availability."
+          }
+        },
+        "kind": "requirement",
+        "provenance": {
+          "source_refs": [
+            "manual"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve source constraint group: multiplexing"
+      },
+      "physical": {
+        "facts": {
+          "conductive_surface_short_circuit_risk": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "mounting_standoffs_required": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "uno_shield_compatibility": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "Mechanical and pin compatibility only; software compatibility is not established."
+          }
+        },
+        "kind": "requirement",
+        "provenance": {
+          "source_refs": [
+            "manual"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve source constraint group: physical"
+      },
+      "power": {
+        "facts": {
+          "approximate_board_full_load_without_peripherals_w": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": {
+              "dimension": "power",
+              "rating_kind": "unspecified",
+              "unit": "W",
+              "value": 25
+            }
+          },
+          "barrel_jack_over_5a_can_damage_board": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "carrier_and_jomega_rails_outside_limited_nets": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "carrier_current_limits_not_fully_specified": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "rtc_backup_cannot_power_whole_board": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "rtc_backup_max_voltage_v": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": {
+              "dimension": "voltage",
+              "max": 3.3,
+              "rating_kind": "unspecified",
+              "unit": "V"
+            }
+          },
+          "rtc_backup_pin": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "JMISC_59"
+          },
+          "total_peripheral_power_budget_required": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          },
+          "vin_header_power_headroom_limited": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": true
+          }
+        },
+        "kind": "requirement",
+        "provenance": {
+          "source_refs": [
+            "manual"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve source constraint group: power"
+      },
+      "resource_context__adc_dac_exclusion": {
+        "facts": {
+          "type": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "peripheral_exclusion"
+          }
+        },
+        "kind": "condition",
+        "provenance": {
+          "source_refs": [
+            "dac"
+          ],
+          "status": "documented"
+        },
+        "rule": "Additional source context for resource conflict adc_dac_exclusion"
+      },
+      "resource_context__analog_pin_functions": {
+        "facts": {
+          "note": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "Applied separately to each pin, not a prohibition on using separate pins for different functions."
+          },
+          "type": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "per_pin_function_exclusion"
+          }
+        },
+        "kind": "condition",
+        "provenance": {
+          "source_refs": [
+            "analog"
+          ],
+          "status": "documented"
+        },
+        "rule": "Additional source context for resource conflict analog_pin_functions"
+      },
+      "resource_context__display_output_mux": {
+        "facts": {
+          "type": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "exclusive_display_route"
+          }
+        },
+        "kind": "condition",
+        "provenance": {
+          "source_refs": [
+            "hdmi"
+          ],
+          "status": "documented"
+        },
+        "rule": "Additional source context for resource conflict display_output_mux"
+      },
+      "resource_context__jhat_bluetooth_uart": {
+        "facts": {
+          "scope": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "Both UART functions and GPIO use on these four pins"
+          },
+          "type": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "conditional_pin_ownership"
+          }
+        },
+        "kind": "condition",
+        "provenance": {
+          "source_refs": [
+            "jhat"
+          ],
+          "status": "documented"
+        },
+        "rule": "Additional source context for resource conflict jhat_bluetooth_uart"
+      },
+      "source_conflict__bluetooth_version": {
+        "facts": {
+          "claims__0": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Overview and architecture state Bluetooth 5.3"
+          },
+          "claims__1": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Wireless Connectivity states Bluetooth 5.1"
+          },
+          "sections__0": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Overview"
+          },
+          "sections__1": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Board Architecture Overview"
+          },
+          "sections__2": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Wireless Connectivity"
+          },
+          "topic": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "bluetooth_version"
+          }
+        },
+        "kind": "source_conflict",
+        "provenance": {
+          "source_refs": [
+            "overview",
+            "architecture",
+            "wireless"
+          ],
+          "status": "documented"
+        },
+        "rule": "Record both source claims without selecting a version."
+      },
+      "source_conflict__can_pd0_pd1": {
+        "facts": {
+          "claims__0": {
+            "source_refs": [
+              "can_interfaces",
+              "can_transceiver"
+            ],
+            "status": "documented",
+            "value": "CAN Interfaces lists PD0 as TX and PD1 as RX."
+          },
+          "claims__1": {
+            "source_refs": [
+              "can_interfaces",
+              "can_transceiver"
+            ],
+            "status": "documented",
+            "value": "The transceiver table lists PD1 at TXD and PD0 at RXD; the terminal table follows that assignment."
+          },
+          "sections__0": {
+            "source_refs": [
+              "can_interfaces",
+              "can_transceiver"
+            ],
+            "status": "documented",
+            "value": "CAN-FD / CAN Interfaces"
+          },
+          "sections__1": {
+            "source_refs": [
+              "can_interfaces",
+              "can_transceiver"
+            ],
+            "status": "documented",
+            "value": "CAN-FD / CAN Transceiver Connections"
+          },
+          "topic": {
+            "source_refs": [
+              "can_interfaces",
+              "can_transceiver"
+            ],
+            "status": "documented",
+            "value": "can_pd0_pd1"
+          }
+        },
+        "kind": "source_conflict",
+        "provenance": {
+          "source_refs": [
+            "can_interfaces",
+            "can_transceiver"
+          ],
+          "status": "documented"
+        },
+        "rule": "Keep CAN-H/CAN-L as bus signals; omit definitive MCU TX/RX routing for the onboard transceiver."
+      },
+      "source_conflict__isp_model": {
+        "facts": {
+          "claims__0": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "cameras"
+            ],
+            "status": "documented",
+            "value": "Overview names Spectra 690"
+          },
+          "claims__1": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "cameras"
+            ],
+            "status": "documented",
+            "value": "Architecture and camera sections name Spectra 692"
+          },
+          "sections__0": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "cameras"
+            ],
+            "status": "documented",
+            "value": "Overview"
+          },
+          "sections__1": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "cameras"
+            ],
+            "status": "documented",
+            "value": "Board Architecture Overview"
+          },
+          "sections__2": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "cameras"
+            ],
+            "status": "documented",
+            "value": "MIPI / CSI Camera"
+          },
+          "topic": {
+            "source_refs": [
+              "overview",
+              "architecture",
+              "cameras"
+            ],
+            "status": "documented",
+            "value": "isp_model"
+          }
+        },
+        "kind": "source_conflict",
+        "provenance": {
+          "source_refs": [
+            "overview",
+            "architecture",
+            "cameras"
+          ],
+          "status": "documented"
+        },
+        "rule": "Omit a definitive ISP model."
+      },
+      "source_conflict__pwm_example_range": {
+        "facts": {
+          "claims__0": {
+            "source_refs": [
+              "pwm"
+            ],
+            "status": "documented",
+            "value": "The ten-bit example comment says 0 to 4095"
+          },
+          "sections__0": {
+            "source_refs": [
+              "pwm"
+            ],
+            "status": "documented",
+            "value": "PWM Pins"
+          },
+          "topic": {
+            "source_refs": [
+              "pwm"
+            ],
+            "status": "documented",
+            "value": "pwm_example_range"
+          }
+        },
+        "kind": "source_conflict",
+        "provenance": {
+          "source_refs": [
+            "pwm"
+          ],
+          "status": "documented"
+        },
+        "rule": "Omit the inconsistent example range; retain the documented eight-bit default."
+      },
+      "source_conflict__qwiic_controller": {
+        "facts": {
+          "claims__0": {
+            "source_refs": [
+              "qwiic",
+              "i2c"
+            ],
+            "status": "documented",
+            "value": "I2C4 in the Qwiic section"
+          },
+          "claims__1": {
+            "source_refs": [
+              "qwiic",
+              "i2c"
+            ],
+            "status": "documented",
+            "value": "I2C3 on PA8 and PC9 in the I2C table"
+          },
+          "sections__0": {
+            "source_refs": [
+              "qwiic",
+              "i2c"
+            ],
+            "status": "documented",
+            "value": "Qwiic"
+          },
+          "sections__1": {
+            "source_refs": [
+              "qwiic",
+              "i2c"
+            ],
+            "status": "documented",
+            "value": "Communication / I2C"
+          },
+          "topic": {
+            "source_refs": [
+              "qwiic",
+              "i2c"
+            ],
+            "status": "documented",
+            "value": "qwiic_controller"
+          }
+        },
+        "kind": "source_conflict",
+        "provenance": {
+          "source_refs": [
+            "qwiic",
+            "i2c"
+          ],
+          "status": "documented"
+        },
+        "rule": "Keep PA8 and PC9 from the explicit table; omit a definitive controller number."
+      },
+      "source_conflict__wifi_band_description": {
+        "facts": {
+          "claims__0": {
+            "source_refs": [
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Architecture calls Wi-Fi tri-band"
+          },
+          "claims__1": {
+            "source_refs": [
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Wireless Connectivity calls it dual-band while listing 2.4/5/6 GHz"
+          },
+          "sections__0": {
+            "source_refs": [
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Board Architecture Overview"
+          },
+          "sections__1": {
+            "source_refs": [
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "Wireless Connectivity"
+          },
+          "topic": {
+            "source_refs": [
+              "architecture",
+              "wireless"
+            ],
+            "status": "documented",
+            "value": "wifi_band_description"
+          }
+        },
+        "kind": "source_conflict",
+        "provenance": {
+          "source_refs": [
+            "architecture",
+            "wireless"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve the three stated bands without adopting the band-count wording."
+      },
+      "unspecified": {
+        "facts": {
+          "0": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "UNO header input tolerance and per-pin current limits are not established by the local manual text."
+          },
+          "1": {
+            "source_refs": [
+              "manual"
+            ],
+            "status": "documented",
+            "value": "No global logic voltage is assigned because connectors span multiple voltage domains."
+          }
+        },
+        "kind": "requirement",
+        "provenance": {
+          "source_refs": [
+            "manual"
+          ],
+          "status": "documented"
+        },
+        "rule": "Preserve source constraint group: unspecified"
+      }
+    },
+    "id": "arduino/ventuno-q",
+    "interface_ids": [
+      "CAN_BUS",
+      "JHAT_I2C_SE0",
+      "JHAT_I2C_SE1",
+      "JHAT_I2S1",
+      "JHAT_SPI_SE3",
+      "JHAT_UART_SE2",
+      "JMEDIA_MIPI_DSI",
+      "JMISC_I2C2",
+      "JMISC_I2S2",
+      "JMISC_SPI_SE0",
+      "JMISC_UART4",
+      "JMISC_USART2",
+      "JOMEGA_FDCAN1",
+      "JOMEGA_FDCAN2",
+      "JOMEGA_FDCAN3",
+      "JOMEGA_SPI",
+      "JOMEGA_UART_SE7",
+      "QWIIC_I2C",
+      "UNO_ADC",
+      "UNO_CAN",
+      "UNO_DAC",
+      "UNO_I2C",
+      "UNO_OPAMP",
+      "UNO_PWM",
+      "UNO_SPI",
+      "UNO_UART"
+    ],
+    "kind": "board",
+    "manufacturer": {
+      "name": "Arduino",
+      "status": "known"
+    },
+    "name": "Arduino VENTUNO Q",
+    "pin_count": 288,
+    "pins": [
+      {
+        "aliases": [
+          "D14",
+          "DAC0"
+        ],
+        "capabilities": [
+          "gpio",
+          "adc",
+          "dac"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PA4",
+        "pin": "A0",
+        "position": null
+      },
+      {
+        "aliases": [
+          "D15",
+          "DAC1"
+        ],
+        "capabilities": [
+          "gpio",
+          "adc",
+          "dac"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PA5",
+        "pin": "A1",
+        "position": null
+      },
+      {
+        "aliases": [
+          "D16"
+        ],
+        "capabilities": [
+          "gpio",
+          "adc",
+          "opamp_positive_input",
+          "spi_clock"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PE12",
+        "pin": "A2",
+        "position": null
+      },
+      {
+        "aliases": [
+          "D17"
+        ],
+        "capabilities": [
+          "gpio",
+          "adc",
+          "opamp_negative_input",
+          "spi_miso"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PE13",
+        "pin": "A3",
+        "position": null
+      },
+      {
+        "aliases": [
+          "D18"
+        ],
+        "capabilities": [
+          "gpio",
+          "adc",
+          "spi_mosi"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PE14",
+        "pin": "A4",
+        "position": null
+      },
+      {
+        "aliases": [
+          "D19"
+        ],
+        "capabilities": [
+          "gpio",
+          "adc"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PE15",
+        "pin": "A5",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "adc_reference_input"
+        ],
+        "connector": null,
+        "direction": "input",
+        "maps_to": "AREF",
+        "pin": "AREF",
+        "position": null
+      },
+      {
+        "aliases": [
+          "CAN-H"
+        ],
+        "capabilities": [
+          "can_bus_high"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "CANH",
+        "pin": "CAN_H",
+        "position": null
+      },
+      {
+        "aliases": [
+          "CAN-L"
+        ],
+        "capabilities": [
+          "can_bus_low"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "CANL",
+        "pin": "CAN_L",
+        "position": null
+      },
+      {
+        "aliases": [
+          "RX"
+        ],
+        "capabilities": [
+          "gpio",
+          "uart_rx"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB11",
+        "pin": "D0",
+        "position": null
+      },
+      {
+        "aliases": [
+          "TX"
+        ],
+        "capabilities": [
+          "gpio",
+          "uart_tx"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB10",
+        "pin": "D1",
+        "position": null
+      },
+      {
+        "aliases": [
+          "SS"
+        ],
+        "capabilities": [
+          "gpio",
+          "spi_chip_select",
+          "pwm"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB12",
+        "pin": "D10",
+        "position": null
+      },
+      {
+        "aliases": [
+          "MOSI"
+        ],
+        "capabilities": [
+          "gpio",
+          "spi_mosi",
+          "pwm"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB15",
+        "pin": "D11",
+        "position": null
+      },
+      {
+        "aliases": [
+          "MISO"
+        ],
+        "capabilities": [
+          "gpio",
+          "spi_miso"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB14",
+        "pin": "D12",
+        "position": null
+      },
+      {
+        "aliases": [
+          "SCK"
+        ],
+        "capabilities": [
+          "gpio",
+          "spi_clock"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB13",
+        "pin": "D13",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "gpio"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB0",
+        "pin": "D2",
+        "position": null
+      },
+      {
+        "aliases": [
+          "SDA"
+        ],
+        "capabilities": [
+          "gpio",
+          "i2c_sda"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PH12",
+        "pin": "D20",
+        "position": null
+      },
+      {
+        "aliases": [
+          "SCL"
+        ],
+        "capabilities": [
+          "gpio",
+          "i2c_scl"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PH11",
+        "pin": "D21",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "gpio",
+          "opamp_output",
+          "pwm"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB1",
+        "pin": "D3",
+        "position": null
+      },
+      {
+        "aliases": [
+          "FDCAN2_TX"
+        ],
+        "capabilities": [
+          "gpio",
+          "can_tx"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB6",
+        "pin": "D4",
+        "position": null
+      },
+      {
+        "aliases": [
+          "FDCAN2_RX"
+        ],
+        "capabilities": [
+          "gpio",
+          "can_rx",
+          "pwm"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB5",
+        "pin": "D5",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "gpio",
+          "pwm"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB2",
+        "pin": "D6",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "gpio"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB3",
+        "pin": "D7",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "gpio"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB4",
+        "pin": "D8",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "gpio",
+          "pwm"
+        ],
+        "connector": null,
+        "direction": "bidirectional",
+        "maps_to": "PB7",
+        "pin": "D9",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JHAT",
+        "direction": "power_output",
+        "maps_to": "+3V3",
+        "pin": "JHAT_1",
+        "position": 1
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_87",
+        "pin": "JHAT_10",
+        "position": 10
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_85",
+        "pin": "JHAT_11",
+        "position": 11
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_116",
+        "pin": "JHAT_12",
+        "position": 12
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_109",
+        "pin": "JHAT_13",
+        "position": 13
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_14",
+        "position": 14
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_90",
+        "pin": "JHAT_15",
+        "position": 15
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_105",
+        "pin": "JHAT_16",
+        "position": 16
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JHAT",
+        "direction": "power_output",
+        "maps_to": "+3V3",
+        "pin": "JHAT_17",
+        "position": 17
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_106",
+        "pin": "JHAT_18",
+        "position": 18
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_26",
+        "pin": "JHAT_19",
+        "position": 19
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JHAT",
+        "direction": "power_output",
+        "maps_to": "+5V",
+        "pin": "JHAT_2",
+        "position": 2
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_20",
+        "position": 20
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_25",
+        "pin": "JHAT_21",
+        "position": 21
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_107",
+        "pin": "JHAT_22",
+        "position": 22
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_27",
+        "pin": "JHAT_23",
+        "position": 23
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_28",
+        "pin": "JHAT_24",
+        "position": 24
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_25",
+        "position": 25
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_88",
+        "pin": "JHAT_26",
+        "position": 26
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_19",
+        "pin": "JHAT_27",
+        "position": 27
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_20",
+        "pin": "JHAT_28",
+        "position": 28
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_89",
+        "pin": "JHAT_29",
+        "position": 29
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_17",
+        "pin": "JHAT_3",
+        "position": 3
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_30",
+        "position": 30
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_80",
+        "pin": "JHAT_31",
+        "position": 31
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_77",
+        "pin": "JHAT_32",
+        "position": 32
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_81",
+        "pin": "JHAT_33",
+        "position": 33
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_34",
+        "position": 34
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_117",
+        "pin": "JHAT_35",
+        "position": 35
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_84",
+        "pin": "JHAT_36",
+        "position": 36
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_108",
+        "pin": "JHAT_37",
+        "position": 37
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_118",
+        "pin": "JHAT_38",
+        "position": 38
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_39",
+        "position": 39
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JHAT",
+        "direction": "power_output",
+        "maps_to": "+5V",
+        "pin": "JHAT_4",
+        "position": 4
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_119",
+        "pin": "JHAT_40",
+        "position": 40
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_18",
+        "pin": "JHAT_5",
+        "position": 5
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_6",
+        "position": 6
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_83",
+        "pin": "JHAT_7",
+        "position": 7
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JHAT",
+        "direction": null,
+        "maps_to": "MD_GPIO_86",
+        "pin": "JHAT_8",
+        "position": 8
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JHAT",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JHAT_9",
+        "position": 9
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_1",
+        "position": 1
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L0_P",
+        "pin": "JMEDIA_10",
+        "position": 10
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L2_P",
+        "pin": "JMEDIA_11",
+        "position": 11
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L0_M",
+        "pin": "JMEDIA_12",
+        "position": 12
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_13",
+        "position": 13
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_14",
+        "position": 14
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L3_M",
+        "pin": "JMEDIA_15",
+        "position": 15
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "SOC_CAM_MCLK0",
+        "pin": "JMEDIA_16",
+        "position": 16
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L3_P",
+        "pin": "JMEDIA_17",
+        "position": 17
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "SOC_CAM_MCLK1",
+        "pin": "JMEDIA_18",
+        "position": 18
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_19",
+        "position": 19
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_2",
+        "position": 2
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_20",
+        "position": 20
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_C0_LN0_M",
+        "pin": "JMEDIA_21",
+        "position": 21
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CCI_I2C2_SDA1",
+        "pin": "JMEDIA_22",
+        "position": 22
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_B0_LN0_P",
+        "pin": "JMEDIA_23",
+        "position": 23
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CCI_I2C2_SCL1",
+        "pin": "JMEDIA_24",
+        "position": 24
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_25",
+        "position": 25
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_26",
+        "position": 26
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_B1_LN1_M",
+        "pin": "JMEDIA_27",
+        "position": 27
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_B2_LN3_P",
+        "pin": "JMEDIA_28",
+        "position": 28
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_A1_LN1_P",
+        "pin": "JMEDIA_29",
+        "position": 29
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_CLK_M",
+        "pin": "JMEDIA_3",
+        "position": 3
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_C2_LN3_M",
+        "pin": "JMEDIA_30",
+        "position": 30
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_31",
+        "position": 31
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_32",
+        "position": 32
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_A0_CLK_M",
+        "pin": "JMEDIA_33",
+        "position": 33
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_C1_LN2_P",
+        "pin": "JMEDIA_34",
+        "position": 34
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_NC_CLK_P",
+        "pin": "JMEDIA_35",
+        "position": 35
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_A2_LN2_M",
+        "pin": "JMEDIA_36",
+        "position": 36
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_37",
+        "position": 37
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_38",
+        "position": 38
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_A2_LN2_M",
+        "pin": "JMEDIA_39",
+        "position": 39
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L1_P",
+        "pin": "JMEDIA_4",
+        "position": 4
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_NC_CLK_P",
+        "pin": "JMEDIA_40",
+        "position": 40
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_C1_LN2_P",
+        "pin": "JMEDIA_41",
+        "position": 41
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_A0_CLK_M",
+        "pin": "JMEDIA_42",
+        "position": 42
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_43",
+        "position": 43
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_44",
+        "position": 44
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_C2_LN3_M",
+        "pin": "JMEDIA_45",
+        "position": 45
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_A1_LN1_P",
+        "pin": "JMEDIA_46",
+        "position": 46
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI0_B2_LN3_P",
+        "pin": "JMEDIA_47",
+        "position": 47
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_B1_LN1_M",
+        "pin": "JMEDIA_48",
+        "position": 48
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_49",
+        "position": 49
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_CLK_P",
+        "pin": "JMEDIA_5",
+        "position": 5
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_50",
+        "position": 50
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CCI_I2C0_SCL1",
+        "pin": "JMEDIA_51",
+        "position": 51
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_B0_LN0_P",
+        "pin": "JMEDIA_52",
+        "position": 52
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CCI_I2C0_SDA1",
+        "pin": "JMEDIA_53",
+        "position": 53
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "CSI1_C0_LN0_M",
+        "pin": "JMEDIA_54",
+        "position": 54
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_55",
+        "position": 55
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_56",
+        "position": 56
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN, 1.5 A max)",
+        "pin": "JMEDIA_57",
+        "position": 57
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JMEDIA_58",
+        "position": 58
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN, 1.5 A max)",
+        "pin": "JMEDIA_59",
+        "position": 59
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L1_M",
+        "pin": "JMEDIA_6",
+        "position": 6
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JMEDIA_60",
+        "position": 60
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_7",
+        "position": 7
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMEDIA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMEDIA_8",
+        "position": 8
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMEDIA",
+        "direction": null,
+        "maps_to": "MIPI_DSI0_L2_M",
+        "pin": "JMEDIA_9",
+        "position": 9
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D0",
+        "pin": "JMISC_1",
+        "position": 1
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_TRACE_D3",
+        "pin": "JMISC_10",
+        "position": 10
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D5",
+        "pin": "JMISC_11",
+        "position": 11
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_USART2_RX",
+        "pin": "JMISC_12",
+        "position": 12
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D6",
+        "pin": "JMISC_13",
+        "position": 13
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_USART2_TX",
+        "pin": "JMISC_14",
+        "position": 14
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D7",
+        "pin": "JMISC_15",
+        "position": 15
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_I2C2_SCL",
+        "pin": "JMISC_16",
+        "position": 16
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_PDCK",
+        "pin": "JMISC_17",
+        "position": 17
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_I2C2_SDA",
+        "pin": "JMISC_18",
+        "position": 18
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_RDY",
+        "pin": "JMISC_19",
+        "position": 19
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_TRACE_CLK",
+        "pin": "JMISC_2",
+        "position": 2
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PA0",
+        "pin": "JMISC_20",
+        "position": 20
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_DE",
+        "pin": "JMISC_21",
+        "position": 21
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PA1",
+        "pin": "JMISC_22",
+        "position": 22
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_UART4_RX",
+        "pin": "JMISC_23",
+        "position": 23
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PA2",
+        "pin": "JMISC_24",
+        "position": 24
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_UART4_TX",
+        "pin": "JMISC_25",
+        "position": 25
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMISC",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMISC_26",
+        "position": 26
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMISC",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMISC_27",
+        "position": 27
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "EAR_P",
+        "pin": "JMISC_28",
+        "position": 28
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MIC_IN+",
+        "pin": "JMISC_29",
+        "position": 29
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D1",
+        "pin": "JMISC_3",
+        "position": 3
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "EAR_M",
+        "pin": "JMISC_30",
+        "position": 30
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MIC_IN-",
+        "pin": "JMISC_31",
+        "position": 31
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "LINEOUT_P",
+        "pin": "JMISC_32",
+        "position": 32
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MIC_BIAS",
+        "pin": "JMISC_33",
+        "position": 33
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "LINEOUT_M",
+        "pin": "JMISC_34",
+        "position": 34
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMISC",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMISC_35",
+        "position": 35
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "HPH_L",
+        "pin": "JMISC_36",
+        "position": 36
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_10_SE0",
+        "pin": "JMISC_37",
+        "position": 37
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "HPH_R",
+        "pin": "JMISC_38",
+        "position": 38
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_11_SE0",
+        "pin": "JMISC_39",
+        "position": 39
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_TRACE_D0",
+        "pin": "JMISC_4",
+        "position": 4
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "HPH_REF",
+        "pin": "JMISC_40",
+        "position": 40
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_12_SE0",
+        "pin": "JMISC_41",
+        "position": 41
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "HS_DET",
+        "pin": "JMISC_42",
+        "position": 42
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_13_SE0",
+        "pin": "JMISC_43",
+        "position": 43
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMISC",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMISC_44",
+        "position": 44
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_15_SE0",
+        "pin": "JMISC_45",
+        "position": 45
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_120",
+        "pin": "JMISC_46",
+        "position": 46
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_14_SE0",
+        "pin": "JMISC_47",
+        "position": 47
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_121",
+        "pin": "JMISC_48",
+        "position": 48
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_73",
+        "pin": "JMISC_49",
+        "position": 49
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D2",
+        "pin": "JMISC_5",
+        "position": 5
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_122",
+        "pin": "JMISC_50",
+        "position": 50
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_74",
+        "pin": "JMISC_51",
+        "position": 51
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "SOC_GPIO_123",
+        "pin": "JMISC_52",
+        "position": 52
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMISC",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JMISC_53",
+        "position": 53
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMISC",
+        "direction": "power_output",
+        "maps_to": "+5V (OUT)",
+        "pin": "JMISC_54",
+        "position": 54
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMISC",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JMISC_55",
+        "position": 55
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMISC",
+        "direction": "power_output",
+        "maps_to": "+5V (OUT)",
+        "pin": "JMISC_56",
+        "position": 56
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JMISC",
+        "direction": "power_output",
+        "maps_to": "+1V8 (OUT)",
+        "pin": "JMISC_57",
+        "position": 57
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JMISC",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JMISC_58",
+        "position": 58
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JMISC",
+        "direction": "power_input",
+        "maps_to": "SOC_VCOIN (IN)",
+        "pin": "JMISC_59",
+        "position": 59
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_TRACE_D1",
+        "pin": "JMISC_6",
+        "position": 6
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "not_connected"
+        ],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "NC",
+        "pin": "JMISC_60",
+        "position": 60
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D3",
+        "pin": "JMISC_7",
+        "position": 7
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_TRACE_D2",
+        "pin": "JMISC_8",
+        "position": 8
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JMISC",
+        "direction": null,
+        "maps_to": "MCU_PSSI_D4",
+        "pin": "JMISC_9",
+        "position": 9
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_1",
+        "position": 1
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_10",
+        "position": 10
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FDCAN3_RX",
+        "pin": "JOMEGA_100",
+        "position": 100
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_11",
+        "position": 11
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_12",
+        "position": 12
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_13",
+        "position": 13
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_14",
+        "position": 14
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_15",
+        "position": 15
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_16",
+        "position": 16
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_17",
+        "position": 17
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_SS_TX_P",
+        "pin": "JOMEGA_18",
+        "position": 18
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_19",
+        "position": 19
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_2",
+        "position": 2
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_SS_TX_N",
+        "pin": "JOMEGA_20",
+        "position": 20
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_21",
+        "position": 21
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_22",
+        "position": 22
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_23",
+        "position": 23
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_HS_D_P",
+        "pin": "JOMEGA_24",
+        "position": 24
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_25",
+        "position": 25
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_HS_D_N",
+        "pin": "JOMEGA_26",
+        "position": 26
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_27",
+        "position": 27
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_28",
+        "position": 28
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_29",
+        "position": 29
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_3",
+        "position": 3
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_SS_RX_P",
+        "pin": "JOMEGA_30",
+        "position": 30
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_31",
+        "position": 31
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_SS_RX_N",
+        "pin": "JOMEGA_32",
+        "position": 32
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_33",
+        "position": 33
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_34",
+        "position": 34
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_35",
+        "position": 35
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_SS_TX_P",
+        "pin": "JOMEGA_36",
+        "position": 36
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_37",
+        "position": 37
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_SS_TX_N",
+        "pin": "JOMEGA_38",
+        "position": 38
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PC0",
+        "pin": "JOMEGA_39",
+        "position": 39
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_4",
+        "position": 4
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_40",
+        "position": 40
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PC1",
+        "pin": "JOMEGA_41",
+        "position": 41
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_HS_D_P",
+        "pin": "JOMEGA_42",
+        "position": 42
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PC2",
+        "pin": "JOMEGA_43",
+        "position": 43
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_HS_D_N",
+        "pin": "JOMEGA_44",
+        "position": 44
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PC3",
+        "pin": "JOMEGA_45",
+        "position": 45
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_46",
+        "position": 46
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PD12",
+        "pin": "JOMEGA_47",
+        "position": 47
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_SS_RX_P",
+        "pin": "JOMEGA_48",
+        "position": 48
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PD13",
+        "pin": "JOMEGA_49",
+        "position": 49
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_5",
+        "position": 5
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_SS_RX_N",
+        "pin": "JOMEGA_50",
+        "position": 50
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PD14",
+        "pin": "JOMEGA_51",
+        "position": 51
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_52",
+        "position": 52
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PD15",
+        "pin": "JOMEGA_53",
+        "position": 53
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_PWRON",
+        "pin": "JOMEGA_54",
+        "position": 54
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MCU_GPIO_PI2",
+        "pin": "JOMEGA_55",
+        "position": 55
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB1_OVERCUR",
+        "pin": "JOMEGA_56",
+        "position": 56
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MIC2_IN+",
+        "pin": "JOMEGA_57",
+        "position": 57
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_PWRON",
+        "pin": "JOMEGA_58",
+        "position": 58
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MIC2_IN-",
+        "pin": "JOMEGA_59",
+        "position": 59
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_6",
+        "position": 6
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USB2_OVERCUR",
+        "pin": "JOMEGA_60",
+        "position": 60
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MIC2_BIAS",
+        "pin": "JOMEGA_61",
+        "position": 61
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MISO",
+        "pin": "JOMEGA_62",
+        "position": 62
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "JTAG_TMS",
+        "pin": "JOMEGA_63",
+        "position": 63
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "MOSI",
+        "pin": "JOMEGA_64",
+        "position": 64
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "JTAG_TDO",
+        "pin": "JOMEGA_65",
+        "position": 65
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "SCK",
+        "pin": "JOMEGA_66",
+        "position": 66
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "JTAG_TDI",
+        "pin": "JOMEGA_67",
+        "position": 67
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "CS",
+        "pin": "JOMEGA_68",
+        "position": 68
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "JTAG_TCK",
+        "pin": "JOMEGA_69",
+        "position": 69
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_7",
+        "position": 7
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "PM_PS_HOLD",
+        "pin": "JOMEGA_70",
+        "position": 70
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "JTAG_SRST",
+        "pin": "JOMEGA_71",
+        "position": 71
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FORCE_USB_BOOT",
+        "pin": "JOMEGA_72",
+        "position": 72
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "JTAG_TRST",
+        "pin": "JOMEGA_73",
+        "position": 73
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "POWER_EN",
+        "pin": "JOMEGA_74",
+        "position": 74
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_75",
+        "position": 75
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "USER_BUTTON",
+        "pin": "JOMEGA_76",
+        "position": 76
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+1V8_SPX3 (OUT)",
+        "pin": "JOMEGA_77",
+        "position": 77
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "PMIC_RESET",
+        "pin": "JOMEGA_78",
+        "position": 78
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+1V8 (OUT)",
+        "pin": "JOMEGA_79",
+        "position": 79
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_8",
+        "position": 8
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "RTSS_RESET",
+        "pin": "JOMEGA_80",
+        "position": 80
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+1V8 (OUT)",
+        "pin": "JOMEGA_81",
+        "position": 81
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "RTSS_PS_HOLD",
+        "pin": "JOMEGA_82",
+        "position": 82
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "QUP0_SE7_TX",
+        "pin": "JOMEGA_83",
+        "position": 83
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_84",
+        "position": 84
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "QUP0_SE7_RX",
+        "pin": "JOMEGA_85",
+        "position": 85
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FDCAN1_TX",
+        "pin": "JOMEGA_86",
+        "position": 86
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "PWR_DISABLE",
+        "pin": "JOMEGA_87",
+        "position": 87
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FDCAN1_RX",
+        "pin": "JOMEGA_88",
+        "position": 88
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FORCE_BOOT",
+        "pin": "JOMEGA_89",
+        "position": 89
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_input",
+        "maps_to": "VIN (IN)",
+        "pin": "JOMEGA_9",
+        "position": 9
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_90",
+        "position": 90
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JOMEGA_91",
+        "position": 91
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FDCAN2_TX",
+        "pin": "JOMEGA_92",
+        "position": 92
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JOMEGA_93",
+        "position": 93
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FDCAN2_RX",
+        "pin": "JOMEGA_94",
+        "position": 94
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+3V3 (OUT)",
+        "pin": "JOMEGA_95",
+        "position": 95
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "ground_reference"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_return",
+        "maps_to": "GND",
+        "pin": "JOMEGA_96",
+        "position": 96
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+5V (OUT)",
+        "pin": "JOMEGA_97",
+        "position": 97
+      },
+      {
+        "aliases": [],
+        "capabilities": [],
+        "connector": "JOMEGA",
+        "direction": null,
+        "maps_to": "FDCAN3_TX",
+        "pin": "JOMEGA_98",
+        "position": 98
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_output"
+        ],
+        "connector": "JOMEGA",
+        "direction": "power_output",
+        "maps_to": "+5V (OUT)",
+        "pin": "JOMEGA_99",
+        "position": 99
+      },
+      {
+        "aliases": [
+          "I2C3_SCL"
+        ],
+        "capabilities": [
+          "i2c_scl"
+        ],
+        "connector": null,
+        "direction": null,
+        "maps_to": "PA8",
+        "pin": "QWIIC_SCL",
+        "position": null
+      },
+      {
+        "aliases": [
+          "I2C3_SDA"
+        ],
+        "capabilities": [
+          "i2c_sda"
+        ],
+        "connector": null,
+        "direction": null,
+        "maps_to": "PC9",
+        "pin": "QWIIC_SDA",
+        "position": null
+      },
+      {
+        "aliases": [],
+        "capabilities": [
+          "power_input"
+        ],
+        "connector": null,
+        "direction": "power_input",
+        "maps_to": "VIN",
+        "pin": "VIN",
+        "position": null
+      }
+    ],
+    "profile_selectors": [],
+    "provenance_status": "documented",
+    "resource_conflicts": {
+      "adc_dac_exclusion": {
+        "notes": "not_simultaneous_as_stated_by_manual",
+        "participants": [
+          "interface:UNO_ADC",
+          "interface:UNO_DAC"
+        ],
+        "policy": "not_simultaneous",
+        "provenance": {
+          "source_refs": [
+            "dac"
+          ],
+          "status": "documented"
+        }
+      },
+      "analog_pin_functions": {
+        "affected_pins": [
+          "A0",
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5"
+        ],
+        "notes": "gpio_and_alternate_function_not_simultaneous_on_same_pin",
+        "policy": "per_pin_exclusion",
+        "provenance": {
+          "source_refs": [
+            "analog"
+          ],
+          "status": "documented"
+        }
+      },
+      "display_output_mux": {
+        "notes": "at_most_one_active",
+        "participants": [
+          "connector:HDMI",
+          "interface:JMEDIA_MIPI_DSI"
+        ],
+        "policy": "at_most_one_active",
+        "provenance": {
+          "source_refs": [
+            "hdmi"
+          ],
+          "status": "documented"
+        }
+      },
+      "jhat_bluetooth_uart": {
+        "affected_pins": [
+          "JHAT_8",
+          "JHAT_10",
+          "JHAT_11",
+          "JHAT_36"
+        ],
+        "notes": "unavailable_to_external_header_while_bluetooth_active",
+        "participants": [
+          "component:nfa725b",
+          "interface:JHAT_UART_SE2"
+        ],
+        "policy": "unavailable_when",
+        "provenance": {
+          "source_refs": [
+            "jhat"
+          ],
+          "status": "documented"
+        },
+        "when": {
+          "state": "bluetooth_active",
+          "target": "component:nfa725b"
+        }
+      }
+    },
+    "schema_version": "1.0.0-draft.1",
+    "selected_facts": null,
+    "selected_profile": null,
+    "selected_variant": null,
+    "source_ids": [
+      "adc",
+      "analog",
+      "architecture",
+      "cameras",
+      "can",
+      "can_interfaces",
+      "can_transceiver",
+      "clearance",
+      "dac",
+      "debug_uart",
+      "digital",
+      "ethernet",
+      "form_factor",
+      "hdmi",
+      "i2c",
+      "jhat",
+      "jmedia",
+      "jmisc",
+      "jomega",
+      "led_matrix",
+      "legacy_snapshot",
+      "limited_rails",
+      "linked_datasheet",
+      "linked_full_pinout",
+      "linked_schematics",
+      "m2",
+      "manual",
+      "overview",
+      "power",
+      "power_button",
+      "power_safety",
+      "pwm",
+      "qwiic",
+      "rgb_leds",
+      "spi",
+      "uart",
+      "usb_a",
+      "usb_a_power",
+      "usb_c",
+      "user_button",
+      "vin",
+      "wireless"
+    ],
+    "status": "ok",
+    "uncertainty": {
+      "connections": [
+        {
+          "id": "can_bus_path",
+          "notes": "PD0_PD1_TX_RX_assignment_unresolved",
+          "routing_status": "conflicting"
+        }
+      ],
+      "facts": [
+        {
+          "claims": [
+            {
+              "source_refs": [
+                "architecture"
+              ],
+              "value": "5.3"
+            },
+            {
+              "source_refs": [
+                "wireless"
+              ],
+              "value": "5.1"
+            }
+          ],
+          "path": "features.wireless.facts.bluetooth_version",
+          "selected_value": null,
+          "status": "conflicting"
+        }
+      ],
+      "verification_status": "not_verified"
+    },
+    "variant_selectors": [],
+    "verification_status": "not_verified"
+  },
+  "safety": {
+    "bench_verification_inferred": false,
+    "connection_asserted_safe": false
+  },
+  "selection": {
+    "component": "arduino/ventuno-q",
+    "profile": null,
+    "resolved_by": "id",
+    "variant": null
+  }
+}

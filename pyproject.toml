@@ -1,6 +1,76 @@
-# Layout scaffold only; no project metadata, build backend, or CLI entry point.
-# Packaging requires human approval at G4. Related decision: DEV-2026-11-19-003.
+# Package metadata for the G4-approved five-definition catalog.
+# Publication is not authorized. Related decision: DEV-2026-11-19-012.
+[build-system]
+requires = ["hatchling==1.26.3"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ysl-components"
+version = "1.0.0a1"
+description = "Offline browser for the YSL hardware definition catalog."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MPL-2.0 AND CC-BY-4.0"
+license-files = ["LICENSE.md", "LICENSES/MPL-2.0.txt", "LICENSES/CC-BY-4.0.txt"]
+authors = [{name = "Michael Garcia"}]
+dependencies = [
+    "jsonschema==4.23.0",
+    "referencing==0.30.2",
+    "PyYAML==6.0.2",
+]
+
+[project.scripts]
+ysl-components = "ysl_components.cli:installed_main"
+
+[project.urls]
+Homepage = "https://github.com/MDGarcia1985/ysl_component_library"
+# No upload URL. Publishing is a separate human decision.
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ysl_components"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"schemas/common.schema.json" = "ysl_components/data/schemas/common.schema.json"
+"schemas/component.schema.json" = "ysl_components/data/schemas/component.schema.json"
+"schemas/hardware.schema.json" = "ysl_components/data/schemas/hardware.schema.json"
+"schemas/identity-registry.schema.json" = "ysl_components/data/schemas/identity-registry.schema.json"
+"schemas/provenance.schema.json" = "ysl_components/data/schemas/provenance.schema.json"
+"schemas/relations.schema.json" = "ysl_components/data/schemas/relations.schema.json"
+"schemas/identity-registry.json" = "ysl_components/data/schemas/identity-registry.json"
+"hardware/controllers/arduino/uno_r3/definition.yml" = "ysl_components/data/catalog/hardware/controllers/arduino/uno_r3/definition.yml"
+"hardware/controllers/arduino/ventuno_q/definition.yml" = "ysl_components/data/catalog/hardware/controllers/arduino/ventuno_q/definition.yml"
+"hardware/controllers/microchip/attiny_x5/definition.yml" = "ysl_components/data/catalog/hardware/controllers/microchip/attiny_x5/definition.yml"
+"hardware/drivers/ti/l293_family/definition.yml" = "ysl_components/data/catalog/hardware/drivers/ti/l293_family/definition.yml"
+"hardware/sensors/generic/hc_sr04/definition.yml" = "ysl_components/data/catalog/hardware/sensors/generic/hc_sr04/definition.yml"
+"LICENSE.md" = "ysl_components/data/LICENSE.md"
+"LICENSES/MPL-2.0.txt" = "ysl_components/data/LICENSES/MPL-2.0.txt"
+"LICENSES/CC-BY-4.0.txt" = "ysl_components/data/LICENSES/CC-BY-4.0.txt"
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "src/ysl_components",
+    "schemas/common.schema.json",
+    "schemas/component.schema.json",
+    "schemas/hardware.schema.json",
+    "schemas/identity-registry.schema.json",
+    "schemas/provenance.schema.json",
+    "schemas/relations.schema.json",
+    "schemas/identity-registry.json",
+    "hardware/controllers/arduino/uno_r3/definition.yml",
+    "hardware/controllers/arduino/ventuno_q/definition.yml",
+    "hardware/controllers/microchip/attiny_x5/definition.yml",
+    "hardware/drivers/ti/l293_family/definition.yml",
+    "hardware/sensors/generic/hc_sr04/definition.yml",
+    "LICENSE.md",
+    "LICENSES/MPL-2.0.txt",
+    "LICENSES/CC-BY-4.0.txt",
+    "README.md",
+    "pyproject.toml",
+]
+
 [tool.ysl_component_library]
-status = "pre_plan_repository_preparation"
-packaging_enabled = false
+status = "packaged_for_local_g5_review"
+packaging_enabled = true
+publish_authorized = false
+approved_candidate = "bbf013354b3ac7d4fdc9be8b44090634b431b118"
 reference_generator = "src/ysl_components/reference_pages.py"
