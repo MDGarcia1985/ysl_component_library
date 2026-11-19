@@ -1222,3 +1222,403 @@ Leave Windows unverified for G3. Do not mark AC-307 fully covered.
 
 ---
 
+### TEST-2026-11-19-016 — P4 page contract before the generator adaptation
+
+**Date:** 2026-11-19  
+**Time:** 16:31 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T1  
+**Result:** FAIL
+
+#### Scope
+
+AC-401 through AC-405 and the AC-501 denial, against the generator as it stood after G3 and before the P4 adaptation.
+
+#### Files Under Validation
+
+- src/ysl_components/reference_pages.py
+- tests/test_page_contract.py
+- tests/page_checks.py
+
+#### Objective
+
+Observe whether the existing generator already satisfies the frozen page contract.
+
+#### Preconditions
+
+Linux 6.12.113+, Python 3.12.3, PyYAML 6.0.1. The page contract and tests existed. `src/ysl_components/packaging.py` did not. Generated pages were the P2 output.
+
+#### Procedure
+
+Run `python3 -B -m unittest tests.test_page_contract -v` from the repository root.
+
+#### Expected Result
+
+Seven methods pass: fact oracle, planted link/image/fact faults, manual-image inventory, two clean generations, escaped labels, manifest tamper detection, and six packaging denials with no distribution.
+
+#### Actual Result
+
+Ran 7 tests in 1.425 seconds. FAILED: 2 failures, 1 error. AC-402 manual images, AC-403 determinism, AC-404 escaping, and AC-405 manifest tamper passed. AC-401 and the clean half of AC-402 failed. The catalog did not contain the five stable IDs, the regeneration command, `Packaging is disabled`, the G3 record name, or `authored separately`. Component pages had no `**Verification limits:**` line and no `**Declared pin capabilities:**` line. The ATtiny and L293 pages had no `**Family selectors:**` line. The discriminating hardware literals already on the pages, including Uno `PD5`, VENTUNO `PB5`, the six conflict topics, L293/L293D currents and clamp diodes, and the HC-SR04 echo facts, were not in the failure list. AC-501 raised `FileNotFoundError` for `src/ysl_components/packaging.py`.
+
+#### Evidence
+
+- `python3 -B -m unittest tests.test_page_contract -v`
+- Summary: `Ran 7 tests in 1.425s` and `FAILED (failures=2, errors=1)`
+
+#### Failures / Observations
+
+The failure is the missing P4 adaptation, not a changed hardware fact. No distribution was created.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-009.
+
+#### Related Tests
+
+None.
+
+#### Disposition
+
+Do not treat the pages as the P4 candidate. Adapt the generator and add the denial module, then rerun. Packaging remains closed.
+
+---
+
+---
+
+### TEST-2026-11-19-017 — P4 module file validation
+
+**Date:** 2026-11-19  
+**Time:** 16:45 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T0  
+**Result:** PASS
+
+#### Scope
+
+Parse and compile the P4 implementation files.
+
+#### Files Under Validation
+
+- src/ysl_components/reference_pages.py
+- src/ysl_components/packaging.py
+- tests/page_checks.py
+- tests/test_page_contract.py
+- tests/collect_page_evidence.py
+
+#### Objective
+
+Verify that the adapted generator, denial module, checks, and evidence collector compile.
+
+#### Preconditions
+
+Python 3.12.3 on Linux. No package installation of this repository.
+
+#### Procedure
+
+Run `python3 -m py_compile` on the five files listed above.
+
+#### Expected Result
+
+The command exits 0 and writes no diagnostic.
+
+#### Actual Result
+
+The command exited 0 with no output.
+
+#### Evidence
+
+- `python3 -m py_compile src/ysl_components/reference_pages.py src/ysl_components/packaging.py tests/page_checks.py tests/test_page_contract.py tests/collect_page_evidence.py`
+
+#### Failures / Observations
+
+Compilation does not exercise page generation. Runtime coverage is TEST-2026-11-19-018 and TEST-2026-11-19-020.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-009.
+
+#### Related Tests
+
+TEST-2026-11-19-016.
+
+#### Disposition
+
+File validation passed. Runtime results are recorded separately.
+
+---
+
+---
+
+### TEST-2026-11-19-018 — Adapted pages, fact oracle, and packaging denial
+
+**Date:** 2026-11-19  
+**Time:** 16:36 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T1  
+**Result:** PASS
+
+#### Scope
+
+AC-401 through AC-405 and AC-501 after adapting `reference_pages.py` and adding `packaging.py`.
+
+#### Files Under Validation
+
+- src/ysl_components/reference_pages.py
+- src/ysl_components/packaging.py
+- tests/test_page_contract.py
+- tests/page_checks.py
+- docs/catalog.md
+- hardware/controllers/arduino/uno_r3/README.md
+- hardware/controllers/arduino/ventuno_q/README.md
+- hardware/controllers/microchip/attiny_x5/README.md
+- hardware/drivers/ti/l293_family/README.md
+- hardware/sensors/generic/hc_sr04/README.md
+
+#### Objective
+
+Generate the six pages from the migrated definitions and observe the frozen fact, link, determinism, escaping, manifest, and denial behavior.
+
+#### Preconditions
+
+Pages were regenerated with `python3 src/ysl_components/reference_pages.py`. Linux, Python 3.12.3, PyYAML 6.0.1. `pyproject.toml` had no build backend. `dist/` was absent.
+
+#### Procedure
+
+1. Regenerate the catalog and five component pages.
+2. Run `python3 -B -m unittest tests.test_page_contract -v`.
+
+#### Expected Result
+
+Seven methods pass. The fact oracle holds, planted faults are reported, 45 missing manual images stay out of the generated-asset count, two clean directories match, labels stay escaped, manifest tamper is detected, and every packaging request is denied without calling a builder.
+
+#### Actual Result
+
+Ran 7 tests in 3.671 seconds. OK. The regenerated catalog lists `arduino/uno-r3`, `arduino/ventuno-q`, `microchip/attiny-x5`, `ti/l293-family`, and `generic/hc-sr04`. VENTUNO records 6 source issues. No distribution was written.
+
+#### Evidence
+
+- `python3 src/ysl_components/reference_pages.py`
+- `python3 -B -m unittest tests.test_page_contract -v`
+- Summary: `Ran 7 tests in 3.671s` and `OK`
+
+#### Failures / Observations
+
+This run is self-evaluated. It does not include Windows or an independent reviewer. The same seven methods ran again inside TEST-2026-11-19-020.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-009.
+
+#### Related Tests
+
+TEST-2026-11-19-016.
+
+#### Disposition
+
+The adapted generator and denial module meet the frozen page contract in this Linux run. G4 is not approved. The full suite still had to be rerun.
+
+---
+
+---
+
+### TEST-2026-11-19-019 — Full suite before jsonschema was installed
+
+**Date:** 2026-11-19  
+**Time:** 16:40 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** FAIL
+
+#### Scope
+
+First P4 regression of the existing suite plus the new page cases, through `tests/collect_page_evidence.py`.
+
+#### Files Under Validation
+
+- tests/
+- src/ysl_components/
+
+#### Objective
+
+Run the repository unittest suite in the evidence collector.
+
+#### Preconditions
+
+The page adaptation was in place. This Linux environment did not have the `jsonschema` distribution installed. PyYAML 6.0.1 was installed. The P3 journal names jsonschema 4.23.0 and referencing 0.30.2.
+
+#### Procedure
+
+Run `python3 -B tests/collect_page_evidence.py`. The collector starts `python3 -B -m unittest discover -s tests -v`.
+
+#### Expected Result
+
+The suite completes with no failures. Query cases import `jsonschema` inside the `python -m ysl_components` subprocess.
+
+#### Actual Result
+
+The unittest process exited 1. The captured summary was `Ran 31 tests in 10.265s` and `FAILED (failures=11, errors=8)`. The export case stderr contained `ModuleNotFoundError: No module named 'jsonschema'` from `src/ysl_components/loader.py`. The collector then stopped with `PackageNotFoundError: No package metadata was found for jsonschema` before it wrote the final manifest. That raw log was replaced by the later successful collector run.
+
+#### Evidence
+
+- `python3 -B tests/collect_page_evidence.py`
+- Subprocess traceback ending at `from jsonschema import Draft202012Validator, FormatChecker`
+
+#### Failures / Observations
+
+The failure is a missing test dependency in this environment, not a page-generation assertion. No wheel was built.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-009.
+
+#### Related Tests
+
+TEST-2026-11-19-013, TEST-2026-11-19-018.
+
+#### Disposition
+
+Install jsonschema 4.23.0 and referencing 0.30.2, matching the versions named by the P3 run, and rerun. Do not treat this failure as a hardware-fact change. The rerun is TEST-2026-11-19-020.
+
+---
+
+---
+
+### TEST-2026-11-19-020 — P4 evidence run and repository regression
+
+**Date:** 2026-11-19  
+**Time:** 16:44 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** PASS
+
+#### Scope
+
+Milestone regression for P4: AC-401 through AC-405, the AC-501 denial, and the existing AC-101 through AC-308 cases, plus link, fact, determinism, tamper, and view capture.
+
+#### Files Under Validation
+
+- src/ysl_components/reference_pages.py
+- src/ysl_components/packaging.py
+- tests/collect_page_evidence.py
+- tests/test_page_contract.py
+- tests/test_query_contract.py
+- tests/test_migration.py
+- tests/test_schema_review.py
+- tests/test_repository_content.py
+- docs/catalog.md
+- hardware/**/README.md generated pages
+- docs/evidence/pages-2026-11-19/
+
+#### Objective
+
+Execute the full local suite and assemble the P4 evidence bundle without producing a distribution.
+
+#### Preconditions
+
+Linux 6.12.113+, Python 3.12.3, PyYAML 6.0.1, jsonschema 4.23.0, referencing 0.30.2. The last two were installed for this environment after TEST-2026-11-19-019. They are not project packaging. `pyproject.toml` remained a scaffold. Head at collection was `efbe756a74911bf1e9d468756b29c0ca8ba806ec` with the P4 edits uncommitted. Chrome was available for the PNG views. Results are self-evaluated.
+
+#### Procedure
+
+Run `python3 -B tests/collect_page_evidence.py` from the repository root. The collector runs `python3 -B -m unittest discover -s tests -v`, checks the fact oracle and links, inventories manual images, repeats generation, denies packaging, tampers with a temporary manifest, renders four views, and writes `docs/evidence/pages-2026-11-19/manifest.json`.
+
+#### Expected Result
+
+Unittest exit 0. Fact, generated-link, generated-image, and repository-navigation errors are empty. Two generations match the files on disk. Forty-five manual images are missing and none of those paths are present. Packaging denial matches all six reason codes, the builder is not called, and `dist/` does not exist. The tamper copy reports missing and changed. Each PNG view starts with the PNG signature. Manifest verification reports no problems.
+
+#### Actual Result
+
+The collector exited 0. Unittest reported `Ran 37 tests in 49.869s` and `OK`. Fact errors 0, link errors 0, navigation errors 0. Manual images missing 45, present 0. Determinism matched. Packaging denial was ok. Tamper demo was ok. Screenshot errors were empty. Manifest problems were 0. The catalog view shows the five IDs and 6 VENTUNO source issues. The VENTUNO pin view shows D5 mapped to PB5. The conflict view shows the six source conflicts, including Bluetooth 5.3 and 5.1 with no selected version. The ATtiny view shows ATtiny25, ATtiny45, ATtiny85 and the three V profiles. The HTML view of the catalog also prints the regeneration fence markers as text; the Markdown source keeps them as a fence.
+
+#### Evidence
+
+- `python3 -B tests/collect_page_evidence.py`
+- `docs/evidence/pages-2026-11-19/after.stdout.txt`
+- `docs/evidence/pages-2026-11-19/after.stderr.txt`
+- `docs/evidence/pages-2026-11-19/after.exit-code.txt`
+- `docs/evidence/pages-2026-11-19/checks.json`
+- `docs/evidence/pages-2026-11-19/views/catalog.png`
+- `docs/evidence/pages-2026-11-19/views/ventuno-d5-pins.png`
+- `docs/evidence/pages-2026-11-19/views/ventuno-conflicts.png`
+- `docs/evidence/pages-2026-11-19/views/attiny-family.png`
+
+#### Failures / Observations
+
+Linux only. Windows was not run. No independent reviewer ran this collector. The manifest is a local inventory, not a signature. G4 is not approved. The six VENTUNO discrepancies remain unresolved and verification remains `not_verified`.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-009.
+
+#### Related Tests
+
+TEST-2026-11-19-014, TEST-2026-11-19-016, TEST-2026-11-19-018, TEST-2026-11-19-019.
+
+#### Disposition
+
+The local Linux P4 candidate can be reviewed. It does not authorize packaging, close the Windows gap, or establish bench verification. A reviewer outside this workspace has not reproduced the bundle.
+
+---
+
+---
+
+### TEST-2026-11-19-021 — Windows page generation and AC-307
+
+**Date:** 2026-11-19  
+**Time:** 16:45 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** NOT_EXECUTED
+
+#### Scope
+
+Windows execution of page generation and of AC-307 query behavior carried forward from G3.
+
+#### Files Under Validation
+
+- src/ysl_components/reference_pages.py
+- src/ysl_components/cli.py
+
+#### Objective
+
+Record that Windows was not run for the P4 candidate or for the still-open AC-307 gap.
+
+#### Preconditions
+
+This session had a Linux checkout only. No Windows runner was available.
+
+#### Procedure
+
+No Windows command was run.
+
+#### Expected Result
+
+The same page and query observations as the Linux run, on Windows.
+
+#### Actual Result
+
+The procedure was not started. Linux coverage is TEST-2026-11-19-020. Windows is unverified.
+
+#### Evidence
+
+- `platform.platform()` during the Linux evidence run: `Linux-6.12.113+-x86_64-with-glibc2.39`
+
+#### Failures / Observations
+
+Missing platform coverage remains an unresolved item. G3 approval did not include a Windows run.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-009.
+
+#### Related Tests
+
+TEST-2026-11-19-015, TEST-2026-11-19-020.
+
+#### Disposition
+
+Leave Windows unverified. Do not mark AC-307 or the page views as covered on Windows.
+
+---
+
+---
+

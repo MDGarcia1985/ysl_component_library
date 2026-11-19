@@ -1,6 +1,6 @@
 # P3 local query contract
 
-**Status:** Frozen for P3 implementation. G3 review is still open.  
+**Status:** Frozen revision 1. The user approved G3 for the Linux execution of this contract. Windows AC-307 was not run. The approval does not authorize packaging.  
 **Revision:** 1  
 **Date:** 2026-11-19  
 **Related decision:** DEV-2026-11-19-006  

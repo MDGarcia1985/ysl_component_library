@@ -1,0 +1,17 @@
+{
+  "clean": [],
+  "missing": [
+    {
+      "path": "report.txt",
+      "problem": "missing"
+    }
+  ],
+  "changed": [
+    {
+      "path": "report.txt",
+      "problem": "changed",
+      "expected": "b4743cdfc2ad5c693b86102401548d0530140dca169e5557b3f8980e44f14b4a",
+      "actual": "d731981a83e4bcc26d99b059001e4af100329756a8f45abe3cf840a896fd9326"
+    }
+  ]
+}

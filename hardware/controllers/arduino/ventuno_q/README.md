@@ -18,6 +18,10 @@ This reference preserves documented and uncited source statements. Schema valida
 | Interfaces | 26 |
 | Verification | not_verified |
 
+**Declared pin capabilities:** adc, adc_reference_input, can_bus_high, can_bus_low, can_rx, can_tx, dac, gpio, ground_reference, i2c_scl, i2c_sda, not_connected, opamp_negative_input, opamp_output, opamp_positive_input, power_input, power_output, pwm, spi_chip_select, spi_clock, spi_miso, spi_mosi, uart_rx, uart_tx
+
+**Verification limits:** status not_verified. Source statements on this page are not bench verification.
+
 ## Component facts
 
 | Fact | Evidence state | Value / documented limits | Sources |

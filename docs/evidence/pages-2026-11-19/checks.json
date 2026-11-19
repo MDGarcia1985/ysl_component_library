@@ -1,0 +1,44 @@
+{
+  "status": "self_evaluated_P4_candidate_G4_not_approved",
+  "utc_time": "2026-11-19T21:44:21.521761+00:00",
+  "command": "python -B tests/collect_page_evidence.py",
+  "candidate_head": "efbe756a74911bf1e9d468756b29c0ca8ba806ec",
+  "candidate_status_porcelain": " M CONTRIBUTING.md\n M DEVNOTES.md\n M README.md\n M docs/catalog.md\n M docs/planning/CLI_ACCEPTANCE_TESTS.md\n M docs/planning/CLI_IMPLEMENTATION_PLAN.md\n M docs/planning/CLI_QUERY_CONTRACT.md\n M hardware/controllers/arduino/uno_r3/README.md\n M hardware/controllers/arduino/ventuno_q/README.md\n M hardware/controllers/microchip/attiny_x5/README.md\n M hardware/drivers/ti/l293_family/README.md\n M hardware/sensors/generic/hc_sr04/README.md\n M schemas/README.md\n M src/ysl_components/reference_pages.py\n?? docs/evidence/pages-2026-11-19/\n?? docs/planning/CLI_PAGE_CONTRACT.md\n?? docs/reviews/g3-approval-2026-11-19.md\n?? src/ysl_components/packaging.py\n?? tests/collect_page_evidence.py\n?? tests/page_checks.py\n?? tests/test_page_contract.py\n",
+  "platform": "Linux-6.12.113+-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "dependencies": {
+    "PyYAML": "6.0.1",
+    "jsonschema": "4.23.0",
+    "referencing": "0.30.2"
+  },
+  "unittest_exit_code": 0,
+  "fact_errors": [],
+  "generated_link_errors": [],
+  "generated_image_errors": [],
+  "navigation_errors": [],
+  "navigation_counts": {
+    "documents": 32,
+    "local_links_and_fragments": 1490
+  },
+  "manual_images_missing": 45,
+  "manual_images_present": 0,
+  "determinism_match": true,
+  "packaging_denial_ok": true,
+  "tamper_demo_ok": true,
+  "screenshot_errors": {
+    "catalog": "",
+    "ventuno-d5-pins": "",
+    "ventuno-conflicts": "",
+    "attiny-family": ""
+  },
+  "limitations": [
+    "Linux only. Windows was not executed.",
+    "No independent reviewer reproduced this run.",
+    "Six VENTUNO discrepancies remain unresolved.",
+    "Physical verification remains not_verified.",
+    "Manual images listed in source-limitations.json are absent.",
+    "Packaging was denied and no distribution was produced.",
+    "G4 is not approved."
+  ],
+  "exit_code": 0
+}

@@ -706,3 +706,157 @@ Windows execution, G3 acceptance, P4 page generation, and G4 packaging approval.
 ---
 
 ---
+
+### DEV-2026-11-19-009 — Record G3 approval and freeze P4 page generation
+
+**Date:** 2026-11-19  
+**Time:** 16:20 America/New_York  
+**Engineer:** Cursor cloud agent  
+**Status:** ACCEPTED  
+**Type:** DECISION
+
+#### Problem
+
+P4 cannot start until G3 is decided. The user approved the current P3 draft.
+The approval has to be recorded as a human decision, and the page outputs, fact
+oracle, and packaging-denial reasons have to be frozen before the generator is
+treated as the P4 contract.
+
+#### Context and Constraints
+
+The user statement is exactly: "G3 is approved." It names no other reviewer.
+The approved draft is commit `efbe756a74911bf1e9d468756b29c0ca8ba806ec`, the
+merge of pull request 2. An agent-written review file is only a cross-reference.
+The statement does not approve packaging, publication, or copying definitions
+into embedded projects. Windows AC-307 was not executed. That gap stays
+disclosed under the approval. Query contract revision 1 stays as frozen.
+Page generation remains the existing script, not a new query operation.
+
+#### Solutions Considered
+
+- Treat the Linux query run as G3 approval because its tests passed.
+- Invent a named reviewer or mark the blank gate template as signed.
+- Record the user's sentence against the P3 digests, freeze page-contract
+  revision 1, and limit the next code change to generated pages plus a denial
+  that never builds a distribution.
+
+#### Trade-offs
+
+A repository copy can be edited by the same agent that generates the pages, so
+it cannot prove an independent review. Citing the chat statement keeps the
+decision attached to the user without pretending the file is the approval.
+Keeping page generation out of `python -m ysl_components` avoids a second query
+contract. A denial function with no success path makes AC-501 observable without
+opening packaging. Carrying the Windows gap forward is more accurate than
+treating the user's sentence as a Windows run.
+
+#### Final Outcome
+
+G3 is approved for the identified P3 draft. The six VENTUNO discrepancies stay
+unresolved and verification stays `not_verified`. P4 may adapt
+`src/ysl_components/reference_pages.py` to the migrated definitions, check links
+and the literal fact oracle, and assemble a self-evaluated evidence bundle.
+`request_package_build` may only classify denials. It must not call a builder
+or write a wheel, sdist, or `dist/` directory. G4 remains open.
+
+#### Implementation Impact
+
+- `docs/reviews/g3-approval-2026-11-19.md`: cross-reference of the user statement.
+- `docs/planning/CLI_PAGE_CONTRACT.md`: frozen revision 1.
+- `tests/page_checks.py` and `tests/test_page_contract.py`: executable AC-401–AC-405 and AC-501 cases.
+- `src/ysl_components/reference_pages.py`: migrated-page adaptation.
+- `src/ysl_components/packaging.py`: denial only.
+- Planning status text that still says G3 is pending.
+
+#### Verification Required
+
+T0 parse the new modules. T1 generate the six pages and compare them with the
+fact oracle, including a second clean-directory run and a metacharacter label.
+T2 show that a removed link, broken fragment, missing image, and a VENTUNO D5
+signal changed to PD5 are detected, and that a manifest detects a missing or
+changed evidence file. Run each AC-501 request and confirm no distribution is
+written. T3 rerun the existing suite, including AC-301 through AC-308. Do not
+predict a pass. Windows remains unexecuted. Do not claim an independent reviewer.
+
+#### Related Records
+
+- DEVNOTES: DEV-2026-11-19-006, DEV-2026-11-19-008
+- Tests: Pending
+- Source: `docs/reviews/g3-approval-2026-11-19.md`;
+  `docs/planning/CLI_PAGE_CONTRACT.md`
+
+#### Next Steps
+
+Implement the frozen page contract and record the executed results. G4 is still
+open. Packaging remains unauthorized.
+
+#### Deferred Decisions
+
+Independent evaluator infrastructure, Windows execution, G4 packaging approval,
+and publication remain separate.
+
+---
+
+---
+
+### DEV-2026-11-19-010 — P4 pages are generated and packaging stays closed
+
+**Date:** 2026-11-19  
+**Time:** 16:46 America/New_York  
+**Engineer:** Cursor cloud agent  
+**Status:** IMPLEMENTED  
+**Type:** DECISION
+
+#### Problem
+
+DEV-2026-11-19-009 authorized P4. The generator and denial module now exist, and the verification outcome needs its own record. G4 is still open.
+
+#### Context and Constraints
+
+Page contract revision 1 is the behavior contract. Query contract revision 1 is unchanged. Page generation stays `python src/ysl_components/reference_pages.py` and is not a query operation. `request_package_build` has no success path. The run is self-evaluated on Linux. Windows was not executed. The first full-suite run failed because this environment had no `jsonschema` install; the passing rerun used jsonschema 4.23.0 and referencing 0.30.2, the versions named by the P3 record. Those installs are environment tools, not project packaging.
+
+#### Solutions Considered
+
+- Treat the passing page tests as G4 approval.
+- Add a build backend while refusing to publish.
+- Record the Linux evidence, keep the Windows gap, and leave packaging unimplemented.
+
+#### Trade-offs
+
+A local evidence bundle makes the candidate reviewable. Calling the phase accepted would hide the missing Windows run, the missing independent reviewer, and the open G4 decision. Filling in packaging would cross the gate the user left for later.
+
+#### Final Outcome
+
+The six generated pages follow the migrated definitions. The fact oracle, link checks, clean-directory match, label escaping, manifest tamper check, and AC-501 denials passed on Linux inside the 37-test run. Forty-five manual images remain missing and are inventoried as source limitations. The six VENTUNO discrepancies stay unresolved. Verification stays `not_verified`. No wheel, sdist, or `dist/` directory was produced. G4, publication, and copying definitions into an embedded project remain unauthorized.
+
+#### Implementation Impact
+
+- `src/ysl_components/reference_pages.py`
+- `src/ysl_components/packaging.py`
+- `tests/page_checks.py`, `tests/test_page_contract.py`, `tests/collect_page_evidence.py`
+- `docs/catalog.md` and the five component README pages
+- `docs/evidence/pages-2026-11-19/`
+- `docs/reviews/g3-approval-2026-11-19.md`
+- `docs/planning/CLI_PAGE_CONTRACT.md`
+
+#### Verification Required
+
+The Linux T0, T1, and T3 runs are recorded, including the pre-adaptation failure and the missing-jsonschema failure. No further product change is implied by this entry. A Windows run remains required before page views or AC-307 can be called complete on that platform.
+
+#### Related Records
+
+- DEVNOTES: DEV-2026-11-19-009
+- Tests: TEST-2026-11-19-016, TEST-2026-11-19-017, TEST-2026-11-19-018, TEST-2026-11-19-019, TEST-2026-11-19-020, TEST-2026-11-19-021
+- Source: `docs/planning/CLI_PAGE_CONTRACT.md`; `docs/evidence/pages-2026-11-19/README.md`
+
+#### Next Steps
+
+Human G4 review of this candidate and its evidence bundle. Do not package unless that review authorizes this exact candidate.
+
+#### Deferred Decisions
+
+Independent evaluator infrastructure, Windows execution, G4 packaging approval, and publication remain separate.
+
+---
+
+---

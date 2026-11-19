@@ -6,7 +6,8 @@
 **Scope:** Approved schemas/IDs, synthetic examples, and local review tests.
 All five definitions have now been migrated, and the user approved that G2 draft.
 Local queries use `python -m ysl_components` with an explicit catalog path.
-Package/build metadata, installation, and distribution remain outside this phase.
+The user approved G3 for that query draft. Package/build metadata, installation,
+and distribution remain outside this phase.
 
 The user approved the delivered review candidate and requested the next phase.
 The [approval record](../docs/reviews/schema-approval-2026-11-19.md) binds the reviewed

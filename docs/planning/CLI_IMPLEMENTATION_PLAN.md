@@ -1,8 +1,8 @@
 # Phased Hardware Catalog and CLI Plan
 
-**Status:** G2 approved by the user for the current P2 draft. P3 query contract revision 1 is implemented locally. G3-G5 remain pending; no independent evaluator is claimed.  
+**Status:** G3 approved by the user for the current P3 draft. P4 generates browsing pages from the migrated definitions and denies packaging without a distribution. G4 and G5 remain pending; no independent evaluator is claimed. Windows AC-307 was not executed.  
 **Date:** 2026-11-19  
-**Gates:** User approval covers the schema/ID candidate, P2 execution, and G2 for that draft. G3-G5 remain pending.  
+**Gates:** User approval covers the schema/ID candidate, P2 execution, G2 for that draft, and G3 for the P3 query draft. Windows AC-307 remains not executed. G4 and G5 remain pending.  
 **Related decision:** DEV-2026-11-19-002
 
 ## Objective and scope
@@ -230,8 +230,10 @@ and shared-pin handling. Every deliberate corruption in AC-205 is detected.
 
 **Local implementation of revision 1:** the [query contract](CLI_QUERY_CONTRACT.md)
 freezes invocation, filters, the JSON envelope, and exit codes 0–5. Development
-invocation is `python -m ysl_components` with an explicit catalog path. G3 review
-of that behavior is still open. No wheel or installed command is produced here.
+invocation is `python -m ysl_components` with an explicit catalog path. The user
+approved G3 for that draft. The cross-reference is
+[g3-approval-2026-11-19.md](../reviews/g3-approval-2026-11-19.md). Windows AC-307
+remains not executed. No wheel or installed command is produced here.
 
 Deliverables:
 
@@ -265,6 +267,12 @@ or migration code. Unverified platform coverage remains an explicit unresolved g
 The preparation utility `src/ysl_components/reference_pages.py` already generates
 reference pages from the legacy-shaped YAML. Reuse or adapt it under the frozen
 contracts; its local tests do not replace this phase's independent validation.
+
+**Local candidate:** pages are generated from the migrated contract under
+[CLI_PAGE_CONTRACT.md](CLI_PAGE_CONTRACT.md). Evidence is under
+[docs/evidence/pages-2026-11-19](../evidence/pages-2026-11-19/README.md).
+G4 human validation has not been given. Packaging stays closed. The local run
+is self-evaluated and does not include Windows.
 
 Deliverables:
 
