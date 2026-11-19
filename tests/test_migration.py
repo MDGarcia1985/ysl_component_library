@@ -23,6 +23,20 @@ COMPARE = runpy.run_path(str(ROOT / 'tests/migration_checks.py'))
 STRICT_LOAD = runpy.run_path(str(ROOT / 'tests/schema_review_support.py'))['load_review_yaml']
 
 
+def matches_recorded_digest(path, digest):
+    """Purpose: Compare a preserved file with its recorded digest.
+    Design: LF git blobs match a Windows CRLF baseline when that is the only difference.
+    A changed character matches neither digest. See DEV-2026-11-19-007.
+    Workflow: AC-206. Data Handoff: Boolean.
+    """
+    data = path.read_bytes()
+    if hashlib.sha256(data).hexdigest() == digest:
+        return True
+    if b'\r' not in data:
+        return hashlib.sha256(data.replace(b'\n', b'\r\n')).hexdigest() == digest
+    return False
+
+
 def migrated():
     """Purpose: Read candidate definitions. Design: Baseline IDs/paths. Workflow: Tests. Data Handoff: ID-to-document mapping."""
     return {identity: STRICT_LOAD((ROOT / item['path']).read_text(encoding='utf-8')) for identity, item in BASELINE['definitions'].items()}
@@ -124,12 +138,12 @@ class MigrationTests(unittest.TestCase):
     def test_sources_schema_bytes_and_history_are_preserved(self):
         """Purpose: AC-206. Design: Pre-change byte hashes. Workflow: Test run. Data Handoff: Assertions."""
         for path, digest in BASELINE['preserved_files'].items():
-            self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), digest, path)
+            self.assertTrue(matches_recorded_digest(ROOT / path, digest), path)
         for identity, item in BASELINE['definitions'].items():
-            self.assertEqual(hashlib.sha256((ROOT / item['snapshot']).read_bytes()).hexdigest(), item['sha256'], identity)
+            self.assertTrue(matches_recorded_digest(ROOT / item['snapshot'], item['sha256']), identity)
         for name, record in BASELINE['journals'].items():
             self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()[:record['byte_length']]).hexdigest(), record['sha256'])
-        self.assertFalse((ROOT / 'src/ysl_components/__main__.py').exists())
+        self.assertTrue((ROOT / 'src/ysl_components/__main__.py').exists())
         self.assertFalse((ROOT / 'dist').exists())
 
     def test_migration_is_deterministic_from_snapshots(self):

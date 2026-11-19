@@ -1,7 +1,8 @@
 # Hardware Catalog and CLI Acceptance Contracts
 
-**Status:** Contracts defined; local preparation, schema-review, and migration checks exist,
-but independently frozen fixtures and product acceptance are not established.  
+**Status:** Contracts defined. The user approved G2 for the current P2 draft.
+AC-301 through AC-308 now have a frozen query contract and local executable cases.
+Independently frozen fixtures and product acceptance are not established.  
 **Contract revision:** Draft 1, 2026-11-19  
 **Scope:** Schemas and IDs, migration, validation, local queries, generated browsing
 pages, evidence review, and subsequent CLI packaging.

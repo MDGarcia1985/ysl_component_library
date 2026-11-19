@@ -960,3 +960,265 @@ Retest of TEST-2026-11-19-008, TEST-2026-11-19-009 and TEST-2026-11-19-010. Reta
 #### Disposition
 
 P2 is ready for G2 review. Do not infer G2 acceptance or G4 packaging approval from this local PASS; stop before P3 query/CLI implementation.
+
+---
+
+---
+
+### TEST-2026-11-19-012 — P3 module compilation
+
+**Date:** 2026-11-19  
+**Time:** 14:46 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T0  
+**Result:** PASS
+
+#### Scope
+
+Static compilation of the new development package modules.
+
+#### Files Under Validation
+
+- src/ysl_components/__init__.py
+- src/ysl_components/__main__.py
+- src/ysl_components/loader.py
+- src/ysl_components/query.py
+- src/ysl_components/cli.py
+
+#### Objective
+
+Verify that the new modules compile under the local interpreter.
+
+#### Preconditions
+
+Linux, Python 3.12.3. No package installation.
+
+#### Procedure
+
+Run `python3 -B -m py_compile` on the five modules listed above.
+
+#### Expected Result
+
+The compiler exits 0 and reports no syntax error.
+
+#### Actual Result
+
+Compilation completed with exit 0. Bytecode created during the compile was deleted and is not part of the change.
+
+#### Evidence
+
+- `python3 -B -m py_compile src/ysl_components/__init__.py src/ysl_components/__main__.py src/ysl_components/loader.py src/ysl_components/query.py src/ysl_components/cli.py`
+
+#### Failures / Observations
+
+Compilation does not exercise query behavior.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-006.
+
+#### Related Tests
+
+Runtime coverage is TEST-2026-11-19-013 and TEST-2026-11-19-014.
+
+#### Disposition
+
+Static compilation is complete. Runtime results are recorded separately.
+
+---
+
+---
+
+### TEST-2026-11-19-013 — P3 query contract cases AC-301 through AC-308
+
+**Date:** 2026-11-19  
+**Time:** 14:48 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T2  
+**Result:** PASS
+
+#### Scope
+
+Subprocess behavior of `python -m ysl_components` for validation, list, search, show, pin, pins, interface, and export.
+
+#### Files Under Validation
+
+- src/ysl_components/cli.py
+- src/ysl_components/loader.py
+- src/ysl_components/query.py
+- tests/test_query_contract.py
+- The five migrated hardware definitions
+- tests/fixtures/schema_review/board.json
+- tests/fixtures/schema_review/module.json
+
+#### Objective
+
+Observe the frozen exit codes, JSON envelope, diagnostic codes, and read-only query results for AC-301 through AC-308 on Linux.
+
+#### Preconditions
+
+Linux 6.12.113+, Python 3.12.3, PyYAML 6.0.1, jsonschema 4.23.0, referencing 0.30.2. `PYTHONPATH=src` is supplied by the test. No wheel, editable install, or installed command. Windows was not available. Results are self-evaluated.
+
+#### Procedure
+
+Run `python3 -B -m unittest tests.test_query_contract -v`, and then the same eight methods as part of `python3 -B -m unittest discover -s tests -v`. The cases call the module as a subprocess. They do not import query helpers. Networked sockets are blocked for the AC-307 subprocess. Catalog file hashes are compared before and after read-only commands.
+
+#### Expected Result
+
+Eight methods pass. Valid catalogs exit 0. Invalid data exits 2 and still lists every definition file. Unsupported schema version exits 5. Missing selectors exit 3. Uno pin alias D18 exits 4 with candidates A4 and SDA and no selected pin. Stdout parses as one JSON document. Success writes no stderr. Export round-trips the synthetic board, refuses an existing file without `--force`, and refuses a path inside the catalog. A stale or invalid `catalog-index.json` exits 2 and does not return component entries. VENTUNO D5 maps to PB5, Uno D5 maps to PD5, Bluetooth claims stay 5.3 and 5.1 with no selected value, and verification stays `not_verified`.
+
+#### Actual Result
+
+All eight methods passed inside the final 30-test run. The behaviors listed above were observed, including identical repeated VENTUNO show output, L293D continuous current 0.6 with integrated clamp diodes true, and L293 continuous current 1.0 with integrated clamp diodes false. An earlier local expectation that L293 pins used the exact capability token `pwm` was corrected to the stored tokens `pwm_input` and `pwm_output_conditional` before this pass; the product filter stayed exact.
+
+#### Evidence
+
+- `python3 -B -m unittest discover -s tests -v` — 30 tests, OK, about 44 seconds
+- Command shape: `PYTHONPATH=src python3 -B -m ysl_components --catalog <path> <operation>`
+
+#### Failures / Observations
+
+Linux only. Windows AC-307 was not executed; see TEST-2026-11-19-015. No independent reviewer ran these cases. The fault seam `YSL_COMPONENTS_FAULT=unexpected` is what produced exit 1. JSON Schema library sentences are not asserted. No definition or source file was modified by the queries.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-006.
+
+#### Related Tests
+
+TEST-2026-11-19-012, TEST-2026-11-19-014, TEST-2026-11-19-015.
+
+#### Disposition
+
+Linux query behavior matches the frozen contract in this self-evaluated run. G3 is not accepted by this record. Packaging remains unauthorized.
+
+---
+
+---
+
+### TEST-2026-11-19-014 — P3 regression of the existing local suite
+
+**Date:** 2026-11-19  
+**Time:** 14:48 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T3  
+**Result:** PASS
+
+#### Scope
+
+Milestone regression after the query module and the Linux newline comparison for preserved bytes.
+
+#### Files Under Validation
+
+- tests/test_query_contract.py
+- tests/test_migration.py
+- tests/test_schema_review.py
+- tests/test_repository_content.py
+- src/ysl_components/
+- pyproject.toml remained without a build backend
+
+#### Objective
+
+Run the existing unittest suite together with the new query cases and confirm packaging is still disabled.
+
+#### Preconditions
+
+Same Linux interpreter and libraries as TEST-2026-11-19-013. Journal prefixes and schema bytes were not rewritten. DEV-2026-11-19-007 allows a pure LF-to-CRLF digest match for the Windows baseline.
+
+#### Procedure
+
+Run `python3 -B -m unittest discover -s tests -v` from the repository root after the query modules and preservation comparison were in place.
+
+#### Expected Result
+
+30 tests, no failures, no errors, and no skips. `pyproject.toml` still has no project or build-system table.
+
+#### Actual Result
+
+Ran 30 tests in 44.051 seconds. OK. No failures, errors, or skips. The packaging guard still saw `packaging_enabled` false and no `dist` directory.
+
+#### Evidence
+
+- `python3 -B -m unittest discover -s tests -v`
+- Output ended with `Ran 30 tests in 44.051s` and `OK`
+
+#### Failures / Observations
+
+Self-evaluated on Linux. The preservation checks accept the recorded CRLF digest when the LF git blob differs only by newline translation, as decided in DEV-2026-11-19-007. That is not a new Windows execution. Generated pages were not regenerated.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-006, DEV-2026-11-19-007.
+
+#### Related Tests
+
+TEST-2026-11-19-011, TEST-2026-11-19-013, TEST-2026-11-19-015.
+
+#### Disposition
+
+The local Linux regression may be used as P3 evidence for G3. It does not close G3, authorize packaging, or establish bench verification.
+
+---
+
+---
+
+### TEST-2026-11-19-015 — Windows execution of AC-307
+
+**Date:** 2026-11-19  
+**Time:** 14:48 America/New_York  
+**Tester:** Cursor cloud agent  
+**Level:** T2  
+**Result:** NOT_EXECUTED
+
+#### Scope
+
+AC-307 on Windows: catalog paths, working directory, read-only hashes, and no network.
+
+#### Files Under Validation
+
+- src/ysl_components/cli.py
+
+#### Objective
+
+Record that the Windows half of AC-307 was not run.
+
+#### Preconditions
+
+This session had a Linux checkout only. No Windows runner was available.
+
+#### Procedure
+
+No Windows command was run.
+
+#### Expected Result
+
+The same query observations as the Linux AC-307 case, on Windows.
+
+#### Actual Result
+
+The procedure was not started. Linux coverage is TEST-2026-11-19-013. Windows is unverified.
+
+#### Evidence
+
+- `platform.platform()` during the Linux run: `Linux-6.12.113+-x86_64-with-glibc2.39`
+
+#### Failures / Observations
+
+Missing platform coverage is not a Linux pass.
+
+#### Related DEVNOTES
+
+DEV-2026-11-19-006.
+
+#### Related Tests
+
+TEST-2026-11-19-013.
+
+#### Disposition
+
+Leave Windows unverified for G3. Do not mark AC-307 fully covered.
+
+---
+
+---
+

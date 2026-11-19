@@ -50,8 +50,9 @@ hardware/
   sensors/generic/hc_sr04/README.md
   actuators/                  Reserved; no definitions yet
 schemas/                      Approved schema/ID snapshot and adoption guide
-src/ysl_components/reference_pages.py
+src/ysl_components/           Development package: loader, queries, and python -m entry
 tests/test_repository_content.py
+tests/test_query_contract.py  Local AC-301–AC-308 cases
 docs/
   catalog.md                  Generated browsing index
   standards/                  Annotation, decision, and verification standards
@@ -77,8 +78,11 @@ The user-authorized layout preparation and source enrichment have been completed
 The user [approved the schemas and IDs](docs/reviews/schema-approval-2026-11-19.md).
 All five definitions now use that contract. The [P2 migration evidence](docs/evidence/migration-2026-11-19/README.md)
 includes original bytes, a complete field map, source checks, and corruption tests.
-Migration is ready for G2 review. Query CLI and packaging remain unimplemented;
-`pyproject.toml` still has no build backend or project entry point.
+The user approved G2 for that draft; the cross-reference is
+[g2-approval-2026-11-19.md](docs/reviews/g2-approval-2026-11-19.md). Local catalog
+queries run as `PYTHONPATH=src python -m ysl_components --catalog . <operation>`
+under the [query contract](docs/planning/CLI_QUERY_CONTRACT.md). Packaging remains
+unimplemented; `pyproject.toml` still has no build backend or project entry point.
 
 The schema set includes six modular schemas and synthetic board/family/module
 examples. Historical [schema review evidence](docs/evidence/schema-review-2026-11-19/README.md)

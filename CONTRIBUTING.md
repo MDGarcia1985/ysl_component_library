@@ -136,12 +136,14 @@ approved `sources` structure, not a complete component definition.
 ## Validation
 
 The [schemas and IDs](schemas/README.md) have user approval and are adopted by the
-catalog. `pyproject.toml` remains inactive. A production validator/query CLI and CI
-remain gated future work. See [README.md](README.md#local-syntax-check) for the optional syntax
+catalog. `pyproject.toml` remains inactive. Local validation and queries are
+available as `PYTHONPATH=src python -m ysl_components --catalog . validate` and
+the other operations in the [query contract](docs/planning/CLI_QUERY_CONTRACT.md).
+There is still no installed command. See [README.md](README.md#local-syntax-check) for the optional syntax
 check using Python and PyYAML. `python -m unittest discover -s tests -v` checks the
-current layout/enrichment, generated references, and schema draft. Schema-review
-checks require jsonschema and referencing as well as PyYAML. These local checks do not
-replace the future independent acceptance suite or establish electrical correctness.
+current layout/enrichment, generated references, schema draft, and query contract.
+Schema and query checks require jsonschema and referencing as well as PyYAML. These local checks do not
+replace an independent acceptance suite or establish electrical correctness.
 
 Before submitting:
 
@@ -182,9 +184,9 @@ decision entry.
 The planned catalog/CLI migration follows the
 [phased implementation plan](docs/planning/CLI_IMPLEMENTATION_PLAN.md) and
 [test-first acceptance contracts](docs/planning/CLI_ACCEPTANCE_TESTS.md). The proposed
-schema/ID candidate was explicitly approved by the user, and P2 migration is ready
-for G2 review. Production queries and packaging have not been authorized by that
-approval. Packaging requires the explicit human evidence review defined by gate G4.
+schema/ID candidate was explicitly approved by the user, P2 migration was
+approved at G2 for that draft, and local queries now follow the query contract.
+Packaging has not been authorized. Packaging requires the explicit human evidence review defined by gate G4.
 
 ## Submission checklist
 

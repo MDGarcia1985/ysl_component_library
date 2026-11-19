@@ -23,6 +23,19 @@ VENTUNO = ROOT / 'hardware/controllers/arduino/ventuno_q/definition.yml'
 MANUAL = 'hardware/controllers/arduino/ventuno_q/sources/user_manual.md'
 
 
+def matches_recorded_digest(path, digest):
+    """Purpose: Compare relocated bytes with the preparation digest.
+    Design: Accept the recorded LF digest or its CRLF translation. See DEV-2026-11-19-007.
+    Workflow: Layout preservation. Data Handoff: Boolean.
+    """
+    data = path.read_bytes()
+    if hashlib.sha256(data).hexdigest() == digest:
+        return True
+    if b'\r' not in data:
+        return hashlib.sha256(data.replace(b'\n', b'\r\n')).hexdigest() == digest
+    return False
+
+
 def read_board():
     """Purpose: Load the candidate. Design: Read YAML only. Workflow: Tests. Data Handoff: Board mapping."""
     return yaml.safe_load(VENTUNO.read_text(encoding='utf-8'))
@@ -55,7 +68,7 @@ class RepositoryContentTests(unittest.TestCase):
             self.assertTrue(new.is_file(), str(new))
             self.assertFalse((ROOT / record['old_path']).exists(), record['old_path'])
             if record['old_path'].endswith('_STANDARDS.md') or record['new_path'].endswith('user_manual.md') or (record['old_path'].endswith('.yml') and 'ventuno' not in record['old_path']):
-                self.assertEqual(hashlib.sha256((ROOT / SNAPSHOTS.get(record['new_path'], record['new_path'])).read_bytes()).hexdigest(), record['sha256'])
+                self.assertTrue(matches_recorded_digest(ROOT / SNAPSHOTS.get(record['new_path'], record['new_path']), record['sha256']))
         for path, original in BASELINE['definitions'].items():
             assert_preserved(self, original, yaml.safe_load((ROOT / SNAPSHOTS[path]).read_text(encoding='utf-8-sig')))
 

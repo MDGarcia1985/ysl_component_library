@@ -1,8 +1,8 @@
 # Phased Hardware Catalog and CLI Plan
 
-**Status:** Schema/ID review approved by the user; P2 migration ready for G2 review.  
+**Status:** G2 approved by the user for the current P2 draft. P3 query contract revision 1 is implemented locally. G3-G5 remain pending; no independent evaluator is claimed.  
 **Date:** 2026-11-19  
-**Gates:** User approval covers the schema/ID candidate and P2 execution. G2-G5 remain pending; no independent evaluator is claimed.  
+**Gates:** User approval covers the schema/ID candidate, P2 execution, and G2 for that draft. G3-G5 remain pending.  
 **Related decision:** DEV-2026-11-19-002
 
 ## Objective and scope
@@ -172,11 +172,14 @@ with expected outcomes. Human resolves any contract change before its implementa
 
 ## P2 — Migrate and organize the catalog
 
-**Review candidate available:** all five definitions now validate against the
-approved snapshot. The [migration evidence](../evidence/migration-2026-11-19/README.md)
+**Review candidate accepted for this draft:** all five definitions validate
+against the approved snapshot. The [migration evidence](../evidence/migration-2026-11-19/README.md)
 contains original bytes, exact source-leaf mappings, generated-field accounting,
-direct manual comparisons, corruption checks, and retained failures. G2 approval
-is still pending. These local checks do not establish an external trust boundary.
+direct manual comparisons, corruption checks, and retained failures. The user
+approved G2 with the statement "G2 is approved"; the
+[review cross-reference](../reviews/g2-approval-2026-11-19.md) cites that
+statement and the draft digests. These local checks do not establish an external
+trust boundary.
 
 Target layout:
 
@@ -224,6 +227,11 @@ reviewer samples source facts, all six VENTUNO discrepancies, family differences
 and shared-pin handling. Every deliberate corruption in AC-205 is detected.
 
 ## P3 — Build validation and local queries
+
+**Local implementation of revision 1:** the [query contract](CLI_QUERY_CONTRACT.md)
+freezes invocation, filters, the JSON envelope, and exit codes 0–5. Development
+invocation is `python -m ysl_components` with an explicit catalog path. G3 review
+of that behavior is still open. No wheel or installed command is produced here.
 
 Deliverables:
 
