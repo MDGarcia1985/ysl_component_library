@@ -1,4 +1,4 @@
-<!-- Generated from definition.yml; SHA-256: ddbc68af3c9d10538c7b2122416497652745a2d2b1fa413bfc2b21db49a6caa6. Do not edit manually. -->
+<!-- Generated from definition.yml; SHA-256: 87df349469095a0b91948b5d6a126b147656ce3700520abc6e47c6f31ca576a6. Do not edit manually. -->
 # HC-SR04
 
 [Catalog](../../../../docs/catalog.md) · [Hardware YAML](definition.yml)

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tests/test_schema_review.py
 Purpose: Define schema-review expectations before writing the draft schemas.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tests/collect_schema_review_evidence.py
 Purpose: Record schema-review outcomes without overwriting earlier phase evidence.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

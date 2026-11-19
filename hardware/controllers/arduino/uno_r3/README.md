@@ -1,4 +1,4 @@
-<!-- Generated from definition.yml; SHA-256: 2e53f80790162f344772ed3e5731feafd9baa357b78c45d8b26529c1e2f1400b. Do not edit manually. -->
+<!-- Generated from definition.yml; SHA-256: 75d1a787a0bc25efe6ea6e8b0a28a13e99536c6faf3a5f4a5891aef3410bf424. Do not edit manually. -->
 # Arduino Uno R3
 
 [Catalog](../../../../docs/catalog.md) · [Hardware YAML](definition.yml)

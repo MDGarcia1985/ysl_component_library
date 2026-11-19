@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: CC-BY-4.0
+
 # Schema/ID migration; original source bytes are retained in docs/evidence/migration-2026-11-19/before/.
 # Related decision: DEV-2026-11-19-005. No bench verification is implied.
 

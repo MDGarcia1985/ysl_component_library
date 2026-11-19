@@ -184,6 +184,6 @@ electrical correctness, or agreement with a datasheet; review those separately.
 
 ## License
 
-No repository license file is currently present. Licensing is pending
-confirmation; do not infer a project license from examples in the documentation
-standards. Preserve attribution and confirm reuse terms for third-party material.
+Original component definitions and catalog documentation are licensed under
+CC BY 4.0. The Python tooling and tests are licensed under MPL 2.0. See
+[LICENSE.md](LICENSE.md) for attribution and third-party source information.

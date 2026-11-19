@@ -1,4 +1,4 @@
-<!-- Generated from definition.yml; SHA-256: 002f04c1693e6d36b361bf73994201c77bc729a33c804d6f79b51a8223aec627. Do not edit manually. -->
+<!-- Generated from definition.yml; SHA-256: f06b44363eb83aede66911784cade72d2bf87dd2da7a9556cac2ad2a9d54dbaf. Do not edit manually. -->
 # L293 / L293D
 
 [Catalog](../../../../docs/catalog.md) · [Hardware YAML](definition.yml)

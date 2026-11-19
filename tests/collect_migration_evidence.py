@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Michael Garcia and contributors
+# SPDX-License-Identifier: MPL-2.0
+
 """File: tests/collect_migration_evidence.py
 Purpose: Capture P2 tests, preservation results, corruption observations, and navigation.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.

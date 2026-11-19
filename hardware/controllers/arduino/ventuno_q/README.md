@@ -1,4 +1,4 @@
-<!-- Generated from definition.yml; SHA-256: 6f417ac2b0f9fc74d5e917b850dcedf6cd367d86236666faaf672e2ed287b55e. Do not edit manually. -->
+<!-- Generated from definition.yml; SHA-256: db3c7fe1af1a69a61dae54787cf7f70b5222a9c066284c75e7f83e455d6826c2. Do not edit manually. -->
 # Arduino VENTUNO Q
 
 [Catalog](../../../../docs/catalog.md) · [Hardware YAML](definition.yml)
