@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0-draft.1",
+  "status": "proposed",
+  "entries": [
+    {
+      "id": "arduino/uno-r3",
+      "kind": "board",
+      "definition_path": "hardware/controllers/arduino/uno_r3/definition.yml",
+      "legacy_aliases": [
+        "arduino_uno_r3"
+      ],
+      "variant_selectors": [],
+      "profile_selectors": []
+    },
+    {
+      "id": "arduino/ventuno-q",
+      "kind": "board",
+      "definition_path": "hardware/controllers/arduino/ventuno_q/definition.yml",
+      "legacy_aliases": [
+        "arduino_ventuno_q"
+      ],
+      "variant_selectors": [],
+      "profile_selectors": []
+    },
+    {
+      "id": "microchip/attiny-x5",
+      "kind": "ic_family",
+      "definition_path": "hardware/controllers/microchip/attiny_x5/definition.yml",
+      "legacy_aliases": [
+        "attiny_x5"
+      ],
+      "variant_selectors": [
+        "ATtiny25",
+        "ATtiny45",
+        "ATtiny85"
+      ],
+      "profile_selectors": [
+        "ATtiny25V",
+        "ATtiny45V",
+        "ATtiny85V"
+      ]
+    },
+    {
+      "id": "ti/l293-family",
+      "kind": "ic_family",
+      "definition_path": "hardware/drivers/ti/l293_family/definition.yml",
+      "legacy_aliases": [
+        "l293_family"
+      ],
+      "variant_selectors": [
+        "L293",
+        "L293D"
+      ],
+      "profile_selectors": []
+    },
+    {
+      "id": "generic/hc-sr04",
+      "kind": "module",
+      "definition_path": "hardware/sensors/generic/hc_sr04/definition.yml",
+      "legacy_aliases": [
+        "hc_sr04"
+      ],
+      "variant_selectors": [],
+      "profile_selectors": []
+    }
+  ]
+}

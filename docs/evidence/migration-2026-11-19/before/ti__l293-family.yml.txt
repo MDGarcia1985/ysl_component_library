@@ -1,0 +1,378 @@
+
+# L293 / L293D Quadruple Half-H Driver
+# Shared 16-pin PDIP pin mapping
+# Source: Texas Instruments SLRS008D
+#
+# L293:  1.0 A continuous per channel
+# L293D: 0.6 A continuous per channel
+#
+# Each pair of half-bridges forms one H-bridge.
+# The enable pins control channels in pairs.
+# Inputs may receive PWM signals.
+# Enables may also receive PWM signals.
+
+l293_family:
+  manufacturer: Texas Instruments
+  device_type: quadruple_half_h_driver
+  package: PDIP_16
+
+  variants:
+    L293:
+      continuous_output_current_a: 1.0
+      peak_output_current_a: 2.0
+      peak_duration_us: 5000
+      integrated_clamp_diodes: false
+
+    L293D:
+      continuous_output_current_a: 0.6
+      peak_output_current_a: 1.2
+      peak_duration_us: 100
+      integrated_clamp_diodes: true
+
+  voltage:
+    logic_supply:
+      nominal: 5.0
+      min: 4.5
+      max: 7.0
+      units: V
+
+    motor_supply:
+      min: 4.5
+      max: 36.0
+      units: V
+
+    input_logic:
+      high_min_v: 2.3
+      low_max_v: 1.5
+
+  pin_map:
+
+    EN1_2:
+      maps_to: 1,2EN
+      physical_pin: 1
+      direction: input
+      capabilities:
+        - enable
+        - pwm_input
+        - active_high
+        - high_impedance_disable
+      aliases:
+        - 1,2EN
+        - ENA
+        - MOTOR_A_ENABLE
+      controls:
+        - OUT1
+        - OUT2
+
+    IN1:
+      maps_to: 1A
+      physical_pin: 2
+      direction: input
+      capabilities:
+        - digital_input
+        - pwm_input
+        - motor_direction_control
+      aliases:
+        - 1A
+        - INPUT1
+        - MOTOR_A_IN1
+      controls:
+        - OUT1
+
+    OUT1:
+      maps_to: 1Y
+      physical_pin: 3
+      direction: output
+      capabilities:
+        - half_bridge_output
+        - motor_drive
+        - pwm_output_conditional
+        - high_impedance
+      aliases:
+        - 1Y
+        - OUTPUT1
+        - MOTOR_A_OUT1
+      controlled_by:
+        - IN1
+        - EN1_2
+
+    GND1:
+      maps_to: GND
+      physical_pin: 4
+      direction: power
+      capabilities:
+        - ground_reference
+        - thermal_dissipation
+      aliases:
+        - GROUND1
+        - HEATSINK1
+
+    GND2:
+      maps_to: GND
+      physical_pin: 5
+      direction: power
+      capabilities:
+        - ground_reference
+        - thermal_dissipation
+      aliases:
+        - GROUND2
+        - HEATSINK2
+
+    OUT2:
+      maps_to: 2Y
+      physical_pin: 6
+      direction: output
+      capabilities:
+        - half_bridge_output
+        - motor_drive
+        - pwm_output_conditional
+        - high_impedance
+      aliases:
+        - 2Y
+        - OUTPUT2
+        - MOTOR_A_OUT2
+      controlled_by:
+        - IN2
+        - EN1_2
+
+    IN2:
+      maps_to: 2A
+      physical_pin: 7
+      direction: input
+      capabilities:
+        - digital_input
+        - pwm_input
+        - motor_direction_control
+      aliases:
+        - 2A
+        - INPUT2
+        - MOTOR_A_IN2
+      controls:
+        - OUT2
+
+    VCC2:
+      maps_to: VCC2
+      physical_pin: 8
+      direction: power
+      capabilities:
+        - motor_power_input
+        - output_stage_supply
+      aliases:
+        - VS
+        - MOTOR_VCC
+        - VMOTOR
+
+    EN3_4:
+      maps_to: 3,4EN
+      physical_pin: 9
+      direction: input
+      capabilities:
+        - enable
+        - pwm_input
+        - active_high
+        - high_impedance_disable
+      aliases:
+        - 3,4EN
+        - ENB
+        - MOTOR_B_ENABLE
+      controls:
+        - OUT3
+        - OUT4
+
+    IN3:
+      maps_to: 3A
+      physical_pin: 10
+      direction: input
+      capabilities:
+        - digital_input
+        - pwm_input
+        - motor_direction_control
+      aliases:
+        - 3A
+        - INPUT3
+        - MOTOR_B_IN1
+      controls:
+        - OUT3
+
+    OUT3:
+      maps_to: 3Y
+      physical_pin: 11
+      direction: output
+      capabilities:
+        - half_bridge_output
+        - motor_drive
+        - pwm_output_conditional
+        - high_impedance
+      aliases:
+        - 3Y
+        - OUTPUT3
+        - MOTOR_B_OUT1
+      controlled_by:
+        - IN3
+        - EN3_4
+
+    GND3:
+      maps_to: GND
+      physical_pin: 12
+      direction: power
+      capabilities:
+        - ground_reference
+        - thermal_dissipation
+      aliases:
+        - GROUND3
+        - HEATSINK3
+
+    GND4:
+      maps_to: GND
+      physical_pin: 13
+      direction: power
+      capabilities:
+        - ground_reference
+        - thermal_dissipation
+      aliases:
+        - GROUND4
+        - HEATSINK4
+
+    OUT4:
+      maps_to: 4Y
+      physical_pin: 14
+      direction: output
+      capabilities:
+        - half_bridge_output
+        - motor_drive
+        - pwm_output_conditional
+        - high_impedance
+      aliases:
+        - 4Y
+        - OUTPUT4
+        - MOTOR_B_OUT2
+      controlled_by:
+        - IN4
+        - EN3_4
+
+    IN4:
+      maps_to: 4A
+      physical_pin: 15
+      direction: input
+      capabilities:
+        - digital_input
+        - pwm_input
+        - motor_direction_control
+      aliases:
+        - 4A
+        - INPUT4
+        - MOTOR_B_IN2
+      controls:
+        - OUT4
+
+    VCC1:
+      maps_to: VCC1
+      physical_pin: 16
+      direction: power
+      capabilities:
+        - logic_power_input
+      aliases:
+        - VSS
+        - LOGIC_VCC
+        - VLOGIC
+
+  interfaces:
+
+    MOTOR_A:
+      type: full_h_bridge
+      enable: EN1_2
+      inputs:
+        - IN1
+        - IN2
+      outputs:
+        - OUT1
+        - OUT2
+
+    MOTOR_B:
+      type: full_h_bridge
+      enable: EN3_4
+      inputs:
+        - IN3
+        - IN4
+      outputs:
+        - OUT3
+        - OUT4
+
+    power:
+      logic: VCC1
+      motor: VCC2
+      ground:
+        - GND1
+        - GND2
+        - GND3
+        - GND4
+
+  logic:
+
+    motor_a:
+      enable: EN1_2
+
+      states:
+        disabled:
+          EN1_2: LOW
+          IN1: ANY
+          IN2: ANY
+          outputs: high_impedance
+
+        forward:
+          EN1_2: HIGH
+          IN1: HIGH
+          IN2: LOW
+
+        reverse:
+          EN1_2: HIGH
+          IN1: LOW
+          IN2: HIGH
+
+        brake_low:
+          EN1_2: HIGH
+          IN1: LOW
+          IN2: LOW
+
+        brake_high:
+          EN1_2: HIGH
+          IN1: HIGH
+          IN2: HIGH
+
+    motor_b:
+      enable: EN3_4
+      same_logic_as: motor_a
+      input_mapping:
+        IN1: IN3
+        IN2: IN4
+
+  constraints:
+
+    thermal:
+      ground_pins_are_heat_sinks: true
+      all_ground_pins_required: true
+      thermal_design_required: true
+
+    inductive_loads:
+      L293:
+        external_clamp_diodes_required: true
+      L293D:
+        integrated_clamp_diodes: true
+
+    safety:
+      enable_low_disables_output_pair: true
+      disable_output_state: high_impedance
+      enable_is_not_power_isolation: true
+      fault_detection_integrated: false
+      current_sensing_integrated: false
+
+    pwm:
+      input_pwm_supported: true
+      enable_pwm_supported: true
+      independent_half_bridge_control: true
+      independent_enable_per_half_bridge: false
+
+    power:
+      common_ground_required: true
+      logic_and_motor_supplies_separate: true
+      supply_decoupling_required: true

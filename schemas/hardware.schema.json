@@ -1,0 +1,450 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ysl:schema:hardware:1.0.0-draft.1",
+  "title": "Pins, connectors, interfaces and family members — review draft",
+  "$comment": "Draft for human review, not adopted by the hardware catalog. Related decision: DEV-2026-11-19-004.",
+  "x-ysl-review-status": "draft-not-approved",
+  "$defs": {
+    "pin": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "maps_to": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "direction": {
+          "enum": [
+            "input",
+            "output",
+            "bidirectional",
+            "power_input",
+            "power_output",
+            "power_return",
+            "reference",
+            "passive",
+            "not_connected",
+            "unspecified"
+          ]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "connector": {
+              "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+            },
+            "position": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+                  "not": {
+                    "pattern": "\\s"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "connector",
+            "position"
+          ],
+          "additionalProperties": false
+        },
+        "processor": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": ".*\\S.*"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "shared_with": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "connector": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "positions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "processor": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "type",
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "interface": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "gpio",
+            "uart",
+            "spi",
+            "i2c",
+            "i2s",
+            "adc",
+            "dac",
+            "pwm",
+            "can_controller",
+            "can_bus",
+            "opamp",
+            "usb",
+            "ethernet",
+            "hdmi",
+            "mipi_csi2",
+            "mipi_dsi",
+            "pcie",
+            "jtag",
+            "pssi",
+            "trace",
+            "audio",
+            "trigger_echo",
+            "ultrasonic_time_of_flight",
+            "power",
+            "debug",
+            "programming",
+            "analog_comparator",
+            "clock",
+            "h_bridge",
+            "custom"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "processor": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "signals": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            ]
+          },
+          "minProperties": 0
+        },
+        "connector_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "implementation": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "type",
+        "signals",
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "custom"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "description"
+            ]
+          }
+        }
+      ]
+    },
+    "part": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "architecture": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "role",
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "feature": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "processor": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        },
+        "pin_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "type",
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "variant": {
+      "type": "object",
+      "properties": {
+        "inherits": {
+          "type": "string",
+          "pattern": "^(variant|profile):[A-Za-z0-9_+][A-Za-z0-9_.+,\\-]*$"
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "pins": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "additionalProperties": {
+            "$ref": "urn:ysl:schema:hardware:1.0.0-draft.1#/$defs/pin"
+          },
+          "minProperties": 0
+        },
+        "interfaces": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "additionalProperties": {
+            "$ref": "urn:ysl:schema:hardware:1.0.0-draft.1#/$defs/interface"
+          },
+          "minProperties": 0
+        },
+        "constraints": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "additionalProperties": {
+            "$ref": "urn:ysl:schema:relations:1.0.0-draft.1#/$defs/constraint"
+          },
+          "minProperties": 0
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "profile": {
+      "allOf": [
+        {
+          "$ref": "urn:ysl:schema:hardware:1.0.0-draft.1#/$defs/variant"
+        },
+        {
+          "required": [
+            "inherits"
+          ]
+        }
+      ]
+    },
+    "board": {
+      "type": "object",
+      "properties": {
+        "processors": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "additionalProperties": {
+            "$ref": "urn:ysl:schema:hardware:1.0.0-draft.1#/$defs/part"
+          },
+          "minProperties": 1
+        }
+      },
+      "required": [
+        "processors"
+      ],
+      "additionalProperties": false
+    },
+    "ic_family": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "architecture": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "package": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "family"
+      ],
+      "additionalProperties": false
+    },
+    "module": {
+      "type": "object",
+      "properties": {
+        "module_type": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+        }
+      },
+      "required": [
+        "module_type"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

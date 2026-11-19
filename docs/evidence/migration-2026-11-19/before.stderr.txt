@@ -1,0 +1,99 @@
+test_all_five_schema_and_semantic_contracts (test_migration.MigrationTests.test_all_five_schema_and_semantic_contracts)
+Purpose: AC-201. Design: Approved schema and semantic checks. Workflow: Test run. Data Handoff: Assertions. ... FAIL
+test_complete_source_and_destination_field_maps (test_migration.MigrationTests.test_complete_source_and_destination_field_maps)
+Purpose: AC-201. Design: No migrator imports. Workflow: Every original leaf. Data Handoff: Exact conservation assertions. ... ERROR
+test_manual_pin_tables_and_independent_board_facts (test_migration.MigrationTests.test_manual_pin_tables_and_independent_board_facts)
+Purpose: AC-202/203. Design: Compare actual source tables directly. Workflow: Test run. Data Handoff: Assertions. ... ERROR
+test_migration_is_deterministic_from_snapshots (test_migration.MigrationTests.test_migration_is_deterministic_from_snapshots)
+Purpose: AC-206. Design: Pure repeated conversion. Workflow: Source utility. Data Handoff: Equal results/maps. ... ERROR
+test_required_deliberate_corruptions_are_detected (test_migration.MigrationTests.test_required_deliberate_corruptions_are_detected)
+Purpose: AC-205. Design: Mutate data independently of mapping code. Workflow: Comparison. Data Handoff: Rejection observations. ... ERROR
+test_sources_schema_bytes_and_history_are_preserved (test_migration.MigrationTests.test_sources_schema_bytes_and_history_are_preserved)
+Purpose: AC-206. Design: Pre-change byte hashes. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_variant_safety_and_source_conflicts_survive (test_migration.MigrationTests.test_variant_safety_and_source_conflicts_survive)
+Purpose: AC-204. Design: Fixed discriminating source facts. Workflow: Test run. Data Handoff: Assertions. ... ERROR
+
+======================================================================
+ERROR: test_complete_source_and_destination_field_maps (test_migration.MigrationTests.test_complete_source_and_destination_field_maps)
+Purpose: AC-201. Design: No migrator imports. Workflow: Every original leaf. Data Handoff: Exact conservation assertions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_migration.py", line 44, in test_complete_source_and_destination_field_maps
+    maps = json.loads((FOLDER / 'field-map.json').read_text(encoding='utf-8'))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\micha\\Repos\\ysl_component_library\\docs\\evidence\\migration-2026-11-19\\field-map.json'
+
+======================================================================
+ERROR: test_manual_pin_tables_and_independent_board_facts (test_migration.MigrationTests.test_manual_pin_tables_and_independent_board_facts)
+Purpose: AC-202/203. Design: Compare actual source tables directly. Workflow: Test run. Data Handoff: Assertions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_migration.py", line 54, in test_manual_pin_tables_and_independent_board_facts
+    self.assertEqual(board['pins']['D5']['maps_to'], 'PB5')
+                     ~~~~~^^^^^^^^
+KeyError: 'pins'
+
+======================================================================
+ERROR: test_migration_is_deterministic_from_snapshots (test_migration.MigrationTests.test_migration_is_deterministic_from_snapshots)
+Purpose: AC-206. Design: Pure repeated conversion. Workflow: Source utility. Data Handoff: Equal results/maps.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_migration.py", line 120, in test_migration_is_deterministic_from_snapshots
+    migrate = runpy.run_path(str(ROOT / 'tools/migrate_catalog.py'))['migrate_catalog']
+              ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 254, in _get_code_from_file
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\micha\\Repos\\ysl_component_library\\tools\\migrate_catalog.py'
+
+======================================================================
+ERROR: test_required_deliberate_corruptions_are_detected (test_migration.MigrationTests.test_required_deliberate_corruptions_are_detected)
+Purpose: AC-205. Design: Mutate data independently of mapping code. Workflow: Comparison. Data Handoff: Rejection observations.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_migration.py", line 95, in test_required_deliberate_corruptions_are_detected
+    maps = json.loads((FOLDER / 'field-map.json').read_text(encoding='utf-8'))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\micha\\Repos\\ysl_component_library\\docs\\evidence\\migration-2026-11-19\\field-map.json'
+
+======================================================================
+ERROR: test_variant_safety_and_source_conflicts_survive (test_migration.MigrationTests.test_variant_safety_and_source_conflicts_survive)
+Purpose: AC-204. Design: Fixed discriminating source facts. Workflow: Test run. Data Handoff: Assertions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_migration.py", line 76, in test_variant_safety_and_source_conflicts_survive
+    self.assertEqual(set(attiny['variants']), {'ATtiny25', 'ATtiny45', 'ATtiny85'})
+                         ~~~~~~^^^^^^^^^^^^
+KeyError: 'variants'
+
+======================================================================
+FAIL: test_all_five_schema_and_semantic_contracts (test_migration.MigrationTests.test_all_five_schema_and_semantic_contracts)
+Purpose: AC-201. Design: Approved schema and semantic checks. Workflow: Test run. Data Handoff: Assertions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_migration.py", line 36, in test_all_five_schema_and_semantic_contracts
+    self.assertEqual(document.get('id'), identity)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'arduino/uno-r3'
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.222s
+
+FAILED (failures=1, errors=5)

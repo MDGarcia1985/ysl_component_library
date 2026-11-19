@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0-draft.1",
+  "id": "generic/synthetic-sensor",
+  "name": "Synthetic sensor — not catalog hardware",
+  "category": "sensors",
+  "kind": "module",
+  "manufacturer": {"status": "unknown", "reason": "The generic namespace does not identify a manufacturer."},
+  "aliases": ["review_sensor"],
+  "provenance": {"status": "legacy_uncited"},
+  "sources": {},
+  "verification": {"status": "not_verified", "records": {}},
+  "facts": {
+    "echo_voltage": {"status": "legacy_uncited", "value": {"dimension": "voltage", "unit": "V", "nominal": 5, "rating_kind": "operating"}},
+    "per_pin_current": {"status": "unknown", "notes": "Not specified in the source inventory."}
+  },
+  "module": {"module_type": "distance_sensor"},
+  "connectors": {},
+  "pins": {"ECHO": {"maps_to": "ECHO", "direction": "output", "aliases": ["RETURN"], "facts": {}, "provenance": {"status": "legacy_uncited"}}},
+  "interfaces": {}
+}

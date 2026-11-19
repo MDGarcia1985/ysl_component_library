@@ -1,0 +1,21 @@
+test_deterministic_generated_pages (test_repository_content.RepositoryContentTests.test_deterministic_generated_pages)
+Purpose: Detect stale references. Design: Rebuild in memory. Workflow: After generation. Data Handoff: Assertions. ... ok
+test_inventory_comes_from_manual (test_repository_content.RepositoryContentTests.test_inventory_comes_from_manual)
+Purpose: Check component claims. Design: Exact source tokens. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_journal_history_is_unchanged (test_repository_content.RepositoryContentTests.test_journal_history_is_unchanged)
+Purpose: Preserve history. Design: Prefix hashes. Workflow: After append. Data Handoff: Assertions. ... ok
+test_layout_and_legacy_preservation (test_repository_content.RepositoryContentTests.test_layout_and_legacy_preservation)
+Purpose: Detect missing moves/loss. Design: Frozen baseline. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_preparation_does_not_enable_packaging (test_repository_content.RepositoryContentTests.test_preparation_does_not_enable_packaging)
+Purpose: Respect the human gate. Design: Inspect scaffold only. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_relationships_resolve (test_repository_content.RepositoryContentTests.test_relationships_resolve)
+Purpose: Catch dangling graph edges. Design: Typed reference namespaces. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_resource_and_power_constraints (test_repository_content.RepositoryContentTests.test_resource_and_power_constraints)
+Purpose: Preserve critical restrictions. Design: Manual-specific expected facts. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_source_sections_and_conflicts (test_repository_content.RepositoryContentTests.test_source_sections_and_conflicts)
+Purpose: Check provenance. Design: Resolve all local citations. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.801s
+
+OK

@@ -1,0 +1,3838 @@
+# Arduino VENTUNO Q hardware definition
+# Source: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+# Source snapshot: 2026-11-19; unresolved claims remain under source.discrepancies.
+# Related decisions: DEV-2026-11-19-001, DEV-2026-11-19-003
+
+arduino_ventuno_q:
+  model: VENTUNO Q
+  manufacturer: Arduino
+  device_type: dual_processor_controller_board
+  mcu: STM32H5F5
+  mpu: Qualcomm Dragonwing QCS8275
+  processors:
+    mcu:
+      architecture: Arm_Cortex_M33
+      clock_hz: 250000000
+      flash:
+        value: 4
+        units: MB
+      sram:
+        value: 1.5
+        units: MB
+      source_refs:
+        - architecture
+    mpu:
+      architecture: Kryo_Gen_6
+      cpu_cores: 8
+      max_clock_hz: 2350000000
+      gpu: Adreno_A623
+      gpu_clock_hz: 877000000
+      npu: Hexagon_Tensor
+      npu_max_dense_tops: 40
+      note: ISP model is omitted because the manual names both Spectra 690 and Spectra 692.
+      source_refs:
+        - architecture
+  memory:
+    ram:
+      type: LPDDR5
+      capacity_gb: 16
+      source_refs:
+        - architecture
+    storage:
+      type: eMMC
+      capacity_gb: 64
+      source_refs:
+        - architecture
+  voltage:
+    usb_c_pd_input:
+      min: 9
+      max: 20
+      units: V
+      max_current_a: 3
+      power_delivery_negotiation_required: true
+      accepts_5v_only_source: false
+      source_refs:
+        - power
+        - usb_c
+    barrel_jack_input:
+      min: 7
+      max: 24
+      units: V
+      max_current_a: 5
+      documented_power_examples_w:
+        at_12v: 60
+        at_24v: 120
+      source_refs:
+        - power
+        - power_safety
+    screw_terminal_input:
+      min: 7
+      max: 24
+      units: V
+      max_current_a: 10
+      source_refs:
+        - power
+    uno_vin_input:
+      min: 7
+      max: 24
+      units: V
+      ptc_fuse_rating_a: 1.1
+      recommended_for_board_power: false
+      source_refs:
+        - vin
+    limited_rails:
+      nets:
+        - +3V3_LIMITED
+        - +5V_LIMITED
+      nominal_voltages_v:
+        - 3.3
+        - 5.0
+      stated_current_limit_a: 2.8
+      note: The manual does not clarify whether the stated limit applies independently to each rail.
+      source_refs:
+        - limited_rails
+    jhat_logic:
+      header_v: 3.3
+      mpu_side_v: 1.8
+      level_translated: true
+      source_refs:
+        - jhat
+    jmedia_logic:
+      nominal: 1.8
+      units: V
+      note: Logic-domain statement only; the connector also carries VIN and 3.3 V power pins.
+      source_refs:
+        - jmedia
+    rtc_backup_input:
+      max: 3.3
+      units: V
+      powers_rtc_only: true
+      source_refs:
+        - jmisc
+  pin_map:
+    D0:
+      maps_to: PB11
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - uart_rx
+      aliases:
+        - RX
+      source_refs:
+        - digital
+    D1:
+      maps_to: PB10
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - uart_tx
+      aliases:
+        - TX
+      source_refs:
+        - digital
+    D2:
+      maps_to: PB0
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+      source_refs:
+        - digital
+    D3:
+      maps_to: PB1
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - opamp_output
+        - pwm
+      source_refs:
+        - digital
+        - pwm
+    D4:
+      maps_to: PB6
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - can_tx
+      aliases:
+        - FDCAN2_TX
+      source_refs:
+        - digital
+    D5:
+      maps_to: PB5
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - can_rx
+        - pwm
+      aliases:
+        - FDCAN2_RX
+      source_refs:
+        - digital
+        - pwm
+    D6:
+      maps_to: PB2
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - pwm
+      source_refs:
+        - digital
+        - pwm
+    D7:
+      maps_to: PB3
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+      source_refs:
+        - digital
+    D8:
+      maps_to: PB4
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+      source_refs:
+        - digital
+    D9:
+      maps_to: PB7
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - pwm
+      source_refs:
+        - digital
+        - pwm
+    D10:
+      maps_to: PB12
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - spi_chip_select
+        - pwm
+      aliases:
+        - SS
+      source_refs:
+        - digital
+        - pwm
+    D11:
+      maps_to: PB15
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - spi_mosi
+        - pwm
+      aliases:
+        - MOSI
+      source_refs:
+        - digital
+        - pwm
+    D12:
+      maps_to: PB14
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - spi_miso
+      aliases:
+        - MISO
+      source_refs:
+        - digital
+    D13:
+      maps_to: PB13
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - spi_clock
+      aliases:
+        - SCK
+      source_refs:
+        - digital
+    A0:
+      maps_to: PA4
+      connector: JANALOG
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - adc
+        - dac
+      aliases:
+        - D14
+        - DAC0
+      source_refs:
+        - digital
+        - adc
+        - dac
+    A1:
+      maps_to: PA5
+      connector: JANALOG
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - adc
+        - dac
+      aliases:
+        - D15
+        - DAC1
+      source_refs:
+        - digital
+        - adc
+        - dac
+    A2:
+      maps_to: PE12
+      connector: JANALOG
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - adc
+        - opamp_positive_input
+        - spi_clock
+      aliases:
+        - D16
+      source_refs:
+        - digital
+        - adc
+    A3:
+      maps_to: PE13
+      connector: JANALOG
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - adc
+        - opamp_negative_input
+        - spi_miso
+      aliases:
+        - D17
+      source_refs:
+        - digital
+        - adc
+    A4:
+      maps_to: PE14
+      connector: JANALOG
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - adc
+        - spi_mosi
+      aliases:
+        - D18
+      source_refs:
+        - digital
+        - adc
+    A5:
+      maps_to: PE15
+      connector: JANALOG
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - adc
+      aliases:
+        - D19
+      source_refs:
+        - digital
+        - adc
+    D20:
+      maps_to: PH12
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - i2c_sda
+      aliases:
+        - SDA
+      source_refs:
+        - digital
+    D21:
+      maps_to: PH11
+      connector: JDIGITAL
+      direction: bidirectional
+      capabilities:
+        - gpio
+        - i2c_scl
+      aliases:
+        - SCL
+      source_refs:
+        - digital
+    AREF:
+      maps_to: AREF
+      direction: input
+      capabilities:
+        - adc_reference_input
+      source_refs:
+        - adc
+    VIN:
+      maps_to: VIN
+      direction: power_input
+      capabilities:
+        - power_input
+      note: UNO VIN input; 1.1 A PTC fuse; see voltage.uno_vin_input.
+      source_refs:
+        - vin
+    QWIIC_SCL:
+      maps_to: PA8
+      connector: QWIIC
+      capabilities:
+        - i2c_scl
+      aliases:
+        - I2C3_SCL
+      note: Controller designation conflicts with the Qwiic section.
+      source_refs:
+        - i2c
+        - qwiic
+    QWIIC_SDA:
+      maps_to: PC9
+      connector: QWIIC
+      capabilities:
+        - i2c_sda
+      aliases:
+        - I2C3_SDA
+      note: Controller designation conflicts with the Qwiic section.
+      source_refs:
+        - i2c
+        - qwiic
+    CAN_H:
+      maps_to: CANH
+      connector: CAN_SCREW_TERMINAL
+      direction: bidirectional
+      capabilities:
+        - can_bus_high
+      aliases:
+        - CAN-H
+      source_refs:
+        - can
+        - can_transceiver
+    CAN_L:
+      maps_to: CANL
+      connector: CAN_SCREW_TERMINAL
+      direction: bidirectional
+      capabilities:
+        - can_bus_low
+      aliases:
+        - CAN-L
+      source_refs:
+        - can
+        - can_transceiver
+    JHAT_1:
+      maps_to: +3V3
+      connector: JHAT
+      physical_pin: 1
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jhat
+    JHAT_2:
+      maps_to: +5V
+      connector: JHAT
+      physical_pin: 2
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jhat
+    JHAT_3:
+      maps_to: MD_GPIO_17
+      connector: JHAT
+      physical_pin: 3
+      source_function: SE0_SDA
+      source_refs:
+        - jhat
+    JHAT_4:
+      maps_to: +5V
+      connector: JHAT
+      physical_pin: 4
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jhat
+    JHAT_5:
+      maps_to: MD_GPIO_18
+      connector: JHAT
+      physical_pin: 5
+      source_function: SE0_SCL
+      source_refs:
+        - jhat
+    JHAT_6:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 6
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_7:
+      maps_to: MD_GPIO_83
+      connector: JHAT
+      physical_pin: 7
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_8:
+      maps_to: MD_GPIO_86
+      connector: JHAT
+      physical_pin: 8
+      source_function: SE2_TX
+      unavailable_while_bluetooth_active: true
+      source_refs:
+        - jhat
+    JHAT_9:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 9
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_10:
+      maps_to: MD_GPIO_87
+      connector: JHAT
+      physical_pin: 10
+      source_function: SE2_RX
+      unavailable_while_bluetooth_active: true
+      source_refs:
+        - jhat
+    JHAT_11:
+      maps_to: MD_GPIO_85
+      connector: JHAT
+      physical_pin: 11
+      source_function: SE2_RFR
+      unavailable_while_bluetooth_active: true
+      source_refs:
+        - jhat
+    JHAT_12:
+      maps_to: MD_GPIO_116
+      connector: JHAT
+      physical_pin: 12
+      source_function: I2S1_SCK
+      source_refs:
+        - jhat
+    JHAT_13:
+      maps_to: MD_GPIO_109
+      connector: JHAT
+      physical_pin: 13
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_14:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 14
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_15:
+      maps_to: MD_GPIO_90
+      connector: JHAT
+      physical_pin: 15
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_16:
+      maps_to: MD_GPIO_105
+      connector: JHAT
+      physical_pin: 16
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_17:
+      maps_to: +3V3
+      connector: JHAT
+      physical_pin: 17
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jhat
+    JHAT_18:
+      maps_to: MD_GPIO_106
+      connector: JHAT
+      physical_pin: 18
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_19:
+      maps_to: MD_GPIO_26
+      connector: JHAT
+      physical_pin: 19
+      source_function: SE3_MOSI
+      source_refs:
+        - jhat
+    JHAT_20:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 20
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_21:
+      maps_to: MD_GPIO_25
+      connector: JHAT
+      physical_pin: 21
+      source_function: SE3_MISO
+      source_refs:
+        - jhat
+    JHAT_22:
+      maps_to: MD_GPIO_107
+      connector: JHAT
+      physical_pin: 22
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_23:
+      maps_to: MD_GPIO_27
+      connector: JHAT
+      physical_pin: 23
+      source_function: SE3_SCK
+      source_refs:
+        - jhat
+    JHAT_24:
+      maps_to: MD_GPIO_28
+      connector: JHAT
+      physical_pin: 24
+      source_function: SE3_CS
+      source_refs:
+        - jhat
+    JHAT_25:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 25
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_26:
+      maps_to: MD_GPIO_88
+      connector: JHAT
+      physical_pin: 26
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_27:
+      maps_to: MD_GPIO_19
+      connector: JHAT
+      physical_pin: 27
+      source_function: SE1_SDA
+      source_refs:
+        - jhat
+    JHAT_28:
+      maps_to: MD_GPIO_20
+      connector: JHAT
+      physical_pin: 28
+      source_function: SE1_SCL
+      source_refs:
+        - jhat
+    JHAT_29:
+      maps_to: MD_GPIO_89
+      connector: JHAT
+      physical_pin: 29
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_30:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 30
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_31:
+      maps_to: MD_GPIO_80
+      connector: JHAT
+      physical_pin: 31
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_32:
+      maps_to: MD_GPIO_77
+      connector: JHAT
+      physical_pin: 32
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_33:
+      maps_to: MD_GPIO_81
+      connector: JHAT
+      physical_pin: 33
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_34:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 34
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_35:
+      maps_to: MD_GPIO_117
+      connector: JHAT
+      physical_pin: 35
+      source_function: I2S1_WS
+      source_refs:
+        - jhat
+    JHAT_36:
+      maps_to: MD_GPIO_84
+      connector: JHAT
+      physical_pin: 36
+      source_function: SE2_CTS
+      unavailable_while_bluetooth_active: true
+      source_refs:
+        - jhat
+    JHAT_37:
+      maps_to: MD_GPIO_108
+      connector: JHAT
+      physical_pin: 37
+      source_function: GPIO
+      source_refs:
+        - jhat
+    JHAT_38:
+      maps_to: MD_GPIO_118
+      connector: JHAT
+      physical_pin: 38
+      source_function: I2S1_DATA0
+      source_refs:
+        - jhat
+    JHAT_39:
+      maps_to: GND
+      connector: JHAT
+      physical_pin: 39
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jhat
+    JHAT_40:
+      maps_to: MD_GPIO_119
+      connector: JHAT
+      physical_pin: 40
+      source_function: I2S1_DATA1
+      source_refs:
+        - jhat
+    JMEDIA_1:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 1
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_2:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 2
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_3:
+      maps_to: MIPI_DSI0_CLK_M
+      connector: JMEDIA
+      physical_pin: 3
+      source_refs:
+        - jmedia
+    JMEDIA_4:
+      maps_to: MIPI_DSI0_L1_P
+      connector: JMEDIA
+      physical_pin: 4
+      source_refs:
+        - jmedia
+    JMEDIA_5:
+      maps_to: MIPI_DSI0_CLK_P
+      connector: JMEDIA
+      physical_pin: 5
+      source_refs:
+        - jmedia
+    JMEDIA_6:
+      maps_to: MIPI_DSI0_L1_M
+      connector: JMEDIA
+      physical_pin: 6
+      source_refs:
+        - jmedia
+    JMEDIA_7:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 7
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_8:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 8
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_9:
+      maps_to: MIPI_DSI0_L2_M
+      connector: JMEDIA
+      physical_pin: 9
+      source_refs:
+        - jmedia
+    JMEDIA_10:
+      maps_to: MIPI_DSI0_L0_P
+      connector: JMEDIA
+      physical_pin: 10
+      source_refs:
+        - jmedia
+    JMEDIA_11:
+      maps_to: MIPI_DSI0_L2_P
+      connector: JMEDIA
+      physical_pin: 11
+      source_refs:
+        - jmedia
+    JMEDIA_12:
+      maps_to: MIPI_DSI0_L0_M
+      connector: JMEDIA
+      physical_pin: 12
+      source_refs:
+        - jmedia
+    JMEDIA_13:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 13
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_14:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 14
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_15:
+      maps_to: MIPI_DSI0_L3_M
+      connector: JMEDIA
+      physical_pin: 15
+      source_refs:
+        - jmedia
+    JMEDIA_16:
+      maps_to: SOC_CAM_MCLK0
+      connector: JMEDIA
+      physical_pin: 16
+      source_function: GPIO_67
+      source_refs:
+        - jmedia
+    JMEDIA_17:
+      maps_to: MIPI_DSI0_L3_P
+      connector: JMEDIA
+      physical_pin: 17
+      source_refs:
+        - jmedia
+    JMEDIA_18:
+      maps_to: SOC_CAM_MCLK1
+      connector: JMEDIA
+      physical_pin: 18
+      source_function: GPIO_68
+      source_refs:
+        - jmedia
+    JMEDIA_19:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 19
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_20:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 20
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_21:
+      maps_to: CSI0_C0_LN0_M
+      connector: JMEDIA
+      physical_pin: 21
+      source_refs:
+        - jmedia
+    JMEDIA_22:
+      maps_to: CCI_I2C2_SDA1
+      connector: JMEDIA
+      physical_pin: 22
+      source_function: GPIO_59
+      source_refs:
+        - jmedia
+    JMEDIA_23:
+      maps_to: CSI0_B0_LN0_P
+      connector: JMEDIA
+      physical_pin: 23
+      source_refs:
+        - jmedia
+    JMEDIA_24:
+      maps_to: CCI_I2C2_SCL1
+      connector: JMEDIA
+      physical_pin: 24
+      source_function: GPIO_60
+      source_refs:
+        - jmedia
+    JMEDIA_25:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 25
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_26:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 26
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_27:
+      maps_to: CSI0_B1_LN1_M
+      connector: JMEDIA
+      physical_pin: 27
+      source_refs:
+        - jmedia
+    JMEDIA_28:
+      maps_to: CSI1_B2_LN3_P
+      connector: JMEDIA
+      physical_pin: 28
+      source_refs:
+        - jmedia
+    JMEDIA_29:
+      maps_to: CSI0_A1_LN1_P
+      connector: JMEDIA
+      physical_pin: 29
+      source_refs:
+        - jmedia
+    JMEDIA_30:
+      maps_to: CSI1_C2_LN3_M
+      connector: JMEDIA
+      physical_pin: 30
+      source_refs:
+        - jmedia
+    JMEDIA_31:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 31
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_32:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 32
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_33:
+      maps_to: CSI0_A0_CLK_M
+      connector: JMEDIA
+      physical_pin: 33
+      source_refs:
+        - jmedia
+    JMEDIA_34:
+      maps_to: CSI1_C1_LN2_P
+      connector: JMEDIA
+      physical_pin: 34
+      source_refs:
+        - jmedia
+    JMEDIA_35:
+      maps_to: CSI0_NC_CLK_P
+      connector: JMEDIA
+      physical_pin: 35
+      source_refs:
+        - jmedia
+    JMEDIA_36:
+      maps_to: CSI1_A2_LN2_M
+      connector: JMEDIA
+      physical_pin: 36
+      source_refs:
+        - jmedia
+    JMEDIA_37:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 37
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_38:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 38
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_39:
+      maps_to: CSI0_A2_LN2_M
+      connector: JMEDIA
+      physical_pin: 39
+      source_refs:
+        - jmedia
+    JMEDIA_40:
+      maps_to: CSI1_NC_CLK_P
+      connector: JMEDIA
+      physical_pin: 40
+      source_refs:
+        - jmedia
+    JMEDIA_41:
+      maps_to: CSI0_C1_LN2_P
+      connector: JMEDIA
+      physical_pin: 41
+      source_refs:
+        - jmedia
+    JMEDIA_42:
+      maps_to: CSI1_A0_CLK_M
+      connector: JMEDIA
+      physical_pin: 42
+      source_refs:
+        - jmedia
+    JMEDIA_43:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 43
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_44:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 44
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_45:
+      maps_to: CSI0_C2_LN3_M
+      connector: JMEDIA
+      physical_pin: 45
+      source_refs:
+        - jmedia
+    JMEDIA_46:
+      maps_to: CSI1_A1_LN1_P
+      connector: JMEDIA
+      physical_pin: 46
+      source_refs:
+        - jmedia
+    JMEDIA_47:
+      maps_to: CSI0_B2_LN3_P
+      connector: JMEDIA
+      physical_pin: 47
+      source_refs:
+        - jmedia
+    JMEDIA_48:
+      maps_to: CSI1_B1_LN1_M
+      connector: JMEDIA
+      physical_pin: 48
+      source_refs:
+        - jmedia
+    JMEDIA_49:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 49
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_50:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 50
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_51:
+      maps_to: CCI_I2C0_SCL1
+      connector: JMEDIA
+      physical_pin: 51
+      source_function: GPIO_58
+      source_refs:
+        - jmedia
+    JMEDIA_52:
+      maps_to: CSI1_B0_LN0_P
+      connector: JMEDIA
+      physical_pin: 52
+      source_refs:
+        - jmedia
+    JMEDIA_53:
+      maps_to: CCI_I2C0_SDA1
+      connector: JMEDIA
+      physical_pin: 53
+      source_function: GPIO_57
+      source_refs:
+        - jmedia
+    JMEDIA_54:
+      maps_to: CSI1_C0_LN0_M
+      connector: JMEDIA
+      physical_pin: 54
+      source_refs:
+        - jmedia
+    JMEDIA_55:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 55
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_56:
+      maps_to: GND
+      connector: JMEDIA
+      physical_pin: 56
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmedia
+    JMEDIA_57:
+      maps_to: VIN (IN, 1.5 A max)
+      connector: JMEDIA
+      physical_pin: 57
+      direction: power_input
+      capabilities:
+        - power_input
+      max_current_a: 1.5
+      source_refs:
+        - jmedia
+    JMEDIA_58:
+      maps_to: +3V3 (OUT)
+      connector: JMEDIA
+      physical_pin: 58
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmedia
+    JMEDIA_59:
+      maps_to: VIN (IN, 1.5 A max)
+      connector: JMEDIA
+      physical_pin: 59
+      direction: power_input
+      capabilities:
+        - power_input
+      max_current_a: 1.5
+      source_refs:
+        - jmedia
+    JMEDIA_60:
+      maps_to: +3V3 (OUT)
+      connector: JMEDIA
+      physical_pin: 60
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmedia
+    JMISC_1:
+      maps_to: MCU_PSSI_D0
+      connector: JMISC
+      physical_pin: 1
+      source_function: PA9
+      mcu_pin: PA9
+      source_refs:
+        - jmisc
+    JMISC_2:
+      maps_to: MCU_TRACE_CLK
+      connector: JMISC
+      physical_pin: 2
+      source_function: PE2
+      mcu_pin: PE2
+      source_refs:
+        - jmisc
+    JMISC_3:
+      maps_to: MCU_PSSI_D1
+      connector: JMISC
+      physical_pin: 3
+      source_function: PC7
+      mcu_pin: PC7
+      source_refs:
+        - jmisc
+    JMISC_4:
+      maps_to: MCU_TRACE_D0
+      connector: JMISC
+      physical_pin: 4
+      source_function: PE3
+      mcu_pin: PE3
+      source_refs:
+        - jmisc
+    JMISC_5:
+      maps_to: MCU_PSSI_D2
+      connector: JMISC
+      physical_pin: 5
+      source_function: PC8
+      mcu_pin: PC8
+      source_refs:
+        - jmisc
+    JMISC_6:
+      maps_to: MCU_TRACE_D1
+      connector: JMISC
+      physical_pin: 6
+      source_function: PE4
+      mcu_pin: PE4
+      source_refs:
+        - jmisc
+    JMISC_7:
+      maps_to: MCU_PSSI_D3
+      connector: JMISC
+      physical_pin: 7
+      source_function: PE1
+      mcu_pin: PE1
+      source_refs:
+        - jmisc
+    JMISC_8:
+      maps_to: MCU_TRACE_D2
+      connector: JMISC
+      physical_pin: 8
+      source_function: PE5
+      mcu_pin: PE5
+      source_refs:
+        - jmisc
+    JMISC_9:
+      maps_to: MCU_PSSI_D4
+      connector: JMISC
+      physical_pin: 9
+      source_function: PC11
+      mcu_pin: PC11
+      source_refs:
+        - jmisc
+    JMISC_10:
+      maps_to: MCU_TRACE_D3
+      connector: JMISC
+      physical_pin: 10
+      source_function: PE6
+      mcu_pin: PE6
+      source_refs:
+        - jmisc
+    JMISC_11:
+      maps_to: MCU_PSSI_D5
+      connector: JMISC
+      physical_pin: 11
+      source_function: PD3
+      mcu_pin: PD3
+      source_refs:
+        - jmisc
+    JMISC_12:
+      maps_to: MCU_USART2_RX
+      connector: JMISC
+      physical_pin: 12
+      source_function: PE7
+      mcu_pin: PE7
+      source_refs:
+        - jmisc
+    JMISC_13:
+      maps_to: MCU_PSSI_D6
+      connector: JMISC
+      physical_pin: 13
+      source_function: PF4
+      mcu_pin: PF4
+      source_refs:
+        - jmisc
+    JMISC_14:
+      maps_to: MCU_USART2_TX
+      connector: JMISC
+      physical_pin: 14
+      source_function: PE8
+      mcu_pin: PE8
+      source_refs:
+        - jmisc
+    JMISC_15:
+      maps_to: MCU_PSSI_D7
+      connector: JMISC
+      physical_pin: 15
+      source_function: PI7
+      mcu_pin: PI7
+      source_refs:
+        - jmisc
+    JMISC_16:
+      maps_to: MCU_I2C2_SCL
+      connector: JMISC
+      physical_pin: 16
+      source_function: PF1
+      mcu_pin: PF1
+      source_refs:
+        - jmisc
+    JMISC_17:
+      maps_to: MCU_PSSI_PDCK
+      connector: JMISC
+      physical_pin: 17
+      source_function: PA6
+      mcu_pin: PA6
+      source_refs:
+        - jmisc
+    JMISC_18:
+      maps_to: MCU_I2C2_SDA
+      connector: JMISC
+      physical_pin: 18
+      source_function: PF0
+      mcu_pin: PF0
+      source_refs:
+        - jmisc
+    JMISC_19:
+      maps_to: MCU_PSSI_RDY
+      connector: JMISC
+      physical_pin: 19
+      source_function: PI5
+      mcu_pin: PI5
+      source_refs:
+        - jmisc
+    JMISC_20:
+      maps_to: MCU_GPIO_PA0
+      connector: JMISC
+      physical_pin: 20
+      source_function: PA0
+      mcu_pin: PA0
+      source_refs:
+        - jmisc
+    JMISC_21:
+      maps_to: MCU_PSSI_DE
+      connector: JMISC
+      physical_pin: 21
+      source_function: PH8
+      mcu_pin: PH8
+      source_refs:
+        - jmisc
+    JMISC_22:
+      maps_to: MCU_GPIO_PA1
+      connector: JMISC
+      physical_pin: 22
+      source_function: PA1
+      mcu_pin: PA1
+      source_refs:
+        - jmisc
+    JMISC_23:
+      maps_to: MCU_UART4_RX
+      connector: JMISC
+      physical_pin: 23
+      source_function: PA11
+      mcu_pin: PA11
+      source_refs:
+        - jmisc
+    JMISC_24:
+      maps_to: MCU_GPIO_PA2
+      connector: JMISC
+      physical_pin: 24
+      source_function: PA2
+      mcu_pin: PA2
+      source_refs:
+        - jmisc
+    JMISC_25:
+      maps_to: MCU_UART4_TX
+      connector: JMISC
+      physical_pin: 25
+      source_function: PA12
+      mcu_pin: PA12
+      source_refs:
+        - jmisc
+    JMISC_26:
+      maps_to: GND
+      connector: JMISC
+      physical_pin: 26
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmisc
+    JMISC_27:
+      maps_to: GND
+      connector: JMISC
+      physical_pin: 27
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmisc
+    JMISC_28:
+      maps_to: EAR_P
+      connector: JMISC
+      physical_pin: 28
+      source_refs:
+        - jmisc
+    JMISC_29:
+      maps_to: MIC_IN+
+      connector: JMISC
+      physical_pin: 29
+      source_refs:
+        - jmisc
+    JMISC_30:
+      maps_to: EAR_M
+      connector: JMISC
+      physical_pin: 30
+      source_refs:
+        - jmisc
+    JMISC_31:
+      maps_to: MIC_IN-
+      connector: JMISC
+      physical_pin: 31
+      source_refs:
+        - jmisc
+    JMISC_32:
+      maps_to: LINEOUT_P
+      connector: JMISC
+      physical_pin: 32
+      source_refs:
+        - jmisc
+    JMISC_33:
+      maps_to: MIC_BIAS
+      connector: JMISC
+      physical_pin: 33
+      source_refs:
+        - jmisc
+    JMISC_34:
+      maps_to: LINEOUT_M
+      connector: JMISC
+      physical_pin: 34
+      source_refs:
+        - jmisc
+    JMISC_35:
+      maps_to: GND
+      connector: JMISC
+      physical_pin: 35
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmisc
+    JMISC_36:
+      maps_to: HPH_L
+      connector: JMISC
+      physical_pin: 36
+      source_refs:
+        - jmisc
+    JMISC_37:
+      maps_to: SOC_GPIO_10_SE0
+      connector: JMISC
+      physical_pin: 37
+      source_function: MISO
+      source_refs:
+        - jmisc
+    JMISC_38:
+      maps_to: HPH_R
+      connector: JMISC
+      physical_pin: 38
+      source_refs:
+        - jmisc
+    JMISC_39:
+      maps_to: SOC_GPIO_11_SE0
+      connector: JMISC
+      physical_pin: 39
+      source_function: MOSI
+      source_refs:
+        - jmisc
+    JMISC_40:
+      maps_to: HPH_REF
+      connector: JMISC
+      physical_pin: 40
+      source_refs:
+        - jmisc
+    JMISC_41:
+      maps_to: SOC_GPIO_12_SE0
+      connector: JMISC
+      physical_pin: 41
+      source_function: SCK
+      source_refs:
+        - jmisc
+    JMISC_42:
+      maps_to: HS_DET
+      connector: JMISC
+      physical_pin: 42
+      source_refs:
+        - jmisc
+    JMISC_43:
+      maps_to: SOC_GPIO_13_SE0
+      connector: JMISC
+      physical_pin: 43
+      source_function: CS0
+      source_refs:
+        - jmisc
+    JMISC_44:
+      maps_to: GND
+      connector: JMISC
+      physical_pin: 44
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmisc
+    JMISC_45:
+      maps_to: SOC_GPIO_15_SE0
+      connector: JMISC
+      physical_pin: 45
+      source_function: CS2
+      source_refs:
+        - jmisc
+    JMISC_46:
+      maps_to: SOC_GPIO_120
+      connector: JMISC
+      physical_pin: 46
+      source_function: I2S2_SCK
+      source_refs:
+        - jmisc
+    JMISC_47:
+      maps_to: SOC_GPIO_14_SE0
+      connector: JMISC
+      physical_pin: 47
+      source_function: CS1
+      source_refs:
+        - jmisc
+    JMISC_48:
+      maps_to: SOC_GPIO_121
+      connector: JMISC
+      physical_pin: 48
+      source_function: I2S2_WS
+      source_refs:
+        - jmisc
+    JMISC_49:
+      maps_to: SOC_GPIO_73
+      connector: JMISC
+      physical_pin: 49
+      source_refs:
+        - jmisc
+    JMISC_50:
+      maps_to: SOC_GPIO_122
+      connector: JMISC
+      physical_pin: 50
+      source_function: I2S2_DATA0
+      source_refs:
+        - jmisc
+    JMISC_51:
+      maps_to: SOC_GPIO_74
+      connector: JMISC
+      physical_pin: 51
+      source_refs:
+        - jmisc
+    JMISC_52:
+      maps_to: SOC_GPIO_123
+      connector: JMISC
+      physical_pin: 52
+      source_function: I2S2_DATA1
+      source_refs:
+        - jmisc
+    JMISC_53:
+      maps_to: +3V3 (OUT)
+      connector: JMISC
+      physical_pin: 53
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmisc
+    JMISC_54:
+      maps_to: +5V (OUT)
+      connector: JMISC
+      physical_pin: 54
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmisc
+    JMISC_55:
+      maps_to: +3V3 (OUT)
+      connector: JMISC
+      physical_pin: 55
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmisc
+    JMISC_56:
+      maps_to: +5V (OUT)
+      connector: JMISC
+      physical_pin: 56
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmisc
+    JMISC_57:
+      maps_to: +1V8 (OUT)
+      connector: JMISC
+      physical_pin: 57
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jmisc
+    JMISC_58:
+      maps_to: GND
+      connector: JMISC
+      physical_pin: 58
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jmisc
+    JMISC_59:
+      maps_to: SOC_VCOIN (IN)
+      connector: JMISC
+      physical_pin: 59
+      source_function: MCU_VBAT
+      direction: power_input
+      capabilities:
+        - power_input
+      max_voltage_v: 3.3
+      note: MPU and MCU RTC backup only; not board backup power.
+      source_refs:
+        - jmisc
+    JMISC_60:
+      maps_to: NC
+      connector: JMISC
+      physical_pin: 60
+      capabilities:
+        - not_connected
+      source_refs:
+        - jmisc
+    JOMEGA_1:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 1
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_2:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 2
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_3:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 3
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_4:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 4
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_5:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 5
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_6:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 6
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_7:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 7
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_8:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 8
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_9:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 9
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_10:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 10
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_11:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 11
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_12:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 12
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_13:
+      maps_to: VIN (IN)
+      connector: JOMEGA
+      physical_pin: 13
+      direction: power_input
+      capabilities:
+        - power_input
+      source_refs:
+        - jomega
+    JOMEGA_14:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 14
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_15:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 15
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_16:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 16
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_17:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 17
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_18:
+      maps_to: USB1_SS_TX_P
+      connector: JOMEGA
+      physical_pin: 18
+      source_refs:
+        - jomega
+    JOMEGA_19:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 19
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_20:
+      maps_to: USB1_SS_TX_N
+      connector: JOMEGA
+      physical_pin: 20
+      source_refs:
+        - jomega
+    JOMEGA_21:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 21
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_22:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 22
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_23:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 23
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_24:
+      maps_to: USB1_HS_D_P
+      connector: JOMEGA
+      physical_pin: 24
+      source_refs:
+        - jomega
+    JOMEGA_25:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 25
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_26:
+      maps_to: USB1_HS_D_N
+      connector: JOMEGA
+      physical_pin: 26
+      source_refs:
+        - jomega
+    JOMEGA_27:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 27
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_28:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 28
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_29:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 29
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_30:
+      maps_to: USB1_SS_RX_P
+      connector: JOMEGA
+      physical_pin: 30
+      source_refs:
+        - jomega
+    JOMEGA_31:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 31
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_32:
+      maps_to: USB1_SS_RX_N
+      connector: JOMEGA
+      physical_pin: 32
+      source_refs:
+        - jomega
+    JOMEGA_33:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 33
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_34:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 34
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_35:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 35
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_36:
+      maps_to: USB2_SS_TX_P
+      connector: JOMEGA
+      physical_pin: 36
+      source_refs:
+        - jomega
+    JOMEGA_37:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 37
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_38:
+      maps_to: USB2_SS_TX_N
+      connector: JOMEGA
+      physical_pin: 38
+      source_refs:
+        - jomega
+    JOMEGA_39:
+      maps_to: MCU_GPIO_PC0
+      connector: JOMEGA
+      physical_pin: 39
+      source_refs:
+        - jomega
+    JOMEGA_40:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 40
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_41:
+      maps_to: MCU_GPIO_PC1
+      connector: JOMEGA
+      physical_pin: 41
+      source_refs:
+        - jomega
+    JOMEGA_42:
+      maps_to: USB2_HS_D_P
+      connector: JOMEGA
+      physical_pin: 42
+      source_refs:
+        - jomega
+    JOMEGA_43:
+      maps_to: MCU_GPIO_PC2
+      connector: JOMEGA
+      physical_pin: 43
+      source_refs:
+        - jomega
+    JOMEGA_44:
+      maps_to: USB2_HS_D_N
+      connector: JOMEGA
+      physical_pin: 44
+      source_refs:
+        - jomega
+    JOMEGA_45:
+      maps_to: MCU_GPIO_PC3
+      connector: JOMEGA
+      physical_pin: 45
+      source_refs:
+        - jomega
+    JOMEGA_46:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 46
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_47:
+      maps_to: MCU_GPIO_PD12
+      connector: JOMEGA
+      physical_pin: 47
+      source_refs:
+        - jomega
+    JOMEGA_48:
+      maps_to: USB2_SS_RX_P
+      connector: JOMEGA
+      physical_pin: 48
+      source_refs:
+        - jomega
+    JOMEGA_49:
+      maps_to: MCU_GPIO_PD13
+      connector: JOMEGA
+      physical_pin: 49
+      source_refs:
+        - jomega
+    JOMEGA_50:
+      maps_to: USB2_SS_RX_N
+      connector: JOMEGA
+      physical_pin: 50
+      source_refs:
+        - jomega
+    JOMEGA_51:
+      maps_to: MCU_GPIO_PD14
+      connector: JOMEGA
+      physical_pin: 51
+      source_refs:
+        - jomega
+    JOMEGA_52:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 52
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_53:
+      maps_to: MCU_GPIO_PD15
+      connector: JOMEGA
+      physical_pin: 53
+      source_refs:
+        - jomega
+    JOMEGA_54:
+      maps_to: USB1_PWRON
+      connector: JOMEGA
+      physical_pin: 54
+      source_refs:
+        - jomega
+    JOMEGA_55:
+      maps_to: MCU_GPIO_PI2
+      connector: JOMEGA
+      physical_pin: 55
+      source_refs:
+        - jomega
+    JOMEGA_56:
+      maps_to: USB1_OVERCUR
+      connector: JOMEGA
+      physical_pin: 56
+      source_refs:
+        - jomega
+    JOMEGA_57:
+      maps_to: MIC2_IN+
+      connector: JOMEGA
+      physical_pin: 57
+      source_refs:
+        - jomega
+    JOMEGA_58:
+      maps_to: USB2_PWRON
+      connector: JOMEGA
+      physical_pin: 58
+      source_refs:
+        - jomega
+    JOMEGA_59:
+      maps_to: MIC2_IN-
+      connector: JOMEGA
+      physical_pin: 59
+      source_refs:
+        - jomega
+    JOMEGA_60:
+      maps_to: USB2_OVERCUR
+      connector: JOMEGA
+      physical_pin: 60
+      source_refs:
+        - jomega
+    JOMEGA_61:
+      maps_to: MIC2_BIAS
+      connector: JOMEGA
+      physical_pin: 61
+      source_refs:
+        - jomega
+    JOMEGA_62:
+      maps_to: MISO
+      connector: JOMEGA
+      physical_pin: 62
+      source_function: GPIO_39
+      source_refs:
+        - jomega
+    JOMEGA_63:
+      maps_to: JTAG_TMS
+      connector: JOMEGA
+      physical_pin: 63
+      source_refs:
+        - jomega
+    JOMEGA_64:
+      maps_to: MOSI
+      connector: JOMEGA
+      physical_pin: 64
+      source_function: GPIO_40
+      source_refs:
+        - jomega
+    JOMEGA_65:
+      maps_to: JTAG_TDO
+      connector: JOMEGA
+      physical_pin: 65
+      source_refs:
+        - jomega
+    JOMEGA_66:
+      maps_to: SCK
+      connector: JOMEGA
+      physical_pin: 66
+      source_function: GPIO_37
+      source_refs:
+        - jomega
+    JOMEGA_67:
+      maps_to: JTAG_TDI
+      connector: JOMEGA
+      physical_pin: 67
+      source_refs:
+        - jomega
+    JOMEGA_68:
+      maps_to: CS
+      connector: JOMEGA
+      physical_pin: 68
+      source_function: GPIO_38
+      source_refs:
+        - jomega
+    JOMEGA_69:
+      maps_to: JTAG_TCK
+      connector: JOMEGA
+      physical_pin: 69
+      source_refs:
+        - jomega
+    JOMEGA_70:
+      maps_to: PM_PS_HOLD
+      connector: JOMEGA
+      physical_pin: 70
+      source_refs:
+        - jomega
+    JOMEGA_71:
+      maps_to: JTAG_SRST
+      connector: JOMEGA
+      physical_pin: 71
+      source_refs:
+        - jomega
+    JOMEGA_72:
+      maps_to: FORCE_USB_BOOT
+      connector: JOMEGA
+      physical_pin: 72
+      source_function: GPIO_52
+      source_refs:
+        - jomega
+    JOMEGA_73:
+      maps_to: JTAG_TRST
+      connector: JOMEGA
+      physical_pin: 73
+      source_refs:
+        - jomega
+    JOMEGA_74:
+      maps_to: POWER_EN
+      connector: JOMEGA
+      physical_pin: 74
+      source_refs:
+        - jomega
+    JOMEGA_75:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 75
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_76:
+      maps_to: USER_BUTTON
+      connector: JOMEGA
+      physical_pin: 76
+      source_function: GPIO_79
+      source_refs:
+        - jomega
+    JOMEGA_77:
+      maps_to: +1V8_SPX3 (OUT)
+      connector: JOMEGA
+      physical_pin: 77
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_78:
+      maps_to: PMIC_RESET
+      connector: JOMEGA
+      physical_pin: 78
+      source_refs:
+        - jomega
+    JOMEGA_79:
+      maps_to: +1V8 (OUT)
+      connector: JOMEGA
+      physical_pin: 79
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_80:
+      maps_to: RTSS_RESET
+      connector: JOMEGA
+      physical_pin: 80
+      source_refs:
+        - jomega
+    JOMEGA_81:
+      maps_to: +1V8 (OUT)
+      connector: JOMEGA
+      physical_pin: 81
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_82:
+      maps_to: RTSS_PS_HOLD
+      connector: JOMEGA
+      physical_pin: 82
+      source_refs:
+        - jomega
+    JOMEGA_83:
+      maps_to: QUP0_SE7_TX
+      connector: JOMEGA
+      physical_pin: 83
+      source_function: GPIO_71
+      source_refs:
+        - jomega
+    JOMEGA_84:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 84
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_85:
+      maps_to: QUP0_SE7_RX
+      connector: JOMEGA
+      physical_pin: 85
+      source_function: GPIO_72
+      source_refs:
+        - jomega
+    JOMEGA_86:
+      maps_to: FDCAN1_TX
+      connector: JOMEGA
+      physical_pin: 86
+      source_function: PD5
+      mcu_pin: PD5
+      source_refs:
+        - jomega
+    JOMEGA_87:
+      maps_to: PWR_DISABLE
+      connector: JOMEGA
+      physical_pin: 87
+      source_refs:
+        - jomega
+    JOMEGA_88:
+      maps_to: FDCAN1_RX
+      connector: JOMEGA
+      physical_pin: 88
+      source_function: PI9
+      mcu_pin: PI9
+      source_refs:
+        - jomega
+    JOMEGA_89:
+      maps_to: FORCE_BOOT
+      connector: JOMEGA
+      physical_pin: 89
+      source_refs:
+        - jomega
+    JOMEGA_90:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 90
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_91:
+      maps_to: +3V3 (OUT)
+      connector: JOMEGA
+      physical_pin: 91
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_92:
+      maps_to: FDCAN2_TX
+      connector: JOMEGA
+      physical_pin: 92
+      source_function: PA10
+      mcu_pin: PA10
+      source_refs:
+        - jomega
+    JOMEGA_93:
+      maps_to: +3V3 (OUT)
+      connector: JOMEGA
+      physical_pin: 93
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_94:
+      maps_to: FDCAN2_RX
+      connector: JOMEGA
+      physical_pin: 94
+      source_function: PD9
+      mcu_pin: PD9
+      source_refs:
+        - jomega
+    JOMEGA_95:
+      maps_to: +3V3 (OUT)
+      connector: JOMEGA
+      physical_pin: 95
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_96:
+      maps_to: GND
+      connector: JOMEGA
+      physical_pin: 96
+      direction: power_return
+      capabilities:
+        - ground_reference
+      source_refs:
+        - jomega
+    JOMEGA_97:
+      maps_to: +5V (OUT)
+      connector: JOMEGA
+      physical_pin: 97
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_98:
+      maps_to: FDCAN3_TX
+      connector: JOMEGA
+      physical_pin: 98
+      source_function: PF6
+      mcu_pin: PF6
+      source_refs:
+        - jomega
+    JOMEGA_99:
+      maps_to: +5V (OUT)
+      connector: JOMEGA
+      physical_pin: 99
+      direction: power_output
+      capabilities:
+        - power_output
+      source_refs:
+        - jomega
+    JOMEGA_100:
+      maps_to: FDCAN3_RX
+      connector: JOMEGA
+      physical_pin: 100
+      source_function: PF7
+      mcu_pin: PF7
+      source_refs:
+        - jomega
+  interfaces:
+    UNO_UART:
+      type: uart
+      processor: mcu
+      peripheral: USART3
+      RX: D0
+      TX: D1
+      source_refs: &id001
+        - uart
+    UNO_SPI:
+      type: spi
+      processor: mcu
+      SS: D10
+      MOSI: D11
+      MISO: D12
+      SCK: D13
+      source_refs: &id002
+        - spi
+    UNO_I2C:
+      type: i2c
+      processor: mcu
+      SDA: D20
+      SCL: D21
+      source_refs: &id003
+        - i2c
+    QWIIC_I2C:
+      type: i2c
+      processor: mcu
+      SDA: QWIIC_SDA
+      SCL: QWIIC_SCL
+      logic_voltage_v: 3.3
+      onboard_pullups: true
+      note: PA8 and PC9 follow the Communication / I2C table; I2C3 versus I2C4 naming is unresolved.
+      source_refs: &id004
+        - i2c
+        - qwiic
+    UNO_ADC:
+      type: adc
+      processor: mcu
+      pins:
+        - A0
+        - A1
+        - A2
+        - A3
+        - A4
+        - A5
+      supported_resolution_bits:
+        - 8
+        - 10
+        - 12
+      default_reference_v: 3.3
+      internal_reference_options_v:
+        - 1.5
+        - 1.8
+        - 2.048
+        - 2.5
+      external_reference:
+        pin: AREF
+        min_v: 2.0
+        max_reference: VDD
+      source_refs: &id005
+        - adc
+    UNO_DAC:
+      type: dac
+      processor: mcu
+      channels:
+        DAC0: A0
+        DAC1: A1
+      supported_resolution_bits:
+        - 8
+        - 10
+        - 12
+      source_refs: &id006
+        - dac
+    UNO_OPAMP:
+      type: operational_amplifier
+      processor: mcu
+      positive_input: A2
+      negative_input: A3
+      output: D3
+      source_refs: &id007
+        - digital
+        - adc
+    UNO_PWM:
+      type: pwm
+      processor: mcu
+      pins:
+        - D3
+        - D5
+        - D6
+        - D9
+        - D10
+        - D11
+      default_resolution_bits: 8
+      source_refs: &id008
+        - pwm
+    UNO_CAN:
+      type: can_controller_signals
+      processor: mcu
+      peripheral: FDCAN2
+      TX: D4
+      RX: D5
+      note: These are MCU logic signals, not the transceiver bus terminals.
+      source_refs: &id009
+        - digital
+        - can_interfaces
+    JHAT_I2C_SE0:
+      type: i2c
+      processor: mpu
+      SDA: JHAT_3
+      SCL: JHAT_5
+      source_refs: &id010
+        - jhat
+    JHAT_I2C_SE1:
+      type: i2c
+      processor: mpu
+      SDA: JHAT_27
+      SCL: JHAT_28
+      source_refs: &id011
+        - jhat
+    JHAT_SPI_SE3:
+      type: spi
+      processor: mpu
+      MOSI: JHAT_19
+      MISO: JHAT_21
+      SCK: JHAT_23
+      CS: JHAT_24
+      source_refs: &id012
+        - jhat
+    JHAT_UART_SE2:
+      type: uart
+      processor: mpu
+      TX: JHAT_8
+      RX: JHAT_10
+      RFR: JHAT_11
+      CTS: JHAT_36
+      unavailable_while_bluetooth_active: true
+      source_refs: &id013
+        - jhat
+    JHAT_I2S1:
+      type: i2s
+      processor: mpu
+      SCK: JHAT_12
+      WS: JHAT_35
+      DATA0: JHAT_38
+      DATA1: JHAT_40
+      source_refs: &id014
+        - jhat
+    JMISC_USART2:
+      type: uart
+      processor: mcu
+      RX: JMISC_12
+      TX: JMISC_14
+      source_refs: &id015
+        - jmisc
+    JMISC_UART4:
+      type: uart
+      processor: mcu
+      RX: JMISC_23
+      TX: JMISC_25
+      source_refs: &id016
+        - jmisc
+    JMISC_I2C2:
+      type: i2c
+      processor: mcu
+      SCL: JMISC_16
+      SDA: JMISC_18
+      source_refs: &id017
+        - jmisc
+    JMISC_SPI_SE0:
+      type: spi
+      processor: mpu
+      MISO: JMISC_37
+      MOSI: JMISC_39
+      SCK: JMISC_41
+      chip_selects:
+        - JMISC_43
+        - JMISC_47
+        - JMISC_45
+      source_refs: &id018
+        - jmisc
+    JMISC_I2S2:
+      type: i2s
+      processor: mpu
+      SCK: JMISC_46
+      WS: JMISC_48
+      DATA0: JMISC_50
+      DATA1: JMISC_52
+      source_refs: &id019
+        - jmisc
+    JOMEGA_SPI:
+      type: spi
+      processor: mpu
+      MISO: JOMEGA_62
+      MOSI: JOMEGA_64
+      SCK: JOMEGA_66
+      CS: JOMEGA_68
+      source_refs: &id020
+        - jomega
+    JOMEGA_UART_SE7:
+      type: uart
+      processor: mpu
+      TX: JOMEGA_83
+      RX: JOMEGA_85
+      source_refs: &id021
+        - jomega
+    JOMEGA_FDCAN1:
+      type: can_controller_signals
+      processor: mcu
+      TX: JOMEGA_86
+      RX: JOMEGA_88
+      shared_with_onboard_can_bus: true
+      source_refs: &id022
+        - jomega
+    JOMEGA_FDCAN2:
+      type: can_controller_signals
+      processor: mcu
+      TX: JOMEGA_92
+      RX: JOMEGA_94
+      source_refs: &id023
+        - jomega
+    JOMEGA_FDCAN3:
+      type: can_controller_signals
+      processor: mcu
+      TX: JOMEGA_98
+      RX: JOMEGA_100
+      source_refs: &id024
+        - jomega
+    CAN_BUS:
+      type: can_fd
+      processor: mcu
+      transceiver: ATA6563
+      high: CAN_H
+      low: CAN_L
+      physical_bitrate_limit_bps: 5000000
+      transceiver_supply_v: 5.0
+      transceiver_logic_v: 3.3
+      standby_mcu_pin: PI11
+      note: PD0/PD1 TX/RX assignments conflict in the manual and are not resolved here.
+      source_refs: &id025
+        - can
+        - can_interfaces
+        - can_transceiver
+    JMEDIA_MIPI_DSI:
+      type: mipi_dsi
+      processor: mpu
+      connector: JMEDIA
+      clock_negative: JMEDIA_3
+      clock_positive: JMEDIA_5
+      data_pairs:
+        - - JMEDIA_10
+          - JMEDIA_12
+        - - JMEDIA_4
+          - JMEDIA_6
+        - - JMEDIA_11
+          - JMEDIA_9
+        - - JMEDIA_17
+          - JMEDIA_15
+      source_refs: &id026
+        - jmedia
+        - hdmi
+  connectors:
+    USB_C:
+      type: usb_type_c
+      usb_standard: USB_3.1_Gen_1
+      max_data_rate_bps: 5000000000
+      dual_role_power: true
+      display_output: DisplayPort
+      source_voltage_v: 5.0
+      source_max_current_a: 3
+      source_max_power_w: 15
+      sink_supply: usb_c_pd_input
+      source_refs:
+        - usb_c
+    USB_A:
+      type: usb_type_a
+      processor: mpu
+      onboard_ports: 2
+      additional_ports_via_header: 2
+      expansion_connector: JOMEGA
+      usb_standard: USB_3.0
+      max_data_rate_bps: 5000000000
+      voltage_v: 5.0
+      max_current_per_onboard_port_a: 1.71
+      max_power_per_onboard_port_w: 8.55
+      source_refs:
+        - usb_a
+    QWIIC:
+      type: qwiic
+      interface: QWIIC_I2C
+      voltage_v: 3.3
+      source_refs:
+        - qwiic
+    ETHERNET:
+      type: RJ45_8P8C
+      phy: Qualcomm_QCA_8081
+      connector_model: TRJT9010A98NL
+      supported_rates_mbps:
+        - 10
+        - 100
+        - 1000
+        - 2500
+      auto_negotiation: true
+      source_refs:
+        - ethernet
+    HDMI:
+      type: HDMI_Type_A
+      positions: 19
+      processor: mpu
+      tmds_data_pairs: 3
+      tmds_clock_pairs: 1
+      ddc: true
+      cec: true
+      shared_display_output: JMEDIA
+      note: HDMI and JMEDIA MIPI-DSI cannot be active simultaneously.
+      source_refs:
+        - hdmi
+    M2:
+      type: M_2_M_key
+      processor: mpu
+      interface: PCIe_Gen_4_x4
+      supported_storage: NVMe
+      supported_form_factors:
+        - '2230'
+      sata_supported: false
+      smbus: true
+      power_rails_v:
+        - 3.3
+        - 1.8
+      source_refs:
+        - m2
+    JHAT:
+      type: male_header
+      positions: 40
+      processor: mpu
+      logic_voltage_v: 3.3
+      mpu_side_voltage_v: 1.8
+      level_translated: true
+      source_section: RPi 40-Pin Header
+      source_refs:
+        - jhat
+    JMEDIA:
+      positions: 60
+      processor: mpu
+      board_side: bottom
+      logic_voltage_v: 1.8
+      source_section: JMEDIA
+      source_refs:
+        - jmedia
+    JMISC:
+      positions: 60
+      connected_components:
+        - STM32H5F5
+        - QCS8275
+        - MAX98091
+      source_section: JMISC
+      source_refs:
+        - jmisc
+    JOMEGA:
+      positions: 100
+      connected_components:
+        - TUSB7340
+        - STM32H5F5
+        - QCS8275
+        - MAX98091
+      source_section: JOMEGA Expansion Header
+      source_refs:
+        - jomega
+    JCTL:
+      type: debug_uart
+      processor: mpu
+      note: Pin positions and logic levels are not specified in the local manual text.
+      source_refs:
+        - debug_uart
+    J3_1:
+      label: CAMERA2
+      type: TF31-22S-0.5SH
+      positions: 22
+      pitch_mm: 0.5
+      processor: mpu
+      interface: MIPI_CSI_2
+      data_lanes: 4
+      control_bus: I2C4
+      control_gpio_physical_pin: 17
+      control_voltage_v: 3.3
+      power_voltage_v: 3.3
+      source_refs:
+        - cameras
+    J3_3:
+      label: CAMERA1
+      type: TF31-22S-0.5SH
+      positions: 22
+      pitch_mm: 0.5
+      processor: mpu
+      interface: MIPI_CSI_2
+      data_lanes: 4
+      control_bus: I2C2
+      control_gpio_physical_pin: 17
+      control_voltage_v: 3.3
+      power_voltage_v: 3.3
+      source_refs:
+        - cameras
+    J3_2:
+      label: CAMERA0
+      type: TF31-22S-0.5SH
+      positions: 22
+      pitch_mm: 0.5
+      processor: mpu
+      interface: MIPI_CSI_2
+      data_lanes: 4
+      control_bus: I2C0
+      control_gpio_physical_pin: 17
+      control_voltage_v: 3.3
+      power_voltage_v: 3.3
+      source_refs:
+        - cameras
+    CAN_SCREW_TERMINAL:
+      type: screw_terminal
+      interface: CAN_BUS
+      source_refs:
+        - can
+    JDIGITAL:
+      type: uno_style_digital_header
+      processor: mcu
+      note: Logical connector grouping; the manual text does not enumerate physical header positions.
+      source_refs:
+        - digital
+        - uart
+    JANALOG:
+      type: uno_style_analog_header
+      processor: mcu
+      source_refs:
+        - analog
+        - adc
+  wireless:
+    module: NFA725B
+    wifi:
+      standard: Wi-Fi_6
+      stated_bands_ghz:
+        - 2.4
+        - 5
+        - 6
+    bluetooth:
+      version_status: conflicting_source_claims
+      versions_stated:
+        - '5.3'
+        - '5.1'
+    onboard_antennas: 2
+    connected_processor: mpu
+    source_refs:
+      - architecture
+      - wireless
+      - jhat
+  onboard:
+    led_matrix:
+      processor: mcu
+      rows: 8
+      columns: 13
+      color: blue
+      source_refs:
+        - led_matrix
+    rgb_leds:
+      processor: mcu
+      count: 4
+      polarity: active_low
+      channel_labels:
+        LED1:
+          - LED1_R
+          - LED1_G
+          - LED1_B
+        LED2:
+          - LED2_R
+          - LED2_G
+          - LED2_B
+        LED3:
+          - LED3_R
+          - LED3_G
+          - LED3_B
+        LED4:
+          - LED4_R
+          - LED4_G
+          - LED4_B
+      note: MCU port mappings are not given in the manual text.
+      source_refs:
+        - rgb_leds
+    user_button:
+      processor: mpu
+      maps_to: GPIO_79
+      exposed_at: JOMEGA_76
+      source_refs:
+        - user_button
+        - jomega
+    power_button:
+      long_press_shutdown_min_s: 10
+      power_cycle_required_after_long_press: true
+      automatic_boot_on_power: true
+      source_refs:
+        - power_button
+  constraints:
+    multiplexing:
+      analog_gpio_and_alternate_functions_mutually_exclusive: true
+      adc_and_dac_simultaneous_use_supported: false
+      hdmi_and_mipi_dsi_simultaneous_use_supported: false
+      jhat_unavailable_while_bluetooth_active:
+        - JHAT_8
+        - JHAT_10
+        - JHAT_11
+        - JHAT_36
+      note: Listed alternate functions are not a guarantee of simultaneous availability.
+    power:
+      approximate_board_full_load_without_peripherals_w: 25
+      total_peripheral_power_budget_required: true
+      barrel_jack_over_5a_can_damage_board: true
+      carrier_and_jomega_rails_outside_limited_nets: true
+      carrier_current_limits_not_fully_specified: true
+      vin_header_power_headroom_limited: true
+      rtc_backup_pin: JMISC_59
+      rtc_backup_max_voltage_v: 3.3
+      rtc_backup_cannot_power_whole_board: true
+    debug_uart:
+      connector: JCTL
+      tx_rx_backpowering_can_prevent_boot: true
+      board_referenced_adapter_required: true
+      manufacturer_recommended_adapter: Arduino_Bughopper
+    expansion:
+      power_off_before_connecting_external_devices: true
+      m2_nvme_2230_only: true
+      camera_module_supported_by_manual: IMX577
+      camera_support_note: Support statement belongs to the manual snapshot, not an exhaustive hardware
+        compatibility claim.
+    physical:
+      mounting_standoffs_required: true
+      conductive_surface_short_circuit_risk: true
+      uno_shield_compatibility: Mechanical and pin compatibility only; software compatibility is not established.
+    unspecified:
+      - UNO header input tolerance and per-pin current limits are not established by the local manual
+        text.
+      - No global logic voltage is assigned because connectors span multiple voltage domains.
+  physical:
+    board_dimensions_mm:
+      length: 160
+      width: 100
+    mounting_standoffs: 4
+    uno_style_headers: true
+    source_refs:
+      - form_factor
+      - clearance
+  source:
+    document: VENTUNO Q User Manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    author: Karl Söderby
+    snapshot_pulled_date: '2026-11-19'
+    scope: Transcription of the local manual; linked PDFs were not used to resolve discrepancies.
+    related_documents:
+      full_pinout: https://docs.arduino.cc/resources/pinouts/ABX00181-full-pinout.pdf
+      datasheet: https://docs.arduino.cc/resources/datasheets/ABX00181-datasheet.pdf
+      schematics: https://docs.arduino.cc/resources/schematics/ABX00181-schematics.pdf
+    pin_naming: UNO analog pins use A0-A5 with D14-D19 aliases, following the Uno R3 definition. Expansion
+      keys use CONNECTOR_position, with physical_pin scoped to connector. maps_to preserves each expansion
+      table's signal label; mcu_pin or source_function preserves its separate port or function column
+      when supplied.
+    coverage_gaps:
+      - Complete UNO power-header positions, Qwiic positions, JCTL pinout, and camera pinouts are not
+        provided in the manual text.
+      - MCU package pin numbers, board revision, and per-pin electrical limits are not specified.
+      - High-speed and carrier signal labels are transcribed as published, without schematic verification.
+    discrepancies:
+      - topic: qwiic_controller
+        sections:
+          - Qwiic
+          - Communication / I2C
+        claims:
+          - I2C4 in the Qwiic section
+          - I2C3 on PA8 and PC9 in the I2C table
+        disposition: Keep PA8 and PC9 from the explicit table; omit a definitive controller number.
+        source_refs:
+          - qwiic
+          - i2c
+      - topic: can_pd0_pd1
+        sections:
+          - CAN-FD / CAN Interfaces
+          - CAN-FD / CAN Transceiver Connections
+        claims:
+          - CAN Interfaces lists PD0 as TX and PD1 as RX.
+          - The transceiver table lists PD1 at TXD and PD0 at RXD; the terminal table follows that assignment.
+        disposition: Keep CAN-H/CAN-L as bus signals; omit definitive MCU TX/RX routing for the onboard
+          transceiver.
+        source_refs:
+          - can_interfaces
+          - can_transceiver
+      - topic: bluetooth_version
+        sections:
+          - Overview
+          - Board Architecture Overview
+          - Wireless Connectivity
+        claims:
+          - Overview and architecture state Bluetooth 5.3
+          - Wireless Connectivity states Bluetooth 5.1
+        disposition: Record both source claims without selecting a version.
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+      - topic: isp_model
+        sections:
+          - Overview
+          - Board Architecture Overview
+          - MIPI / CSI Camera
+        claims:
+          - Overview names Spectra 690
+          - Architecture and camera sections name Spectra 692
+        disposition: Omit a definitive ISP model.
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+      - topic: wifi_band_description
+        sections:
+          - Board Architecture Overview
+          - Wireless Connectivity
+        claims:
+          - Architecture calls Wi-Fi tri-band
+          - Wireless Connectivity calls it dual-band while listing 2.4/5/6 GHz
+        disposition: Preserve the three stated bands without adopting the band-count wording.
+        source_refs:
+          - architecture
+          - wireless
+      - topic: pwm_example_range
+        sections:
+          - PWM Pins
+        claims:
+          - The ten-bit example comment says 0 to 4095
+        disposition: Omit the inconsistent example range; retain the documented eight-bit default.
+        source_refs:
+          - pwm
+    related_decision: DEV-2026-11-19-001
+    enrichment_decision: DEV-2026-11-19-003
+    references:
+      overview:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Overview
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      architecture:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Board Architecture Overview
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      power:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Power Overview
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      power_safety:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Power Safety Considerations
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      usb_a_power:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: USB-A Power Draw
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      limited_rails:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: 5 V / 3.3 V Power Rails
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      vin:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: VIN Pin Ratings
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      digital:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Digital Pins
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      analog:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Analog Pins
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      adc:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Analog to Digital Converter (ADC)
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      dac:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Digital to Analog Converter (DAC)
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      pwm:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: PWM Pins
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      qwiic:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Qwiic
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      usb_c:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: USB-C Connector
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      usb_a:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: USB-A Connectors
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      ethernet:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Ethernet Connector
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      hdmi:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: HDMI
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      m2:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: M.2 Connector
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      jhat:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: RPi 40-Pin Header
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      cameras:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: MIPI / CSI Camera
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      can:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: CAN-FD
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      can_interfaces:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: CAN Interfaces
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      can_transceiver:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: CAN Transceiver Connections
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      jmedia:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: JMEDIA
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      jmisc:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: JMISC
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      jomega:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: JOMEGA Expansion Header
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      spi:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: SPI
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      i2c:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: I2C
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      uart:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: UART
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      wireless:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Wireless Connectivity
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      form_factor:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Form Factor
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      clearance:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Board Clearance
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      debug_uart:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Hardware Debug UART Interface
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      led_matrix:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: LED Matrix
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      rgb_leds:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: RGB LEDs
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      user_button:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: User Button
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+      power_button:
+        path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+        heading: Power Button
+        snapshot_pulled_date: '2026-11-19'
+        evidence_type: manual_statement_not_bench_verified
+    relationship_reference_convention: 'Typed references use processor:, component:, interface:, connector:,
+      or pin: followed by a key in the corresponding local mapping.'
+    preparation_status: Additive source transcription; no common-schema or ID migration; no CLI review
+      gate approved.
+  onboard_components:
+    stm32h5f5:
+      part_number: STM32H5F5
+      role: Real-time MCU and UNO-header peripheral controller
+      source_refs:
+        - architecture
+    qcs8275:
+      part_number: QCS8275
+      role: Application MPU serving the high-speed expansion and multimedia interfaces
+      source_refs:
+        - architecture
+    ata6563:
+      part_number: ATA6563
+      role: CAN physical-layer transceiver between MCU CAN signals and the bus terminals
+      source_refs:
+        - can
+        - can_transceiver
+    max98091:
+      part_number: MAX98091
+      role: Audio codec exposing audio connections through JMISC and JOMEGA
+      source_refs:
+        - architecture
+        - jmisc
+        - jomega
+    tusb7340:
+      part_number: TUSB7340
+      role: USB host controller connected to the JOMEGA expansion header
+      source_refs:
+        - jomega
+    qca8081:
+      part_number: QCA-8081
+      role: Ethernet PHY for the RJ45 network interface
+      source_refs:
+        - ethernet
+    trjt9010a98nl:
+      part_number: TRJT9010A98NL
+      role: RJ45 Ethernet connector
+      source_refs:
+        - ethernet
+    nfa725b:
+      part_number: NFA725B
+      role: Wi-Fi and Bluetooth radio module; Bluetooth version remains disputed
+      source_refs:
+        - architecture
+        - wireless
+    tf31_camera_connectors:
+      part_number: TF31-22S-0.5SH
+      role: 22-pin, 0.5 mm-pitch camera connectors J3_1, J3_2, and J3_3
+      source_refs:
+        - cameras
+    camera_lane_esd:
+      part_number: RCLAMP0524TCT
+      role: ESD protection on high-speed camera lanes
+      source_refs:
+        - cameras
+    camera_power_i2c_esd:
+      part_number: DF2B7ASL,L3F
+      role: ESD protection on camera power and I2C lines; part label preserved as written
+      source_refs:
+        - cameras
+    jhat_level_translation:
+      role: Translate MPU-side 1.8 V signals to JHAT-side 3.3 V
+      identification: unspecified_in_manual
+      mpu_side_voltage_v: 1.8
+      header_side_voltage_v: 3.3
+      source_refs:
+        - jhat
+    vin_ptc:
+      role: PTC protection on the UNO VIN input
+      identification: unspecified_in_manual
+      fuse_rating_a: 1.1
+      source_refs:
+        - vin
+    hdmi_tvs:
+      role: TVS protection on HDMI data and hot-plug-detect lines
+      identification: unspecified_in_manual
+      source_refs:
+        - hdmi
+    hdmi_polyfuse:
+      role: Protection described for the HDMI hot-plug-detect path
+      identification: unspecified_in_manual
+      manual_stated_fuse_rating_a: 0.5
+      note: Preserves the manual description; not an independently verified HDMI supply-current rating.
+      source_refs:
+        - hdmi
+  connections:
+    uno_uart_owner:
+      from: processor:mcu
+      to: interface:UNO_UART
+      relationship: owns
+      source_refs: *id001
+    uno_uart_at_jdigital:
+      from: interface:UNO_UART
+      to: connector:JDIGITAL
+      relationship: exposed_at
+      source_refs: *id001
+    uno_spi_owner:
+      from: processor:mcu
+      to: interface:UNO_SPI
+      relationship: owns
+      source_refs: *id002
+    uno_spi_at_jdigital:
+      from: interface:UNO_SPI
+      to: connector:JDIGITAL
+      relationship: exposed_at
+      source_refs: *id002
+    uno_i2c_owner:
+      from: processor:mcu
+      to: interface:UNO_I2C
+      relationship: owns
+      source_refs: *id003
+    uno_i2c_at_jdigital:
+      from: interface:UNO_I2C
+      to: connector:JDIGITAL
+      relationship: exposed_at
+      source_refs: *id003
+    qwiic_i2c_owner:
+      from: processor:mcu
+      to: interface:QWIIC_I2C
+      relationship: owns
+      source_refs: *id004
+    qwiic_i2c_at_qwiic:
+      from: interface:QWIIC_I2C
+      to: connector:QWIIC
+      relationship: exposed_at
+      source_refs: *id004
+    uno_adc_owner:
+      from: processor:mcu
+      to: interface:UNO_ADC
+      relationship: owns
+      source_refs: *id005
+    uno_adc_at_janalog:
+      from: interface:UNO_ADC
+      to: connector:JANALOG
+      relationship: exposed_at
+      source_refs: *id005
+    uno_dac_owner:
+      from: processor:mcu
+      to: interface:UNO_DAC
+      relationship: owns
+      source_refs: *id006
+    uno_dac_at_janalog:
+      from: interface:UNO_DAC
+      to: connector:JANALOG
+      relationship: exposed_at
+      source_refs: *id006
+    uno_opamp_owner:
+      from: processor:mcu
+      to: interface:UNO_OPAMP
+      relationship: owns
+      source_refs: *id007
+    uno_opamp_at_janalog:
+      from: interface:UNO_OPAMP
+      to: connector:JANALOG
+      relationship: exposed_at
+      source_refs: *id007
+    uno_opamp_at_jdigital:
+      from: interface:UNO_OPAMP
+      to: connector:JDIGITAL
+      relationship: exposed_at
+      source_refs: *id007
+    uno_pwm_owner:
+      from: processor:mcu
+      to: interface:UNO_PWM
+      relationship: owns
+      source_refs: *id008
+    uno_pwm_at_jdigital:
+      from: interface:UNO_PWM
+      to: connector:JDIGITAL
+      relationship: exposed_at
+      source_refs: *id008
+    uno_can_owner:
+      from: processor:mcu
+      to: interface:UNO_CAN
+      relationship: owns
+      source_refs: *id009
+    uno_can_at_jdigital:
+      from: interface:UNO_CAN
+      to: connector:JDIGITAL
+      relationship: exposed_at
+      source_refs: *id009
+    jhat_i2c_se0_owner:
+      from: processor:mpu
+      to: interface:JHAT_I2C_SE0
+      relationship: owns
+      source_refs: *id010
+    jhat_i2c_se0_at_jhat:
+      from: interface:JHAT_I2C_SE0
+      to: connector:JHAT
+      relationship: exposed_at
+      source_refs: *id010
+    jhat_i2c_se1_owner:
+      from: processor:mpu
+      to: interface:JHAT_I2C_SE1
+      relationship: owns
+      source_refs: *id011
+    jhat_i2c_se1_at_jhat:
+      from: interface:JHAT_I2C_SE1
+      to: connector:JHAT
+      relationship: exposed_at
+      source_refs: *id011
+    jhat_spi_se3_owner:
+      from: processor:mpu
+      to: interface:JHAT_SPI_SE3
+      relationship: owns
+      source_refs: *id012
+    jhat_spi_se3_at_jhat:
+      from: interface:JHAT_SPI_SE3
+      to: connector:JHAT
+      relationship: exposed_at
+      source_refs: *id012
+    jhat_uart_se2_owner:
+      from: processor:mpu
+      to: interface:JHAT_UART_SE2
+      relationship: owns
+      source_refs: *id013
+    jhat_uart_se2_at_jhat:
+      from: interface:JHAT_UART_SE2
+      to: connector:JHAT
+      relationship: exposed_at
+      source_refs: *id013
+    jhat_i2s1_owner:
+      from: processor:mpu
+      to: interface:JHAT_I2S1
+      relationship: owns
+      source_refs: *id014
+    jhat_i2s1_at_jhat:
+      from: interface:JHAT_I2S1
+      to: connector:JHAT
+      relationship: exposed_at
+      source_refs: *id014
+    jmisc_usart2_owner:
+      from: processor:mcu
+      to: interface:JMISC_USART2
+      relationship: owns
+      source_refs: *id015
+    jmisc_usart2_at_jmisc:
+      from: interface:JMISC_USART2
+      to: connector:JMISC
+      relationship: exposed_at
+      source_refs: *id015
+    jmisc_uart4_owner:
+      from: processor:mcu
+      to: interface:JMISC_UART4
+      relationship: owns
+      source_refs: *id016
+    jmisc_uart4_at_jmisc:
+      from: interface:JMISC_UART4
+      to: connector:JMISC
+      relationship: exposed_at
+      source_refs: *id016
+    jmisc_i2c2_owner:
+      from: processor:mcu
+      to: interface:JMISC_I2C2
+      relationship: owns
+      source_refs: *id017
+    jmisc_i2c2_at_jmisc:
+      from: interface:JMISC_I2C2
+      to: connector:JMISC
+      relationship: exposed_at
+      source_refs: *id017
+    jmisc_spi_se0_owner:
+      from: processor:mpu
+      to: interface:JMISC_SPI_SE0
+      relationship: owns
+      source_refs: *id018
+    jmisc_spi_se0_at_jmisc:
+      from: interface:JMISC_SPI_SE0
+      to: connector:JMISC
+      relationship: exposed_at
+      source_refs: *id018
+    jmisc_i2s2_owner:
+      from: processor:mpu
+      to: interface:JMISC_I2S2
+      relationship: owns
+      source_refs: *id019
+    jmisc_i2s2_at_jmisc:
+      from: interface:JMISC_I2S2
+      to: connector:JMISC
+      relationship: exposed_at
+      source_refs: *id019
+    jomega_spi_owner:
+      from: processor:mpu
+      to: interface:JOMEGA_SPI
+      relationship: owns
+      source_refs: *id020
+    jomega_spi_at_jomega:
+      from: interface:JOMEGA_SPI
+      to: connector:JOMEGA
+      relationship: exposed_at
+      source_refs: *id020
+    jomega_uart_se7_owner:
+      from: processor:mpu
+      to: interface:JOMEGA_UART_SE7
+      relationship: owns
+      source_refs: *id021
+    jomega_uart_se7_at_jomega:
+      from: interface:JOMEGA_UART_SE7
+      to: connector:JOMEGA
+      relationship: exposed_at
+      source_refs: *id021
+    jomega_fdcan1_owner:
+      from: processor:mcu
+      to: interface:JOMEGA_FDCAN1
+      relationship: owns
+      source_refs: *id022
+    jomega_fdcan1_at_jomega:
+      from: interface:JOMEGA_FDCAN1
+      to: connector:JOMEGA
+      relationship: exposed_at
+      source_refs: *id022
+    jomega_fdcan2_owner:
+      from: processor:mcu
+      to: interface:JOMEGA_FDCAN2
+      relationship: owns
+      source_refs: *id023
+    jomega_fdcan2_at_jomega:
+      from: interface:JOMEGA_FDCAN2
+      to: connector:JOMEGA
+      relationship: exposed_at
+      source_refs: *id023
+    jomega_fdcan3_owner:
+      from: processor:mcu
+      to: interface:JOMEGA_FDCAN3
+      relationship: owns
+      source_refs: *id024
+    jomega_fdcan3_at_jomega:
+      from: interface:JOMEGA_FDCAN3
+      to: connector:JOMEGA
+      relationship: exposed_at
+      source_refs: *id024
+    can_bus_owner:
+      from: processor:mcu
+      to: interface:CAN_BUS
+      relationship: owns
+      source_refs: *id025
+    can_bus_at_can_screw_terminal:
+      from: interface:CAN_BUS
+      to: connector:CAN_SCREW_TERMINAL
+      relationship: exposed_at
+      source_refs: *id025
+    jmedia_mipi_dsi_owner:
+      from: processor:mpu
+      to: interface:JMEDIA_MIPI_DSI
+      relationship: owns
+      source_refs: *id026
+    jmedia_mipi_dsi_at_jmedia:
+      from: interface:JMEDIA_MIPI_DSI
+      to: connector:JMEDIA
+      relationship: exposed_at
+      source_refs: *id026
+    can_bus_path:
+      from: processor:mcu
+      to: connector:CAN_SCREW_TERMINAL
+      relationship: bus_connection
+      via:
+        - component:ata6563
+      routing_status: PD0_PD1_TX_RX_assignment_unresolved
+      source_refs:
+        - can
+        - can_interfaces
+        - can_transceiver
+    jhat_path:
+      from: processor:mpu
+      to: connector:JHAT
+      relationship: level_translated_connection
+      via:
+        - component:jhat_level_translation
+      source_refs:
+        - jhat
+    jmedia_path:
+      from: processor:mpu
+      to: connector:JMEDIA
+      relationship: direct_signal_connection
+      source_refs:
+        - jmedia
+    audio_jmisc:
+      from: component:max98091
+      to: connector:JMISC
+      relationship: connected_to
+      source_refs:
+        - architecture
+        - jmisc
+    audio_jomega:
+      from: component:max98091
+      to: connector:JOMEGA
+      relationship: connected_to
+      source_refs:
+        - jomega
+    usb_host_jomega:
+      from: component:tusb7340
+      to: connector:JOMEGA
+      relationship: connected_to
+      source_refs:
+        - jomega
+    ethernet_path:
+      from: component:qca8081
+      to: connector:ETHERNET
+      relationship: ethernet_phy_connection
+      via:
+        - component:trjt9010a98nl
+      source_refs:
+        - ethernet
+    radio_owner:
+      from: processor:mpu
+      to: component:nfa725b
+      relationship: connected_to
+      source_refs:
+        - wireless
+    mcu_identity:
+      from: processor:mcu
+      to: component:stm32h5f5
+      relationship: implemented_by
+      source_refs:
+        - architecture
+    mpu_identity:
+      from: processor:mpu
+      to: component:qcs8275
+      relationship: implemented_by
+      source_refs:
+        - architecture
+    j3_1_owner:
+      from: processor:mpu
+      to: connector:J3_1
+      relationship: camera_interface_connection
+      source_refs:
+        - cameras
+    j3_1_camera_lane_esd:
+      from: component:camera_lane_esd
+      to: connector:J3_1
+      relationship: protects
+      source_refs:
+        - cameras
+    j3_1_camera_power_i2c_esd:
+      from: component:camera_power_i2c_esd
+      to: connector:J3_1
+      relationship: protects
+      source_refs:
+        - cameras
+    j3_2_owner:
+      from: processor:mpu
+      to: connector:J3_2
+      relationship: camera_interface_connection
+      source_refs:
+        - cameras
+    j3_2_camera_lane_esd:
+      from: component:camera_lane_esd
+      to: connector:J3_2
+      relationship: protects
+      source_refs:
+        - cameras
+    j3_2_camera_power_i2c_esd:
+      from: component:camera_power_i2c_esd
+      to: connector:J3_2
+      relationship: protects
+      source_refs:
+        - cameras
+    j3_3_owner:
+      from: processor:mpu
+      to: connector:J3_3
+      relationship: camera_interface_connection
+      source_refs:
+        - cameras
+    j3_3_camera_lane_esd:
+      from: component:camera_lane_esd
+      to: connector:J3_3
+      relationship: protects
+      source_refs:
+        - cameras
+    j3_3_camera_power_i2c_esd:
+      from: component:camera_power_i2c_esd
+      to: connector:J3_3
+      relationship: protects
+      source_refs:
+        - cameras
+    usb_a_owner:
+      from: processor:mpu
+      to: connector:USB_A
+      relationship: connected_to
+      source_refs:
+        - usb_a
+    hdmi_owner:
+      from: processor:mpu
+      to: connector:HDMI
+      relationship: connected_to
+      source_refs:
+        - hdmi
+    m2_owner:
+      from: processor:mpu
+      to: connector:M2
+      relationship: connected_to
+      source_refs:
+        - m2
+    jctl_owner:
+      from: processor:mpu
+      to: connector:JCTL
+      relationship: connected_to
+      source_refs:
+        - debug_uart
+  resource_conflicts:
+    jhat_bluetooth_uart:
+      type: conditional_pin_ownership
+      affected_pins:
+        - JHAT_8
+        - JHAT_10
+        - JHAT_11
+        - JHAT_36
+      participants:
+        - component:nfa725b
+        - interface:JHAT_UART_SE2
+      policy: unavailable_to_external_header_while_bluetooth_active
+      scope: Both UART functions and GPIO use on these four pins
+      source_refs:
+        - jhat
+    display_output_mux:
+      type: exclusive_display_route
+      participants:
+        - connector:HDMI
+        - interface:JMEDIA_MIPI_DSI
+      policy: at_most_one_active
+      source_refs:
+        - hdmi
+    adc_dac_exclusion:
+      type: peripheral_exclusion
+      participants:
+        - interface:UNO_ADC
+        - interface:UNO_DAC
+      policy: not_simultaneous_as_stated_by_manual
+      source_refs:
+        - dac
+    analog_pin_functions:
+      type: per_pin_function_exclusion
+      affected_pins:
+        - A0
+        - A1
+        - A2
+        - A3
+        - A4
+        - A5
+      policy: gpio_and_alternate_function_not_simultaneous_on_same_pin
+      note: Applied separately to each pin, not a prohibition on using separate pins for different functions.
+      source_refs:
+        - analog
+  power_distribution:
+    input_rating_refs:
+      - usb_c_pd_input
+      - barrel_jack_input
+      - screw_terminal_input
+      - uno_vin_input
+    budget_rule: Select the actual input path and account for board load plus all peripherals; the input
+      connector limit is not a per-output guarantee.
+    limited_outputs:
+      nets:
+        - +3V3_LIMITED
+        - +5V_LIMITED
+      stated_current_limit_a: 2.8
+      connectors:
+        - JHAT
+        - QWIIC
+      consumer_groups:
+        - UNO headers
+        - shields
+        - hats
+      limit_scope: Manual does not establish whether 2.8 A is independent per rail or combined.
+      source_refs:
+        - limited_rails
+    usb_a_outputs:
+      connector: USB_A
+      onboard_ports: 2
+      voltage_v: 5.0
+      max_current_per_port_a: 1.71
+      max_power_per_port_w: 8.55
+      depends_on_total_input_budget: true
+      source_refs:
+        - usb_a_power
+    usb_c_source:
+      connector: USB_C
+      voltage_v: 5.0
+      max_current_a: 3
+      max_power_w: 15
+      depends_on_total_input_budget: true
+      source_refs:
+        - usb_c
+    low_input_voltage_example:
+      input_ref: barrel_jack_input
+      input_voltage_v: 7
+      input_current_limit_a: 5
+      manual_stated_input_power_w: 35
+      approximate_board_full_load_w: 25
+      manual_example_usb_a_load_w: 17
+      disposition: Manual warns this combined load can damage the jack; not an approved operating budget.
+      source_refs:
+        - power_safety
+        - usb_a_power
+    uno_vin:
+      pin: VIN
+      voltage_ref: uno_vin_input
+      protected_by: component:vin_ptc
+      limited_power_headroom: true
+      source_refs:
+        - vin
+    rtc_backup:
+      pin: JMISC_59
+      max_voltage_v: 3.3
+      loads:
+        - MPU RTC
+        - MCU RTC
+      powers_board: false
+      source_refs:
+        - jmisc
+    carrier_outputs_outside_limited_nets:
+      connectors:
+        - JMEDIA
+        - JMISC
+        - JOMEGA
+      meaning: Outside the named limited nets, not unlimited current.
+      current_limit_status: not_fully_specified_in_manual
+      source_refs:
+        - limited_rails
+    source_refs:
+      - power
+      - power_safety
+      - usb_a_power
+      - limited_rails
+      - vin

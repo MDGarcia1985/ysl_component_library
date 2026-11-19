@@ -1,0 +1,326 @@
+{
+  "status": "self_evaluated_review_draft_no_gate_approval",
+  "utc_time": "2026-11-19T12:29:35.078068+00:00",
+  "command": "python -B tests/collect_schema_review_evidence.py",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "dependencies": {
+    "PyYAML": "6.0.2",
+    "jsonschema": "4.23.0",
+    "referencing": "0.30.2"
+  },
+  "collected": 15,
+  "executed": 15,
+  "passed": [
+    "test_repository_content.RepositoryContentTests.test_deterministic_generated_pages",
+    "test_repository_content.RepositoryContentTests.test_inventory_comes_from_manual",
+    "test_repository_content.RepositoryContentTests.test_journal_history_is_unchanged",
+    "test_repository_content.RepositoryContentTests.test_layout_and_legacy_preservation",
+    "test_repository_content.RepositoryContentTests.test_preparation_does_not_enable_packaging",
+    "test_repository_content.RepositoryContentTests.test_relationships_resolve",
+    "test_repository_content.RepositoryContentTests.test_resource_and_power_constraints",
+    "test_repository_content.RepositoryContentTests.test_source_sections_and_conflicts",
+    "test_schema_review.SchemaReviewTests.test_hardware_and_packaging_are_unchanged",
+    "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+    "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+    "test_schema_review.SchemaReviewTests.test_registry_and_proposed_ids",
+    "test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds",
+    "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+    "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary"
+  ],
+  "schema_review_methods_passed": [
+    "test_schema_review.SchemaReviewTests.test_hardware_and_packaging_are_unchanged",
+    "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+    "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+    "test_schema_review.SchemaReviewTests.test_registry_and_proposed_ids",
+    "test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds",
+    "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+    "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary"
+  ],
+  "subcases": [
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='missing_id')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='missing_name')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='missing_manufacturer')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='missing_schema_version')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='missing_pins')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='id')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='schema_version')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='kind')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='category')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='misspelled_root')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='misspelled_pin')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='boolean_position_count')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='untyped_blob')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='wrong_kind_details')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='whitespace_id')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='source_traversal')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='absolute_source_path')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields",
+      "case": "test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields) (case='whitespace_position')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=0)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=1)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=2)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=3)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=4)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=5)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=6)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=7)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=8)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=9)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=10)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty",
+      "case": "test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty) (case=11)",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds",
+      "case": "test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds) (kind='board')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds",
+      "case": "test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds) (kind='family')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds",
+      "case": "test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds) (kind='module')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='REF_NOT_FOUND')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='REF_NOT_FOUND')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='POSITION_COLLISION')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='POSITION_COLLISION')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='POSITION_OUT_OF_RANGE')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='REF_NOT_FOUND')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='QUANTITY_ORDER')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='INHERITANCE_CYCLE')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='REF_NOT_FOUND')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='POWER_CYCLE')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='REF_NOT_FOUND')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='CONFLICT_NOT_DISTINCT')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles",
+      "case": "test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles) (code='VERIFICATION_EVIDENCE_MISSING')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='pin: first\\npin: second\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='x: &x {pin: a}\\ny: *x\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='x: &x {pin: a}\\ny: {<<: *x}\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='---\\npin: a\\n---\\npin: b\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='x: !!python/object:builtins.object {}\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='2026-11-19: pin\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='pin: 2026-11-19\\n')",
+      "success": true
+    },
+    {
+      "test": "test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary",
+      "case": "test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary) (yaml='pin: .nan\\n')",
+      "success": true
+    }
+  ],
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "navigation": {
+    "documents": 20,
+    "local_links_and_fragments": 662,
+    "errors": [
+      "docs\\evidence\\schema-review-2026-11-19\\README.md -> after.exit-code.txt",
+      "docs\\evidence\\schema-review-2026-11-19\\README.md -> checks.json",
+      "docs\\evidence\\schema-review-2026-11-19\\README.md -> manifest.json"
+    ],
+    "excluded_source_snapshot": "hardware\\controllers\\arduino\\ventuno_q\\sources\\user_manual.md"
+  },
+  "exit_code": 1
+}

@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ysl:schema:relations:1.0.0-draft.1",
+  "title": "Connections, conflicts, constraints and power — review draft",
+  "$comment": "Draft for human review, not adopted by the hardware catalog. Related decision: DEV-2026-11-19-004.",
+  "x-ysl-review-status": "draft-not-approved",
+  "$defs": {
+    "connection": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+        },
+        "to": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+        },
+        "relationship": {
+          "enum": [
+            "owns",
+            "exposed_at",
+            "connected_to",
+            "bus_connection",
+            "level_translated_connection",
+            "direct_signal_connection",
+            "protects",
+            "implemented_by",
+            "power_path",
+            "ethernet_phy_connection",
+            "camera_interface_connection"
+          ]
+        },
+        "via": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "routing_status": {
+          "enum": [
+            "documented",
+            "partially_documented",
+            "unknown",
+            "conflicting"
+          ]
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "from",
+        "to",
+        "relationship",
+        "routing_status",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "resource_conflict": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "enum": [
+            "at_most_one_active",
+            "unavailable_when",
+            "per_pin_exclusion",
+            "not_simultaneous"
+          ]
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "affected_pins": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "when": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+            },
+            "state": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": ".*\\S.*"
+            }
+          },
+          "required": [
+            "target",
+            "state"
+          ],
+          "additionalProperties": false
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "policy",
+        "provenance",
+        "notes"
+      ],
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "participants"
+          ]
+        },
+        {
+          "required": [
+            "affected_pins"
+          ],
+          "properties": {
+            "affected_pins": {
+              "type": "array",
+              "items": {
+                "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          }
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "policy": {
+                "const": "unavailable_when"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "when"
+            ]
+          }
+        }
+      ]
+    },
+    "power_domain": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "enum": [
+            "input",
+            "output",
+            "rail",
+            "reference",
+            "backup"
+          ]
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "feeds": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "input_dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "protection_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "limit_scope": {
+          "enum": [
+            "independent",
+            "shared",
+            "unknown"
+          ]
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "role",
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    },
+    "constraint": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "requirement",
+            "limit",
+            "exclusion",
+            "condition",
+            "warning",
+            "variant_dependency",
+            "source_conflict"
+          ]
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/entity_ref"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "facts": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/facts"
+        },
+        "provenance": {
+          "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/provenance"
+        }
+      },
+      "required": [
+        "kind",
+        "rule",
+        "facts",
+        "provenance"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

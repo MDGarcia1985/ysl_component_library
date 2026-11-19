@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ysl:schema:provenance:1.0.0-draft.1",
+  "title": "Provenance and verification — review draft",
+  "$comment": "Draft for human review, not adopted by the hardware catalog. Related decision: DEV-2026-11-19-004.",
+  "x-ysl-review-status": "draft-not-approved",
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "documented",
+            "legacy_uncited",
+            "unknown"
+          ]
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "documented"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source_refs"
+            ],
+            "properties": {
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "notes"
+            ]
+          }
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "kind": {
+          "enum": [
+            "manual",
+            "datasheet",
+            "schematic",
+            "pinout",
+            "legacy_note",
+            "test_record",
+            "other"
+          ]
+        },
+        "path": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/path"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": ".*\\S.*"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "snapshot_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "title",
+        "kind"
+      ],
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "path"
+          ]
+        },
+        {
+          "required": [
+            "url"
+          ]
+        },
+        {
+          "required": [
+            "kind",
+            "notes"
+          ],
+          "properties": {
+            "kind": {
+              "const": "legacy_note"
+            }
+          }
+        }
+      ]
+    },
+    "sources": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+      },
+      "additionalProperties": {
+        "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/source"
+      },
+      "minProperties": 0
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "document_review",
+            "bench_test"
+          ]
+        },
+        "result": {
+          "enum": [
+            "pass",
+            "fail",
+            "partial",
+            "not_executed"
+          ]
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "procedure": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "observations": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "artifact_path": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/path"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "kind",
+        "result",
+        "reviewer",
+        "date",
+        "scope",
+        "procedure",
+        "observations",
+        "artifact_path"
+      ],
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "not_verified",
+            "document_reviewed",
+            "bench_tested"
+          ]
+        },
+        "records": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "additionalProperties": {
+            "$ref": "urn:ysl:schema:provenance:1.0.0-draft.1#/$defs/evidence"
+          },
+          "minProperties": 0
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "status",
+        "records"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "document_reviewed",
+                  "bench_tested"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "records": {
+                "minProperties": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

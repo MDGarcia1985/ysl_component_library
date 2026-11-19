@@ -1,0 +1,500 @@
+# Schema/ID migration; original source bytes are retained in docs/evidence/migration-2026-11-19/before/.
+# Related decision: DEV-2026-11-19-005. No bench verification is implied.
+
+schema_version: 1.0.0-draft.1
+id: arduino/uno-r3
+name: Arduino Uno R3
+category: controllers
+kind: board
+manufacturer:
+  status: unknown
+  reason: Manufacturer not specified in the original definition.
+aliases:
+  - arduino_uno_r3
+provenance:
+  status: legacy_uncited
+  source_refs:
+    - legacy_snapshot
+sources:
+  legacy_snapshot:
+    title: Pre-migration repository definition
+    kind: legacy_note
+    path: docs/evidence/migration-2026-11-19/before/arduino__uno-r3.yml.txt
+    notes: Original bytes and comments preserved; this locator does not establish manufacturer verification.
+verification:
+  status: not_verified
+  records: {}
+  notes: Schema/source migration and static checks do not establish bench verification.
+facts:
+  logic_voltage:
+    status: legacy_uncited
+    value:
+      dimension: voltage
+      unit: V
+      rating_kind: unspecified
+      value: 5.0
+    source_refs:
+      - legacy_snapshot
+  clock_hz:
+    status: legacy_uncited
+    value:
+      dimension: frequency
+      unit: Hz
+      rating_kind: unspecified
+      value: 16000000
+    source_refs:
+      - legacy_snapshot
+pins:
+  D0:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD0
+    capabilities:
+      - gpio
+      - uart_rx
+      - pin_change_interrupt
+    aliases:
+      - RX
+      - RXD
+      - UART_RX
+      - PCINT16
+  D1:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD1
+    capabilities:
+      - gpio
+      - uart_tx
+      - pin_change_interrupt
+    aliases:
+      - TX
+      - TXD
+      - UART_TX
+      - PCINT17
+  D2:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD2
+    capabilities:
+      - gpio
+      - external_interrupt
+      - pin_change_interrupt
+    aliases:
+      - INT0
+      - PCINT18
+  D3:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD3
+    capabilities:
+      - gpio
+      - pwm
+      - external_interrupt
+      - pin_change_interrupt
+    aliases:
+      - OC2B
+      - TIMER2_B
+      - INT1
+      - PCINT19
+  D4:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD4
+    capabilities:
+      - gpio
+      - timer_external_clock
+      - usart_external_clock
+      - pin_change_interrupt
+    aliases:
+      - T0
+      - XCK
+      - PCINT20
+  D5:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD5
+    capabilities:
+      - gpio
+      - pwm
+      - timer_external_clock
+      - pin_change_interrupt
+    aliases:
+      - OC0B
+      - TIMER0_B
+      - T1
+      - PCINT21
+  D6:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD6
+    capabilities:
+      - gpio
+      - pwm
+      - analog_comparator
+      - pin_change_interrupt
+    aliases:
+      - OC0A
+      - TIMER0_A
+      - AIN0
+      - PCINT22
+  D7:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PD7
+    capabilities:
+      - gpio
+      - analog_comparator
+      - pin_change_interrupt
+    aliases:
+      - AIN1
+      - PCINT23
+  D8:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB0
+    capabilities:
+      - gpio
+      - timer_input_capture
+      - clock_output
+      - pin_change_interrupt
+    aliases:
+      - ICP1
+      - CLKO
+      - PCINT0
+  D9:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB1
+    capabilities:
+      - gpio
+      - pwm
+      - pin_change_interrupt
+    aliases:
+      - OC1A
+      - TIMER1_A
+      - PCINT1
+  D10:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB2
+    capabilities:
+      - gpio
+      - pwm
+      - spi_chip_select
+      - pin_change_interrupt
+    aliases:
+      - SS
+      - SPI_SS
+      - OC1B
+      - TIMER1_B
+      - PCINT2
+  D11:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB3
+    capabilities:
+      - gpio
+      - pwm
+      - spi_mosi
+      - pin_change_interrupt
+    aliases:
+      - MOSI
+      - COPI
+      - SPI_MOSI
+      - OC2A
+      - TIMER2_A
+      - PCINT3
+  D12:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB4
+    capabilities:
+      - gpio
+      - spi_miso
+      - pin_change_interrupt
+    aliases:
+      - MISO
+      - CIPO
+      - SPI_MISO
+      - PCINT4
+  D13:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB5
+    capabilities:
+      - gpio
+      - spi_clock
+      - pin_change_interrupt
+      - onboard_led
+    aliases:
+      - SCK
+      - SPI_SCK
+      - LED_BUILTIN
+      - PCINT5
+  A0:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC0
+    capabilities:
+      - gpio
+      - adc
+      - pin_change_interrupt
+    aliases:
+      - D14
+      - ADC0
+      - PCINT8
+  A1:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC1
+    capabilities:
+      - gpio
+      - adc
+      - pin_change_interrupt
+    aliases:
+      - D15
+      - ADC1
+      - PCINT9
+  A2:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC2
+    capabilities:
+      - gpio
+      - adc
+      - pin_change_interrupt
+    aliases:
+      - D16
+      - ADC2
+      - PCINT10
+  A3:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC3
+    capabilities:
+      - gpio
+      - adc
+      - pin_change_interrupt
+    aliases:
+      - D17
+      - ADC3
+      - PCINT11
+  A4:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC4
+    capabilities:
+      - gpio
+      - adc
+      - i2c_sda
+      - pin_change_interrupt
+    aliases:
+      - D18
+      - ADC4
+      - SDA
+      - TWI_SDA
+      - PCINT12
+  A5:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC5
+    capabilities:
+      - gpio
+      - adc
+      - i2c_scl
+      - pin_change_interrupt
+    aliases:
+      - D19
+      - ADC5
+      - SCL
+      - TWI_SCL
+      - PCINT13
+  SDA:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC4
+    capabilities:
+      - i2c_sda
+      - gpio
+      - adc
+    aliases:
+      - A4
+      - D18
+    shared_with: A4
+  SCL:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC5
+    capabilities:
+      - i2c_scl
+      - gpio
+      - adc
+    aliases:
+      - A5
+      - D19
+    shared_with: A5
+  AREF:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: AREF
+    capabilities:
+      - adc_reference_input
+    aliases:
+      - ANALOG_REFERENCE
+  RESET:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PC6
+    capabilities:
+      - hardware_reset
+    aliases:
+      - RESET_N
+      - PCINT14
+  IOREF:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 5V
+    capabilities:
+      - logic_voltage_reference
+    aliases:
+      - VLOGIC
+  VIN:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: VIN
+    capabilities:
+      - power_input
+    aliases:
+      - RAW_INPUT
+  5V:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: VCC
+    capabilities:
+      - regulated_power_rail
+  3V3:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 3V3
+    capabilities:
+      - regulated_power_output
+  GND:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: GND
+    capabilities:
+      - ground_reference
+connectors: {}
+interfaces:
+  ICSP:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: programming
+    signals:
+      MOSI: D11
+      MISO: D12
+      SCK: D13
+      RESET: RESET
+      VCC: 5V
+      GND: GND
+constraints: {}
+board:
+  processors:
+    mcu:
+      facts: {}
+      provenance:
+        status: legacy_uncited
+        source_refs:
+          - legacy_snapshot
+      role: Processor mcu
+      model: ATmega328P

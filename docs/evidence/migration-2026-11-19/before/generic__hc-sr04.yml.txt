@@ -1,0 +1,137 @@
+# HC-SR04 Ultrasonic Distance Sensor
+# Component-level, project-agnostic definition
+# Four-pin 5 V module; pin order is based on the standard HC-SR04 header.
+# Source: https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf
+# Note: HC-SR04 modules from different manufacturers may vary.
+
+hc_sr04:
+  device_type: ultrasonic_distance_sensor
+  model: HC-SR04
+  interface_type: trigger_echo_pulse
+
+  electrical:
+    operating_voltage:
+      nominal: 5.0
+      units: V
+    operating_current:
+      typical: 15
+      units: mA
+    logic:
+      trigger_input: 5V_TTL
+      echo_output: 5V_TTL
+      trigger_high_min_v: 2.4
+      trigger_low_max_v: 0.8
+
+  pin_map:
+    VCC:
+      maps_to: VCC
+      physical_pin: 1
+      direction: power_input
+      capabilities:
+        - power_input
+      aliases:
+        - 5V
+        - VDD
+
+    TRIG:
+      maps_to: TRIG
+      physical_pin: 2
+      direction: input
+      capabilities:
+        - digital_input
+        - ranging_trigger
+        - pulse_trigger_input
+      aliases:
+        - TRIGGER
+        - TRIGGER_INPUT
+      signal:
+        polarity: active_high
+        minimum_high_pulse_us: 10
+        recommended_high_pulse_us: 10
+
+    ECHO:
+      maps_to: ECHO
+      physical_pin: 3
+      direction: output
+      capabilities:
+        - digital_output
+        - pulse_width_output
+        - time_of_flight_output
+      aliases:
+        - ECHO_OUTPUT
+        - RETURN_PULSE
+      signal:
+        polarity: active_high
+        encoding: pulse_width
+        measurement: round_trip_sound_time
+        output_logic: 5V_TTL
+
+    GND:
+      maps_to: GND
+      physical_pin: 4
+      direction: power_return
+      capabilities:
+        - ground_reference
+      aliases:
+        - GROUND
+        - VSS
+
+  interfaces:
+    range_measurement:
+      type: ultrasonic_time_of_flight
+      trigger: TRIG
+      response: ECHO
+      power: VCC
+      ground: GND
+
+  ranging:
+    nominal_frequency_hz: 40000
+    transmitted_cycles_per_measurement: 8
+    range:
+      min_mm: 20
+      max_mm: 4000
+    stated_resolution_mm: 3
+    nominal_detection_angle_deg: 15
+    minimum_measurement_interval_ms: 60
+    conversion:
+      method: echo_pulse_width
+      equation: distance_m = echo_high_time_s * speed_of_sound_m_per_s / 2
+      reference_speed_of_sound_m_per_s: 340
+      note: Speed of sound varies with temperature and environmental conditions.
+
+  constraints:
+    supply:
+      requires_regulated_5v: true
+      common_ground_with_host_required: true
+    interface:
+      host_must_generate_trigger_pulse: true
+      host_must_measure_echo_pulse_width: true
+      echo_level_shift_required_for_3v3_only_host: true
+    timing:
+      trigger_min_high_us: 10
+      measurement_interval_min_ms: 60
+      missing_echo_timeout_required_in_host: true
+      timeout_value_module_dependent: true
+    environment:
+      acoustic_crosstalk_possible_with_multiple_sensors: true
+      reflection_depends_on_target_geometry_and_material: true
+      not_safety_rated: true
+
+  physical:
+    header:
+      positions: 4
+      pitch_mm: 2.54
+      pin_order:
+        - VCC
+        - TRIG
+        - ECHO
+        - GND
+    nominal_dimensions_mm:
+      width: 45
+      height: 20
+      depth: 15
+
+  source:
+    document: HC-SR04 Ultrasonic Ranging Module Datasheet
+    url: https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf
+    variant_warning: Specifications can vary between HC-SR04 manufacturers and revisions.

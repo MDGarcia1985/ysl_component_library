@@ -1,0 +1,6 @@
+# Layout scaffold only; no project metadata, build backend, or CLI entry point.
+# Packaging requires human approval at G4. Related decision: DEV-2026-11-19-003.
+[tool.ysl_component_library]
+status = "pre_plan_repository_preparation"
+packaging_enabled = false
+reference_generator = "src/ysl_components/reference_pages.py"

@@ -1,0 +1,345 @@
+
+# Arduino Uno R3 Pin Map
+# MCU: ATmega328P
+# Clock: 16 MHz
+# GPIO Logic: 5V
+# Arduino digital pins: D0-D19
+# Analog inputs: A0-A5 (D14-D19)
+# PWM outputs: D3, D5, D6, D9, D10, D11
+
+arduino_uno_r3:
+  mcu: ATmega328P
+  logic_voltage: 5.0
+  clock_hz: 16000000
+
+  pin_map:
+
+    # DIGITAL PINS (D0-D7)
+
+    D0:
+      maps_to: PD0
+      capabilities:
+        - gpio
+        - uart_rx
+        - pin_change_interrupt
+      aliases:
+        - RX
+        - RXD
+        - UART_RX
+        - PCINT16
+
+    D1:
+      maps_to: PD1
+      capabilities:
+        - gpio
+        - uart_tx
+        - pin_change_interrupt
+      aliases:
+        - TX
+        - TXD
+        - UART_TX
+        - PCINT17
+
+    D2:
+      maps_to: PD2
+      capabilities:
+        - gpio
+        - external_interrupt
+        - pin_change_interrupt
+      aliases:
+        - INT0
+        - PCINT18
+
+    D3:
+      maps_to: PD3
+      capabilities:
+        - gpio
+        - pwm
+        - external_interrupt
+        - pin_change_interrupt
+      aliases:
+        - OC2B
+        - TIMER2_B
+        - INT1
+        - PCINT19
+
+    D4:
+      maps_to: PD4
+      capabilities:
+        - gpio
+        - timer_external_clock
+        - usart_external_clock
+        - pin_change_interrupt
+      aliases:
+        - T0
+        - XCK
+        - PCINT20
+
+    D5:
+      maps_to: PD5
+      capabilities:
+        - gpio
+        - pwm
+        - timer_external_clock
+        - pin_change_interrupt
+      aliases:
+        - OC0B
+        - TIMER0_B
+        - T1
+        - PCINT21
+
+    D6:
+      maps_to: PD6
+      capabilities:
+        - gpio
+        - pwm
+        - analog_comparator
+        - pin_change_interrupt
+      aliases:
+        - OC0A
+        - TIMER0_A
+        - AIN0
+        - PCINT22
+
+    D7:
+      maps_to: PD7
+      capabilities:
+        - gpio
+        - analog_comparator
+        - pin_change_interrupt
+      aliases:
+        - AIN1
+        - PCINT23
+
+    # DIGITAL PINS (D8-D13)
+
+    D8:
+      maps_to: PB0
+      capabilities:
+        - gpio
+        - timer_input_capture
+        - clock_output
+        - pin_change_interrupt
+      aliases:
+        - ICP1
+        - CLKO
+        - PCINT0
+
+    D9:
+      maps_to: PB1
+      capabilities:
+        - gpio
+        - pwm
+        - pin_change_interrupt
+      aliases:
+        - OC1A
+        - TIMER1_A
+        - PCINT1
+
+    D10:
+      maps_to: PB2
+      capabilities:
+        - gpio
+        - pwm
+        - spi_chip_select
+        - pin_change_interrupt
+      aliases:
+        - SS
+        - SPI_SS
+        - OC1B
+        - TIMER1_B
+        - PCINT2
+
+    D11:
+      maps_to: PB3
+      capabilities:
+        - gpio
+        - pwm
+        - spi_mosi
+        - pin_change_interrupt
+      aliases:
+        - MOSI
+        - COPI
+        - SPI_MOSI
+        - OC2A
+        - TIMER2_A
+        - PCINT3
+
+    D12:
+      maps_to: PB4
+      capabilities:
+        - gpio
+        - spi_miso
+        - pin_change_interrupt
+      aliases:
+        - MISO
+        - CIPO
+        - SPI_MISO
+        - PCINT4
+
+    D13:
+      maps_to: PB5
+      capabilities:
+        - gpio
+        - spi_clock
+        - pin_change_interrupt
+        - onboard_led
+      aliases:
+        - SCK
+        - SPI_SCK
+        - LED_BUILTIN
+        - PCINT5
+
+    # ANALOG / DIGITAL PINS (A0-A5)
+
+    A0:
+      maps_to: PC0
+      capabilities:
+        - gpio
+        - adc
+        - pin_change_interrupt
+      aliases:
+        - D14
+        - ADC0
+        - PCINT8
+
+    A1:
+      maps_to: PC1
+      capabilities:
+        - gpio
+        - adc
+        - pin_change_interrupt
+      aliases:
+        - D15
+        - ADC1
+        - PCINT9
+
+    A2:
+      maps_to: PC2
+      capabilities:
+        - gpio
+        - adc
+        - pin_change_interrupt
+      aliases:
+        - D16
+        - ADC2
+        - PCINT10
+
+    A3:
+      maps_to: PC3
+      capabilities:
+        - gpio
+        - adc
+        - pin_change_interrupt
+      aliases:
+        - D17
+        - ADC3
+        - PCINT11
+
+    A4:
+      maps_to: PC4
+      capabilities:
+        - gpio
+        - adc
+        - i2c_sda
+        - pin_change_interrupt
+      aliases:
+        - D18
+        - ADC4
+        - SDA
+        - TWI_SDA
+        - PCINT12
+
+    A5:
+      maps_to: PC5
+      capabilities:
+        - gpio
+        - adc
+        - i2c_scl
+        - pin_change_interrupt
+      aliases:
+        - D19
+        - ADC5
+        - SCL
+        - TWI_SCL
+        - PCINT13
+
+  # ADDITIONAL BOARD CONNECTIONS
+
+  special_pins:
+
+    SDA:
+      maps_to: PC4
+      capabilities:
+        - i2c_sda
+        - gpio
+        - adc
+      aliases:
+        - A4
+        - D18
+      shared_with: A4
+
+    SCL:
+      maps_to: PC5
+      capabilities:
+        - i2c_scl
+        - gpio
+        - adc
+      aliases:
+        - A5
+        - D19
+      shared_with: A5
+
+    AREF:
+      maps_to: AREF
+      capabilities:
+        - adc_reference_input
+      aliases:
+        - ANALOG_REFERENCE
+
+    RESET:
+      maps_to: PC6
+      capabilities:
+        - hardware_reset
+      aliases:
+        - RESET_N
+        - PCINT14
+
+    IOREF:
+      maps_to: 5V
+      capabilities:
+        - logic_voltage_reference
+      aliases:
+        - VLOGIC
+
+    VIN:
+      maps_to: VIN
+      capabilities:
+        - power_input
+      aliases:
+        - RAW_INPUT
+
+    5V:
+      maps_to: VCC
+      capabilities:
+        - regulated_power_rail
+
+    3V3:
+      maps_to: 3V3
+      capabilities:
+        - regulated_power_output
+
+    GND:
+      maps_to: GND
+      capabilities:
+        - ground_reference
+
+  # MCU SPI SIGNALS ALSO EXPOSED THROUGH ICSP HEADER
+  interfaces:
+    ICSP:
+      MOSI: D11
+      MISO: D12
+      SCK: D13
+      RESET: RESET
+      VCC: 5V
+      GND: GND

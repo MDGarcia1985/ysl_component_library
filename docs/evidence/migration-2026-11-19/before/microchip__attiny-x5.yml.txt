@@ -1,0 +1,259 @@
+
+# ATtiny25 / ATtiny45 / ATtiny85
+# Shared pin mapping
+# Architecture: AVR 8-bit
+# Package: DIP-8 / SOIC-8
+#
+# NOTE:
+# PB5 is RESET by default.
+# SPI uses the Universal Serial Interface (USI).
+# I2C requires USI-based software support.
+# Most alternate functions are mutually exclusive.
+
+attiny_x5:
+  family: ATtiny25_45_85
+  manufacturer: Microchip
+  architecture: AVR_8bit
+
+  variants:
+    ATtiny25:
+      flash_bytes: 2048
+      sram_bytes: 128
+      eeprom_bytes: 128
+
+    ATtiny45:
+      flash_bytes: 4096
+      sram_bytes: 256
+      eeprom_bytes: 256
+
+    ATtiny85:
+      flash_bytes: 8192
+      sram_bytes: 512
+      eeprom_bytes: 512
+
+  voltage:
+    standard:
+      min: 2.7
+      max: 5.5
+    v_variant:
+      min: 1.8
+      max: 5.5
+    units: V
+
+  pin_map:
+
+    PB0:
+      maps_to: PB0
+      physical_pin: 5
+      capabilities:
+        - gpio
+        - pwm
+        - spi_mosi
+        - usi_data_input
+        - i2c_sda
+        - analog_comparator
+        - adc_reference_input
+        - pin_change_interrupt
+      aliases:
+        - MOSI
+        - DI
+        - SDA
+        - AIN0
+        - OC0A
+        - OC1A
+        - AREF
+        - PCINT0
+
+    PB1:
+      maps_to: PB1
+      physical_pin: 6
+      capabilities:
+        - gpio
+        - pwm
+        - spi_miso
+        - usi_data_output
+        - analog_comparator
+        - pin_change_interrupt
+      aliases:
+        - MISO
+        - DO
+        - AIN1
+        - OC0B
+        - OC1A
+        - PCINT1
+
+    PB2:
+      maps_to: PB2
+      physical_pin: 7
+      capabilities:
+        - gpio
+        - adc
+        - spi_clock
+        - usi_clock
+        - i2c_scl
+        - timer_external_clock
+        - external_interrupt
+        - pin_change_interrupt
+      aliases:
+        - ADC1
+        - SCK
+        - USCK
+        - SCL
+        - T0
+        - INT0
+        - PCINT2
+
+    PB3:
+      maps_to: PB3
+      physical_pin: 2
+      capabilities:
+        - gpio
+        - adc
+        - pwm
+        - crystal_oscillator
+        - external_clock_input
+        - pin_change_interrupt
+      aliases:
+        - ADC3
+        - OC1B
+        - XTAL1
+        - CLKI
+        - PCINT3
+
+    PB4:
+      maps_to: PB4
+      physical_pin: 3
+      capabilities:
+        - gpio
+        - adc
+        - pwm
+        - crystal_oscillator
+        - clock_output
+        - pin_change_interrupt
+      aliases:
+        - ADC2
+        - OC1B
+        - XTAL2
+        - CLKO
+        - PCINT4
+
+    PB5:
+      maps_to: PB5
+      physical_pin: 1
+      capabilities:
+        - hardware_reset
+        - adc
+        - debugwire
+        - pin_change_interrupt
+        - gpio_conditional
+      aliases:
+        - RESET
+        - RESET_N
+        - ADC0
+        - DW
+        - PCINT5
+
+  power_pins:
+
+    VCC:
+      physical_pin: 8
+      capabilities:
+        - power_input
+      aliases:
+        - VDD
+
+    GND:
+      physical_pin: 4
+      capabilities:
+        - ground_reference
+      aliases:
+        - VSS
+
+  interfaces:
+
+    USI_SPI:
+      MOSI: PB0
+      MISO: PB1
+      SCK: PB2
+      implementation: usi
+
+    USI_I2C:
+      SDA: PB0
+      SCL: PB2
+      implementation: usi_software
+
+    ISP:
+      MOSI: PB0
+      MISO: PB1
+      SCK: PB2
+      RESET: PB5
+      VCC: VCC
+      GND: GND
+
+    PWM:
+      TIMER0:
+        OC0A: PB0
+        OC0B: PB1
+      TIMER1:
+        OC1A:
+          - PB0
+          - PB1
+        OC1B:
+          - PB3
+          - PB4
+
+    ADC:
+      resolution_bits: 10
+      channels:
+        ADC0: PB5
+        ADC1: PB2
+        ADC2: PB4
+        ADC3: PB3
+
+    ANALOG_COMPARATOR:
+      positive_input: PB0
+      negative_input: PB1
+
+  constraints:
+    reset:
+      pin: PB5
+      default_function: hardware_reset
+      gpio_requires_fuse_change: true
+      fuse: RSTDISBL
+      warning: >
+        Disabling RESET prevents ordinary
+        low-voltage ISP programming.
+        High-voltage programming may be
+        required to recover the device.
+
+    gpio:
+      standard_available: 5
+      conditional_available: 1
+
+    peripheral_multiplexing:
+      simultaneous_functions: restricted
+
+    voltage:
+      gpio_high_level: VCC
+      five_volt_tolerant_at_3v3: false
+
+    clock:
+      factory_oscillator_hz: 8000000
+      factory_clock_divider: 8
+      default_cpu_clock_hz: 1000000
+
+  profiles:
+    ATtiny25V:
+      inherits: ATtiny25
+      voltage_profile: v_variant
+      max_clock_hz: 10000000
+
+    ATtiny45V:
+      inherits: ATtiny45
+      voltage_profile: v_variant
+      max_clock_hz: 10000000
+
+    ATtiny85V:
+      inherits: ATtiny85
+      voltage_profile: v_variant
+      max_clock_hz: 10000000

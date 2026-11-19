@@ -1,0 +1,482 @@
+# Schema/ID migration; original source bytes are retained in docs/evidence/migration-2026-11-19/before/.
+# Related decision: DEV-2026-11-19-005. No bench verification is implied.
+
+schema_version: 1.0.0-draft.1
+id: generic/hc-sr04
+name: HC-SR04
+category: sensors
+kind: module
+manufacturer:
+  status: unknown
+  reason: Manufacturer not specified in the original definition.
+aliases:
+  - hc_sr04
+provenance:
+  status: documented
+  source_refs:
+    - datasheet
+sources:
+  legacy_snapshot:
+    title: Pre-migration repository definition
+    kind: legacy_note
+    path: docs/evidence/migration-2026-11-19/before/generic__hc-sr04.yml.txt
+    notes: Original bytes and comments preserved; this locator does not establish manufacturer verification.
+  datasheet:
+    title: HC-SR04 Ultrasonic Ranging Module Datasheet
+    kind: datasheet
+    url: https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf
+verification:
+  status: not_verified
+  records: {}
+  notes: Schema/source migration and static checks do not establish bench verification.
+facts:
+  variant_warning:
+    status: documented
+    value: Specifications can vary between HC-SR04 manufacturers and revisions.
+    source_refs:
+      - datasheet
+  model:
+    status: documented
+    value: HC-SR04
+    source_refs:
+      - datasheet
+  interface_type:
+    status: documented
+    value: trigger_echo_pulse
+    source_refs:
+      - datasheet
+  electrical__operating_voltage:
+    status: documented
+    value:
+      dimension: voltage
+      unit: V
+      rating_kind: operating
+      nominal: 5.0
+    source_refs:
+      - datasheet
+  electrical__operating_current:
+    status: documented
+    value:
+      dimension: current
+      unit: mA
+      rating_kind: operating
+      typical: 15
+    source_refs:
+      - datasheet
+  electrical__logic__trigger_input:
+    status: documented
+    value: 5V_TTL
+    source_refs:
+      - datasheet
+  electrical__logic__echo_output:
+    status: documented
+    value: 5V_TTL
+    source_refs:
+      - datasheet
+  electrical__logic__trigger_high_min_v:
+    status: documented
+    value:
+      dimension: voltage
+      unit: V
+      rating_kind: unspecified
+      min: 2.4
+    source_refs:
+      - datasheet
+  electrical__logic__trigger_low_max_v:
+    status: documented
+    value:
+      dimension: voltage
+      unit: V
+      rating_kind: unspecified
+      max: 0.8
+    source_refs:
+      - datasheet
+  ranging__nominal_frequency_hz:
+    status: documented
+    value:
+      dimension: frequency
+      unit: Hz
+      rating_kind: unspecified
+      nominal: 40000
+    source_refs:
+      - datasheet
+  ranging__transmitted_cycles_per_measurement:
+    status: documented
+    value:
+      dimension: count
+      unit: count
+      rating_kind: unspecified
+      value: 8
+    source_refs:
+      - datasheet
+  ranging__range__min_mm:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      min: 20
+    source_refs:
+      - datasheet
+  ranging__range__max_mm:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      max: 4000
+    source_refs:
+      - datasheet
+  ranging__stated_resolution_mm:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: resolution
+      value: 3
+    source_refs:
+      - datasheet
+  ranging__nominal_detection_angle_deg:
+    status: documented
+    value:
+      dimension: angle
+      unit: deg
+      rating_kind: unspecified
+      nominal: 15
+    source_refs:
+      - datasheet
+  ranging__minimum_measurement_interval_ms:
+    status: documented
+    value:
+      dimension: time
+      unit: ms
+      rating_kind: unspecified
+      value: 60
+    source_refs:
+      - datasheet
+  ranging__conversion__method:
+    status: documented
+    value: echo_pulse_width
+    source_refs:
+      - datasheet
+  ranging__conversion__equation:
+    status: documented
+    value: distance_m = echo_high_time_s * speed_of_sound_m_per_s / 2
+    source_refs:
+      - datasheet
+  ranging__conversion__reference_speed_of_sound_m_per_s:
+    status: documented
+    value:
+      dimension: speed
+      unit: m/s
+      rating_kind: unspecified
+      value: 340
+    source_refs:
+      - datasheet
+  ranging__conversion__note:
+    status: documented
+    value: Speed of sound varies with temperature and environmental conditions.
+    source_refs:
+      - datasheet
+  physical__header__positions:
+    status: documented
+    value:
+      dimension: count
+      unit: count
+      rating_kind: unspecified
+      value: 4
+    source_refs:
+      - datasheet
+  physical__header__pitch_mm:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      value: 2.54
+    source_refs:
+      - datasheet
+  physical__header__pin_order__0:
+    status: documented
+    value: VCC
+    source_refs:
+      - datasheet
+  physical__header__pin_order__1:
+    status: documented
+    value: TRIG
+    source_refs:
+      - datasheet
+  physical__header__pin_order__2:
+    status: documented
+    value: ECHO
+    source_refs:
+      - datasheet
+  physical__header__pin_order__3:
+    status: documented
+    value: GND
+    source_refs:
+      - datasheet
+  physical__nominal_dimensions_mm__width:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      value: 45
+    source_refs:
+      - datasheet
+  physical__nominal_dimensions_mm__height:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      value: 20
+    source_refs:
+      - datasheet
+  physical__nominal_dimensions_mm__depth:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      value: 15
+    source_refs:
+      - datasheet
+pins:
+  VCC:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    maps_to: VCC
+    capabilities:
+      - power_input
+    aliases:
+      - 5V
+      - VDD
+    direction: power_input
+    location:
+      connector: HEADER
+      position: 1
+  TRIG:
+    facts:
+      signal__polarity:
+        status: documented
+        value: active_high
+        source_refs:
+          - datasheet
+      signal__minimum_high_pulse_us:
+        status: documented
+        value:
+          dimension: time
+          unit: us
+          rating_kind: unspecified
+          value: 10
+        source_refs:
+          - datasheet
+      signal__recommended_high_pulse_us:
+        status: documented
+        value:
+          dimension: time
+          unit: us
+          rating_kind: unspecified
+          value: 10
+        source_refs:
+          - datasheet
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    maps_to: TRIG
+    capabilities:
+      - digital_input
+      - ranging_trigger
+      - pulse_trigger_input
+    aliases:
+      - TRIGGER
+      - TRIGGER_INPUT
+    direction: input
+    location:
+      connector: HEADER
+      position: 2
+  ECHO:
+    facts:
+      signal__polarity:
+        status: documented
+        value: active_high
+        source_refs:
+          - datasheet
+      signal__encoding:
+        status: documented
+        value: pulse_width
+        source_refs:
+          - datasheet
+      signal__measurement:
+        status: documented
+        value: round_trip_sound_time
+        source_refs:
+          - datasheet
+      signal__output_logic:
+        status: documented
+        value: 5V_TTL
+        source_refs:
+          - datasheet
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    maps_to: ECHO
+    capabilities:
+      - digital_output
+      - pulse_width_output
+      - time_of_flight_output
+    aliases:
+      - ECHO_OUTPUT
+      - RETURN_PULSE
+    direction: output
+    location:
+      connector: HEADER
+      position: 3
+  GND:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    aliases:
+      - GROUND
+      - VSS
+    direction: power_return
+    location:
+      connector: HEADER
+      position: 4
+connectors:
+  HEADER:
+    type: module_header
+    positions: 4
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+interfaces:
+  range_measurement:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    type: ultrasonic_time_of_flight
+    signals:
+      trigger: TRIG
+      response: ECHO
+      power: VCC
+      ground: GND
+constraints:
+  supply:
+    facts:
+      requires_regulated_5v:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+      common_ground_with_host_required:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    kind: requirement
+    rule: 'Preserve source constraint group: supply'
+  interface:
+    facts:
+      host_must_generate_trigger_pulse:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+      host_must_measure_echo_pulse_width:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+      echo_level_shift_required_for_3v3_only_host:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    kind: requirement
+    rule: 'Preserve source constraint group: interface'
+  timing:
+    facts:
+      trigger_min_high_us:
+        status: documented
+        value:
+          dimension: time
+          unit: us
+          rating_kind: unspecified
+          min: 10
+        source_refs:
+          - datasheet
+      measurement_interval_min_ms:
+        status: documented
+        value:
+          dimension: time
+          unit: ms
+          rating_kind: unspecified
+          min: 60
+        source_refs:
+          - datasheet
+      missing_echo_timeout_required_in_host:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+      timeout_value_module_dependent:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    kind: requirement
+    rule: 'Preserve source constraint group: timing'
+  environment:
+    facts:
+      acoustic_crosstalk_possible_with_multiple_sensors:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+      reflection_depends_on_target_geometry_and_material:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+      not_safety_rated:
+        status: documented
+        value: true
+        source_refs:
+          - datasheet
+    provenance:
+      status: documented
+      source_refs:
+        - datasheet
+    kind: requirement
+    rule: 'Preserve source constraint group: environment'
+module:
+  module_type: ultrasonic_distance_sensor

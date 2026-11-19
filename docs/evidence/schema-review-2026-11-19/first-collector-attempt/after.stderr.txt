@@ -1,0 +1,35 @@
+test_deterministic_generated_pages (test_repository_content.RepositoryContentTests.test_deterministic_generated_pages)
+Purpose: Detect stale references. Design: Rebuild in memory. Workflow: After generation. Data Handoff: Assertions. ... ok
+test_inventory_comes_from_manual (test_repository_content.RepositoryContentTests.test_inventory_comes_from_manual)
+Purpose: Check component claims. Design: Exact source tokens. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_journal_history_is_unchanged (test_repository_content.RepositoryContentTests.test_journal_history_is_unchanged)
+Purpose: Preserve history. Design: Prefix hashes. Workflow: After append. Data Handoff: Assertions. ... ok
+test_layout_and_legacy_preservation (test_repository_content.RepositoryContentTests.test_layout_and_legacy_preservation)
+Purpose: Detect missing moves/loss. Design: Frozen baseline. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_preparation_does_not_enable_packaging (test_repository_content.RepositoryContentTests.test_preparation_does_not_enable_packaging)
+Purpose: Respect the human gate. Design: Inspect scaffold only. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_relationships_resolve (test_repository_content.RepositoryContentTests.test_relationships_resolve)
+Purpose: Catch dangling graph edges. Design: Typed reference namespaces. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_resource_and_power_constraints (test_repository_content.RepositoryContentTests.test_resource_and_power_constraints)
+Purpose: Preserve critical restrictions. Design: Manual-specific expected facts. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_source_sections_and_conflicts (test_repository_content.RepositoryContentTests.test_source_sections_and_conflicts)
+Purpose: Check provenance. Design: Resolve all local citations. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_hardware_and_packaging_are_unchanged (test_schema_review.SchemaReviewTests.test_hardware_and_packaging_are_unchanged)
+Purpose: Enforce requested stop. Design: Before-byte hashes. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields)
+Purpose: AC-102. Design: Fixed invalid edits. Workflow: Review run. Data Handoff: Required rejections. ... ok
+test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty)
+Purpose: AC-102 uncertainty. Design: Conflicting facts cannot pick a winner. Workflow: Review run. Data Handoff: Rejections. ... ok
+test_registry_and_proposed_ids (test_schema_review.SchemaReviewTests.test_registry_and_proposed_ids)
+Purpose: AC-104 shape. Design: Fixed registry expectations. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds)
+Purpose: AC-101. Design: Three authored shapes. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles)
+Purpose: AC-104/105. Design: Typed cross-field faults. Workflow: Review harness. Data Handoff: Stable diagnostic codes. ... ok
+test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary)
+Purpose: AC-103. Design: Fixed hostile/ambiguous YAML. Workflow: Review harness. Data Handoff: Explicit rejections. ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 4.380s
+
+OK

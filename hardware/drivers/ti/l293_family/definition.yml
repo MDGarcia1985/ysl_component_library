@@ -1,0 +1,881 @@
+# Schema/ID migration; original source bytes are retained in docs/evidence/migration-2026-11-19/before/.
+# Related decision: DEV-2026-11-19-005. No bench verification is implied.
+
+schema_version: 1.0.0-draft.1
+id: ti/l293-family
+name: L293 / L293D
+category: drivers
+kind: ic_family
+manufacturer:
+  status: known
+  name: Texas Instruments
+aliases:
+  - l293_family
+provenance:
+  status: legacy_uncited
+  source_refs:
+    - legacy_snapshot
+sources:
+  legacy_snapshot:
+    title: Pre-migration repository definition
+    kind: legacy_note
+    path: docs/evidence/migration-2026-11-19/before/ti__l293-family.yml.txt
+    notes: Original bytes and comments preserved; this locator does not establish manufacturer verification.
+verification:
+  status: not_verified
+  records: {}
+  notes: Schema/source migration and static checks do not establish bench verification.
+facts:
+  device_type:
+    status: legacy_uncited
+    value: quadruple_half_h_driver
+    source_refs:
+      - legacy_snapshot
+pins:
+  EN1_2:
+    facts:
+      controls__0:
+        status: legacy_uncited
+        value: OUT1
+        source_refs:
+          - legacy_snapshot
+      controls__1:
+        status: legacy_uncited
+        value: OUT2
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 1,2EN
+    capabilities:
+      - enable
+      - pwm_input
+      - active_high
+      - high_impedance_disable
+    aliases:
+      - 1,2EN
+      - ENA
+      - MOTOR_A_ENABLE
+    direction: input
+    location:
+      connector: PACKAGE
+      position: 1
+  IN1:
+    facts:
+      controls__0:
+        status: legacy_uncited
+        value: OUT1
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 1A
+    capabilities:
+      - digital_input
+      - pwm_input
+      - motor_direction_control
+    aliases:
+      - 1A
+      - INPUT1
+      - MOTOR_A_IN1
+    direction: input
+    location:
+      connector: PACKAGE
+      position: 2
+  OUT1:
+    facts:
+      controlled_by__0:
+        status: legacy_uncited
+        value: IN1
+        source_refs:
+          - legacy_snapshot
+      controlled_by__1:
+        status: legacy_uncited
+        value: EN1_2
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 1Y
+    capabilities:
+      - half_bridge_output
+      - motor_drive
+      - pwm_output_conditional
+      - high_impedance
+    aliases:
+      - 1Y
+      - OUTPUT1
+      - MOTOR_A_OUT1
+    direction: output
+    location:
+      connector: PACKAGE
+      position: 3
+  GND1:
+    facts:
+      direction:
+        status: legacy_uncited
+        value: power
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: GND
+    capabilities:
+      - ground_reference
+      - thermal_dissipation
+    aliases:
+      - GROUND1
+      - HEATSINK1
+    location:
+      connector: PACKAGE
+      position: 4
+  GND2:
+    facts:
+      direction:
+        status: legacy_uncited
+        value: power
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: GND
+    capabilities:
+      - ground_reference
+      - thermal_dissipation
+    aliases:
+      - GROUND2
+      - HEATSINK2
+    location:
+      connector: PACKAGE
+      position: 5
+  OUT2:
+    facts:
+      controlled_by__0:
+        status: legacy_uncited
+        value: IN2
+        source_refs:
+          - legacy_snapshot
+      controlled_by__1:
+        status: legacy_uncited
+        value: EN1_2
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 2Y
+    capabilities:
+      - half_bridge_output
+      - motor_drive
+      - pwm_output_conditional
+      - high_impedance
+    aliases:
+      - 2Y
+      - OUTPUT2
+      - MOTOR_A_OUT2
+    direction: output
+    location:
+      connector: PACKAGE
+      position: 6
+  IN2:
+    facts:
+      controls__0:
+        status: legacy_uncited
+        value: OUT2
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 2A
+    capabilities:
+      - digital_input
+      - pwm_input
+      - motor_direction_control
+    aliases:
+      - 2A
+      - INPUT2
+      - MOTOR_A_IN2
+    direction: input
+    location:
+      connector: PACKAGE
+      position: 7
+  VCC2:
+    facts:
+      direction:
+        status: legacy_uncited
+        value: power
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: VCC2
+    capabilities:
+      - motor_power_input
+      - output_stage_supply
+    aliases:
+      - VS
+      - MOTOR_VCC
+      - VMOTOR
+    location:
+      connector: PACKAGE
+      position: 8
+  EN3_4:
+    facts:
+      controls__0:
+        status: legacy_uncited
+        value: OUT3
+        source_refs:
+          - legacy_snapshot
+      controls__1:
+        status: legacy_uncited
+        value: OUT4
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 3,4EN
+    capabilities:
+      - enable
+      - pwm_input
+      - active_high
+      - high_impedance_disable
+    aliases:
+      - 3,4EN
+      - ENB
+      - MOTOR_B_ENABLE
+    direction: input
+    location:
+      connector: PACKAGE
+      position: 9
+  IN3:
+    facts:
+      controls__0:
+        status: legacy_uncited
+        value: OUT3
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 3A
+    capabilities:
+      - digital_input
+      - pwm_input
+      - motor_direction_control
+    aliases:
+      - 3A
+      - INPUT3
+      - MOTOR_B_IN1
+    direction: input
+    location:
+      connector: PACKAGE
+      position: 10
+  OUT3:
+    facts:
+      controlled_by__0:
+        status: legacy_uncited
+        value: IN3
+        source_refs:
+          - legacy_snapshot
+      controlled_by__1:
+        status: legacy_uncited
+        value: EN3_4
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 3Y
+    capabilities:
+      - half_bridge_output
+      - motor_drive
+      - pwm_output_conditional
+      - high_impedance
+    aliases:
+      - 3Y
+      - OUTPUT3
+      - MOTOR_B_OUT1
+    direction: output
+    location:
+      connector: PACKAGE
+      position: 11
+  GND3:
+    facts:
+      direction:
+        status: legacy_uncited
+        value: power
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: GND
+    capabilities:
+      - ground_reference
+      - thermal_dissipation
+    aliases:
+      - GROUND3
+      - HEATSINK3
+    location:
+      connector: PACKAGE
+      position: 12
+  GND4:
+    facts:
+      direction:
+        status: legacy_uncited
+        value: power
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: GND
+    capabilities:
+      - ground_reference
+      - thermal_dissipation
+    aliases:
+      - GROUND4
+      - HEATSINK4
+    location:
+      connector: PACKAGE
+      position: 13
+  OUT4:
+    facts:
+      controlled_by__0:
+        status: legacy_uncited
+        value: IN4
+        source_refs:
+          - legacy_snapshot
+      controlled_by__1:
+        status: legacy_uncited
+        value: EN3_4
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 4Y
+    capabilities:
+      - half_bridge_output
+      - motor_drive
+      - pwm_output_conditional
+      - high_impedance
+    aliases:
+      - 4Y
+      - OUTPUT4
+      - MOTOR_B_OUT2
+    direction: output
+    location:
+      connector: PACKAGE
+      position: 14
+  IN4:
+    facts:
+      controls__0:
+        status: legacy_uncited
+        value: OUT4
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: 4A
+    capabilities:
+      - digital_input
+      - pwm_input
+      - motor_direction_control
+    aliases:
+      - 4A
+      - INPUT4
+      - MOTOR_B_IN2
+    direction: input
+    location:
+      connector: PACKAGE
+      position: 15
+  VCC1:
+    facts:
+      direction:
+        status: legacy_uncited
+        value: power
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: VCC1
+    capabilities:
+      - logic_power_input
+    aliases:
+      - VSS
+      - LOGIC_VCC
+      - VLOGIC
+    location:
+      connector: PACKAGE
+      position: 16
+connectors:
+  PACKAGE:
+    type: ic_package
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+interfaces:
+  MOTOR_A:
+    facts:
+      type:
+        status: legacy_uncited
+        value: full_h_bridge
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: h_bridge
+    signals:
+      enable: EN1_2
+      inputs:
+        - IN1
+        - IN2
+      outputs:
+        - OUT1
+        - OUT2
+  MOTOR_B:
+    facts:
+      type:
+        status: legacy_uncited
+        value: full_h_bridge
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: h_bridge
+    signals:
+      enable: EN3_4
+      inputs:
+        - IN3
+        - IN4
+      outputs:
+        - OUT3
+        - OUT4
+  power:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: power
+    signals:
+      logic: VCC1
+      motor: VCC2
+      ground:
+        - GND1
+        - GND2
+        - GND3
+        - GND4
+constraints:
+  thermal:
+    facts:
+      ground_pins_are_heat_sinks:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      all_ground_pins_required:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      thermal_design_required:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: thermal'
+  inductive_loads:
+    facts:
+      L293__external_clamp_diodes_required:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      L293D__integrated_clamp_diodes:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: inductive_loads'
+  safety:
+    facts:
+      enable_low_disables_output_pair:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      disable_output_state:
+        status: legacy_uncited
+        value: high_impedance
+        source_refs:
+          - legacy_snapshot
+      enable_is_not_power_isolation:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      fault_detection_integrated:
+        status: legacy_uncited
+        value: false
+        source_refs:
+          - legacy_snapshot
+      current_sensing_integrated:
+        status: legacy_uncited
+        value: false
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: safety'
+  pwm:
+    facts:
+      input_pwm_supported:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      enable_pwm_supported:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      independent_half_bridge_control:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      independent_enable_per_half_bridge:
+        status: legacy_uncited
+        value: false
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: pwm'
+  power:
+    facts:
+      common_ground_required:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      logic_and_motor_supplies_separate:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      supply_decoupling_required:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: power'
+  logic_truth_table:
+    facts:
+      motor_a__enable:
+        status: legacy_uncited
+        value: EN1_2
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__disabled__EN1_2:
+        status: legacy_uncited
+        value: LOW
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__disabled__IN1:
+        status: legacy_uncited
+        value: ANY
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__disabled__IN2:
+        status: legacy_uncited
+        value: ANY
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__disabled__outputs:
+        status: legacy_uncited
+        value: high_impedance
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__forward__EN1_2:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__forward__IN1:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__forward__IN2:
+        status: legacy_uncited
+        value: LOW
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__reverse__EN1_2:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__reverse__IN1:
+        status: legacy_uncited
+        value: LOW
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__reverse__IN2:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__brake_low__EN1_2:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__brake_low__IN1:
+        status: legacy_uncited
+        value: LOW
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__brake_low__IN2:
+        status: legacy_uncited
+        value: LOW
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__brake_high__EN1_2:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__brake_high__IN1:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_a__states__brake_high__IN2:
+        status: legacy_uncited
+        value: HIGH
+        source_refs:
+          - legacy_snapshot
+      motor_b__enable:
+        status: legacy_uncited
+        value: EN3_4
+        source_refs:
+          - legacy_snapshot
+      motor_b__same_logic_as:
+        status: legacy_uncited
+        value: motor_a
+        source_refs:
+          - legacy_snapshot
+      motor_b__input_mapping__IN1:
+        status: legacy_uncited
+        value: IN3
+        source_refs:
+          - legacy_snapshot
+      motor_b__input_mapping__IN2:
+        status: legacy_uncited
+        value: IN4
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: condition
+    rule: Source H-bridge logic states; no executable safety inference.
+ic_family:
+  family: L293 / L293D
+  package: PDIP_16
+variants:
+  L293:
+    facts:
+      continuous_output_current_a:
+        status: legacy_uncited
+        value:
+          dimension: current
+          unit: A
+          rating_kind: continuous
+          value: 1.0
+        source_refs:
+          - legacy_snapshot
+      peak_output_current_a:
+        status: legacy_uncited
+        value:
+          dimension: current
+          unit: A
+          rating_kind: peak
+          value: 2.0
+        source_refs:
+          - legacy_snapshot
+      peak_duration_us:
+        status: legacy_uncited
+        value:
+          dimension: time
+          unit: us
+          rating_kind: peak
+          value: 5000
+        source_refs:
+          - legacy_snapshot
+      integrated_clamp_diodes:
+        status: legacy_uncited
+        value: false
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+  L293D:
+    facts:
+      continuous_output_current_a:
+        status: legacy_uncited
+        value:
+          dimension: current
+          unit: A
+          rating_kind: continuous
+          value: 0.6
+        source_refs:
+          - legacy_snapshot
+      peak_output_current_a:
+        status: legacy_uncited
+        value:
+          dimension: current
+          unit: A
+          rating_kind: peak
+          value: 1.2
+        source_refs:
+          - legacy_snapshot
+      peak_duration_us:
+        status: legacy_uncited
+        value:
+          dimension: time
+          unit: us
+          rating_kind: peak
+          value: 100
+        source_refs:
+          - legacy_snapshot
+      integrated_clamp_diodes:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+power_domains:
+  logic_supply:
+    facts:
+      rating:
+        status: legacy_uncited
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          nominal: 5.0
+          min: 4.5
+          max: 7.0
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    role: rail
+  motor_supply:
+    facts:
+      rating:
+        status: legacy_uncited
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 4.5
+          max: 36.0
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    role: rail
+  input_logic:
+    facts:
+      high_min_v:
+        status: legacy_uncited
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          min: 2.3
+        source_refs:
+          - legacy_snapshot
+      low_max_v:
+        status: legacy_uncited
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          max: 1.5
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    role: reference

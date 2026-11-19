@@ -1,0 +1,61 @@
+{
+  "approval": "User conversation: approved. Please move to next phase.",
+  "scope": "Schemas and IDs approved; P2 migration authorized; no independent evaluator or packaging approval implied.",
+  "definitions": {
+    "arduino/uno-r3": {
+      "path": "hardware/controllers/arduino/uno_r3/definition.yml",
+      "snapshot": "docs/evidence/migration-2026-11-19/before/arduino__uno-r3.yml.txt",
+      "sha256": "b35a50ae4fbedafbe76cc05041a44685eb5f25b0f4f479516c5d39f6b531a400",
+      "legacy_root": "arduino_uno_r3"
+    },
+    "arduino/ventuno-q": {
+      "path": "hardware/controllers/arduino/ventuno_q/definition.yml",
+      "snapshot": "docs/evidence/migration-2026-11-19/before/arduino__ventuno-q.yml.txt",
+      "sha256": "40be175a78518766ab48bc4c73f7b6795fe3f410a617af17473a6ea4e6ab7835",
+      "legacy_root": "arduino_ventuno_q"
+    },
+    "microchip/attiny-x5": {
+      "path": "hardware/controllers/microchip/attiny_x5/definition.yml",
+      "snapshot": "docs/evidence/migration-2026-11-19/before/microchip__attiny-x5.yml.txt",
+      "sha256": "06f73881094f129c2469dae3b1a584b95e58f140c8b989452cef3cdf0c112156",
+      "legacy_root": "attiny_x5"
+    },
+    "ti/l293-family": {
+      "path": "hardware/drivers/ti/l293_family/definition.yml",
+      "snapshot": "docs/evidence/migration-2026-11-19/before/ti__l293-family.yml.txt",
+      "sha256": "fae0cddc947560d4d4c2e0e14deb4465ee30861cdf0d50f1d1da9006cad62232",
+      "legacy_root": "l293_family"
+    },
+    "generic/hc-sr04": {
+      "path": "hardware/sensors/generic/hc_sr04/definition.yml",
+      "snapshot": "docs/evidence/migration-2026-11-19/before/generic__hc-sr04.yml.txt",
+      "sha256": "5bb9c00fdd87ffbdf5cb58f8beb0a318c1c99d3e788cc48922c1959618ad928c",
+      "legacy_root": "hc_sr04"
+    }
+  },
+  "preserved_files": {
+    "pyproject.toml": "5d5782d73c9c2ea0630b2090b7739ac30f055919032f5dba7d186e1f8fe6ec18",
+    "schemas/common.schema.json": "dadb536021ff0b86d306cffc693301fc4798363234522cad0e1c12d15358290c",
+    "schemas/component.schema.json": "bcde9d946602ffa8daad1037f08083e8d6271031016a313bbe2b755f2e81f86e",
+    "schemas/hardware.schema.json": "9578832cc1fc98f93d0881bc5d90effe609576c5c6b7d9ef4474fa8d36ccaf49",
+    "schemas/identity-registry.schema.json": "fa5b7a63ac7722bf3cf0f1e7e337983ba8ffc5dd89678309210e757938598c3a",
+    "schemas/provenance.schema.json": "a2860a69c364d5a1a1dbaf89e8a5eff28e42d8829d106da1d8178df00b05bc37",
+    "schemas/relations.schema.json": "964b36b4cc4baa0987ee8c53b5b08a43576d96b6eef562dbc6bb899cda656906",
+    "schemas/identity-registry.json": "1d57e6b00defbc08b42e4679fb58af2b3d8efa2ed6799a3c6cd4073d9ff3cd53",
+    "hardware/controllers/arduino/ventuno_q/sources/README.md": "6cab102b3fade164c690ecfe36eb5fc2c632a7b60918c098651205d72f50337d",
+    "hardware/controllers/arduino/ventuno_q/sources/user_manual.md": "a403727bfe044b7e33646998c79237f6d5c2b0c09c6d1238a6b2836d5492f8a9",
+    "docs/standards/ANNOTATION_STANDARDS.md": "923441b8ee8e67790fc9c380c52b2969b62337c0de74d4be0a2a3ac4067e5e12",
+    "docs/standards/DEVNOTES_STANDARDS.md": "4e8acc030d4e3573927c5bc7e688b750f5af9d12c1645bbb6ca150fde4b58d5f",
+    "docs/standards/TEST_LOG_STANDARDS.md": "ec0aded5a4400b0bd9bc72b8a4f2065ab45861ac5052fcf55434c4136d930773"
+  },
+  "journals": {
+    "DEVNOTES.md": {
+      "byte_length": 16586,
+      "sha256": "59d78353d454f3328c22f437db43dfc04e777246e072801c4074c6f486cfff2a"
+    },
+    "TEST_LOG.md": {
+      "byte_length": 25880,
+      "sha256": "f9f7773cb50e0e9eef541f39b884d40f768b2a9c4f71a6ec9a34d1b4254b3d90"
+    }
+  }
+}

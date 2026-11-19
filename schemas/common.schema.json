@@ -1,0 +1,709 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ysl:schema:common:1.0.0-draft.1",
+  "title": "Common hardware types — review draft",
+  "$comment": "Draft for human review, not adopted by the hardware catalog. Related decision: DEV-2026-11-19-004.",
+  "x-ysl-review-status": "draft-not-approved",
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": ".*\\S.*"
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_+][A-Za-z0-9_.+,\\-]*$",
+      "not": {
+        "pattern": "\\s"
+      },
+      "maxLength": 128
+    },
+    "component_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*/[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "not": {
+        "pattern": "\\s"
+      },
+      "maxLength": 160
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^(?!.*(?:^|/)\\.{1,2}(?:/|$))[A-Za-z0-9_-]+(?:/[A-Za-z0-9_.-]+)*$",
+      "not": {
+        "pattern": "\\s"
+      }
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "entity_ref": {
+      "type": "string",
+      "pattern": "^(pin|connector|interface|processor|component|feature|power_domain):[A-Za-z0-9_+][A-Za-z0-9_.+,\\-]*$"
+    },
+    "quantity": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "enum": [
+            "voltage",
+            "current",
+            "time",
+            "frequency",
+            "length",
+            "angle",
+            "power",
+            "storage",
+            "data_rate",
+            "temperature",
+            "resolution",
+            "count",
+            "ratio",
+            "compute_rate",
+            "speed",
+            "resistance",
+            "capacitance"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "value": {
+          "type": "number"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "nominal": {
+          "type": "number"
+        },
+        "typical": {
+          "type": "number"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "rating_kind": {
+          "enum": [
+            "operating",
+            "absolute_maximum",
+            "continuous",
+            "peak",
+            "nominal",
+            "typical",
+            "minimum",
+            "maximum",
+            "resolution",
+            "unspecified"
+          ]
+        },
+        "conditions": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "dimension",
+        "unit",
+        "rating_kind"
+      ],
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": [
+            "value"
+          ]
+        },
+        {
+          "required": [
+            "min"
+          ]
+        },
+        {
+          "required": [
+            "max"
+          ]
+        },
+        {
+          "required": [
+            "nominal"
+          ]
+        },
+        {
+          "required": [
+            "typical"
+          ]
+        },
+        {
+          "required": [
+            "values"
+          ]
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "voltage"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "V",
+                  "mV",
+                  "uV"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "current"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "A",
+                  "mA",
+                  "uA"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "time"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "s",
+                  "ms",
+                  "us",
+                  "ns"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "frequency"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "Hz",
+                  "kHz",
+                  "MHz",
+                  "GHz"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "length"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "m",
+                  "cm",
+                  "mm",
+                  "um"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "angle"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "deg",
+                  "rad"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "power"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "W",
+                  "mW"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "storage"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "byte",
+                  "kB",
+                  "MB",
+                  "GB",
+                  "KiB",
+                  "MiB",
+                  "GiB"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "data_rate"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "bit/s",
+                  "Mbit/s",
+                  "Gbit/s"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "temperature"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "degC",
+                  "K"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "resolution"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "bit"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "count"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "count"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "ratio"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "1",
+                  "%"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "compute_rate"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "TOPS"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "speed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "m/s"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "resistance"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "ohm",
+                  "kohm",
+                  "Mohm"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "dimension": {
+                "const": "capacitance"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unit": {
+                "enum": [
+                  "F",
+                  "uF",
+                  "nF",
+                  "pF"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "fact_value": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/quantity"
+        }
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/fact_value"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "value",
+        "source_refs"
+      ],
+      "additionalProperties": false
+    },
+    "fact": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "documented",
+            "derived",
+            "legacy_uncited",
+            "unknown",
+            "conflicting"
+          ]
+        },
+        "value": {
+          "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/fact_value"
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/claim"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        },
+        "derivation": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": ".*\\S.*"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "documented",
+                  "derived",
+                  "legacy_uncited"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ],
+            "properties": {
+              "claims": false
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "documented",
+                  "derived"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source_refs"
+            ],
+            "properties": {
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "derived"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "derivation"
+            ]
+          },
+          "else": {
+            "properties": {
+              "derivation": false
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "notes"
+            ],
+            "properties": {
+              "value": false,
+              "claims": false
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "conflicting"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "claims",
+              "notes"
+            ],
+            "properties": {
+              "value": false
+            }
+          }
+        }
+      ]
+    },
+    "facts": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+      },
+      "additionalProperties": {
+        "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/fact"
+      },
+      "minProperties": 0
+    }
+  }
+}

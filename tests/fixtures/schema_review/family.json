@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0-draft.1",
+  "id": "review/synthetic-family",
+  "name": "Synthetic IC family — not catalog hardware",
+  "category": "drivers",
+  "kind": "ic_family",
+  "manufacturer": {"status": "known", "name": "Synthetic fixture manufacturer"},
+  "aliases": ["review_family"],
+  "provenance": {"status": "legacy_uncited", "notes": "No manufacturer evidence is asserted by this fixture."},
+  "sources": {},
+  "verification": {"status": "not_verified", "records": {}},
+  "facts": {"clamp_diodes": {"status": "legacy_uncited", "value": false}},
+  "ic_family": {"family": "SYNTH", "package": "DIP-2"},
+  "connectors": {"PACKAGE": {"type": "ic_package", "positions": 2, "facts": {}, "provenance": {"status": "legacy_uncited"}}},
+  "pins": {"IN": {"maps_to": "IN", "location": {"connector": "PACKAGE", "position": 1}, "facts": {}, "provenance": {"status": "legacy_uncited"}}},
+  "interfaces": {},
+  "variants": {
+    "BASE": {"facts": {"continuous_current": {"status": "legacy_uncited", "value": {"dimension": "current", "unit": "A", "value": 0.5, "rating_kind": "continuous"}}}, "provenance": {"status": "legacy_uncited"}},
+    "PROTECTED": {"inherits": "variant:BASE", "facts": {"clamp_diodes": {"status": "legacy_uncited", "value": true}}, "provenance": {"status": "legacy_uncited"}}
+  },
+  "profiles": {
+    "LOW_VOLTAGE": {"inherits": "variant:BASE", "facts": {"operating_voltage": {"status": "legacy_uncited", "value": {"dimension": "voltage", "unit": "V", "min": 1.8, "max": 3.3, "rating_kind": "operating"}}}, "provenance": {"status": "legacy_uncited"}}
+  }
+}

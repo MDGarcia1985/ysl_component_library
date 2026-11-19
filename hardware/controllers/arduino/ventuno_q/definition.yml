@@ -1,0 +1,8255 @@
+# Schema/ID migration; original source bytes are retained in docs/evidence/migration-2026-11-19/before/.
+# Related decision: DEV-2026-11-19-005. No bench verification is implied.
+
+schema_version: 1.0.0-draft.1
+id: arduino/ventuno-q
+name: Arduino VENTUNO Q
+category: controllers
+kind: board
+manufacturer:
+  status: known
+  name: Arduino
+aliases:
+  - arduino_ventuno_q
+provenance:
+  status: documented
+  source_refs:
+    - manual
+sources:
+  legacy_snapshot:
+    title: Pre-migration repository definition
+    kind: legacy_note
+    path: docs/evidence/migration-2026-11-19/before/arduino__ventuno-q.yml.txt
+    notes: Original bytes and comments preserved; this locator does not establish manufacturer verification.
+  manual:
+    title: VENTUNO Q User Manual
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    snapshot_date: '2026-11-19'
+    author: Karl Söderby
+  overview:
+    title: Overview
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Overview
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  architecture:
+    title: Board Architecture Overview
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Board Architecture Overview
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  power:
+    title: Power Overview
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Power Overview
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  power_safety:
+    title: Power Safety Considerations
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Power Safety Considerations
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  usb_a_power:
+    title: USB-A Power Draw
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: USB-A Power Draw
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  limited_rails:
+    title: 5 V / 3.3 V Power Rails
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: 5 V / 3.3 V Power Rails
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  vin:
+    title: VIN Pin Ratings
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: VIN Pin Ratings
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  digital:
+    title: Digital Pins
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Digital Pins
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  analog:
+    title: Analog Pins
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Analog Pins
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  adc:
+    title: Analog to Digital Converter (ADC)
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Analog to Digital Converter (ADC)
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  dac:
+    title: Digital to Analog Converter (DAC)
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Digital to Analog Converter (DAC)
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  pwm:
+    title: PWM Pins
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: PWM Pins
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  qwiic:
+    title: Qwiic
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Qwiic
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  usb_c:
+    title: USB-C Connector
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: USB-C Connector
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  usb_a:
+    title: USB-A Connectors
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: USB-A Connectors
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  ethernet:
+    title: Ethernet Connector
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Ethernet Connector
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  hdmi:
+    title: HDMI
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: HDMI
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  m2:
+    title: M.2 Connector
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: M.2 Connector
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  jhat:
+    title: RPi 40-Pin Header
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: RPi 40-Pin Header
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  cameras:
+    title: MIPI / CSI Camera
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: MIPI / CSI Camera
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  can:
+    title: CAN-FD
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: CAN-FD
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  can_interfaces:
+    title: CAN Interfaces
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: CAN Interfaces
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  can_transceiver:
+    title: CAN Transceiver Connections
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: CAN Transceiver Connections
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  jmedia:
+    title: JMEDIA
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: JMEDIA
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  jmisc:
+    title: JMISC
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: JMISC
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  jomega:
+    title: JOMEGA Expansion Header
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: JOMEGA Expansion Header
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  spi:
+    title: SPI
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: SPI
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  i2c:
+    title: I2C
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: I2C
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  uart:
+    title: UART
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: UART
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  wireless:
+    title: Wireless Connectivity
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Wireless Connectivity
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  form_factor:
+    title: Form Factor
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Form Factor
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  clearance:
+    title: Board Clearance
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Board Clearance
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  debug_uart:
+    title: Hardware Debug UART Interface
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Hardware Debug UART Interface
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  led_matrix:
+    title: LED Matrix
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: LED Matrix
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  rgb_leds:
+    title: RGB LEDs
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: RGB LEDs
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  user_button:
+    title: User Button
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: User Button
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  power_button:
+    title: Power Button
+    kind: manual
+    path: hardware/controllers/arduino/ventuno_q/sources/user_manual.md
+    section: Power Button
+    snapshot_date: '2026-11-19'
+    notes: manual_statement_not_bench_verified
+  linked_full_pinout:
+    title: Full Pinout
+    kind: pinout
+    url: https://docs.arduino.cc/resources/pinouts/ABX00181-full-pinout.pdf
+    notes: Linked by the copied manual; not fetched to resolve source discrepancies.
+  linked_datasheet:
+    title: Datasheet
+    kind: datasheet
+    url: https://docs.arduino.cc/resources/datasheets/ABX00181-datasheet.pdf
+    notes: Linked by the copied manual; not fetched to resolve source discrepancies.
+  linked_schematics:
+    title: Schematics
+    kind: schematic
+    url: https://docs.arduino.cc/resources/schematics/ABX00181-schematics.pdf
+    notes: Linked by the copied manual; not fetched to resolve source discrepancies.
+verification:
+  status: not_verified
+  records: {}
+  notes: Schema/source migration and static checks do not establish bench verification.
+facts:
+  scope:
+    status: documented
+    value: Transcription of the local manual; linked PDFs were not used to resolve discrepancies.
+    source_refs:
+      - manual
+  pin_naming:
+    status: documented
+    value: UNO analog pins use A0-A5 with D14-D19 aliases, following the Uno R3 definition. Expansion keys use CONNECTOR_position,
+      with physical_pin scoped to connector. maps_to preserves each expansion table's signal label; mcu_pin or source_function
+      preserves its separate port or function column when supplied.
+    source_refs:
+      - manual
+  coverage_gaps__0:
+    status: documented
+    value: Complete UNO power-header positions, Qwiic positions, JCTL pinout, and camera pinouts are not provided
+      in the manual text.
+    source_refs:
+      - manual
+  coverage_gaps__1:
+    status: documented
+    value: MCU package pin numbers, board revision, and per-pin electrical limits are not specified.
+    source_refs:
+      - manual
+  coverage_gaps__2:
+    status: documented
+    value: High-speed and carrier signal labels are transcribed as published, without schematic verification.
+    source_refs:
+      - manual
+  related_decision:
+    status: documented
+    value: DEV-2026-11-19-001
+    source_refs:
+      - manual
+  enrichment_decision:
+    status: documented
+    value: DEV-2026-11-19-003
+    source_refs:
+      - manual
+  relationship_reference_convention:
+    status: documented
+    value: 'Typed references use processor:, component:, interface:, connector:, or pin: followed by a key in the
+      corresponding local mapping.'
+    source_refs:
+      - manual
+  preparation_status:
+    status: documented
+    value: Additive source transcription; no common-schema or ID migration; no CLI review gate approved.
+    source_refs:
+      - manual
+  power_distribution__input_rating_refs__0:
+    status: documented
+    value: usb_c_pd_input
+    source_refs:
+      - manual
+  power_distribution__input_rating_refs__1:
+    status: documented
+    value: barrel_jack_input
+    source_refs:
+      - manual
+  power_distribution__input_rating_refs__2:
+    status: documented
+    value: screw_terminal_input
+    source_refs:
+      - manual
+  power_distribution__input_rating_refs__3:
+    status: documented
+    value: uno_vin_input
+    source_refs:
+      - manual
+  power_distribution__budget_rule:
+    status: documented
+    value: Select the actual input path and account for board load plus all peripherals; the input connector limit
+      is not a per-output guarantee.
+    source_refs:
+      - manual
+  power_distribution__source_context:
+    status: documented
+    value: Source context for this section
+    source_refs:
+      - power
+      - power_safety
+      - usb_a_power
+      - limited_rails
+      - vin
+  model:
+    status: documented
+    value: VENTUNO Q
+    source_refs:
+      - manual
+  device_type:
+    status: documented
+    value: dual_processor_controller_board
+    source_refs:
+      - manual
+  memory__ram__type:
+    status: documented
+    value: LPDDR5
+    source_refs:
+      - architecture
+  memory__ram__capacity_gb:
+    status: documented
+    value:
+      dimension: storage
+      unit: GB
+      rating_kind: unspecified
+      value: 16
+    source_refs:
+      - architecture
+  memory__ram__source_context:
+    status: documented
+    value: Source context for this section
+    source_refs:
+      - architecture
+  memory__storage__type:
+    status: documented
+    value: eMMC
+    source_refs:
+      - architecture
+  memory__storage__capacity_gb:
+    status: documented
+    value:
+      dimension: storage
+      unit: GB
+      rating_kind: unspecified
+      value: 64
+    source_refs:
+      - architecture
+  memory__storage__source_context:
+    status: documented
+    value: Source context for this section
+    source_refs:
+      - architecture
+  physical__board_dimensions_mm__length:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      value: 160
+    source_refs:
+      - form_factor
+      - clearance
+  physical__board_dimensions_mm__width:
+    status: documented
+    value:
+      dimension: length
+      unit: mm
+      rating_kind: unspecified
+      value: 100
+    source_refs:
+      - form_factor
+      - clearance
+  physical__mounting_standoffs:
+    status: documented
+    value:
+      dimension: count
+      unit: count
+      rating_kind: unspecified
+      value: 4
+    source_refs:
+      - form_factor
+      - clearance
+  physical__uno_style_headers:
+    status: documented
+    value: true
+    source_refs:
+      - form_factor
+      - clearance
+  physical__source_context:
+    status: documented
+    value: Source context for this section
+    source_refs:
+      - form_factor
+      - clearance
+pins:
+  D0:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB11
+    capabilities:
+      - gpio
+      - uart_rx
+    aliases:
+      - RX
+    direction: bidirectional
+  D1:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB10
+    capabilities:
+      - gpio
+      - uart_tx
+    aliases:
+      - TX
+    direction: bidirectional
+  D2:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB0
+    capabilities:
+      - gpio
+    direction: bidirectional
+  D3:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - pwm
+    maps_to: PB1
+    capabilities:
+      - gpio
+      - opamp_output
+      - pwm
+    direction: bidirectional
+  D4:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB6
+    capabilities:
+      - gpio
+      - can_tx
+    aliases:
+      - FDCAN2_TX
+    direction: bidirectional
+  D5:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - pwm
+    maps_to: PB5
+    capabilities:
+      - gpio
+      - can_rx
+      - pwm
+    aliases:
+      - FDCAN2_RX
+    direction: bidirectional
+  D6:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - pwm
+    maps_to: PB2
+    capabilities:
+      - gpio
+      - pwm
+    direction: bidirectional
+  D7:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB3
+    capabilities:
+      - gpio
+    direction: bidirectional
+  D8:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB4
+    capabilities:
+      - gpio
+    direction: bidirectional
+  D9:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - pwm
+    maps_to: PB7
+    capabilities:
+      - gpio
+      - pwm
+    direction: bidirectional
+  D10:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - pwm
+    maps_to: PB12
+    capabilities:
+      - gpio
+      - spi_chip_select
+      - pwm
+    aliases:
+      - SS
+    direction: bidirectional
+  D11:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - pwm
+    maps_to: PB15
+    capabilities:
+      - gpio
+      - spi_mosi
+      - pwm
+    aliases:
+      - MOSI
+    direction: bidirectional
+  D12:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB14
+    capabilities:
+      - gpio
+      - spi_miso
+    aliases:
+      - MISO
+    direction: bidirectional
+  D13:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PB13
+    capabilities:
+      - gpio
+      - spi_clock
+    aliases:
+      - SCK
+    direction: bidirectional
+  A0:
+    facts:
+      connector:
+        status: documented
+        value: JANALOG
+        source_refs:
+          - digital
+          - adc
+          - dac
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+        - dac
+    maps_to: PA4
+    capabilities:
+      - gpio
+      - adc
+      - dac
+    aliases:
+      - D14
+      - DAC0
+    direction: bidirectional
+  A1:
+    facts:
+      connector:
+        status: documented
+        value: JANALOG
+        source_refs:
+          - digital
+          - adc
+          - dac
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+        - dac
+    maps_to: PA5
+    capabilities:
+      - gpio
+      - adc
+      - dac
+    aliases:
+      - D15
+      - DAC1
+    direction: bidirectional
+  A2:
+    facts:
+      connector:
+        status: documented
+        value: JANALOG
+        source_refs:
+          - digital
+          - adc
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+    maps_to: PE12
+    capabilities:
+      - gpio
+      - adc
+      - opamp_positive_input
+      - spi_clock
+    aliases:
+      - D16
+    direction: bidirectional
+  A3:
+    facts:
+      connector:
+        status: documented
+        value: JANALOG
+        source_refs:
+          - digital
+          - adc
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+    maps_to: PE13
+    capabilities:
+      - gpio
+      - adc
+      - opamp_negative_input
+      - spi_miso
+    aliases:
+      - D17
+    direction: bidirectional
+  A4:
+    facts:
+      connector:
+        status: documented
+        value: JANALOG
+        source_refs:
+          - digital
+          - adc
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+    maps_to: PE14
+    capabilities:
+      - gpio
+      - adc
+      - spi_mosi
+    aliases:
+      - D18
+    direction: bidirectional
+  A5:
+    facts:
+      connector:
+        status: documented
+        value: JANALOG
+        source_refs:
+          - digital
+          - adc
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+    maps_to: PE15
+    capabilities:
+      - gpio
+      - adc
+    aliases:
+      - D19
+    direction: bidirectional
+  D20:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PH12
+    capabilities:
+      - gpio
+      - i2c_sda
+    aliases:
+      - SDA
+    direction: bidirectional
+  D21:
+    facts:
+      connector:
+        status: documented
+        value: JDIGITAL
+        source_refs:
+          - digital
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+    maps_to: PH11
+    capabilities:
+      - gpio
+      - i2c_scl
+    aliases:
+      - SCL
+    direction: bidirectional
+  AREF:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - adc
+    maps_to: AREF
+    capabilities:
+      - adc_reference_input
+    direction: input
+  VIN:
+    facts:
+      note:
+        status: documented
+        value: UNO VIN input; 1.1 A PTC fuse; see voltage.uno_vin_input.
+        source_refs:
+          - vin
+    provenance:
+      status: documented
+      source_refs:
+        - vin
+    maps_to: VIN
+    capabilities:
+      - power_input
+    direction: power_input
+  QWIIC_SCL:
+    facts:
+      connector:
+        status: documented
+        value: QWIIC
+        source_refs:
+          - i2c
+          - qwiic
+      note:
+        status: documented
+        value: Controller designation conflicts with the Qwiic section.
+        source_refs:
+          - i2c
+          - qwiic
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+        - qwiic
+    maps_to: PA8
+    capabilities:
+      - i2c_scl
+    aliases:
+      - I2C3_SCL
+  QWIIC_SDA:
+    facts:
+      connector:
+        status: documented
+        value: QWIIC
+        source_refs:
+          - i2c
+          - qwiic
+      note:
+        status: documented
+        value: Controller designation conflicts with the Qwiic section.
+        source_refs:
+          - i2c
+          - qwiic
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+        - qwiic
+    maps_to: PC9
+    capabilities:
+      - i2c_sda
+    aliases:
+      - I2C3_SDA
+  CAN_H:
+    facts:
+      connector:
+        status: documented
+        value: CAN_SCREW_TERMINAL
+        source_refs:
+          - can
+          - can_transceiver
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_transceiver
+    maps_to: CANH
+    capabilities:
+      - can_bus_high
+    aliases:
+      - CAN-H
+    direction: bidirectional
+  CAN_L:
+    facts:
+      connector:
+        status: documented
+        value: CAN_SCREW_TERMINAL
+        source_refs:
+          - can
+          - can_transceiver
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_transceiver
+    maps_to: CANL
+    capabilities:
+      - can_bus_low
+    aliases:
+      - CAN-L
+    direction: bidirectional
+  JHAT_1:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: +3V3
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JHAT
+      position: 1
+  JHAT_2:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: +5V
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JHAT
+      position: 2
+  JHAT_3:
+    facts:
+      source_function:
+        status: documented
+        value: SE0_SDA
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_17
+    location:
+      connector: JHAT
+      position: 3
+  JHAT_4:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: +5V
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JHAT
+      position: 4
+  JHAT_5:
+    facts:
+      source_function:
+        status: documented
+        value: SE0_SCL
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_18
+    location:
+      connector: JHAT
+      position: 5
+  JHAT_6:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 6
+  JHAT_7:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_83
+    location:
+      connector: JHAT
+      position: 7
+  JHAT_8:
+    facts:
+      source_function:
+        status: documented
+        value: SE2_TX
+        source_refs:
+          - jhat
+      unavailable_while_bluetooth_active:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_86
+    location:
+      connector: JHAT
+      position: 8
+  JHAT_9:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 9
+  JHAT_10:
+    facts:
+      source_function:
+        status: documented
+        value: SE2_RX
+        source_refs:
+          - jhat
+      unavailable_while_bluetooth_active:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_87
+    location:
+      connector: JHAT
+      position: 10
+  JHAT_11:
+    facts:
+      source_function:
+        status: documented
+        value: SE2_RFR
+        source_refs:
+          - jhat
+      unavailable_while_bluetooth_active:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_85
+    location:
+      connector: JHAT
+      position: 11
+  JHAT_12:
+    facts:
+      source_function:
+        status: documented
+        value: I2S1_SCK
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_116
+    location:
+      connector: JHAT
+      position: 12
+  JHAT_13:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_109
+    location:
+      connector: JHAT
+      position: 13
+  JHAT_14:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 14
+  JHAT_15:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_90
+    location:
+      connector: JHAT
+      position: 15
+  JHAT_16:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_105
+    location:
+      connector: JHAT
+      position: 16
+  JHAT_17:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: +3V3
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JHAT
+      position: 17
+  JHAT_18:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_106
+    location:
+      connector: JHAT
+      position: 18
+  JHAT_19:
+    facts:
+      source_function:
+        status: documented
+        value: SE3_MOSI
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_26
+    location:
+      connector: JHAT
+      position: 19
+  JHAT_20:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 20
+  JHAT_21:
+    facts:
+      source_function:
+        status: documented
+        value: SE3_MISO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_25
+    location:
+      connector: JHAT
+      position: 21
+  JHAT_22:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_107
+    location:
+      connector: JHAT
+      position: 22
+  JHAT_23:
+    facts:
+      source_function:
+        status: documented
+        value: SE3_SCK
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_27
+    location:
+      connector: JHAT
+      position: 23
+  JHAT_24:
+    facts:
+      source_function:
+        status: documented
+        value: SE3_CS
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_28
+    location:
+      connector: JHAT
+      position: 24
+  JHAT_25:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 25
+  JHAT_26:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_88
+    location:
+      connector: JHAT
+      position: 26
+  JHAT_27:
+    facts:
+      source_function:
+        status: documented
+        value: SE1_SDA
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_19
+    location:
+      connector: JHAT
+      position: 27
+  JHAT_28:
+    facts:
+      source_function:
+        status: documented
+        value: SE1_SCL
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_20
+    location:
+      connector: JHAT
+      position: 28
+  JHAT_29:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_89
+    location:
+      connector: JHAT
+      position: 29
+  JHAT_30:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 30
+  JHAT_31:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_80
+    location:
+      connector: JHAT
+      position: 31
+  JHAT_32:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_77
+    location:
+      connector: JHAT
+      position: 32
+  JHAT_33:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_81
+    location:
+      connector: JHAT
+      position: 33
+  JHAT_34:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 34
+  JHAT_35:
+    facts:
+      source_function:
+        status: documented
+        value: I2S1_WS
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_117
+    location:
+      connector: JHAT
+      position: 35
+  JHAT_36:
+    facts:
+      source_function:
+        status: documented
+        value: SE2_CTS
+        source_refs:
+          - jhat
+      unavailable_while_bluetooth_active:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_84
+    location:
+      connector: JHAT
+      position: 36
+  JHAT_37:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_108
+    location:
+      connector: JHAT
+      position: 37
+  JHAT_38:
+    facts:
+      source_function:
+        status: documented
+        value: I2S1_DATA0
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_118
+    location:
+      connector: JHAT
+      position: 38
+  JHAT_39:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JHAT
+      position: 39
+  JHAT_40:
+    facts:
+      source_function:
+        status: documented
+        value: I2S1_DATA1
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    maps_to: MD_GPIO_119
+    location:
+      connector: JHAT
+      position: 40
+  JMEDIA_1:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 1
+  JMEDIA_2:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 2
+  JMEDIA_3:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_CLK_M
+    location:
+      connector: JMEDIA
+      position: 3
+  JMEDIA_4:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L1_P
+    location:
+      connector: JMEDIA
+      position: 4
+  JMEDIA_5:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_CLK_P
+    location:
+      connector: JMEDIA
+      position: 5
+  JMEDIA_6:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L1_M
+    location:
+      connector: JMEDIA
+      position: 6
+  JMEDIA_7:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 7
+  JMEDIA_8:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 8
+  JMEDIA_9:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L2_M
+    location:
+      connector: JMEDIA
+      position: 9
+  JMEDIA_10:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L0_P
+    location:
+      connector: JMEDIA
+      position: 10
+  JMEDIA_11:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L2_P
+    location:
+      connector: JMEDIA
+      position: 11
+  JMEDIA_12:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L0_M
+    location:
+      connector: JMEDIA
+      position: 12
+  JMEDIA_13:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 13
+  JMEDIA_14:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 14
+  JMEDIA_15:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L3_M
+    location:
+      connector: JMEDIA
+      position: 15
+  JMEDIA_16:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_67
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: SOC_CAM_MCLK0
+    location:
+      connector: JMEDIA
+      position: 16
+  JMEDIA_17:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: MIPI_DSI0_L3_P
+    location:
+      connector: JMEDIA
+      position: 17
+  JMEDIA_18:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_68
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: SOC_CAM_MCLK1
+    location:
+      connector: JMEDIA
+      position: 18
+  JMEDIA_19:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 19
+  JMEDIA_20:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 20
+  JMEDIA_21:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_C0_LN0_M
+    location:
+      connector: JMEDIA
+      position: 21
+  JMEDIA_22:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_59
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CCI_I2C2_SDA1
+    location:
+      connector: JMEDIA
+      position: 22
+  JMEDIA_23:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_B0_LN0_P
+    location:
+      connector: JMEDIA
+      position: 23
+  JMEDIA_24:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_60
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CCI_I2C2_SCL1
+    location:
+      connector: JMEDIA
+      position: 24
+  JMEDIA_25:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 25
+  JMEDIA_26:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 26
+  JMEDIA_27:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_B1_LN1_M
+    location:
+      connector: JMEDIA
+      position: 27
+  JMEDIA_28:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_B2_LN3_P
+    location:
+      connector: JMEDIA
+      position: 28
+  JMEDIA_29:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_A1_LN1_P
+    location:
+      connector: JMEDIA
+      position: 29
+  JMEDIA_30:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_C2_LN3_M
+    location:
+      connector: JMEDIA
+      position: 30
+  JMEDIA_31:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 31
+  JMEDIA_32:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 32
+  JMEDIA_33:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_A0_CLK_M
+    location:
+      connector: JMEDIA
+      position: 33
+  JMEDIA_34:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_C1_LN2_P
+    location:
+      connector: JMEDIA
+      position: 34
+  JMEDIA_35:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_NC_CLK_P
+    location:
+      connector: JMEDIA
+      position: 35
+  JMEDIA_36:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_A2_LN2_M
+    location:
+      connector: JMEDIA
+      position: 36
+  JMEDIA_37:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 37
+  JMEDIA_38:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 38
+  JMEDIA_39:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_A2_LN2_M
+    location:
+      connector: JMEDIA
+      position: 39
+  JMEDIA_40:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_NC_CLK_P
+    location:
+      connector: JMEDIA
+      position: 40
+  JMEDIA_41:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_C1_LN2_P
+    location:
+      connector: JMEDIA
+      position: 41
+  JMEDIA_42:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_A0_CLK_M
+    location:
+      connector: JMEDIA
+      position: 42
+  JMEDIA_43:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 43
+  JMEDIA_44:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 44
+  JMEDIA_45:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_C2_LN3_M
+    location:
+      connector: JMEDIA
+      position: 45
+  JMEDIA_46:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_A1_LN1_P
+    location:
+      connector: JMEDIA
+      position: 46
+  JMEDIA_47:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI0_B2_LN3_P
+    location:
+      connector: JMEDIA
+      position: 47
+  JMEDIA_48:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_B1_LN1_M
+    location:
+      connector: JMEDIA
+      position: 48
+  JMEDIA_49:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 49
+  JMEDIA_50:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 50
+  JMEDIA_51:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_58
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CCI_I2C0_SCL1
+    location:
+      connector: JMEDIA
+      position: 51
+  JMEDIA_52:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_B0_LN0_P
+    location:
+      connector: JMEDIA
+      position: 52
+  JMEDIA_53:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_57
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CCI_I2C0_SDA1
+    location:
+      connector: JMEDIA
+      position: 53
+  JMEDIA_54:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: CSI1_C0_LN0_M
+    location:
+      connector: JMEDIA
+      position: 54
+  JMEDIA_55:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 55
+  JMEDIA_56:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMEDIA
+      position: 56
+  JMEDIA_57:
+    facts:
+      max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 1.5
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: VIN (IN, 1.5 A max)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JMEDIA
+      position: 57
+  JMEDIA_58:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMEDIA
+      position: 58
+  JMEDIA_59:
+    facts:
+      max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 1.5
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: VIN (IN, 1.5 A max)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JMEDIA
+      position: 59
+  JMEDIA_60:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMEDIA
+      position: 60
+  JMISC_1:
+    facts:
+      source_function:
+        status: documented
+        value: PA9
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA9
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D0
+    location:
+      connector: JMISC
+      position: 1
+  JMISC_2:
+    facts:
+      source_function:
+        status: documented
+        value: PE2
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE2
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_TRACE_CLK
+    location:
+      connector: JMISC
+      position: 2
+  JMISC_3:
+    facts:
+      source_function:
+        status: documented
+        value: PC7
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PC7
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D1
+    location:
+      connector: JMISC
+      position: 3
+  JMISC_4:
+    facts:
+      source_function:
+        status: documented
+        value: PE3
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE3
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_TRACE_D0
+    location:
+      connector: JMISC
+      position: 4
+  JMISC_5:
+    facts:
+      source_function:
+        status: documented
+        value: PC8
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PC8
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D2
+    location:
+      connector: JMISC
+      position: 5
+  JMISC_6:
+    facts:
+      source_function:
+        status: documented
+        value: PE4
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE4
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_TRACE_D1
+    location:
+      connector: JMISC
+      position: 6
+  JMISC_7:
+    facts:
+      source_function:
+        status: documented
+        value: PE1
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE1
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D3
+    location:
+      connector: JMISC
+      position: 7
+  JMISC_8:
+    facts:
+      source_function:
+        status: documented
+        value: PE5
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE5
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_TRACE_D2
+    location:
+      connector: JMISC
+      position: 8
+  JMISC_9:
+    facts:
+      source_function:
+        status: documented
+        value: PC11
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PC11
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D4
+    location:
+      connector: JMISC
+      position: 9
+  JMISC_10:
+    facts:
+      source_function:
+        status: documented
+        value: PE6
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE6
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_TRACE_D3
+    location:
+      connector: JMISC
+      position: 10
+  JMISC_11:
+    facts:
+      source_function:
+        status: documented
+        value: PD3
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PD3
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D5
+    location:
+      connector: JMISC
+      position: 11
+  JMISC_12:
+    facts:
+      source_function:
+        status: documented
+        value: PE7
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE7
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_USART2_RX
+    location:
+      connector: JMISC
+      position: 12
+  JMISC_13:
+    facts:
+      source_function:
+        status: documented
+        value: PF4
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PF4
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D6
+    location:
+      connector: JMISC
+      position: 13
+  JMISC_14:
+    facts:
+      source_function:
+        status: documented
+        value: PE8
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PE8
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_USART2_TX
+    location:
+      connector: JMISC
+      position: 14
+  JMISC_15:
+    facts:
+      source_function:
+        status: documented
+        value: PI7
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PI7
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_D7
+    location:
+      connector: JMISC
+      position: 15
+  JMISC_16:
+    facts:
+      source_function:
+        status: documented
+        value: PF1
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PF1
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_I2C2_SCL
+    location:
+      connector: JMISC
+      position: 16
+  JMISC_17:
+    facts:
+      source_function:
+        status: documented
+        value: PA6
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA6
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_PDCK
+    location:
+      connector: JMISC
+      position: 17
+  JMISC_18:
+    facts:
+      source_function:
+        status: documented
+        value: PF0
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PF0
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_I2C2_SDA
+    location:
+      connector: JMISC
+      position: 18
+  JMISC_19:
+    facts:
+      source_function:
+        status: documented
+        value: PI5
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PI5
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_RDY
+    location:
+      connector: JMISC
+      position: 19
+  JMISC_20:
+    facts:
+      source_function:
+        status: documented
+        value: PA0
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA0
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_GPIO_PA0
+    location:
+      connector: JMISC
+      position: 20
+  JMISC_21:
+    facts:
+      source_function:
+        status: documented
+        value: PH8
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PH8
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_PSSI_DE
+    location:
+      connector: JMISC
+      position: 21
+  JMISC_22:
+    facts:
+      source_function:
+        status: documented
+        value: PA1
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA1
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_GPIO_PA1
+    location:
+      connector: JMISC
+      position: 22
+  JMISC_23:
+    facts:
+      source_function:
+        status: documented
+        value: PA11
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA11
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_UART4_RX
+    location:
+      connector: JMISC
+      position: 23
+  JMISC_24:
+    facts:
+      source_function:
+        status: documented
+        value: PA2
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA2
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_GPIO_PA2
+    location:
+      connector: JMISC
+      position: 24
+  JMISC_25:
+    facts:
+      source_function:
+        status: documented
+        value: PA12
+        source_refs:
+          - jmisc
+      mcu_pin:
+        status: documented
+        value: PA12
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MCU_UART4_TX
+    location:
+      connector: JMISC
+      position: 25
+  JMISC_26:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMISC
+      position: 26
+  JMISC_27:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMISC
+      position: 27
+  JMISC_28:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: EAR_P
+    location:
+      connector: JMISC
+      position: 28
+  JMISC_29:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MIC_IN+
+    location:
+      connector: JMISC
+      position: 29
+  JMISC_30:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: EAR_M
+    location:
+      connector: JMISC
+      position: 30
+  JMISC_31:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MIC_IN-
+    location:
+      connector: JMISC
+      position: 31
+  JMISC_32:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: LINEOUT_P
+    location:
+      connector: JMISC
+      position: 32
+  JMISC_33:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: MIC_BIAS
+    location:
+      connector: JMISC
+      position: 33
+  JMISC_34:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: LINEOUT_M
+    location:
+      connector: JMISC
+      position: 34
+  JMISC_35:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMISC
+      position: 35
+  JMISC_36:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: HPH_L
+    location:
+      connector: JMISC
+      position: 36
+  JMISC_37:
+    facts:
+      source_function:
+        status: documented
+        value: MISO
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_10_SE0
+    location:
+      connector: JMISC
+      position: 37
+  JMISC_38:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: HPH_R
+    location:
+      connector: JMISC
+      position: 38
+  JMISC_39:
+    facts:
+      source_function:
+        status: documented
+        value: MOSI
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_11_SE0
+    location:
+      connector: JMISC
+      position: 39
+  JMISC_40:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: HPH_REF
+    location:
+      connector: JMISC
+      position: 40
+  JMISC_41:
+    facts:
+      source_function:
+        status: documented
+        value: SCK
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_12_SE0
+    location:
+      connector: JMISC
+      position: 41
+  JMISC_42:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: HS_DET
+    location:
+      connector: JMISC
+      position: 42
+  JMISC_43:
+    facts:
+      source_function:
+        status: documented
+        value: CS0
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_13_SE0
+    location:
+      connector: JMISC
+      position: 43
+  JMISC_44:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMISC
+      position: 44
+  JMISC_45:
+    facts:
+      source_function:
+        status: documented
+        value: CS2
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_15_SE0
+    location:
+      connector: JMISC
+      position: 45
+  JMISC_46:
+    facts:
+      source_function:
+        status: documented
+        value: I2S2_SCK
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_120
+    location:
+      connector: JMISC
+      position: 46
+  JMISC_47:
+    facts:
+      source_function:
+        status: documented
+        value: CS1
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_14_SE0
+    location:
+      connector: JMISC
+      position: 47
+  JMISC_48:
+    facts:
+      source_function:
+        status: documented
+        value: I2S2_WS
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_121
+    location:
+      connector: JMISC
+      position: 48
+  JMISC_49:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_73
+    location:
+      connector: JMISC
+      position: 49
+  JMISC_50:
+    facts:
+      source_function:
+        status: documented
+        value: I2S2_DATA0
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_122
+    location:
+      connector: JMISC
+      position: 50
+  JMISC_51:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_74
+    location:
+      connector: JMISC
+      position: 51
+  JMISC_52:
+    facts:
+      source_function:
+        status: documented
+        value: I2S2_DATA1
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_GPIO_123
+    location:
+      connector: JMISC
+      position: 52
+  JMISC_53:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMISC
+      position: 53
+  JMISC_54:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: +5V (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMISC
+      position: 54
+  JMISC_55:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMISC
+      position: 55
+  JMISC_56:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: +5V (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMISC
+      position: 56
+  JMISC_57:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: +1V8 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JMISC
+      position: 57
+  JMISC_58:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JMISC
+      position: 58
+  JMISC_59:
+    facts:
+      source_function:
+        status: documented
+        value: MCU_VBAT
+        source_refs:
+          - jmisc
+      max_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          max: 3.3
+        source_refs:
+          - jmisc
+      note:
+        status: documented
+        value: MPU and MCU RTC backup only; not board backup power.
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: SOC_VCOIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JMISC
+      position: 59
+  JMISC_60:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    maps_to: NC
+    capabilities:
+      - not_connected
+    location:
+      connector: JMISC
+      position: 60
+  JOMEGA_1:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 1
+  JOMEGA_2:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 2
+  JOMEGA_3:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 3
+  JOMEGA_4:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 4
+  JOMEGA_5:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 5
+  JOMEGA_6:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 6
+  JOMEGA_7:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 7
+  JOMEGA_8:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 8
+  JOMEGA_9:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 9
+  JOMEGA_10:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 10
+  JOMEGA_11:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 11
+  JOMEGA_12:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 12
+  JOMEGA_13:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: VIN (IN)
+    capabilities:
+      - power_input
+    direction: power_input
+    location:
+      connector: JOMEGA
+      position: 13
+  JOMEGA_14:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 14
+  JOMEGA_15:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 15
+  JOMEGA_16:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 16
+  JOMEGA_17:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 17
+  JOMEGA_18:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_SS_TX_P
+    location:
+      connector: JOMEGA
+      position: 18
+  JOMEGA_19:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 19
+  JOMEGA_20:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_SS_TX_N
+    location:
+      connector: JOMEGA
+      position: 20
+  JOMEGA_21:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 21
+  JOMEGA_22:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 22
+  JOMEGA_23:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 23
+  JOMEGA_24:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_HS_D_P
+    location:
+      connector: JOMEGA
+      position: 24
+  JOMEGA_25:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 25
+  JOMEGA_26:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_HS_D_N
+    location:
+      connector: JOMEGA
+      position: 26
+  JOMEGA_27:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 27
+  JOMEGA_28:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 28
+  JOMEGA_29:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 29
+  JOMEGA_30:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_SS_RX_P
+    location:
+      connector: JOMEGA
+      position: 30
+  JOMEGA_31:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 31
+  JOMEGA_32:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_SS_RX_N
+    location:
+      connector: JOMEGA
+      position: 32
+  JOMEGA_33:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 33
+  JOMEGA_34:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 34
+  JOMEGA_35:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 35
+  JOMEGA_36:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_SS_TX_P
+    location:
+      connector: JOMEGA
+      position: 36
+  JOMEGA_37:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 37
+  JOMEGA_38:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_SS_TX_N
+    location:
+      connector: JOMEGA
+      position: 38
+  JOMEGA_39:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PC0
+    location:
+      connector: JOMEGA
+      position: 39
+  JOMEGA_40:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 40
+  JOMEGA_41:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PC1
+    location:
+      connector: JOMEGA
+      position: 41
+  JOMEGA_42:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_HS_D_P
+    location:
+      connector: JOMEGA
+      position: 42
+  JOMEGA_43:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PC2
+    location:
+      connector: JOMEGA
+      position: 43
+  JOMEGA_44:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_HS_D_N
+    location:
+      connector: JOMEGA
+      position: 44
+  JOMEGA_45:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PC3
+    location:
+      connector: JOMEGA
+      position: 45
+  JOMEGA_46:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 46
+  JOMEGA_47:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PD12
+    location:
+      connector: JOMEGA
+      position: 47
+  JOMEGA_48:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_SS_RX_P
+    location:
+      connector: JOMEGA
+      position: 48
+  JOMEGA_49:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PD13
+    location:
+      connector: JOMEGA
+      position: 49
+  JOMEGA_50:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_SS_RX_N
+    location:
+      connector: JOMEGA
+      position: 50
+  JOMEGA_51:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PD14
+    location:
+      connector: JOMEGA
+      position: 51
+  JOMEGA_52:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 52
+  JOMEGA_53:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PD15
+    location:
+      connector: JOMEGA
+      position: 53
+  JOMEGA_54:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_PWRON
+    location:
+      connector: JOMEGA
+      position: 54
+  JOMEGA_55:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MCU_GPIO_PI2
+    location:
+      connector: JOMEGA
+      position: 55
+  JOMEGA_56:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB1_OVERCUR
+    location:
+      connector: JOMEGA
+      position: 56
+  JOMEGA_57:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MIC2_IN+
+    location:
+      connector: JOMEGA
+      position: 57
+  JOMEGA_58:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_PWRON
+    location:
+      connector: JOMEGA
+      position: 58
+  JOMEGA_59:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MIC2_IN-
+    location:
+      connector: JOMEGA
+      position: 59
+  JOMEGA_60:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USB2_OVERCUR
+    location:
+      connector: JOMEGA
+      position: 60
+  JOMEGA_61:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MIC2_BIAS
+    location:
+      connector: JOMEGA
+      position: 61
+  JOMEGA_62:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_39
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MISO
+    location:
+      connector: JOMEGA
+      position: 62
+  JOMEGA_63:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: JTAG_TMS
+    location:
+      connector: JOMEGA
+      position: 63
+  JOMEGA_64:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_40
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: MOSI
+    location:
+      connector: JOMEGA
+      position: 64
+  JOMEGA_65:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: JTAG_TDO
+    location:
+      connector: JOMEGA
+      position: 65
+  JOMEGA_66:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_37
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: SCK
+    location:
+      connector: JOMEGA
+      position: 66
+  JOMEGA_67:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: JTAG_TDI
+    location:
+      connector: JOMEGA
+      position: 67
+  JOMEGA_68:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_38
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: CS
+    location:
+      connector: JOMEGA
+      position: 68
+  JOMEGA_69:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: JTAG_TCK
+    location:
+      connector: JOMEGA
+      position: 69
+  JOMEGA_70:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: PM_PS_HOLD
+    location:
+      connector: JOMEGA
+      position: 70
+  JOMEGA_71:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: JTAG_SRST
+    location:
+      connector: JOMEGA
+      position: 71
+  JOMEGA_72:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_52
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FORCE_USB_BOOT
+    location:
+      connector: JOMEGA
+      position: 72
+  JOMEGA_73:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: JTAG_TRST
+    location:
+      connector: JOMEGA
+      position: 73
+  JOMEGA_74:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: POWER_EN
+    location:
+      connector: JOMEGA
+      position: 74
+  JOMEGA_75:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 75
+  JOMEGA_76:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_79
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: USER_BUTTON
+    location:
+      connector: JOMEGA
+      position: 76
+  JOMEGA_77:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +1V8_SPX3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 77
+  JOMEGA_78:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: PMIC_RESET
+    location:
+      connector: JOMEGA
+      position: 78
+  JOMEGA_79:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +1V8 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 79
+  JOMEGA_80:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: RTSS_RESET
+    location:
+      connector: JOMEGA
+      position: 80
+  JOMEGA_81:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +1V8 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 81
+  JOMEGA_82:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: RTSS_PS_HOLD
+    location:
+      connector: JOMEGA
+      position: 82
+  JOMEGA_83:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_71
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: QUP0_SE7_TX
+    location:
+      connector: JOMEGA
+      position: 83
+  JOMEGA_84:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 84
+  JOMEGA_85:
+    facts:
+      source_function:
+        status: documented
+        value: GPIO_72
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: QUP0_SE7_RX
+    location:
+      connector: JOMEGA
+      position: 85
+  JOMEGA_86:
+    facts:
+      source_function:
+        status: documented
+        value: PD5
+        source_refs:
+          - jomega
+      mcu_pin:
+        status: documented
+        value: PD5
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FDCAN1_TX
+    location:
+      connector: JOMEGA
+      position: 86
+  JOMEGA_87:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: PWR_DISABLE
+    location:
+      connector: JOMEGA
+      position: 87
+  JOMEGA_88:
+    facts:
+      source_function:
+        status: documented
+        value: PI9
+        source_refs:
+          - jomega
+      mcu_pin:
+        status: documented
+        value: PI9
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FDCAN1_RX
+    location:
+      connector: JOMEGA
+      position: 88
+  JOMEGA_89:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FORCE_BOOT
+    location:
+      connector: JOMEGA
+      position: 89
+  JOMEGA_90:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 90
+  JOMEGA_91:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 91
+  JOMEGA_92:
+    facts:
+      source_function:
+        status: documented
+        value: PA10
+        source_refs:
+          - jomega
+      mcu_pin:
+        status: documented
+        value: PA10
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FDCAN2_TX
+    location:
+      connector: JOMEGA
+      position: 92
+  JOMEGA_93:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 93
+  JOMEGA_94:
+    facts:
+      source_function:
+        status: documented
+        value: PD9
+        source_refs:
+          - jomega
+      mcu_pin:
+        status: documented
+        value: PD9
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FDCAN2_RX
+    location:
+      connector: JOMEGA
+      position: 94
+  JOMEGA_95:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +3V3 (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 95
+  JOMEGA_96:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: GND
+    capabilities:
+      - ground_reference
+    direction: power_return
+    location:
+      connector: JOMEGA
+      position: 96
+  JOMEGA_97:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +5V (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 97
+  JOMEGA_98:
+    facts:
+      source_function:
+        status: documented
+        value: PF6
+        source_refs:
+          - jomega
+      mcu_pin:
+        status: documented
+        value: PF6
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FDCAN3_TX
+    location:
+      connector: JOMEGA
+      position: 98
+  JOMEGA_99:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: +5V (OUT)
+    capabilities:
+      - power_output
+    direction: power_output
+    location:
+      connector: JOMEGA
+      position: 99
+  JOMEGA_100:
+    facts:
+      source_function:
+        status: documented
+        value: PF7
+        source_refs:
+          - jomega
+      mcu_pin:
+        status: documented
+        value: PF7
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    maps_to: FDCAN3_RX
+    location:
+      connector: JOMEGA
+      position: 100
+connectors:
+  USB_C:
+    facts:
+      usb_standard:
+        status: documented
+        value: USB_3.1_Gen_1
+        source_refs:
+          - usb_c
+      max_data_rate_bps:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: bit/s
+          rating_kind: unspecified
+          max: 5000000000
+        source_refs:
+          - usb_c
+      dual_role_power:
+        status: documented
+        value: true
+        source_refs:
+          - usb_c
+      display_output:
+        status: documented
+        value: DisplayPort
+        source_refs:
+          - usb_c
+      source_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 5.0
+        source_refs:
+          - usb_c
+      source_max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 3
+        source_refs:
+          - usb_c
+      source_max_power_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          max: 15
+        source_refs:
+          - usb_c
+      sink_supply:
+        status: documented
+        value: usb_c_pd_input
+        source_refs:
+          - usb_c
+    provenance:
+      status: documented
+      source_refs:
+        - usb_c
+    type: usb_type_c
+  USB_A:
+    facts:
+      onboard_ports:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 2
+        source_refs:
+          - usb_a
+      additional_ports_via_header:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 2
+        source_refs:
+          - usb_a
+      expansion_connector:
+        status: documented
+        value: JOMEGA
+        source_refs:
+          - usb_a
+      usb_standard:
+        status: documented
+        value: USB_3.0
+        source_refs:
+          - usb_a
+      max_data_rate_bps:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: bit/s
+          rating_kind: unspecified
+          max: 5000000000
+        source_refs:
+          - usb_a
+      voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 5.0
+        source_refs:
+          - usb_a
+      max_current_per_onboard_port_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 1.71
+        source_refs:
+          - usb_a
+      max_power_per_onboard_port_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          max: 8.55
+        source_refs:
+          - usb_a
+    provenance:
+      status: documented
+      source_refs:
+        - usb_a
+    type: usb_type_a
+    processor: mpu
+  QWIIC:
+    facts:
+      interface:
+        status: documented
+        value: QWIIC_I2C
+        source_refs:
+          - qwiic
+      voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - qwiic
+    provenance:
+      status: documented
+      source_refs:
+        - qwiic
+    type: qwiic
+  ETHERNET:
+    facts:
+      phy:
+        status: documented
+        value: Qualcomm_QCA_8081
+        source_refs:
+          - ethernet
+      connector_model:
+        status: documented
+        value: TRJT9010A98NL
+        source_refs:
+          - ethernet
+      supported_rates_mbps__0:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: Mbit/s
+          rating_kind: unspecified
+          value: 10
+        source_refs:
+          - ethernet
+      supported_rates_mbps__1:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: Mbit/s
+          rating_kind: unspecified
+          value: 100
+        source_refs:
+          - ethernet
+      supported_rates_mbps__2:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: Mbit/s
+          rating_kind: unspecified
+          value: 1000
+        source_refs:
+          - ethernet
+      supported_rates_mbps__3:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: Mbit/s
+          rating_kind: unspecified
+          value: 2500
+        source_refs:
+          - ethernet
+      auto_negotiation:
+        status: documented
+        value: true
+        source_refs:
+          - ethernet
+    provenance:
+      status: documented
+      source_refs:
+        - ethernet
+    type: RJ45_8P8C
+  HDMI:
+    facts:
+      tmds_data_pairs:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 3
+        source_refs:
+          - hdmi
+      tmds_clock_pairs:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 1
+        source_refs:
+          - hdmi
+      ddc:
+        status: documented
+        value: true
+        source_refs:
+          - hdmi
+      cec:
+        status: documented
+        value: true
+        source_refs:
+          - hdmi
+      shared_display_output:
+        status: documented
+        value: JMEDIA
+        source_refs:
+          - hdmi
+      note:
+        status: documented
+        value: HDMI and JMEDIA MIPI-DSI cannot be active simultaneously.
+        source_refs:
+          - hdmi
+    provenance:
+      status: documented
+      source_refs:
+        - hdmi
+    type: HDMI_Type_A
+    positions: 19
+    processor: mpu
+  M2:
+    facts:
+      interface:
+        status: documented
+        value: PCIe_Gen_4_x4
+        source_refs:
+          - m2
+      supported_storage:
+        status: documented
+        value: NVMe
+        source_refs:
+          - m2
+      supported_form_factors__0:
+        status: documented
+        value: '2230'
+        source_refs:
+          - m2
+      sata_supported:
+        status: documented
+        value: false
+        source_refs:
+          - m2
+      smbus:
+        status: documented
+        value: true
+        source_refs:
+          - m2
+      power_rails_v__0:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - m2
+      power_rails_v__1:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.8
+        source_refs:
+          - m2
+    provenance:
+      status: documented
+      source_refs:
+        - m2
+    type: M_2_M_key
+    processor: mpu
+  JHAT:
+    facts:
+      logic_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - jhat
+      mpu_side_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.8
+        source_refs:
+          - jhat
+      level_translated:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+      source_section:
+        status: documented
+        value: RPi 40-Pin Header
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    type: male_header
+    positions: 40
+    processor: mpu
+  JMEDIA:
+    facts:
+      board_side:
+        status: documented
+        value: bottom
+        source_refs:
+          - jmedia
+      logic_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.8
+        source_refs:
+          - jmedia
+      source_section:
+        status: documented
+        value: JMEDIA
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    type: documented_header
+    positions: 60
+    processor: mpu
+  JMISC:
+    facts:
+      connected_components__0:
+        status: documented
+        value: STM32H5F5
+        source_refs:
+          - jmisc
+      connected_components__1:
+        status: documented
+        value: QCS8275
+        source_refs:
+          - jmisc
+      connected_components__2:
+        status: documented
+        value: MAX98091
+        source_refs:
+          - jmisc
+      source_section:
+        status: documented
+        value: JMISC
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    type: documented_header
+    positions: 60
+  JOMEGA:
+    facts:
+      connected_components__0:
+        status: documented
+        value: TUSB7340
+        source_refs:
+          - jomega
+      connected_components__1:
+        status: documented
+        value: STM32H5F5
+        source_refs:
+          - jomega
+      connected_components__2:
+        status: documented
+        value: QCS8275
+        source_refs:
+          - jomega
+      connected_components__3:
+        status: documented
+        value: MAX98091
+        source_refs:
+          - jomega
+      source_section:
+        status: documented
+        value: JOMEGA Expansion Header
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    type: documented_header
+    positions: 100
+  JCTL:
+    facts:
+      note:
+        status: documented
+        value: Pin positions and logic levels are not specified in the local manual text.
+        source_refs:
+          - debug_uart
+    provenance:
+      status: documented
+      source_refs:
+        - debug_uart
+    type: debug_uart
+    processor: mpu
+  J3_1:
+    facts:
+      label:
+        status: documented
+        value: CAMERA2
+        source_refs:
+          - cameras
+      pitch_mm:
+        status: documented
+        value:
+          dimension: length
+          unit: mm
+          rating_kind: unspecified
+          value: 0.5
+        source_refs:
+          - cameras
+      interface:
+        status: documented
+        value: MIPI_CSI_2
+        source_refs:
+          - cameras
+      data_lanes:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 4
+        source_refs:
+          - cameras
+      control_bus:
+        status: documented
+        value: I2C4
+        source_refs:
+          - cameras
+      control_gpio_physical_pin:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 17
+        source_refs:
+          - cameras
+      control_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - cameras
+      power_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - cameras
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+    type: TF31-22S-0.5SH
+    positions: 22
+    processor: mpu
+  J3_3:
+    facts:
+      label:
+        status: documented
+        value: CAMERA1
+        source_refs:
+          - cameras
+      pitch_mm:
+        status: documented
+        value:
+          dimension: length
+          unit: mm
+          rating_kind: unspecified
+          value: 0.5
+        source_refs:
+          - cameras
+      interface:
+        status: documented
+        value: MIPI_CSI_2
+        source_refs:
+          - cameras
+      data_lanes:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 4
+        source_refs:
+          - cameras
+      control_bus:
+        status: documented
+        value: I2C2
+        source_refs:
+          - cameras
+      control_gpio_physical_pin:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 17
+        source_refs:
+          - cameras
+      control_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - cameras
+      power_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - cameras
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+    type: TF31-22S-0.5SH
+    positions: 22
+    processor: mpu
+  J3_2:
+    facts:
+      label:
+        status: documented
+        value: CAMERA0
+        source_refs:
+          - cameras
+      pitch_mm:
+        status: documented
+        value:
+          dimension: length
+          unit: mm
+          rating_kind: unspecified
+          value: 0.5
+        source_refs:
+          - cameras
+      interface:
+        status: documented
+        value: MIPI_CSI_2
+        source_refs:
+          - cameras
+      data_lanes:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 4
+        source_refs:
+          - cameras
+      control_bus:
+        status: documented
+        value: I2C0
+        source_refs:
+          - cameras
+      control_gpio_physical_pin:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 17
+        source_refs:
+          - cameras
+      control_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - cameras
+      power_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - cameras
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+    type: TF31-22S-0.5SH
+    positions: 22
+    processor: mpu
+  CAN_SCREW_TERMINAL:
+    facts:
+      interface:
+        status: documented
+        value: CAN_BUS
+        source_refs:
+          - can
+    provenance:
+      status: documented
+      source_refs:
+        - can
+    type: screw_terminal
+  JDIGITAL:
+    facts:
+      note:
+        status: documented
+        value: Logical connector grouping; the manual text does not enumerate physical header positions.
+        source_refs:
+          - digital
+          - uart
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - uart
+    type: uno_style_digital_header
+    processor: mcu
+  JANALOG:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - analog
+        - adc
+    type: uno_style_analog_header
+    processor: mcu
+interfaces:
+  UNO_UART:
+    facts:
+      peripheral:
+        status: documented
+        value: USART3
+        source_refs:
+          - uart
+    provenance:
+      status: documented
+      source_refs:
+        - uart
+    type: uart
+    signals:
+      RX: D0
+      TX: D1
+    processor: mcu
+  UNO_SPI:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - spi
+    type: spi
+    signals:
+      SS: D10
+      MOSI: D11
+      MISO: D12
+      SCK: D13
+    processor: mcu
+  UNO_I2C:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+    type: i2c
+    signals:
+      SDA: D20
+      SCL: D21
+    processor: mcu
+  QWIIC_I2C:
+    facts:
+      logic_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - i2c
+          - qwiic
+      onboard_pullups:
+        status: documented
+        value: true
+        source_refs:
+          - i2c
+          - qwiic
+      note:
+        status: documented
+        value: PA8 and PC9 follow the Communication / I2C table; I2C3 versus I2C4 naming is unresolved.
+        source_refs:
+          - i2c
+          - qwiic
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+        - qwiic
+    type: i2c
+    signals:
+      SDA: QWIIC_SDA
+      SCL: QWIIC_SCL
+    processor: mcu
+  UNO_ADC:
+    facts:
+      supported_resolution_bits__0:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: unspecified
+          value: 8
+        source_refs:
+          - adc
+      supported_resolution_bits__1:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: unspecified
+          value: 10
+        source_refs:
+          - adc
+      supported_resolution_bits__2:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: unspecified
+          value: 12
+        source_refs:
+          - adc
+      default_reference_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - adc
+      internal_reference_options_v__0:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.5
+        source_refs:
+          - adc
+      internal_reference_options_v__1:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.8
+        source_refs:
+          - adc
+      internal_reference_options_v__2:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 2.048
+        source_refs:
+          - adc
+      internal_reference_options_v__3:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 2.5
+        source_refs:
+          - adc
+      external_reference__min_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          min: 2.0
+        source_refs:
+          - adc
+      external_reference__max_reference:
+        status: documented
+        value: VDD
+        source_refs:
+          - adc
+    provenance:
+      status: documented
+      source_refs:
+        - adc
+    type: adc
+    signals:
+      pins:
+        - A0
+        - A1
+        - A2
+        - A3
+        - A4
+        - A5
+      external_reference__pin: AREF
+    processor: mcu
+  UNO_DAC:
+    facts:
+      supported_resolution_bits__0:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: unspecified
+          value: 8
+        source_refs:
+          - dac
+      supported_resolution_bits__1:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: unspecified
+          value: 10
+        source_refs:
+          - dac
+      supported_resolution_bits__2:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: unspecified
+          value: 12
+        source_refs:
+          - dac
+    provenance:
+      status: documented
+      source_refs:
+        - dac
+    type: dac
+    signals:
+      channels__DAC0: A0
+      channels__DAC1: A1
+    processor: mcu
+  UNO_OPAMP:
+    facts:
+      type:
+        status: documented
+        value: operational_amplifier
+        source_refs:
+          - digital
+          - adc
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+    type: opamp
+    signals:
+      positive_input: A2
+      negative_input: A3
+      output: D3
+    processor: mcu
+  UNO_PWM:
+    facts:
+      default_resolution_bits:
+        status: documented
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: resolution
+          value: 8
+        source_refs:
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - pwm
+    type: pwm
+    signals:
+      pins:
+        - D3
+        - D5
+        - D6
+        - D9
+        - D10
+        - D11
+    processor: mcu
+  UNO_CAN:
+    facts:
+      type:
+        status: documented
+        value: can_controller_signals
+        source_refs:
+          - digital
+          - can_interfaces
+      peripheral:
+        status: documented
+        value: FDCAN2
+        source_refs:
+          - digital
+          - can_interfaces
+      note:
+        status: documented
+        value: These are MCU logic signals, not the transceiver bus terminals.
+        source_refs:
+          - digital
+          - can_interfaces
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - can_interfaces
+    type: can_controller
+    signals:
+      TX: D4
+      RX: D5
+    processor: mcu
+  JHAT_I2C_SE0:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    type: i2c
+    signals:
+      SDA: JHAT_3
+      SCL: JHAT_5
+    processor: mpu
+  JHAT_I2C_SE1:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    type: i2c
+    signals:
+      SDA: JHAT_27
+      SCL: JHAT_28
+    processor: mpu
+  JHAT_SPI_SE3:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    type: spi
+    signals:
+      MOSI: JHAT_19
+      MISO: JHAT_21
+      SCK: JHAT_23
+      CS: JHAT_24
+    processor: mpu
+  JHAT_UART_SE2:
+    facts:
+      unavailable_while_bluetooth_active:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    type: uart
+    signals:
+      TX: JHAT_8
+      RX: JHAT_10
+      RFR: JHAT_11
+      CTS: JHAT_36
+    processor: mpu
+  JHAT_I2S1:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    type: i2s
+    signals:
+      SCK: JHAT_12
+      WS: JHAT_35
+      DATA0: JHAT_38
+      DATA1: JHAT_40
+    processor: mpu
+  JMISC_USART2:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    type: uart
+    signals:
+      RX: JMISC_12
+      TX: JMISC_14
+    processor: mcu
+  JMISC_UART4:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    type: uart
+    signals:
+      RX: JMISC_23
+      TX: JMISC_25
+    processor: mcu
+  JMISC_I2C2:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    type: i2c
+    signals:
+      SCL: JMISC_16
+      SDA: JMISC_18
+    processor: mcu
+  JMISC_SPI_SE0:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    type: spi
+    signals:
+      MISO: JMISC_37
+      MOSI: JMISC_39
+      SCK: JMISC_41
+      chip_selects:
+        - JMISC_43
+        - JMISC_47
+        - JMISC_45
+    processor: mpu
+  JMISC_I2S2:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    type: i2s
+    signals:
+      SCK: JMISC_46
+      WS: JMISC_48
+      DATA0: JMISC_50
+      DATA1: JMISC_52
+    processor: mpu
+  JOMEGA_SPI:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    type: spi
+    signals:
+      MISO: JOMEGA_62
+      MOSI: JOMEGA_64
+      SCK: JOMEGA_66
+      CS: JOMEGA_68
+    processor: mpu
+  JOMEGA_UART_SE7:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    type: uart
+    signals:
+      TX: JOMEGA_83
+      RX: JOMEGA_85
+    processor: mpu
+  JOMEGA_FDCAN1:
+    facts:
+      type:
+        status: documented
+        value: can_controller_signals
+        source_refs:
+          - jomega
+      shared_with_onboard_can_bus:
+        status: documented
+        value: true
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    type: can_controller
+    signals:
+      TX: JOMEGA_86
+      RX: JOMEGA_88
+    processor: mcu
+  JOMEGA_FDCAN2:
+    facts:
+      type:
+        status: documented
+        value: can_controller_signals
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    type: can_controller
+    signals:
+      TX: JOMEGA_92
+      RX: JOMEGA_94
+    processor: mcu
+  JOMEGA_FDCAN3:
+    facts:
+      type:
+        status: documented
+        value: can_controller_signals
+        source_refs:
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    type: can_controller
+    signals:
+      TX: JOMEGA_98
+      RX: JOMEGA_100
+    processor: mcu
+  CAN_BUS:
+    facts:
+      type:
+        status: documented
+        value: can_fd
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+      transceiver:
+        status: documented
+        value: ATA6563
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+      physical_bitrate_limit_bps:
+        status: documented
+        value:
+          dimension: data_rate
+          unit: bit/s
+          rating_kind: unspecified
+          value: 5000000
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+      transceiver_supply_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 5.0
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+      transceiver_logic_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+      standby_mcu_pin:
+        status: documented
+        value: PI11
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+      note:
+        status: documented
+        value: PD0/PD1 TX/RX assignments conflict in the manual and are not resolved here.
+        source_refs:
+          - can
+          - can_interfaces
+          - can_transceiver
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_interfaces
+        - can_transceiver
+    type: can_bus
+    signals:
+      high: CAN_H
+      low: CAN_L
+    processor: mcu
+  JMEDIA_MIPI_DSI:
+    facts:
+      data_pairs__0__0:
+        status: documented
+        value: JMEDIA_10
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__0__1:
+        status: documented
+        value: JMEDIA_12
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__1__0:
+        status: documented
+        value: JMEDIA_4
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__1__1:
+        status: documented
+        value: JMEDIA_6
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__2__0:
+        status: documented
+        value: JMEDIA_11
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__2__1:
+        status: documented
+        value: JMEDIA_9
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__3__0:
+        status: documented
+        value: JMEDIA_17
+        source_refs:
+          - jmedia
+          - hdmi
+      data_pairs__3__1:
+        status: documented
+        value: JMEDIA_15
+        source_refs:
+          - jmedia
+          - hdmi
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+        - hdmi
+    type: mipi_dsi
+    signals:
+      clock_negative: JMEDIA_3
+      clock_positive: JMEDIA_5
+    processor: mpu
+    connector_refs:
+      - JMEDIA
+constraints:
+  source_conflict__qwiic_controller:
+    facts:
+      topic:
+        status: documented
+        value: qwiic_controller
+        source_refs:
+          - qwiic
+          - i2c
+      sections__0:
+        status: documented
+        value: Qwiic
+        source_refs:
+          - qwiic
+          - i2c
+      sections__1:
+        status: documented
+        value: Communication / I2C
+        source_refs:
+          - qwiic
+          - i2c
+      claims__0:
+        status: documented
+        value: I2C4 in the Qwiic section
+        source_refs:
+          - qwiic
+          - i2c
+      claims__1:
+        status: documented
+        value: I2C3 on PA8 and PC9 in the I2C table
+        source_refs:
+          - qwiic
+          - i2c
+    provenance:
+      status: documented
+      source_refs:
+        - qwiic
+        - i2c
+    kind: source_conflict
+    rule: Keep PA8 and PC9 from the explicit table; omit a definitive controller number.
+  source_conflict__can_pd0_pd1:
+    facts:
+      topic:
+        status: documented
+        value: can_pd0_pd1
+        source_refs:
+          - can_interfaces
+          - can_transceiver
+      sections__0:
+        status: documented
+        value: CAN-FD / CAN Interfaces
+        source_refs:
+          - can_interfaces
+          - can_transceiver
+      sections__1:
+        status: documented
+        value: CAN-FD / CAN Transceiver Connections
+        source_refs:
+          - can_interfaces
+          - can_transceiver
+      claims__0:
+        status: documented
+        value: CAN Interfaces lists PD0 as TX and PD1 as RX.
+        source_refs:
+          - can_interfaces
+          - can_transceiver
+      claims__1:
+        status: documented
+        value: The transceiver table lists PD1 at TXD and PD0 at RXD; the terminal table follows that assignment.
+        source_refs:
+          - can_interfaces
+          - can_transceiver
+    provenance:
+      status: documented
+      source_refs:
+        - can_interfaces
+        - can_transceiver
+    kind: source_conflict
+    rule: Keep CAN-H/CAN-L as bus signals; omit definitive MCU TX/RX routing for the onboard transceiver.
+  source_conflict__bluetooth_version:
+    facts:
+      topic:
+        status: documented
+        value: bluetooth_version
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+      sections__0:
+        status: documented
+        value: Overview
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+      sections__1:
+        status: documented
+        value: Board Architecture Overview
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+      sections__2:
+        status: documented
+        value: Wireless Connectivity
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+      claims__0:
+        status: documented
+        value: Overview and architecture state Bluetooth 5.3
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+      claims__1:
+        status: documented
+        value: Wireless Connectivity states Bluetooth 5.1
+        source_refs:
+          - overview
+          - architecture
+          - wireless
+    provenance:
+      status: documented
+      source_refs:
+        - overview
+        - architecture
+        - wireless
+    kind: source_conflict
+    rule: Record both source claims without selecting a version.
+  source_conflict__isp_model:
+    facts:
+      topic:
+        status: documented
+        value: isp_model
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+      sections__0:
+        status: documented
+        value: Overview
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+      sections__1:
+        status: documented
+        value: Board Architecture Overview
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+      sections__2:
+        status: documented
+        value: MIPI / CSI Camera
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+      claims__0:
+        status: documented
+        value: Overview names Spectra 690
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+      claims__1:
+        status: documented
+        value: Architecture and camera sections name Spectra 692
+        source_refs:
+          - overview
+          - architecture
+          - cameras
+    provenance:
+      status: documented
+      source_refs:
+        - overview
+        - architecture
+        - cameras
+    kind: source_conflict
+    rule: Omit a definitive ISP model.
+  source_conflict__wifi_band_description:
+    facts:
+      topic:
+        status: documented
+        value: wifi_band_description
+        source_refs:
+          - architecture
+          - wireless
+      sections__0:
+        status: documented
+        value: Board Architecture Overview
+        source_refs:
+          - architecture
+          - wireless
+      sections__1:
+        status: documented
+        value: Wireless Connectivity
+        source_refs:
+          - architecture
+          - wireless
+      claims__0:
+        status: documented
+        value: Architecture calls Wi-Fi tri-band
+        source_refs:
+          - architecture
+          - wireless
+      claims__1:
+        status: documented
+        value: Wireless Connectivity calls it dual-band while listing 2.4/5/6 GHz
+        source_refs:
+          - architecture
+          - wireless
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+        - wireless
+    kind: source_conflict
+    rule: Preserve the three stated bands without adopting the band-count wording.
+  source_conflict__pwm_example_range:
+    facts:
+      topic:
+        status: documented
+        value: pwm_example_range
+        source_refs:
+          - pwm
+      sections__0:
+        status: documented
+        value: PWM Pins
+        source_refs:
+          - pwm
+      claims__0:
+        status: documented
+        value: The ten-bit example comment says 0 to 4095
+        source_refs:
+          - pwm
+    provenance:
+      status: documented
+      source_refs:
+        - pwm
+    kind: source_conflict
+    rule: Omit the inconsistent example range; retain the documented eight-bit default.
+  resource_context__jhat_bluetooth_uart:
+    facts:
+      type:
+        status: documented
+        value: conditional_pin_ownership
+        source_refs:
+          - manual
+      scope:
+        status: documented
+        value: Both UART functions and GPIO use on these four pins
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    kind: condition
+    rule: Additional source context for resource conflict jhat_bluetooth_uart
+  resource_context__display_output_mux:
+    facts:
+      type:
+        status: documented
+        value: exclusive_display_route
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - hdmi
+    kind: condition
+    rule: Additional source context for resource conflict display_output_mux
+  resource_context__adc_dac_exclusion:
+    facts:
+      type:
+        status: documented
+        value: peripheral_exclusion
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - dac
+    kind: condition
+    rule: Additional source context for resource conflict adc_dac_exclusion
+  resource_context__analog_pin_functions:
+    facts:
+      type:
+        status: documented
+        value: per_pin_function_exclusion
+        source_refs:
+          - manual
+      note:
+        status: documented
+        value: Applied separately to each pin, not a prohibition on using separate pins for different functions.
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - analog
+    kind: condition
+    rule: Additional source context for resource conflict analog_pin_functions
+  multiplexing:
+    facts:
+      analog_gpio_and_alternate_functions_mutually_exclusive:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      adc_and_dac_simultaneous_use_supported:
+        status: documented
+        value: false
+        source_refs:
+          - manual
+      hdmi_and_mipi_dsi_simultaneous_use_supported:
+        status: documented
+        value: false
+        source_refs:
+          - manual
+      jhat_unavailable_while_bluetooth_active__0:
+        status: documented
+        value: JHAT_8
+        source_refs:
+          - manual
+      jhat_unavailable_while_bluetooth_active__1:
+        status: documented
+        value: JHAT_10
+        source_refs:
+          - manual
+      jhat_unavailable_while_bluetooth_active__2:
+        status: documented
+        value: JHAT_11
+        source_refs:
+          - manual
+      jhat_unavailable_while_bluetooth_active__3:
+        status: documented
+        value: JHAT_36
+        source_refs:
+          - manual
+      note:
+        status: documented
+        value: Listed alternate functions are not a guarantee of simultaneous availability.
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - manual
+    kind: requirement
+    rule: 'Preserve source constraint group: multiplexing'
+  power:
+    facts:
+      approximate_board_full_load_without_peripherals_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          value: 25
+        source_refs:
+          - manual
+      total_peripheral_power_budget_required:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      barrel_jack_over_5a_can_damage_board:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      carrier_and_jomega_rails_outside_limited_nets:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      carrier_current_limits_not_fully_specified:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      vin_header_power_headroom_limited:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      rtc_backup_pin:
+        status: documented
+        value: JMISC_59
+        source_refs:
+          - manual
+      rtc_backup_max_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          max: 3.3
+        source_refs:
+          - manual
+      rtc_backup_cannot_power_whole_board:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - manual
+    kind: requirement
+    rule: 'Preserve source constraint group: power'
+  debug_uart:
+    facts:
+      connector:
+        status: documented
+        value: JCTL
+        source_refs:
+          - manual
+      tx_rx_backpowering_can_prevent_boot:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      board_referenced_adapter_required:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      manufacturer_recommended_adapter:
+        status: documented
+        value: Arduino_Bughopper
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - manual
+    kind: requirement
+    rule: 'Preserve source constraint group: debug_uart'
+  expansion:
+    facts:
+      power_off_before_connecting_external_devices:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      m2_nvme_2230_only:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      camera_module_supported_by_manual:
+        status: documented
+        value: IMX577
+        source_refs:
+          - manual
+      camera_support_note:
+        status: documented
+        value: Support statement belongs to the manual snapshot, not an exhaustive hardware compatibility claim.
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - manual
+    kind: requirement
+    rule: 'Preserve source constraint group: expansion'
+  physical:
+    facts:
+      mounting_standoffs_required:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      conductive_surface_short_circuit_risk:
+        status: documented
+        value: true
+        source_refs:
+          - manual
+      uno_shield_compatibility:
+        status: documented
+        value: Mechanical and pin compatibility only; software compatibility is not established.
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - manual
+    kind: requirement
+    rule: 'Preserve source constraint group: physical'
+  unspecified:
+    facts:
+      '0':
+        status: documented
+        value: UNO header input tolerance and per-pin current limits are not established by the local manual text.
+        source_refs:
+          - manual
+      '1':
+        status: documented
+        value: No global logic voltage is assigned because connectors span multiple voltage domains.
+        source_refs:
+          - manual
+    provenance:
+      status: documented
+      source_refs:
+        - manual
+    kind: requirement
+    rule: 'Preserve source constraint group: unspecified'
+board:
+  processors:
+    mcu:
+      facts:
+        clock_hz:
+          status: documented
+          value:
+            dimension: frequency
+            unit: Hz
+            rating_kind: unspecified
+            value: 250000000
+          source_refs:
+            - architecture
+        flash:
+          status: documented
+          value:
+            dimension: storage
+            unit: MB
+            rating_kind: unspecified
+            value: 4
+          source_refs:
+            - architecture
+        sram:
+          status: documented
+          value:
+            dimension: storage
+            unit: MB
+            rating_kind: unspecified
+            value: 1.5
+          source_refs:
+            - architecture
+      provenance:
+        status: documented
+        source_refs:
+          - architecture
+      role: Processor mcu
+      model: STM32H5F5
+      architecture: Arm_Cortex_M33
+    mpu:
+      facts:
+        cpu_cores:
+          status: documented
+          value:
+            dimension: count
+            unit: count
+            rating_kind: unspecified
+            value: 8
+          source_refs:
+            - architecture
+        max_clock_hz:
+          status: documented
+          value:
+            dimension: frequency
+            unit: Hz
+            rating_kind: unspecified
+            max: 2350000000
+          source_refs:
+            - architecture
+        gpu:
+          status: documented
+          value: Adreno_A623
+          source_refs:
+            - architecture
+        gpu_clock_hz:
+          status: documented
+          value:
+            dimension: frequency
+            unit: Hz
+            rating_kind: unspecified
+            value: 877000000
+          source_refs:
+            - architecture
+        npu:
+          status: documented
+          value: Hexagon_Tensor
+          source_refs:
+            - architecture
+        npu_max_dense_tops:
+          status: documented
+          value:
+            dimension: compute_rate
+            unit: TOPS
+            rating_kind: unspecified
+            max: 40
+          source_refs:
+            - architecture
+        note:
+          status: documented
+          value: ISP model is omitted because the manual names both Spectra 690 and Spectra 692.
+          source_refs:
+            - architecture
+      provenance:
+        status: documented
+        source_refs:
+          - architecture
+      role: Processor mpu
+      model: Qualcomm Dragonwing QCS8275
+      architecture: Kryo_Gen_6
+onboard_components:
+  stm32h5f5:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+    role: Real-time MCU and UNO-header peripheral controller
+    model: STM32H5F5
+  qcs8275:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+    role: Application MPU serving the high-speed expansion and multimedia interfaces
+    model: QCS8275
+  ata6563:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_transceiver
+    role: CAN physical-layer transceiver between MCU CAN signals and the bus terminals
+    model: ATA6563
+  max98091:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+        - jmisc
+        - jomega
+    role: Audio codec exposing audio connections through JMISC and JOMEGA
+    model: MAX98091
+  tusb7340:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+    role: USB host controller connected to the JOMEGA expansion header
+    model: TUSB7340
+  qca8081:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - ethernet
+    role: Ethernet PHY for the RJ45 network interface
+    model: QCA-8081
+  trjt9010a98nl:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - ethernet
+    role: RJ45 Ethernet connector
+    model: TRJT9010A98NL
+  nfa725b:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+        - wireless
+    role: Wi-Fi and Bluetooth radio module; Bluetooth version remains disputed
+    model: NFA725B
+  tf31_camera_connectors:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+    role: 22-pin, 0.5 mm-pitch camera connectors J3_1, J3_2, and J3_3
+    model: TF31-22S-0.5SH
+  camera_lane_esd:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+    role: ESD protection on high-speed camera lanes
+    model: RCLAMP0524TCT
+  camera_power_i2c_esd:
+    facts: {}
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+    role: ESD protection on camera power and I2C lines; part label preserved as written
+    model: DF2B7ASL,L3F
+  jhat_level_translation:
+    facts:
+      identification:
+        status: documented
+        value: unspecified_in_manual
+        source_refs:
+          - jhat
+      mpu_side_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.8
+        source_refs:
+          - jhat
+      header_side_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    role: Translate MPU-side 1.8 V signals to JHAT-side 3.3 V
+  vin_ptc:
+    facts:
+      identification:
+        status: documented
+        value: unspecified_in_manual
+        source_refs:
+          - vin
+      fuse_rating_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 1.1
+        source_refs:
+          - vin
+    provenance:
+      status: documented
+      source_refs:
+        - vin
+    role: PTC protection on the UNO VIN input
+  hdmi_tvs:
+    facts:
+      identification:
+        status: documented
+        value: unspecified_in_manual
+        source_refs:
+          - hdmi
+    provenance:
+      status: documented
+      source_refs:
+        - hdmi
+    role: TVS protection on HDMI data and hot-plug-detect lines
+  hdmi_polyfuse:
+    facts:
+      identification:
+        status: documented
+        value: unspecified_in_manual
+        source_refs:
+          - hdmi
+      manual_stated_fuse_rating_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 0.5
+        source_refs:
+          - hdmi
+      note:
+        status: documented
+        value: Preserves the manual description; not an independently verified HDMI supply-current rating.
+        source_refs:
+          - hdmi
+    provenance:
+      status: documented
+      source_refs:
+        - hdmi
+    role: Protection described for the HDMI hot-plug-detect path
+connections:
+  uno_uart_owner:
+    from: processor:mcu
+    to: interface:UNO_UART
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - uart
+  uno_uart_at_jdigital:
+    from: interface:UNO_UART
+    to: connector:JDIGITAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - uart
+  uno_spi_owner:
+    from: processor:mcu
+    to: interface:UNO_SPI
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - spi
+  uno_spi_at_jdigital:
+    from: interface:UNO_SPI
+    to: connector:JDIGITAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - spi
+  uno_i2c_owner:
+    from: processor:mcu
+    to: interface:UNO_I2C
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+  uno_i2c_at_jdigital:
+    from: interface:UNO_I2C
+    to: connector:JDIGITAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+  qwiic_i2c_owner:
+    from: processor:mcu
+    to: interface:QWIIC_I2C
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+        - qwiic
+  qwiic_i2c_at_qwiic:
+    from: interface:QWIIC_I2C
+    to: connector:QWIIC
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - i2c
+        - qwiic
+  uno_adc_owner:
+    from: processor:mcu
+    to: interface:UNO_ADC
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - adc
+  uno_adc_at_janalog:
+    from: interface:UNO_ADC
+    to: connector:JANALOG
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - adc
+  uno_dac_owner:
+    from: processor:mcu
+    to: interface:UNO_DAC
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - dac
+  uno_dac_at_janalog:
+    from: interface:UNO_DAC
+    to: connector:JANALOG
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - dac
+  uno_opamp_owner:
+    from: processor:mcu
+    to: interface:UNO_OPAMP
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+  uno_opamp_at_janalog:
+    from: interface:UNO_OPAMP
+    to: connector:JANALOG
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+  uno_opamp_at_jdigital:
+    from: interface:UNO_OPAMP
+    to: connector:JDIGITAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - adc
+  uno_pwm_owner:
+    from: processor:mcu
+    to: interface:UNO_PWM
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - pwm
+  uno_pwm_at_jdigital:
+    from: interface:UNO_PWM
+    to: connector:JDIGITAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - pwm
+  uno_can_owner:
+    from: processor:mcu
+    to: interface:UNO_CAN
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - can_interfaces
+  uno_can_at_jdigital:
+    from: interface:UNO_CAN
+    to: connector:JDIGITAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - digital
+        - can_interfaces
+  jhat_i2c_se0_owner:
+    from: processor:mpu
+    to: interface:JHAT_I2C_SE0
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_i2c_se0_at_jhat:
+    from: interface:JHAT_I2C_SE0
+    to: connector:JHAT
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_i2c_se1_owner:
+    from: processor:mpu
+    to: interface:JHAT_I2C_SE1
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_i2c_se1_at_jhat:
+    from: interface:JHAT_I2C_SE1
+    to: connector:JHAT
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_spi_se3_owner:
+    from: processor:mpu
+    to: interface:JHAT_SPI_SE3
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_spi_se3_at_jhat:
+    from: interface:JHAT_SPI_SE3
+    to: connector:JHAT
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_uart_se2_owner:
+    from: processor:mpu
+    to: interface:JHAT_UART_SE2
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_uart_se2_at_jhat:
+    from: interface:JHAT_UART_SE2
+    to: connector:JHAT
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_i2s1_owner:
+    from: processor:mpu
+    to: interface:JHAT_I2S1
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jhat_i2s1_at_jhat:
+    from: interface:JHAT_I2S1
+    to: connector:JHAT
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+  jmisc_usart2_owner:
+    from: processor:mcu
+    to: interface:JMISC_USART2
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_usart2_at_jmisc:
+    from: interface:JMISC_USART2
+    to: connector:JMISC
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_uart4_owner:
+    from: processor:mcu
+    to: interface:JMISC_UART4
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_uart4_at_jmisc:
+    from: interface:JMISC_UART4
+    to: connector:JMISC
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_i2c2_owner:
+    from: processor:mcu
+    to: interface:JMISC_I2C2
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_i2c2_at_jmisc:
+    from: interface:JMISC_I2C2
+    to: connector:JMISC
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_spi_se0_owner:
+    from: processor:mpu
+    to: interface:JMISC_SPI_SE0
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_spi_se0_at_jmisc:
+    from: interface:JMISC_SPI_SE0
+    to: connector:JMISC
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_i2s2_owner:
+    from: processor:mpu
+    to: interface:JMISC_I2S2
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jmisc_i2s2_at_jmisc:
+    from: interface:JMISC_I2S2
+    to: connector:JMISC
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+  jomega_spi_owner:
+    from: processor:mpu
+    to: interface:JOMEGA_SPI
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_spi_at_jomega:
+    from: interface:JOMEGA_SPI
+    to: connector:JOMEGA
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_uart_se7_owner:
+    from: processor:mpu
+    to: interface:JOMEGA_UART_SE7
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_uart_se7_at_jomega:
+    from: interface:JOMEGA_UART_SE7
+    to: connector:JOMEGA
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_fdcan1_owner:
+    from: processor:mcu
+    to: interface:JOMEGA_FDCAN1
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_fdcan1_at_jomega:
+    from: interface:JOMEGA_FDCAN1
+    to: connector:JOMEGA
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_fdcan2_owner:
+    from: processor:mcu
+    to: interface:JOMEGA_FDCAN2
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_fdcan2_at_jomega:
+    from: interface:JOMEGA_FDCAN2
+    to: connector:JOMEGA
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_fdcan3_owner:
+    from: processor:mcu
+    to: interface:JOMEGA_FDCAN3
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  jomega_fdcan3_at_jomega:
+    from: interface:JOMEGA_FDCAN3
+    to: connector:JOMEGA
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  can_bus_owner:
+    from: processor:mcu
+    to: interface:CAN_BUS
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_interfaces
+        - can_transceiver
+  can_bus_at_can_screw_terminal:
+    from: interface:CAN_BUS
+    to: connector:CAN_SCREW_TERMINAL
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_interfaces
+        - can_transceiver
+  jmedia_mipi_dsi_owner:
+    from: processor:mpu
+    to: interface:JMEDIA_MIPI_DSI
+    relationship: owns
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+        - hdmi
+  jmedia_mipi_dsi_at_jmedia:
+    from: interface:JMEDIA_MIPI_DSI
+    to: connector:JMEDIA
+    relationship: exposed_at
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+        - hdmi
+  can_bus_path:
+    from: processor:mcu
+    to: connector:CAN_SCREW_TERMINAL
+    relationship: bus_connection
+    routing_status: conflicting
+    provenance:
+      status: documented
+      source_refs:
+        - can
+        - can_interfaces
+        - can_transceiver
+    via:
+      - component:ata6563
+    notes: PD0_PD1_TX_RX_assignment_unresolved
+  jhat_path:
+    from: processor:mpu
+    to: connector:JHAT
+    relationship: level_translated_connection
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    via:
+      - component:jhat_level_translation
+  jmedia_path:
+    from: processor:mpu
+    to: connector:JMEDIA
+    relationship: direct_signal_connection
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+  audio_jmisc:
+    from: component:max98091
+    to: connector:JMISC
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+        - jmisc
+  audio_jomega:
+    from: component:max98091
+    to: connector:JOMEGA
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  usb_host_jomega:
+    from: component:tusb7340
+    to: connector:JOMEGA
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - jomega
+  ethernet_path:
+    from: component:qca8081
+    to: connector:ETHERNET
+    relationship: ethernet_phy_connection
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - ethernet
+    via:
+      - component:trjt9010a98nl
+  radio_owner:
+    from: processor:mpu
+    to: component:nfa725b
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - wireless
+  mcu_identity:
+    from: processor:mcu
+    to: component:stm32h5f5
+    relationship: implemented_by
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+  mpu_identity:
+    from: processor:mpu
+    to: component:qcs8275
+    relationship: implemented_by
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+  j3_1_owner:
+    from: processor:mpu
+    to: connector:J3_1
+    relationship: camera_interface_connection
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_1_camera_lane_esd:
+    from: component:camera_lane_esd
+    to: connector:J3_1
+    relationship: protects
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_1_camera_power_i2c_esd:
+    from: component:camera_power_i2c_esd
+    to: connector:J3_1
+    relationship: protects
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_2_owner:
+    from: processor:mpu
+    to: connector:J3_2
+    relationship: camera_interface_connection
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_2_camera_lane_esd:
+    from: component:camera_lane_esd
+    to: connector:J3_2
+    relationship: protects
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_2_camera_power_i2c_esd:
+    from: component:camera_power_i2c_esd
+    to: connector:J3_2
+    relationship: protects
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_3_owner:
+    from: processor:mpu
+    to: connector:J3_3
+    relationship: camera_interface_connection
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_3_camera_lane_esd:
+    from: component:camera_lane_esd
+    to: connector:J3_3
+    relationship: protects
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  j3_3_camera_power_i2c_esd:
+    from: component:camera_power_i2c_esd
+    to: connector:J3_3
+    relationship: protects
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - cameras
+  usb_a_owner:
+    from: processor:mpu
+    to: connector:USB_A
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - usb_a
+  hdmi_owner:
+    from: processor:mpu
+    to: connector:HDMI
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - hdmi
+  m2_owner:
+    from: processor:mpu
+    to: connector:M2
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - m2
+  jctl_owner:
+    from: processor:mpu
+    to: connector:JCTL
+    relationship: connected_to
+    routing_status: documented
+    provenance:
+      status: documented
+      source_refs:
+        - debug_uart
+resource_conflicts:
+  jhat_bluetooth_uart:
+    policy: unavailable_when
+    notes: unavailable_to_external_header_while_bluetooth_active
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    affected_pins:
+      - JHAT_8
+      - JHAT_10
+      - JHAT_11
+      - JHAT_36
+    participants:
+      - component:nfa725b
+      - interface:JHAT_UART_SE2
+    when:
+      target: component:nfa725b
+      state: bluetooth_active
+  display_output_mux:
+    policy: at_most_one_active
+    notes: at_most_one_active
+    provenance:
+      status: documented
+      source_refs:
+        - hdmi
+    participants:
+      - connector:HDMI
+      - interface:JMEDIA_MIPI_DSI
+  adc_dac_exclusion:
+    policy: not_simultaneous
+    notes: not_simultaneous_as_stated_by_manual
+    provenance:
+      status: documented
+      source_refs:
+        - dac
+    participants:
+      - interface:UNO_ADC
+      - interface:UNO_DAC
+  analog_pin_functions:
+    policy: per_pin_exclusion
+    notes: gpio_and_alternate_function_not_simultaneous_on_same_pin
+    provenance:
+      status: documented
+      source_refs:
+        - analog
+    affected_pins:
+      - A0
+      - A1
+      - A2
+      - A3
+      - A4
+      - A5
+power_domains:
+  usb_c_pd_input:
+    facts:
+      rating:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 9
+          max: 20
+        source_refs:
+          - power
+          - usb_c
+      max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 3
+        source_refs:
+          - power
+          - usb_c
+      power_delivery_negotiation_required:
+        status: documented
+        value: true
+        source_refs:
+          - power
+          - usb_c
+      accepts_5v_only_source:
+        status: documented
+        value: false
+        source_refs:
+          - power
+          - usb_c
+    provenance:
+      status: documented
+      source_refs:
+        - power
+        - usb_c
+    role: input
+  barrel_jack_input:
+    facts:
+      rating:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 7
+          max: 24
+        source_refs:
+          - power
+          - power_safety
+      max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 5
+        source_refs:
+          - power
+          - power_safety
+      documented_power_examples_w__at_12v:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          value: 60
+        source_refs:
+          - power
+          - power_safety
+      documented_power_examples_w__at_24v:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          value: 120
+        source_refs:
+          - power
+          - power_safety
+    provenance:
+      status: documented
+      source_refs:
+        - power
+        - power_safety
+    role: input
+  screw_terminal_input:
+    facts:
+      rating:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 7
+          max: 24
+        source_refs:
+          - power
+      max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 10
+        source_refs:
+          - power
+    provenance:
+      status: documented
+      source_refs:
+        - power
+    role: input
+  uno_vin_input:
+    facts:
+      rating:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 7
+          max: 24
+        source_refs:
+          - vin
+      ptc_fuse_rating_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 1.1
+        source_refs:
+          - vin
+      recommended_for_board_power:
+        status: documented
+        value: false
+        source_refs:
+          - vin
+    provenance:
+      status: documented
+      source_refs:
+        - vin
+    role: input
+  limited_rails:
+    facts:
+      nets__0:
+        status: documented
+        value: +3V3_LIMITED
+        source_refs:
+          - limited_rails
+      nets__1:
+        status: documented
+        value: +5V_LIMITED
+        source_refs:
+          - limited_rails
+      nominal_voltages_v__0:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - limited_rails
+      nominal_voltages_v__1:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 5.0
+        source_refs:
+          - limited_rails
+      stated_current_limit_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 2.8
+        source_refs:
+          - limited_rails
+      note:
+        status: documented
+        value: The manual does not clarify whether the stated limit applies independently to each rail.
+        source_refs:
+          - limited_rails
+    provenance:
+      status: documented
+      source_refs:
+        - limited_rails
+    role: rail
+  jhat_logic:
+    facts:
+      header_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 3.3
+        source_refs:
+          - jhat
+      mpu_side_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 1.8
+        source_refs:
+          - jhat
+      level_translated:
+        status: documented
+        value: true
+        source_refs:
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - jhat
+    role: reference
+  jmedia_logic:
+    facts:
+      rating:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          nominal: 1.8
+        source_refs:
+          - jmedia
+      note:
+        status: documented
+        value: Logic-domain statement only; the connector also carries VIN and 3.3 V power pins.
+        source_refs:
+          - jmedia
+    provenance:
+      status: documented
+      source_refs:
+        - jmedia
+    role: reference
+  rtc_backup_input:
+    facts:
+      rating:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          max: 3.3
+        source_refs:
+          - jmisc
+      powers_rtc_only:
+        status: documented
+        value: true
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    role: input
+  limited_outputs:
+    facts:
+      nets__0:
+        status: documented
+        value: +3V3_LIMITED
+        source_refs:
+          - limited_rails
+      nets__1:
+        status: documented
+        value: +5V_LIMITED
+        source_refs:
+          - limited_rails
+      stated_current_limit_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 2.8
+        source_refs:
+          - limited_rails
+      connectors__0:
+        status: documented
+        value: JHAT
+        source_refs:
+          - limited_rails
+      connectors__1:
+        status: documented
+        value: QWIIC
+        source_refs:
+          - limited_rails
+      consumer_groups__0:
+        status: documented
+        value: UNO headers
+        source_refs:
+          - limited_rails
+      consumer_groups__1:
+        status: documented
+        value: shields
+        source_refs:
+          - limited_rails
+      consumer_groups__2:
+        status: documented
+        value: hats
+        source_refs:
+          - limited_rails
+      limit_scope:
+        status: documented
+        value: Manual does not establish whether 2.8 A is independent per rail or combined.
+        source_refs:
+          - limited_rails
+    provenance:
+      status: documented
+      source_refs:
+        - limited_rails
+    role: output
+    limit_scope: unknown
+    feeds:
+      - connector:JHAT
+      - connector:QWIIC
+  usb_a_outputs:
+    facts:
+      connector:
+        status: documented
+        value: USB_A
+        source_refs:
+          - usb_a_power
+      onboard_ports:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 2
+        source_refs:
+          - usb_a_power
+      voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 5.0
+        source_refs:
+          - usb_a_power
+      max_current_per_port_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 1.71
+        source_refs:
+          - usb_a_power
+      max_power_per_port_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          max: 8.55
+        source_refs:
+          - usb_a_power
+      depends_on_total_input_budget:
+        status: documented
+        value: true
+        source_refs:
+          - usb_a_power
+    provenance:
+      status: documented
+      source_refs:
+        - usb_a_power
+    role: output
+    limit_scope: unknown
+  usb_c_source:
+    facts:
+      connector:
+        status: documented
+        value: USB_C
+        source_refs:
+          - usb_c
+      voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 5.0
+        source_refs:
+          - usb_c
+      max_current_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          max: 3
+        source_refs:
+          - usb_c
+      max_power_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          max: 15
+        source_refs:
+          - usb_c
+      depends_on_total_input_budget:
+        status: documented
+        value: true
+        source_refs:
+          - usb_c
+    provenance:
+      status: documented
+      source_refs:
+        - usb_c
+    role: output
+    limit_scope: unknown
+  low_input_voltage_example:
+    facts:
+      input_ref:
+        status: documented
+        value: barrel_jack_input
+        source_refs:
+          - power_safety
+          - usb_a_power
+      input_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          value: 7
+        source_refs:
+          - power_safety
+          - usb_a_power
+      input_current_limit_a:
+        status: documented
+        value:
+          dimension: current
+          unit: A
+          rating_kind: unspecified
+          value: 5
+        source_refs:
+          - power_safety
+          - usb_a_power
+      manual_stated_input_power_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          value: 35
+        source_refs:
+          - power_safety
+          - usb_a_power
+      approximate_board_full_load_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          value: 25
+        source_refs:
+          - power_safety
+          - usb_a_power
+      manual_example_usb_a_load_w:
+        status: documented
+        value:
+          dimension: power
+          unit: W
+          rating_kind: unspecified
+          value: 17
+        source_refs:
+          - power_safety
+          - usb_a_power
+      disposition:
+        status: documented
+        value: Manual warns this combined load can damage the jack; not an approved operating budget.
+        source_refs:
+          - power_safety
+          - usb_a_power
+    provenance:
+      status: documented
+      source_refs:
+        - power_safety
+        - usb_a_power
+    role: output
+    limit_scope: unknown
+    input_dependencies:
+      - barrel_jack_input
+  uno_vin:
+    facts:
+      pin:
+        status: documented
+        value: VIN
+        source_refs:
+          - vin
+      voltage_ref:
+        status: documented
+        value: uno_vin_input
+        source_refs:
+          - vin
+      protected_by:
+        status: documented
+        value: component:vin_ptc
+        source_refs:
+          - vin
+      limited_power_headroom:
+        status: documented
+        value: true
+        source_refs:
+          - vin
+    provenance:
+      status: documented
+      source_refs:
+        - vin
+    role: output
+    limit_scope: unknown
+  rtc_backup:
+    facts:
+      pin:
+        status: documented
+        value: JMISC_59
+        source_refs:
+          - jmisc
+      max_voltage_v:
+        status: documented
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: unspecified
+          max: 3.3
+        source_refs:
+          - jmisc
+      loads__0:
+        status: documented
+        value: MPU RTC
+        source_refs:
+          - jmisc
+      loads__1:
+        status: documented
+        value: MCU RTC
+        source_refs:
+          - jmisc
+      powers_board:
+        status: documented
+        value: false
+        source_refs:
+          - jmisc
+    provenance:
+      status: documented
+      source_refs:
+        - jmisc
+    role: output
+    limit_scope: unknown
+  carrier_outputs_outside_limited_nets:
+    facts:
+      connectors__0:
+        status: documented
+        value: JMEDIA
+        source_refs:
+          - limited_rails
+      connectors__1:
+        status: documented
+        value: JMISC
+        source_refs:
+          - limited_rails
+      connectors__2:
+        status: documented
+        value: JOMEGA
+        source_refs:
+          - limited_rails
+      meaning:
+        status: documented
+        value: Outside the named limited nets, not unlimited current.
+        source_refs:
+          - limited_rails
+      current_limit_status:
+        status: documented
+        value: not_fully_specified_in_manual
+        source_refs:
+          - limited_rails
+    provenance:
+      status: documented
+      source_refs:
+        - limited_rails
+    role: output
+    limit_scope: unknown
+    feeds:
+      - connector:JMEDIA
+      - connector:JMISC
+      - connector:JOMEGA
+features:
+  led_matrix:
+    facts:
+      rows:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 8
+        source_refs:
+          - led_matrix
+      columns:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 13
+        source_refs:
+          - led_matrix
+      color:
+        status: documented
+        value: blue
+        source_refs:
+          - led_matrix
+    provenance:
+      status: documented
+      source_refs:
+        - led_matrix
+    type: led_matrix
+    processor: mcu
+  rgb_leds:
+    facts:
+      count:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 4
+        source_refs:
+          - rgb_leds
+      polarity:
+        status: documented
+        value: active_low
+        source_refs:
+          - rgb_leds
+      channel_labels__LED1__0:
+        status: documented
+        value: LED1_R
+        source_refs:
+          - rgb_leds
+      channel_labels__LED1__1:
+        status: documented
+        value: LED1_G
+        source_refs:
+          - rgb_leds
+      channel_labels__LED1__2:
+        status: documented
+        value: LED1_B
+        source_refs:
+          - rgb_leds
+      channel_labels__LED2__0:
+        status: documented
+        value: LED2_R
+        source_refs:
+          - rgb_leds
+      channel_labels__LED2__1:
+        status: documented
+        value: LED2_G
+        source_refs:
+          - rgb_leds
+      channel_labels__LED2__2:
+        status: documented
+        value: LED2_B
+        source_refs:
+          - rgb_leds
+      channel_labels__LED3__0:
+        status: documented
+        value: LED3_R
+        source_refs:
+          - rgb_leds
+      channel_labels__LED3__1:
+        status: documented
+        value: LED3_G
+        source_refs:
+          - rgb_leds
+      channel_labels__LED3__2:
+        status: documented
+        value: LED3_B
+        source_refs:
+          - rgb_leds
+      channel_labels__LED4__0:
+        status: documented
+        value: LED4_R
+        source_refs:
+          - rgb_leds
+      channel_labels__LED4__1:
+        status: documented
+        value: LED4_G
+        source_refs:
+          - rgb_leds
+      channel_labels__LED4__2:
+        status: documented
+        value: LED4_B
+        source_refs:
+          - rgb_leds
+      note:
+        status: documented
+        value: MCU port mappings are not given in the manual text.
+        source_refs:
+          - rgb_leds
+    provenance:
+      status: documented
+      source_refs:
+        - rgb_leds
+    type: rgb_leds
+    processor: mcu
+  user_button:
+    facts:
+      maps_to:
+        status: documented
+        value: GPIO_79
+        source_refs:
+          - user_button
+          - jomega
+      exposed_at:
+        status: documented
+        value: JOMEGA_76
+        source_refs:
+          - user_button
+          - jomega
+    provenance:
+      status: documented
+      source_refs:
+        - user_button
+        - jomega
+    type: user_button
+    processor: mpu
+  power_button:
+    facts:
+      long_press_shutdown_min_s:
+        status: documented
+        value:
+          dimension: time
+          unit: s
+          rating_kind: unspecified
+          min: 10
+        source_refs:
+          - power_button
+      power_cycle_required_after_long_press:
+        status: documented
+        value: true
+        source_refs:
+          - power_button
+      automatic_boot_on_power:
+        status: documented
+        value: true
+        source_refs:
+          - power_button
+    provenance:
+      status: documented
+      source_refs:
+        - power_button
+    type: power_button
+  wireless:
+    facts:
+      bluetooth_version:
+        status: conflicting
+        claims:
+          - value: '5.3'
+            source_refs:
+              - architecture
+          - value: '5.1'
+            source_refs:
+              - wireless
+        notes: Manual sections disagree; no version selected.
+      module:
+        status: documented
+        value: NFA725B
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+      wifi__standard:
+        status: documented
+        value: Wi-Fi_6
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+      wifi__stated_bands_ghz__0:
+        status: documented
+        value:
+          dimension: frequency
+          unit: GHz
+          rating_kind: unspecified
+          value: 2.4
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+      wifi__stated_bands_ghz__1:
+        status: documented
+        value:
+          dimension: frequency
+          unit: GHz
+          rating_kind: unspecified
+          value: 5
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+      wifi__stated_bands_ghz__2:
+        status: documented
+        value:
+          dimension: frequency
+          unit: GHz
+          rating_kind: unspecified
+          value: 6
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+      bluetooth__version_status:
+        status: documented
+        value: conflicting_source_claims
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+      onboard_antennas:
+        status: documented
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 2
+        source_refs:
+          - architecture
+          - wireless
+          - jhat
+    provenance:
+      status: documented
+      source_refs:
+        - architecture
+        - wireless
+        - jhat
+    type: wireless
+    processor: mpu

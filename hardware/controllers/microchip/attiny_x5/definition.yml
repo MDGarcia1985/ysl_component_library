@@ -1,0 +1,641 @@
+# Schema/ID migration; original source bytes are retained in docs/evidence/migration-2026-11-19/before/.
+# Related decision: DEV-2026-11-19-005. No bench verification is implied.
+
+schema_version: 1.0.0-draft.1
+id: microchip/attiny-x5
+name: ATtiny25 / ATtiny45 / ATtiny85
+category: controllers
+kind: ic_family
+manufacturer:
+  status: known
+  name: Microchip
+aliases:
+  - attiny_x5
+provenance:
+  status: legacy_uncited
+  source_refs:
+    - legacy_snapshot
+sources:
+  legacy_snapshot:
+    title: Pre-migration repository definition
+    kind: legacy_note
+    path: docs/evidence/migration-2026-11-19/before/microchip__attiny-x5.yml.txt
+    notes: Original bytes and comments preserved; this locator does not establish manufacturer verification.
+verification:
+  status: not_verified
+  records: {}
+  notes: Schema/source migration and static checks do not establish bench verification.
+facts: {}
+pins:
+  PB0:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB0
+    capabilities:
+      - gpio
+      - pwm
+      - spi_mosi
+      - usi_data_input
+      - i2c_sda
+      - analog_comparator
+      - adc_reference_input
+      - pin_change_interrupt
+    aliases:
+      - MOSI
+      - DI
+      - SDA
+      - AIN0
+      - OC0A
+      - OC1A
+      - AREF
+      - PCINT0
+    location:
+      connector: PACKAGE
+      position: 5
+  PB1:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB1
+    capabilities:
+      - gpio
+      - pwm
+      - spi_miso
+      - usi_data_output
+      - analog_comparator
+      - pin_change_interrupt
+    aliases:
+      - MISO
+      - DO
+      - AIN1
+      - OC0B
+      - OC1A
+      - PCINT1
+    location:
+      connector: PACKAGE
+      position: 6
+  PB2:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB2
+    capabilities:
+      - gpio
+      - adc
+      - spi_clock
+      - usi_clock
+      - i2c_scl
+      - timer_external_clock
+      - external_interrupt
+      - pin_change_interrupt
+    aliases:
+      - ADC1
+      - SCK
+      - USCK
+      - SCL
+      - T0
+      - INT0
+      - PCINT2
+    location:
+      connector: PACKAGE
+      position: 7
+  PB3:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB3
+    capabilities:
+      - gpio
+      - adc
+      - pwm
+      - crystal_oscillator
+      - external_clock_input
+      - pin_change_interrupt
+    aliases:
+      - ADC3
+      - OC1B
+      - XTAL1
+      - CLKI
+      - PCINT3
+    location:
+      connector: PACKAGE
+      position: 2
+  PB4:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB4
+    capabilities:
+      - gpio
+      - adc
+      - pwm
+      - crystal_oscillator
+      - clock_output
+      - pin_change_interrupt
+    aliases:
+      - ADC2
+      - OC1B
+      - XTAL2
+      - CLKO
+      - PCINT4
+    location:
+      connector: PACKAGE
+      position: 3
+  PB5:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    maps_to: PB5
+    capabilities:
+      - hardware_reset
+      - adc
+      - debugwire
+      - pin_change_interrupt
+      - gpio_conditional
+    aliases:
+      - RESET
+      - RESET_N
+      - ADC0
+      - DW
+      - PCINT5
+    location:
+      connector: PACKAGE
+      position: 1
+  VCC:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    capabilities:
+      - power_input
+    aliases:
+      - VDD
+    location:
+      connector: PACKAGE
+      position: 8
+  GND:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    capabilities:
+      - ground_reference
+    aliases:
+      - VSS
+    location:
+      connector: PACKAGE
+      position: 4
+connectors:
+  PACKAGE:
+    type: ic_package
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+interfaces:
+  USI_SPI:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: spi
+    signals:
+      MOSI: PB0
+      MISO: PB1
+      SCK: PB2
+    implementation: usi
+  USI_I2C:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: i2c
+    signals:
+      SDA: PB0
+      SCL: PB2
+    implementation: usi_software
+  ISP:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: programming
+    signals:
+      MOSI: PB0
+      MISO: PB1
+      SCK: PB2
+      RESET: PB5
+      VCC: VCC
+      GND: GND
+  PWM:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: pwm
+    signals:
+      TIMER0__OC0A: PB0
+      TIMER0__OC0B: PB1
+      TIMER1__OC1A:
+        - PB0
+        - PB1
+      TIMER1__OC1B:
+        - PB3
+        - PB4
+  ADC:
+    facts:
+      resolution_bits:
+        status: legacy_uncited
+        value:
+          dimension: resolution
+          unit: bit
+          rating_kind: resolution
+          value: 10
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: adc
+    signals:
+      channels__ADC0: PB5
+      channels__ADC1: PB2
+      channels__ADC2: PB4
+      channels__ADC3: PB3
+  ANALOG_COMPARATOR:
+    facts: {}
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    type: analog_comparator
+    signals:
+      positive_input: PB0
+      negative_input: PB1
+constraints:
+  reset:
+    facts:
+      pin:
+        status: legacy_uncited
+        value: PB5
+        source_refs:
+          - legacy_snapshot
+      default_function:
+        status: legacy_uncited
+        value: hardware_reset
+        source_refs:
+          - legacy_snapshot
+      gpio_requires_fuse_change:
+        status: legacy_uncited
+        value: true
+        source_refs:
+          - legacy_snapshot
+      fuse:
+        status: legacy_uncited
+        value: RSTDISBL
+        source_refs:
+          - legacy_snapshot
+      warning:
+        status: legacy_uncited
+        value: 'Disabling RESET prevents ordinary low-voltage ISP programming. High-voltage programming may be required
+          to recover the device.
+
+          '
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: reset'
+  gpio:
+    facts:
+      standard_available:
+        status: legacy_uncited
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 5
+        source_refs:
+          - legacy_snapshot
+      conditional_available:
+        status: legacy_uncited
+        value:
+          dimension: count
+          unit: count
+          rating_kind: unspecified
+          value: 1
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: gpio'
+  peripheral_multiplexing:
+    facts:
+      simultaneous_functions:
+        status: legacy_uncited
+        value: restricted
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: peripheral_multiplexing'
+  voltage:
+    facts:
+      gpio_high_level:
+        status: legacy_uncited
+        value: VCC
+        source_refs:
+          - legacy_snapshot
+      five_volt_tolerant_at_3v3:
+        status: legacy_uncited
+        value: false
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: voltage'
+  clock:
+    facts:
+      factory_oscillator_hz:
+        status: legacy_uncited
+        value:
+          dimension: frequency
+          unit: Hz
+          rating_kind: unspecified
+          value: 8000000
+        source_refs:
+          - legacy_snapshot
+      factory_clock_divider:
+        status: legacy_uncited
+        value:
+          dimension: ratio
+          unit: '1'
+          rating_kind: unspecified
+          value: 8
+        source_refs:
+          - legacy_snapshot
+      default_cpu_clock_hz:
+        status: legacy_uncited
+        value:
+          dimension: frequency
+          unit: Hz
+          rating_kind: unspecified
+          value: 1000000
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    kind: requirement
+    rule: 'Preserve source constraint group: clock'
+ic_family:
+  family: ATtiny25_45_85
+  architecture: AVR_8bit
+variants:
+  ATtiny25:
+    facts:
+      flash_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 2048
+        source_refs:
+          - legacy_snapshot
+      sram_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 128
+        source_refs:
+          - legacy_snapshot
+      eeprom_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 128
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+  ATtiny45:
+    facts:
+      flash_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 4096
+        source_refs:
+          - legacy_snapshot
+      sram_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 256
+        source_refs:
+          - legacy_snapshot
+      eeprom_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 256
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+  ATtiny85:
+    facts:
+      flash_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 8192
+        source_refs:
+          - legacy_snapshot
+      sram_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 512
+        source_refs:
+          - legacy_snapshot
+      eeprom_bytes:
+        status: legacy_uncited
+        value:
+          dimension: storage
+          unit: byte
+          rating_kind: unspecified
+          value: 512
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+profiles:
+  ATtiny25V:
+    facts:
+      inherits:
+        status: legacy_uncited
+        value: ATtiny25
+        source_refs:
+          - legacy_snapshot
+      voltage_profile:
+        status: legacy_uncited
+        value: v_variant
+        source_refs:
+          - legacy_snapshot
+      max_clock_hz:
+        status: legacy_uncited
+        value:
+          dimension: frequency
+          unit: Hz
+          rating_kind: unspecified
+          max: 10000000
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    inherits: variant:ATtiny25
+  ATtiny45V:
+    facts:
+      inherits:
+        status: legacy_uncited
+        value: ATtiny45
+        source_refs:
+          - legacy_snapshot
+      voltage_profile:
+        status: legacy_uncited
+        value: v_variant
+        source_refs:
+          - legacy_snapshot
+      max_clock_hz:
+        status: legacy_uncited
+        value:
+          dimension: frequency
+          unit: Hz
+          rating_kind: unspecified
+          max: 10000000
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    inherits: variant:ATtiny45
+  ATtiny85V:
+    facts:
+      inherits:
+        status: legacy_uncited
+        value: ATtiny85
+        source_refs:
+          - legacy_snapshot
+      voltage_profile:
+        status: legacy_uncited
+        value: v_variant
+        source_refs:
+          - legacy_snapshot
+      max_clock_hz:
+        status: legacy_uncited
+        value:
+          dimension: frequency
+          unit: Hz
+          rating_kind: unspecified
+          max: 10000000
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    inherits: variant:ATtiny85
+power_domains:
+  standard:
+    facts:
+      rating:
+        status: legacy_uncited
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 2.7
+          max: 5.5
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    role: rail
+  v_variant:
+    facts:
+      rating:
+        status: legacy_uncited
+        value:
+          dimension: voltage
+          unit: V
+          rating_kind: operating
+          min: 1.8
+          max: 5.5
+        source_refs:
+          - legacy_snapshot
+    provenance:
+      status: legacy_uncited
+      source_refs:
+        - legacy_snapshot
+    role: rail

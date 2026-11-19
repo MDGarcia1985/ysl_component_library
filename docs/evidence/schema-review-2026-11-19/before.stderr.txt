@@ -1,0 +1,86 @@
+test_hardware_and_packaging_are_unchanged (test_schema_review.SchemaReviewTests.test_hardware_and_packaging_are_unchanged)
+Purpose: Enforce requested stop. Design: Before-byte hashes. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields)
+Purpose: AC-102. Design: Fixed invalid edits. Workflow: Review run. Data Handoff: Required rejections. ... ok
+test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty)
+Purpose: AC-102 uncertainty. Design: Conflicting facts cannot pick a winner. Workflow: Review run. Data Handoff: Rejections. ... FAIL
+test_registry_and_proposed_ids (test_schema_review.SchemaReviewTests.test_registry_and_proposed_ids)
+Purpose: AC-104 shape. Design: Fixed registry expectations. Workflow: Review run. Data Handoff: Assertions. ... ERROR
+test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds)
+Purpose: AC-101. Design: Three authored shapes. Workflow: Review run. Data Handoff: Assertions. ... FAIL
+test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles)
+Purpose: AC-104/105. Design: Typed cross-field faults. Workflow: Review harness. Data Handoff: Stable diagnostic codes. ... ERROR
+test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary)
+Purpose: AC-103. Design: Fixed hostile/ambiguous YAML. Workflow: Review harness. Data Handoff: Explicit rejections. ... ERROR
+
+======================================================================
+ERROR: test_registry_and_proposed_ids (test_schema_review.SchemaReviewTests.test_registry_and_proposed_ids)
+Purpose: AC-104 shape. Design: Fixed registry expectations. Workflow: Review run. Data Handoff: Assertions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_schema_review.py", line 90, in test_registry_and_proposed_ids
+    registry = json.loads((ROOT / 'schemas/identity-registry.json').read_text(encoding='utf-8'))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\micha\anaconda3\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\micha\\Repos\\ysl_component_library\\schemas\\identity-registry.json'
+
+======================================================================
+ERROR: test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles)
+Purpose: AC-104/105. Design: Typed cross-field faults. Workflow: Review harness. Data Handoff: Stable diagnostic codes.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_schema_review.py", line 98, in test_semantic_references_positions_and_cycles
+    review = runpy.run_path(str(ROOT / 'tests/schema_review_support.py'))
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 254, in _get_code_from_file
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\schema_review_support.py'
+
+======================================================================
+ERROR: test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary)
+Purpose: AC-103. Design: Fixed hostile/ambiguous YAML. Workflow: Review harness. Data Handoff: Explicit rejections.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_schema_review.py", line 123, in test_strict_yaml_input_boundary
+    review = runpy.run_path(str(ROOT / 'tests/schema_review_support.py'))
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 254, in _get_code_from_file
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\schema_review_support.py'
+
+======================================================================
+FAIL: test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty)
+Purpose: AC-102 uncertainty. Design: Conflicting facts cannot pick a winner. Workflow: Review run. Data Handoff: Rejections.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_schema_review.py", line 86, in test_quantity_units_and_uncertainty
+    self.assertEqual(list(validator().iter_errors(value)), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [<ValidationError: "{'schema_version': '1.[3466 chars]{}">] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+<ValidationError: "{'schema_version': '1.0.0-draft.1', 'id': 'review/synthetic-board', 'name': 'Synthetic review board — not a catalog definition', 'category': 'controllers', 'kind': 'board', 'manufacturer': {'status': 'known', 'name': 'Synthetic fixture manufacturer'}, 'aliases': ['review_board'], 'provenance': {'status': 'documented', 'source_refs': ['manual']}, 'sources': {'manual': {'title': 'Synthetic fixture manual', 'kind': 'manual', 'path': 'fixtures/synthetic_manual.md', 'section': 'Example header', 'snapshot_date': '2026-11-19'}}, 'verification': {'status': 'not_verified', 'records': {}}, 'facts': {'logic_voltage': {'status': 'derived', 'value': {'dimension': 'voltage', 'unit': 'V', 'nominal': 3.3, 'rating_kind': 'operating'}, 'source_refs': ['manual'], 'derivation': 'Synthetic derivation, not a measurement.'}, 'radio_version': {'status': 'conflicting', 'claims': [{'value': '5.1', 'source_refs': ['manual']}, {'value': '5.3', 'source_refs': ['manual']}], 'notes': 'Synthetic conflicting statements; no selected version.'}}, 'board': {'processors': {'mcu': {'model': 'SYNTH-MCU', 'role': 'Controller', 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}}, 'connectors': {'J1': {'type': 'header', 'positions': 2, 'processor': 'mcu', 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}, 'J2': {'type': 'header', 'positions': 2, 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'pins': {'TX': {'maps_to': 'PA0', 'direction': 'output', 'location': {'connector': 'J1', 'position': 1}, 'processor': 'mcu', 'capabilities': ['uart_tx'], 'aliases': ['TXD'], 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}, 'RX': {'maps_to': 'PA1', 'direction': 'input', 'location': {'connector': 'J1', 'position': 2}, 'capabilities': ['uart_rx'], 'aliases': [], 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}, 'AUX': {'maps_to': 'PB0', 'location': {'connector': 'J2', 'position': 1}, 'capabilities': ['gpio'], 'aliases': [], 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'interfaces': {'UART0': {'type': 'uart', 'processor': 'mcu', 'signals': {'TX': 'TX', 'RX': 'RX'}, 'connector_refs': ['J1'], 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'onboard_components': {'translator': {'model': 'SYNTH-LEVEL', 'role': 'Level translator', 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'connections': {'uart_header': {'from': 'interface:UART0', 'to': 'connector:J1', 'relationship': 'exposed_at', 'via': ['component:translator'], 'routing_status': 'documented', 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'resource_conflicts': {'uart_gpio': {'policy': 'at_most_one_active', 'participants': ['interface:UART0', 'pin:TX'], 'affected_pins': ['TX'], 'notes': 'Synthetic exclusive-function example.', 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'power_domains': {'logic': {'role': 'rail', 'facts': {}, 'feeds': ['connector:J1'], 'input_dependencies': [], 'limit_scope': 'unknown', 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}, 'constraints': {'shared_pin': {'kind': 'exclusion', 'targets': ['pin:TX', 'interface:UART0'], 'rule': 'Do not claim concurrent use of the shared pin.', 'facts': {}, 'provenance': {'status': 'documented', 'source_refs': ['manual']}}}} should not be valid under {}">
+
+Diff is 3521 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds)
+Purpose: AC-101. Design: Three authored shapes. Workflow: Review run. Data Handoff: Assertions.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\micha\Repos\ysl_component_library\tests\test_schema_review.py", line 41, in test_schema_documents_and_positive_kinds
+    self.assertGreaterEqual(len(paths), 6)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 1 not greater than or equal to 6
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.073s
+
+FAILED (failures=2, errors=3)

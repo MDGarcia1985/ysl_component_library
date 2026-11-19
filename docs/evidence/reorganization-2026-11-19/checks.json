@@ -1,0 +1,61 @@
+{
+  "evaluation": "local_self_evaluation_not_independent_gate_approval",
+  "utc_time": "2026-11-19T11:59:06.648088+00:00",
+  "command": [
+    "C:\\Users\\micha\\anaconda3\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "working_directory": "C:\\Users\\micha\\Repos\\ysl_component_library",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "pyyaml": "6.0.2",
+  "unittest_exit_code": 0,
+  "navigation": {
+    "documents": 19,
+    "local_links_and_fragments": 631,
+    "errors": [],
+    "excluded_source_snapshot": "hardware\\controllers\\arduino\\ventuno_q\\sources\\user_manual.md"
+  },
+  "corruption_checks": [
+    {
+      "case": "missing_can_transceiver",
+      "detected": true,
+      "mechanism": "in_memory_fault_injection_into_test_input",
+      "raw_report": "test_inventory_comes_from_manual (<run_path>.RepositoryContentTests.test_inventory_comes_from_manual)\nPurpose: Check component claims. Design: Exact source tokens. Workflow: Enrichment test. Data Handoff: Assertions. ... FAIL\n\n======================================================================\nFAIL: test_inventory_comes_from_manual (<run_path>.RepositoryContentTests.test_inventory_comes_from_manual)\nPurpose: Check component claims. Design: Exact source tokens. Workflow: Enrichment test. Data Handoff: Assertions.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 69, in test_inventory_comes_from_manual\n    self.assertTrue(required.issubset(parts))\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "case": "wrong_can_intermediary",
+      "detected": true,
+      "mechanism": "in_memory_fault_injection_into_test_input",
+      "raw_report": "test_relationships_resolve (<run_path>.RepositoryContentTests.test_relationships_resolve)\nPurpose: Catch dangling graph edges. Design: Typed reference namespaces. Workflow: Enrichment test. Data Handoff: Assertions. ... FAIL\n\n======================================================================\nFAIL: test_relationships_resolve (<run_path>.RepositoryContentTests.test_relationships_resolve)\nPurpose: Catch dangling graph edges. Design: Typed reference namespaces. Workflow: Enrichment test. Data Handoff: Assertions.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 113, in test_relationships_resolve\n    self.assertEqual(can['via'], ['component:ata6563'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['component:qca8081'] != ['component:ata6563']\n\nFirst differing element 0:\n'component:qca8081'\n'component:ata6563'\n\n- ['component:qca8081']\n+ ['component:ata6563']\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "case": "missing_bluetooth_conflict_pin",
+      "detected": true,
+      "mechanism": "in_memory_fault_injection_into_test_input",
+      "raw_report": "test_resource_and_power_constraints (<run_path>.RepositoryContentTests.test_resource_and_power_constraints)\nPurpose: Preserve critical restrictions. Design: Manual-specific expected facts. Workflow: Enrichment test. Data Handoff: Assertions. ... FAIL\n\n======================================================================\nFAIL: test_resource_and_power_constraints (<run_path>.RepositoryContentTests.test_resource_and_power_constraints)\nPurpose: Preserve critical restrictions. Design: Manual-specific expected facts. Workflow: Enrichment test. Data Handoff: Assertions.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 121, in test_resource_and_power_constraints\n    self.assertEqual(bluetooth['affected_pins'], ['JHAT_8', 'JHAT_10', 'JHAT_11', 'JHAT_36'])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: ['JHAT_8', 'JHAT_10', 'JHAT_11'] != ['JHAT_8', 'JHAT_10', 'JHAT_11', 'JHAT_36']\n\nSecond list contains 1 additional elements.\nFirst extra element 3:\n'JHAT_36'\n\n- ['JHAT_8', 'JHAT_10', 'JHAT_11']\n+ ['JHAT_8', 'JHAT_10', 'JHAT_11', 'JHAT_36']\n?                                +++++++++++\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "case": "dangling_section_reference",
+      "detected": true,
+      "mechanism": "in_memory_fault_injection_into_test_input",
+      "raw_report": "test_source_sections_and_conflicts (<run_path>.RepositoryContentTests.test_source_sections_and_conflicts)\nPurpose: Check provenance. Design: Resolve all local citations. Workflow: Enrichment test. Data Handoff: Assertions. ... FAIL\n\n======================================================================\nFAIL: test_source_sections_and_conflicts (<run_path>.RepositoryContentTests.test_source_sections_and_conflicts)\nPurpose: Check provenance. Design: Resolve all local citations. Workflow: Enrichment test. Data Handoff: Assertions.\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 97, in test_source_sections_and_conflicts\n    walk(board)\n    ~~~~^^^^^^^\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 93, in walk\n    walk(value)\n    ~~~~^^^^^^^\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 93, in walk\n    walk(value)\n    ~~~~^^^^^^^\n  File \"C:\\Users\\micha\\Repos\\ysl_component_library\\tests\\test_repository_content.py\", line 91, in walk\n    self.assertTrue(set(value).issubset(refs), value)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true : ['nonexistent_section']\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "case": "wrong_expansion_pin_function_with_same_pin_count",
+      "detected": true,
+      "mechanism": "independent_original_field_tree_comparison",
+      "raw_report": "'PF7' != 'PF6'\n- PF7\n?   ^\n+ PF6\n?   ^\n : /arduino_ventuno_q/pin_map/JOMEGA_100/source_function"
+    }
+  ],
+  "renderer_checks": {
+    "markup_escaped": true,
+    "duplicate_yaml_key_rejected": true
+  },
+  "hardware_verification": "not_bench_tested"
+}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "tests/schema_review_support.py", line 196, in semantic_errors
+    walk(document, [index], tables)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tests/schema_review_support.py", line 172, in walk
+    walk(details, location + [member], context(f'{"variant" if key == "variants" else "profile"}:{member}'))
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tests/schema_review_support.py", line 174, in walk
+    walk(value, location, tables)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tests/schema_review_support.py", line 168, in walk
+    elif key == 'inherits' and value not in variants:
+                               ^^^^^^^^^^^^^^^^^^^^^
+TypeError: unhashable type: 'dict'

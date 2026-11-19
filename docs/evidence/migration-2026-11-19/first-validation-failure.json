@@ -1,0 +1,11 @@
+{
+  "status": "failed",
+  "errors": [
+    {
+      "id": "arduino/ventuno-q",
+      "path": "/sources/linked_schematics/kind",
+      "message": "'schematics' is not one of ['manual', 'datasheet', 'schematic', 'pinout', 'legacy_note', 'test_record', 'other']"
+    }
+  ],
+  "cause": "Generated source kind used schematics instead of approved schematic enum; correct converter, not schema."
+}

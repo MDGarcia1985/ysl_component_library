@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ysl:schema:identity-registry:1.0.0-draft.1",
+  "title": "Proposed identity registry — review draft",
+  "$comment": "Draft for human review, not adopted by the hardware catalog. Related decision: DEV-2026-11-19-004.",
+  "x-ysl-review-status": "draft-not-approved",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0-draft.1"
+    },
+    "status": {
+      "const": "proposed"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/component_id"
+          },
+          "kind": {
+            "enum": [
+              "board",
+              "ic_family",
+              "module"
+            ]
+          },
+          "definition_path": {
+            "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/path"
+          },
+          "legacy_aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": ".*\\S.*"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "variant_selectors": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "profile_selectors": {
+            "type": "array",
+            "items": {
+              "$ref": "urn:ysl:schema:common:1.0.0-draft.1#/$defs/key"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "definition_path",
+          "legacy_aliases",
+          "variant_selectors",
+          "profile_selectors"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "entries"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0-draft.1",
+  "id": "review/synthetic-board",
+  "name": "Synthetic review board — not a catalog definition",
+  "category": "controllers",
+  "kind": "board",
+  "manufacturer": {"status": "known", "name": "Synthetic fixture manufacturer"},
+  "aliases": ["review_board"],
+  "provenance": {"status": "documented", "source_refs": ["manual"]},
+  "sources": {
+    "manual": {"title": "Synthetic fixture manual", "kind": "manual", "path": "fixtures/synthetic_manual.md", "section": "Example header", "snapshot_date": "2026-11-19"}
+  },
+  "verification": {"status": "not_verified", "records": {}},
+  "facts": {
+    "logic_voltage": {"status": "documented", "value": {"dimension": "voltage", "unit": "V", "nominal": 3.3, "rating_kind": "operating"}, "source_refs": ["manual"]},
+    "radio_version": {"status": "conflicting", "claims": [{"value": "5.1", "source_refs": ["manual"]}, {"value": "5.3", "source_refs": ["manual"]}], "notes": "Synthetic conflicting statements; no selected version."}
+  },
+  "board": {
+    "processors": {"mcu": {"model": "SYNTH-MCU", "role": "Controller", "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}}}
+  },
+  "connectors": {
+    "J1": {"type": "header", "positions": 2, "processor": "mcu", "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}},
+    "J2": {"type": "header", "positions": 2, "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "pins": {
+    "TX": {"maps_to": "PA0", "direction": "output", "location": {"connector": "J1", "position": 1}, "processor": "mcu", "capabilities": ["uart_tx"], "aliases": ["TXD"], "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}},
+    "RX": {"maps_to": "PA1", "direction": "input", "location": {"connector": "J1", "position": 2}, "capabilities": ["uart_rx"], "aliases": [], "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}},
+    "AUX": {"maps_to": "PB0", "location": {"connector": "J2", "position": 1}, "capabilities": ["gpio"], "aliases": [], "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "interfaces": {
+    "UART0": {"type": "uart", "processor": "mcu", "signals": {"TX": "TX", "RX": "RX"}, "connector_refs": ["J1"], "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "onboard_components": {
+    "translator": {"model": "SYNTH-LEVEL", "role": "Level translator", "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "connections": {
+    "uart_header": {"from": "interface:UART0", "to": "connector:J1", "relationship": "exposed_at", "via": ["component:translator"], "routing_status": "documented", "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "resource_conflicts": {
+    "uart_gpio": {"policy": "at_most_one_active", "participants": ["interface:UART0", "pin:TX"], "affected_pins": ["TX"], "notes": "Synthetic exclusive-function example.", "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "power_domains": {
+    "logic": {"role": "rail", "facts": {}, "feeds": ["connector:J1"], "input_dependencies": [], "limit_scope": "unknown", "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  },
+  "constraints": {
+    "shared_pin": {"kind": "exclusion", "targets": ["pin:TX", "interface:UART0"], "rule": "Do not claim concurrent use of the shared pin.", "facts": {}, "provenance": {"status": "documented", "source_refs": ["manual"]}}
+  }
+}

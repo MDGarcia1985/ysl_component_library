@@ -1,0 +1,31 @@
+{
+  "status": "self_evaluated_schema_review_baseline",
+  "preserved_files": {
+    "hardware/actuators/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hardware/sensors/generic/hc_sr04/definition.yml": "5bb9c00fdd87ffbdf5cb58f8beb0a318c1c99d3e788cc48922c1959618ad928c",
+    "hardware/sensors/generic/hc_sr04/README.md": "43739ec9ee62a7274af74ea7e6d05eb9a40e175a78c618b4fe1121511b6090b0",
+    "hardware/drivers/microchip/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hardware/drivers/ti/l293_family/definition.yml": "fae0cddc947560d4d4c2e0e14deb4465ee30861cdf0d50f1d1da9006cad62232",
+    "hardware/drivers/ti/l293_family/README.md": "51452a0743aa07b156d9d990f694a2c573734e11e66c3198b5c20bd0101f8a38",
+    "hardware/controllers/nxp/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hardware/controllers/microchip/attiny_x5/definition.yml": "06f73881094f129c2469dae3b1a584b95e58f140c8b989452cef3cdf0c112156",
+    "hardware/controllers/microchip/attiny_x5/README.md": "10a28947a3a5e4c1f96f34331178c182a41b34eaeaf4159db49d8b53a8b8ead4",
+    "hardware/controllers/arduino/uno_r3/definition.yml": "b35a50ae4fbedafbe76cc05041a44685eb5f25b0f4f479516c5d39f6b531a400",
+    "hardware/controllers/arduino/uno_r3/README.md": "399a083b4957671259212639c4aea3c953ab6ec1fec0807c83a2bdfea0bee6a0",
+    "hardware/controllers/arduino/ventuno_q/definition.yml": "40be175a78518766ab48bc4c73f7b6795fe3f410a617af17473a6ea4e6ab7835",
+    "hardware/controllers/arduino/ventuno_q/README.md": "cb541501d6b65db38997f58a6a6f3b37cf3dac32ac8a0a95b25a7d23402535dd",
+    "hardware/controllers/arduino/ventuno_q/sources/README.md": "6cab102b3fade164c690ecfe36eb5fc2c632a7b60918c098651205d72f50337d",
+    "hardware/controllers/arduino/ventuno_q/sources/user_manual.md": "a403727bfe044b7e33646998c79237f6d5c2b0c09c6d1238a6b2836d5492f8a9",
+    "pyproject.toml": "5d5782d73c9c2ea0630b2090b7739ac30f055919032f5dba7d186e1f8fe6ec18"
+  },
+  "journal_prefixes": {
+    "DEVNOTES.md": {
+      "byte_length": 11569,
+      "sha256": "3f842457cedb2a8e99d6c6c2d083094e981585669ca26921085d8018f797641b"
+    },
+    "TEST_LOG.md": {
+      "byte_length": 17803,
+      "sha256": "fdf90bf89300b52789b23c17cafbbbef677fc953c92a657724b8ce3603df67ef"
+    }
+  }
+}
