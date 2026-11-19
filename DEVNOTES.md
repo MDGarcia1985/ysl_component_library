@@ -477,3 +477,232 @@ query behavior, and later human G4 packaging approval remain separate decisions.
 ---
 
 ---
+
+### DEV-2026-11-19-006 — Record G2 approval and freeze the P3 query contract
+
+**Date:** 2026-11-19  
+**Time:** 14:40 America/New_York  
+**Engineer:** Cursor cloud agent  
+**Status:** ACCEPTED  
+**Type:** DECISION
+
+#### Problem
+
+P3 cannot start until G2 is decided. The user approved the current P2 draft.
+The approval has to be recorded as a human decision, and the query invocation,
+filters, JSON envelope, and exit codes have to be frozen before the module is
+treated as the contract.
+
+#### Context and Constraints
+
+The user statement is exactly: "G2 is approved". It names no other reviewer.
+The approved draft is commit `5442a1a62359bfb34b04b29e4d277d2ecbd7f820`: five
+migrated definitions, the field map, six unresolved VENTUNO discrepancies, and
+the AC-205 corruption detections. An agent-written review file is only a
+cross-reference. The statement does not approve packaging, publication, page
+acceptance, or copying definitions into embedded projects. Exit codes 0–5 were
+proposed and are now an implementation contract. Development invocation remains
+`python -m ysl_components` with an explicit catalog path.
+
+#### Solutions Considered
+
+- Treat the P2 evidence README as approval because its checks passed.
+- Invent a named reviewer or mark the gate template as signed.
+- Record the user's sentence against the draft digests, freeze revision 1 of the
+  query contract, and implement only the local loader and read-only operations.
+
+#### Trade-offs
+
+A repository copy can be edited by the same agent that implements the queries, so
+it cannot prove an independent review. Citing the chat statement keeps the
+decision attached to the user without pretending the file is the approval.
+Freezing rejection of a stale index, rather than a silent rebuild, makes AC-308
+observable and keeps queries read-only. Exit 1 has no portable catalog input, so
+the contract exposes one fault seam instead of leaving that code untested.
+
+#### Final Outcome
+
+G2 is approved for the identified P2 draft. The six VENTUNO discrepancies stay
+unresolved and verification stays `not_verified`. P3 may implement catalog
+loading, validation, and the operations `list`, `search`, `show`, `pin`, `pins`,
+`interface`, `export`, and `validate`. Stdout is the JSON envelope. Diagnostics
+go to stderr. Exit codes are 0 success, 1 unexpected failure, 2 invalid
+usage or data, 3 not found, 4 ambiguous pin alias, and 5 unsupported schema.
+No wheel, installed command, page regeneration, or embedded-project inclusion
+is part of this decision.
+
+#### Implementation Impact
+
+- `docs/reviews/g2-approval-2026-11-19.md`: cross-reference of the user statement.
+- `docs/planning/CLI_QUERY_CONTRACT.md`: frozen revision 1.
+- `src/ysl_components/`: loader, query operations, and `python -m` entry.
+- `tests/test_query_contract.py`: executable AC-301–AC-308 cases.
+- Planning status text that still said G2 was pending.
+
+#### Verification Required
+
+T0 compile and import the new modules. T1 run each operation through a
+subprocess against fixed catalogs, including invalid, missing, ambiguous,
+unsupported-schema, export, read-only, and stale-index cases. T2 confirm the
+module reads the real five-definition catalog without writing it. T3 rerun the
+existing repository suite and record the pre-existing Linux baseline mismatch
+separately. Do not predict a pass. Windows remains unexecuted.
+
+#### Related Records
+
+- DEVNOTES: DEV-2026-11-19-005, DEV-2026-11-19-007
+- Tests: Pending
+- Source: `docs/reviews/g2-approval-2026-11-19.md`;
+  `docs/planning/CLI_QUERY_CONTRACT.md`
+
+#### Next Steps
+
+Implement the frozen contract and record the executed results. G3 is still open.
+Packaging remains unauthorized.
+
+#### Deferred Decisions
+
+Independent evaluator infrastructure, Windows execution, G3 acceptance, P4 page
+generation, and G4 packaging approval remain separate. JSON Schema library
+message text is not frozen.
+
+---
+
+---
+
+### DEV-2026-11-19-007 — Accept the Linux line-ending gap in the Windows byte baseline
+
+**Date:** 2026-11-19  
+**Time:** 14:42 America/New_York  
+**Engineer:** Cursor cloud agent  
+**Status:** ACCEPTED  
+**Type:** DECISION
+
+#### Problem
+
+On this Linux checkout, several preservation tests fail before any P3 edit.
+Their recorded SHA-256 values match the CRLF translation of the current LF git
+blobs, not the LF bytes. The git objects are LF. The P2 journal says the
+baseline was captured on Windows.
+
+#### Context and Constraints
+
+Files that already match as LF stay exact. Files that differ only by a newline
+translation match after LF is rewritten to CRLF. A content change matches
+neither digest. Schema, manual, and standards bytes are not to be rewritten to
+chase the Windows hash. Journal prefix checks stay exact. G2 approved the
+current draft, which is the LF commit, not a CRLF working tree.
+
+#### Solutions Considered
+
+- Convert the git blobs to CRLF so the recorded hashes match.
+- Leave the suite red and block P3.
+- Compare each preserved file with its recorded digest or, when the file has no
+  CR, with the digest of its CRLF translation. Keep content changes failing.
+
+#### Trade-offs
+
+Accepting the newline translation lets Linux run the preservation tests without
+hiding a changed character. It does not recreate the Windows capture and does
+not prove those files were reviewed again. Rewriting bytes would change the
+draft the user approved. Leaving the tests red would make every later run look
+like a new P3 failure.
+
+#### Final Outcome
+
+Accept this limit for Linux execution. Preservation checks may treat a pure
+LF-to-CRLF translation as the recorded Windows digest. They still reject any
+other byte difference. Do not modify schema, source-manual, standards, or
+snapshot bytes for this reason. The P2 guard that forbade `python -m`
+modules is retired because G2 now authorizes that entry point; packaging files
+remain forbidden. Owner of a future Windows rehash: the G3 reviewer. Until
+then, AC-206 byte identity is established on Linux only up to newline
+translation.
+
+#### Implementation Impact
+
+- `tests/test_migration.py`
+- `tests/test_schema_review.py`
+- `tests/test_repository_content.py`
+
+#### Verification Required
+
+T0 rerun the three preservation tests on Linux and confirm content-identical
+files pass while the assertion still computes both digests. No Windows run is
+claimed. This decision does not by itself pass P3 query tests.
+
+#### Related Records
+
+- DEVNOTES: DEV-2026-11-19-005, DEV-2026-11-19-006
+- Tests: Pending
+- Source: `docs/evidence/migration-2026-11-19/baseline.json`
+
+#### Next Steps
+
+Keep the newline comparison local to those preservation tests. Do not use it as
+a reason to change hardware facts.
+
+#### Deferred Decisions
+
+A reviewer-owned Windows rehash of the baseline. Not required to implement P3.
+
+---
+
+---
+
+### DEV-2026-11-19-008 — P3 query module is implemented on Linux only
+
+**Date:** 2026-11-19  
+**Time:** 14:49 America/New_York  
+**Engineer:** Cursor cloud agent  
+**Status:** IMPLEMENTED  
+**Type:** DECISION
+
+#### Problem
+
+DEV-2026-11-19-006 authorized the query module. The implementation now exists, and the verification outcome needs its own record. G3 is still open.
+
+#### Context and Constraints
+
+The module follows query contract revision 1. It is started with `python -m ysl_components` and an explicit catalog path. Stdout is the JSON envelope. Diagnostics go to stderr. Queries do not modify the catalog. A stale index is rejected rather than rebuilt. Packaging files were not added. The run is self-evaluated on Linux. Windows was not executed.
+
+#### Solutions Considered
+
+- Wait for a Windows run before recording any implementation result.
+- Record the Linux execution and leave Windows as not executed.
+
+#### Trade-offs
+
+Recording the Linux result makes the evidence findable. Calling the phase accepted on one platform would hide the missing Windows run required by AC-307. The implementation status does not close G3.
+
+#### Final Outcome
+
+The loader and the eight operations are implemented. Linux unittest coverage passed, including AC-301 through AC-308 and the previous local suite. Windows AC-307 is not executed. G3, page generation, packaging, and publication remain unauthorized. The six VENTUNO discrepancies stay unresolved.
+
+#### Implementation Impact
+
+- src/ysl_components/__init__.py, __main__.py, loader.py, query.py, and cli.py
+- tests/test_query_contract.py
+- docs/planning/CLI_QUERY_CONTRACT.md
+
+#### Verification Required
+
+The Linux T0, T2, and T3 runs are recorded. No further product change is implied by this entry. A Windows run remains required before AC-307 can be called complete.
+
+#### Related Records
+
+- DEVNOTES: DEV-2026-11-19-006, DEV-2026-11-19-007
+- Tests: TEST-2026-11-19-012, TEST-2026-11-19-013, TEST-2026-11-19-014, TEST-2026-11-19-015
+- Source: src/ysl_components/cli.py; docs/planning/CLI_QUERY_CONTRACT.md
+
+#### Next Steps
+
+G3 review of the real loader, including reviewer-made catalogs. Do not package.
+
+#### Deferred Decisions
+
+Windows execution, G3 acceptance, P4 page generation, and G4 packaging approval.
+
+---
+
+---

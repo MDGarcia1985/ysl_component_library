@@ -20,6 +20,19 @@ ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / 'tests/fixtures/schema_review'
 
 
+def matches_recorded_digest(path, digest):
+    """Purpose: Compare archived bytes with a recorded digest.
+    Design: Accept the recorded LF digest or its CRLF translation. See DEV-2026-11-19-007.
+    Workflow: Preservation checks. Data Handoff: Boolean.
+    """
+    data = path.read_bytes()
+    if hashlib.sha256(data).hexdigest() == digest:
+        return True
+    if b'\r' not in data:
+        return hashlib.sha256(data.replace(b'\n', b'\r\n')).hexdigest() == digest
+    return False
+
+
 def fixture(name='board'):
     """Purpose: Read independent inputs. Design: Fixed authored JSON. Workflow: Tests. Data Handoff: Fresh fixture mapping."""
     return json.loads((FIXTURES / f'{name}.json').read_text(encoding='utf-8'))
@@ -170,14 +183,15 @@ class SchemaReviewTests(unittest.TestCase):
                 definition = ROOT / name.replace('/README.md', '/definition.yml')
                 self.assertIn(hashlib.sha256(definition.read_bytes()).hexdigest(), (ROOT / name).read_text(encoding='utf-8'))
             else:
-                self.assertEqual(hashlib.sha256((ROOT / snapshots.get(name, name)).read_bytes()).hexdigest(), digest, name)
+                self.assertTrue(matches_recorded_digest(ROOT / snapshots.get(name, name), digest), name)
         import yaml
         for path in (ROOT / 'hardware').rglob('definition.yml'):
             self.assertTrue(validator().is_valid(yaml.safe_load(path.read_text(encoding='utf-8-sig'))), str(path))
         for name, record in baseline['journal_prefixes'].items():
             self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()[:record['byte_length']]).hexdigest(), record['sha256'])
-        for path in ('src/ysl_components/__init__.py', 'src/ysl_components/__main__.py', 'dist', 'build'):
+        for path in ('dist', 'build'):
             self.assertFalse((ROOT / path).exists(), path)
+        self.assertTrue((ROOT / 'src/ysl_components/__main__.py').exists())
 
 
 if __name__ == '__main__':

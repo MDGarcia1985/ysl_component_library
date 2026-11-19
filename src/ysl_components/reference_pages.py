@@ -4,8 +4,9 @@
 """File: src/ysl_components/reference_pages.py
 Purpose: Generate Markdown reference pages directly from hardware YAML.
 Author: Codex; contact: Pending confirmation; license: Pending confirmation.
-Constraints: Source-only documentation utility; no query CLI or packaging entry point.
-Related decision: DEV-2026-11-19-003.
+Constraints: Source-only documentation utility. Query operations live in the package
+entry point and are not invoked here. No packaging entry point.
+Related decisions: DEV-2026-11-19-003, DEV-2026-11-19-006.
 """
 from collections import defaultdict
 from pathlib import Path
