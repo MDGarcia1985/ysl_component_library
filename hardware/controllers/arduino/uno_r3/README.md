@@ -18,6 +18,10 @@ This reference preserves documented and uncited source statements. Schema valida
 | Interfaces | 1 |
 | Verification | not_verified |
 
+**Declared pin capabilities:** adc, adc_reference_input, analog_comparator, clock_output, external_interrupt, gpio, ground_reference, hardware_reset, i2c_scl, i2c_sda, logic_voltage_reference, onboard_led, pin_change_interrupt, power_input, pwm, regulated_power_output, regulated_power_rail, spi_chip_select, spi_clock, spi_miso, spi_mosi, timer_external_clock, timer_input_capture, uart_rx, uart_tx, usart_external_clock
+
+**Verification limits:** status not_verified. Source statements on this page are not bench verification.
+
 ## Component facts
 
 | Fact | Evidence state | Value / documented limits | Sources |

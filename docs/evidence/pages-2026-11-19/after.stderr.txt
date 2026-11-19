@@ -1,0 +1,79 @@
+test_all_five_schema_and_semantic_contracts (test_migration.MigrationTests.test_all_five_schema_and_semantic_contracts)
+Purpose: AC-201. Design: Approved schema and semantic checks. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_complete_source_and_destination_field_maps (test_migration.MigrationTests.test_complete_source_and_destination_field_maps)
+Purpose: AC-201. Design: No migrator imports. Workflow: Every original leaf. Data Handoff: Exact conservation assertions. ... ok
+test_manual_pin_tables_and_independent_board_facts (test_migration.MigrationTests.test_manual_pin_tables_and_independent_board_facts)
+Purpose: AC-202/203. Design: Compare actual source tables directly. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_migration_is_deterministic_from_snapshots (test_migration.MigrationTests.test_migration_is_deterministic_from_snapshots)
+Purpose: AC-206. Design: Pure repeated conversion. Workflow: Source utility. Data Handoff: Equal results/maps. ... ok
+test_required_deliberate_corruptions_are_detected (test_migration.MigrationTests.test_required_deliberate_corruptions_are_detected)
+Purpose: AC-205. Design: Mutate data independently of mapping code. Workflow: Comparison. Data Handoff: Rejection observations. ... ok
+test_sources_schema_bytes_and_history_are_preserved (test_migration.MigrationTests.test_sources_schema_bytes_and_history_are_preserved)
+Purpose: AC-206. Design: Pre-change byte hashes. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_variant_safety_and_source_conflicts_survive (test_migration.MigrationTests.test_variant_safety_and_source_conflicts_survive)
+Purpose: AC-204. Design: Fixed discriminating source facts. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_ac401_catalog_and_pages_match_the_fact_oracle (test_page_contract.PageContractTests.test_ac401_catalog_and_pages_match_the_fact_oracle)
+Purpose: Require the five entries and the literal hardware facts. ... ok
+test_ac402_faults_in_generated_output_are_detected (test_page_contract.PageContractTests.test_ac402_faults_in_generated_output_are_detected)
+Purpose: Show that link, image, and fact checks notice planted faults. ... ok
+test_ac402_manual_images_stay_source_limitations (test_page_contract.PageContractTests.test_ac402_manual_images_stay_source_limitations)
+Purpose: Keep absent manual art out of the generated-asset count. ... ok
+test_ac403_clean_directories_match (test_page_contract.PageContractTests.test_ac403_clean_directories_match)
+Purpose: Require deterministic generation. Design: Two fresh directory trees, then two repository calls. ... ok
+test_ac404_markup_in_labels_stays_data (test_page_contract.PageContractTests.test_ac404_markup_in_labels_stays_data)
+Purpose: Keep hostile labels from becoming markup. Design: A reviewer-shaped temporary definition. ... ok
+test_ac405_manifest_detects_missing_and_changed_evidence (test_page_contract.PageContractTests.test_ac405_manifest_detects_missing_and_changed_evidence)
+Purpose: Show that the evidence manifest notices tampering. ... ok
+test_ac501_packaging_requests_are_denied (test_page_contract.PageContractTests.test_ac501_packaging_requests_are_denied)
+Purpose: Keep packaging closed. Design: Every request shape returns a denial and the builder is not called. ... ok
+test_ac301_validation_enumerates_valid_and_invalid_files (test_query_contract.QueryContractTests.test_ac301_validation_enumerates_valid_and_invalid_files)
+Purpose: AC-301. Design: One malformed file among schema and reference failures. ... ok
+test_ac302_list_and_search_are_catalog_specific (test_query_contract.QueryContractTests.test_ac302_list_and_search_are_catalog_specific)
+Purpose: AC-302. Design: Fixed ids, filters, and an empty search. ... ok
+test_ac303_show_pin_alias_interface_and_variant (test_query_contract.QueryContractTests.test_ac303_show_pin_alias_interface_and_variant)
+Purpose: AC-303. Design: Literals taken from the migrated definitions and the synthetic board. ... ok
+test_ac304_conflicts_and_types_stay_stable (test_query_contract.QueryContractTests.test_ac304_conflicts_and_types_stay_stable)
+Purpose: AC-304. Design: Repeat the same command and compare parsed types. ... ok
+test_ac305_stdout_stderr_and_exit_codes (test_query_contract.QueryContractTests.test_ac305_stdout_stderr_and_exit_codes)
+Purpose: AC-305. Design: One subprocess per exit category. ... ok
+test_ac306_export_round_trip_and_overwrite (test_query_contract.QueryContractTests.test_ac306_export_round_trip_and_overwrite)
+Purpose: AC-306. Design: Reload exported bytes with an independent parser. ... ok
+test_ac307_readonly_paths_and_no_network (test_query_contract.QueryContractTests.test_ac307_readonly_paths_and_no_network)
+Purpose: AC-307. Design: Absolute path with spaces, another working directory, blocked sockets. ... ok
+test_ac308_stale_index_is_rejected (test_query_contract.QueryContractTests.test_ac308_stale_index_is_rejected)
+Purpose: AC-308. Design: Corrupt the index, then change a definition without refreshing it. ... ok
+test_deterministic_generated_pages (test_repository_content.RepositoryContentTests.test_deterministic_generated_pages)
+Purpose: Detect stale references. Design: Rebuild in memory. Workflow: After generation. Data Handoff: Assertions. ... ok
+test_inventory_comes_from_manual (test_repository_content.RepositoryContentTests.test_inventory_comes_from_manual)
+Purpose: Check component claims. Design: Exact source tokens. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_journal_history_is_unchanged (test_repository_content.RepositoryContentTests.test_journal_history_is_unchanged)
+Purpose: Preserve history. Design: Prefix hashes. Workflow: After append. Data Handoff: Assertions. ... ok
+test_layout_and_legacy_preservation (test_repository_content.RepositoryContentTests.test_layout_and_legacy_preservation)
+Purpose: Detect missing moves/loss. Design: Frozen baseline. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_preparation_does_not_enable_packaging (test_repository_content.RepositoryContentTests.test_preparation_does_not_enable_packaging)
+Purpose: Respect the human gate. Design: Inspect scaffold only. Workflow: Test run. Data Handoff: Assertions. ... ok
+test_relationships_resolve (test_repository_content.RepositoryContentTests.test_relationships_resolve)
+Purpose: Catch dangling graph edges. Design: Typed reference namespaces. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_resource_and_power_constraints (test_repository_content.RepositoryContentTests.test_resource_and_power_constraints)
+Purpose: Preserve critical restrictions. Design: Manual-specific expected facts. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_source_sections_and_conflicts (test_repository_content.RepositoryContentTests.test_source_sections_and_conflicts)
+Purpose: Check provenance. Design: Resolve all local citations. Workflow: Enrichment test. Data Handoff: Assertions. ... ok
+test_hardware_and_packaging_are_unchanged (test_schema_review.SchemaReviewTests.test_hardware_and_packaging_are_unchanged)
+Purpose: Preserve approved inputs. Design: Archived bytes and current schema adoption. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_identity_types_and_closed_fields (test_schema_review.SchemaReviewTests.test_identity_types_and_closed_fields)
+Purpose: AC-102. Design: Fixed invalid edits. Workflow: Review run. Data Handoff: Required rejections. ... ok
+test_quantity_units_and_uncertainty (test_schema_review.SchemaReviewTests.test_quantity_units_and_uncertainty)
+Purpose: AC-102 uncertainty. Design: Conflicting facts cannot pick a winner. Workflow: Review run. Data Handoff: Rejections. ... ok
+test_registry_and_proposed_ids (test_schema_review.SchemaReviewTests.test_registry_and_proposed_ids)
+Purpose: AC-104 shape. Design: Fixed registry expectations. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_schema_documents_and_positive_kinds (test_schema_review.SchemaReviewTests.test_schema_documents_and_positive_kinds)
+Purpose: AC-101. Design: Three authored shapes. Workflow: Review run. Data Handoff: Assertions. ... ok
+test_semantic_references_positions_and_cycles (test_schema_review.SchemaReviewTests.test_semantic_references_positions_and_cycles)
+Purpose: AC-104/105. Design: Typed cross-field faults. Workflow: Review harness. Data Handoff: Stable diagnostic codes. ... ok
+test_strict_yaml_input_boundary (test_schema_review.SchemaReviewTests.test_strict_yaml_input_boundary)
+Purpose: AC-103. Design: Fixed hostile/ambiguous YAML. Workflow: Review harness. Data Handoff: Explicit rejections. ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 49.869s
+
+OK

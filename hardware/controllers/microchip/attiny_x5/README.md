@@ -18,6 +18,12 @@ This reference preserves documented and uncited source statements. Schema valida
 | Interfaces | 6 |
 | Verification | not_verified |
 
+**Declared pin capabilities:** adc, adc_reference_input, analog_comparator, clock_output, crystal_oscillator, debugwire, external_clock_input, external_interrupt, gpio, gpio_conditional, ground_reference, hardware_reset, i2c_scl, i2c_sda, pin_change_interrupt, power_input, pwm, spi_clock, spi_miso, spi_mosi, timer_external_clock, usi_clock, usi_data_input, usi_data_output
+
+**Family selectors:** variants ATtiny25, ATtiny45, ATtiny85; profiles ATtiny25V, ATtiny45V, ATtiny85V
+
+**Verification limits:** status not_verified. Source statements on this page are not bench verification.
+
 ## Component facts
 
 | Fact | Evidence state | Value / documented limits | Sources |

@@ -2,11 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 """File: src/ysl_components/reference_pages.py
-Purpose: Generate Markdown reference pages directly from hardware YAML.
-Author: Codex; contact: Pending confirmation; license: Pending confirmation.
-Constraints: Source-only documentation utility. Query operations live in the package
-entry point and are not invoked here. No packaging entry point.
-Related decisions: DEV-2026-11-19-003, DEV-2026-11-19-006.
+Purpose: Generate Markdown reference pages from migrated hardware definitions.
+Author: Codex; P4 adaptation: Cursor cloud agent; contact: Pending confirmation; license: MPL-2.0.
+Constraints: Documentation utility. Query operations are not invoked here. Packaging is not invoked here.
+Related decisions: DEV-2026-11-19-003, DEV-2026-11-19-006, DEV-2026-11-19-009.
 """
 from collections import defaultdict
 from pathlib import Path
@@ -238,7 +237,7 @@ def build_pages(root):
     outputs = {}
     catalog = ['<!-- Generated from hardware/**/definition.yml. Do not edit manually. -->', '# Hardware catalog', '',
                '[Repository overview](../README.md) · [Implementation plan](planning/CLI_IMPLEMENTATION_PLAN.md)', '',
-               'Browse reference pages by category and namespace. The catalog uses the user-approved schema and stable IDs. CLI queries and packaging remain separate gated work.', '']
+               'Browse reference pages by category and namespace. The catalog uses the migrated definitions and stable IDs. Packaging remains disabled until a later human G4 decision.', '']
     rows = []
     for definition in sorted((root / 'hardware').rglob('definition.yml')):
         document = yaml.load(definition.read_text(encoding='utf-8-sig'), Loader=UniqueKeyLoader)
@@ -250,7 +249,7 @@ def build_pages(root):
             parts = definition.relative_to(root / 'hardware').parts
             reference = f'[{cell(board["name"])}]({local_link(page, root / "docs/catalog.md")})'
             issues = sum(item['kind'] == 'source_conflict' for item in board.get('constraints', {}).values())
-            rows.append('| ' + ' | '.join([cell(parts[0]), cell(parts[1]), reference, f'[YAML]({local_link(definition, root / "docs/catalog.md")})', str(issues)]) + ' |')
+            rows.append('| ' + ' | '.join([cell(parts[0]), cell(parts[1]), cell(identity), reference, f'[YAML]({local_link(definition, root / "docs/catalog.md")})', str(issues)]) + ' |')
             continue
         if not isinstance(document, dict) or len(document) != 1:
             raise ValueError(f'Expected one hardware root: {definition}')
@@ -261,9 +260,13 @@ def build_pages(root):
         parts = definition.relative_to(root / 'hardware').parts
         name = board.get('model') or board.get('family', '').replace('_', '/') or identity.replace('_', ' ').title()
         reference = f'[{cell(name)}]({local_link(page, root / "docs/catalog.md")})'
-        rows.append('| ' + ' | '.join([cell(parts[0]), cell(parts[1]), reference, f'[YAML]({local_link(definition, root / "docs/catalog.md")})', str(len(board.get('source', {}).get('discrepancies', [])))]) + ' |')
-    catalog += table(['Category', 'Namespace', 'Reference page', 'Definition', 'Recorded source issues'], [])[:-1] + rows + ['']
-    catalog += ['## Migration status', '', 'The user approved the schema/ID candidate and authorized P2 migration. All five definitions now use that contract. [Migration evidence](evidence/migration-2026-11-19/README.md) preserves original bytes and a complete source-field map. G2 review, query CLI implementation, and G4 packaging approval remain separate; packaging is disabled.', '']
+        rows.append('| ' + ' | '.join([cell(parts[0]), cell(parts[1]), cell(identity), reference, f'[YAML]({local_link(definition, root / "docs/catalog.md")})', str(len(board.get('source', {}).get('discrepancies', [])))]) + ' |')
+    catalog += table(['Category', 'Namespace', 'ID', 'Reference page', 'Definition', 'Recorded source issues'], [])[:-1] + rows + ['']
+    catalog += ['## Status', '',
+                'These pages are generated from the migrated definitions. The user approved G3 for the local query draft. The cross-reference is [g3-approval-2026-11-19.md](reviews/g3-approval-2026-11-19.md). This generated page is not that approval.', '',
+                'Regenerate from the repository root:', '',
+                '```shell', 'python src/ysl_components/reference_pages.py', '```', '',
+                'Component README files and this catalog are generated. Guidance under a component `sources/` directory is authored separately. Local queries use `python -m ysl_components` with an explicit catalog path. Packaging is disabled until a later human G4 decision.', '']
     outputs['docs/catalog.md'] = '\n'.join(catalog).rstrip() + '\n'
     return outputs
 
@@ -310,6 +313,16 @@ def render_normalized(root, definition, board):
               'This reference preserves documented and uncited source statements. Schema validation does not establish electrical compatibility or bench operation.', '',
               '## Identity and capabilities', '']
     output += table(['Property', 'Value'], [('ID', board['id']), ('Schema version', board['schema_version']), ('Kind', board['kind']), ('Manufacturer', board['manufacturer'].get('name', 'Unknown: ' + board['manufacturer'].get('reason', 'Not specified'))), ('Legacy aliases', board['aliases']), ('Named pin records', len(board['pins'])), ('Interfaces', len(board['interfaces'])), ('Verification', board['verification']['status'])])
+    capabilities = sorted({token for pin in board['pins'].values() for token in pin.get('capabilities', [])})
+    output += ['**Declared pin capabilities:** ' + (', '.join(cell(token) for token in capabilities) or 'None recorded'), '']
+    selector_parts = []
+    if board.get('variants'):
+        selector_parts.append('variants ' + ', '.join(cell(name) for name in board['variants']))
+    if board.get('profiles'):
+        selector_parts.append('profiles ' + ', '.join(cell(name) for name in board['profiles']))
+    if selector_parts:
+        output += ['**Family selectors:** ' + '; '.join(selector_parts), '']
+    output += ['**Verification limits:** status ' + cell(board['verification']['status']) + '. Source statements on this page are not bench verification.', '']
     output += ['## Component facts', ''] + normalized_facts(board['facts'], board, root, page)
     if 'board' in board:
         output += ['## Processors', '']

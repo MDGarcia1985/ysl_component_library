@@ -18,6 +18,10 @@ This reference preserves documented and uncited source statements. Schema valida
 | Interfaces | 1 |
 | Verification | not_verified |
 
+**Declared pin capabilities:** digital_input, digital_output, ground_reference, power_input, pulse_trigger_input, pulse_width_output, ranging_trigger, time_of_flight_output
+
+**Verification limits:** status not_verified. Source statements on this page are not bench verification.
+
 ## Component facts
 
 | Fact | Evidence state | Value / documented limits | Sources |

@@ -1,0 +1,66 @@
+{
+  "builder_called": [],
+  "cases": [
+    {
+      "expected_reason": "approval_absent",
+      "result": {
+        "authorized": false,
+        "built": false,
+        "reason": "approval_absent",
+        "candidate_digest": "candidate-under-review",
+        "distribution_written": false
+      }
+    },
+    {
+      "expected_reason": "local_approval_is_not_authorization",
+      "result": {
+        "authorized": false,
+        "built": false,
+        "reason": "local_approval_is_not_authorization",
+        "candidate_digest": "candidate-under-review",
+        "distribution_written": false
+      }
+    },
+    {
+      "expected_reason": "local_approval_is_not_authorization",
+      "result": {
+        "authorized": false,
+        "built": false,
+        "reason": "local_approval_is_not_authorization",
+        "candidate_digest": "candidate-under-review",
+        "distribution_written": false
+      }
+    },
+    {
+      "expected_reason": "wrong_gate",
+      "result": {
+        "authorized": false,
+        "built": false,
+        "reason": "wrong_gate",
+        "candidate_digest": "candidate-under-review",
+        "distribution_written": false
+      }
+    },
+    {
+      "expected_reason": "candidate_mismatch",
+      "result": {
+        "authorized": false,
+        "built": false,
+        "reason": "candidate_mismatch",
+        "candidate_digest": "candidate-under-review",
+        "distribution_written": false
+      }
+    },
+    {
+      "expected_reason": "packaging_closed_until_external_g4",
+      "result": {
+        "authorized": false,
+        "built": false,
+        "reason": "packaging_closed_until_external_g4",
+        "candidate_digest": "candidate-under-review",
+        "distribution_written": false
+      }
+    }
+  ],
+  "dist_exists": false
+}

@@ -1,8 +1,10 @@
 # Hardware Catalog and CLI Acceptance Contracts
 
-**Status:** Contracts defined. The user approved G2 for the current P2 draft.
-AC-301 through AC-308 now have a frozen query contract and local executable cases.
-Independently frozen fixtures and product acceptance are not established.  
+**Status:** Contracts defined. The user approved G2 for the current P2 draft and
+G3 for the current P3 draft. AC-301 through AC-308 have a frozen query contract.
+AC-401 through AC-405 and the AC-501 denial have a frozen page contract.
+Independently frozen fixtures and product acceptance are not established.
+Windows AC-307 was not executed. G4 remains pending.  
 **Contract revision:** Draft 1, 2026-11-19  
 **Scope:** Schemas and IDs, migration, validation, local queries, generated browsing
 pages, evidence review, and subsequent CLI packaging.
@@ -141,6 +143,11 @@ path so held-out fixtures exercise the real loader.
 | AC-308 | Corrupt an index or change a definition without refreshing a generated index. | Freshness checks reject or rebuild the derived index; a stale result is never silently returned. |
 
 ### Generated browsing pages and evidence — phase 4
+
+Executable observations for AC-401 through AC-405, and for the AC-501 denial,
+are frozen in [CLI_PAGE_CONTRACT.md](CLI_PAGE_CONTRACT.md). Local cases live in
+`tests/test_page_contract.py`. They are self-evaluated. G4 is not approved by
+those cases.
 
 | ID | Input or intervention | Required observable outcome |
 | --- | --- | --- |

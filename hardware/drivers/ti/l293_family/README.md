@@ -18,6 +18,12 @@ This reference preserves documented and uncited source statements. Schema valida
 | Interfaces | 3 |
 | Verification | not_verified |
 
+**Declared pin capabilities:** active_high, digital_input, enable, ground_reference, half_bridge_output, high_impedance, high_impedance_disable, logic_power_input, motor_direction_control, motor_drive, motor_power_input, output_stage_supply, pwm_input, pwm_output_conditional, thermal_dissipation
+
+**Family selectors:** variants L293, L293D
+
+**Verification limits:** status not_verified. Source statements on this page are not bench verification.
+
 ## Component facts
 
 | Fact | Evidence state | Value / documented limits | Sources |

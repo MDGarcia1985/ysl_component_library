@@ -81,7 +81,11 @@ includes original bytes, a complete field map, source checks, and corruption tes
 The user approved G2 for that draft; the cross-reference is
 [g2-approval-2026-11-19.md](docs/reviews/g2-approval-2026-11-19.md). Local catalog
 queries run as `PYTHONPATH=src python -m ysl_components --catalog . <operation>`
-under the [query contract](docs/planning/CLI_QUERY_CONTRACT.md). Packaging remains
+under the [query contract](docs/planning/CLI_QUERY_CONTRACT.md). The user approved
+G3 for that query draft; the cross-reference is
+[g3-approval-2026-11-19.md](docs/reviews/g3-approval-2026-11-19.md). Windows query
+coverage was not run. Generated pages follow the
+[page contract](docs/planning/CLI_PAGE_CONTRACT.md). Packaging remains
 unimplemented; `pyproject.toml` still has no build backend or project entry point.
 
 The schema set includes six modular schemas and synthetic board/family/module
