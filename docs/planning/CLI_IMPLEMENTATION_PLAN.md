@@ -1,8 +1,8 @@
 # Phased Hardware Catalog and CLI Plan
 
-**Status:** G3 approved by the user for the current P3 draft. P4 generates browsing pages from the migrated definitions and denies packaging without a distribution. G4 and G5 remain pending; no independent evaluator is claimed. Windows AC-307 was not executed.  
+**Status:** The user authorized G4 packaging of the five-definition catalog as one unit, bound to commit `bbf013354b3ac7d4fdc9be8b44090634b431b118`. P5 built a local wheel and sdist. G5 has not accepted the installed package. Publication is not authorized. No independent evaluator is claimed. Windows AC-307 and Windows AC-504 were not executed.  
 **Date:** 2026-11-19  
-**Gates:** User approval covers the schema/ID candidate, P2 execution, G2 for that draft, and G3 for the P3 query draft. Windows AC-307 remains not executed. G4 and G5 remain pending.  
+**Gates:** User approval covers the schema/ID candidate, P2 execution, G2 for that draft, G3 for the P3 query draft, and G4 for the five-definition catalog on the P4 candidate. Windows coverage remains not executed. G5 remains pending. Publishing is not authorized.  
 **Related decision:** DEV-2026-11-19-002
 
 ## Objective and scope
@@ -271,8 +271,11 @@ contracts; its local tests do not replace this phase's independent validation.
 **Local candidate:** pages are generated from the migrated contract under
 [CLI_PAGE_CONTRACT.md](CLI_PAGE_CONTRACT.md). Evidence is under
 [docs/evidence/pages-2026-11-19](../evidence/pages-2026-11-19/README.md).
-G4 human validation has not been given. Packaging stays closed. The local run
-is self-evaluated and does not include Windows.
+A later human statement authorized packaging for the five-definition catalog.
+The [catalog approval](../reviews/g4-catalog-approval-2026-11-19.md) records that
+scope and supersedes the Ventuno-only limit. P5 is the local package described
+in the [packaging contract](CLI_PACKAGING_CONTRACT.md). Publication stays closed.
+The page run is self-evaluated and does not include Windows.
 
 Deliverables:
 
@@ -318,6 +321,13 @@ user's instruction: "then package the cli after human validation of the evidence
 ## P5 — Package the approved CLI
 
 **Entry condition:** verified G4 human approval for the exact pre-package candidate.
+
+**Local candidate:** the widened approval is
+[g4-catalog-approval-2026-11-19.md](../reviews/g4-catalog-approval-2026-11-19.md).
+The package contract is [CLI_PACKAGING_CONTRACT.md](CLI_PACKAGING_CONTRACT.md).
+Linux evidence is under
+[docs/evidence/packaging-2026-11-19](../evidence/packaging-2026-11-19/README.md).
+Windows was not run. Nothing was uploaded. G5 has not accepted this package.
 
 Deliverables:
 

@@ -179,6 +179,13 @@ class SchemaReviewTests(unittest.TestCase):
         migration = json.loads((ROOT / 'docs/evidence/migration-2026-11-19/baseline.json').read_text(encoding='utf-8'))
         snapshots = {item['path']: item['snapshot'] for item in migration['definitions'].values()}
         for name, digest in baseline['preserved_files'].items():
+            if name == 'pyproject.toml':
+                import tomllib
+                project = tomllib.loads((ROOT / name).read_text(encoding='utf-8'))
+                self.assertTrue(project['tool']['ysl_component_library']['packaging_enabled'])
+                self.assertFalse(project['tool']['ysl_component_library']['publish_authorized'])
+                self.assertNotEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), digest)
+                continue
             if name.endswith('/README.md') and '/sources/' not in name:
                 definition = ROOT / name.replace('/README.md', '/definition.yml')
                 self.assertIn(hashlib.sha256(definition.read_bytes()).hexdigest(), (ROOT / name).read_text(encoding='utf-8'))

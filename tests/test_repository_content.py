@@ -162,13 +162,20 @@ class RepositoryContentTests(unittest.TestCase):
         for fact in ('ATA6563', 'JOMEGA_100', 'PB5', '2.8', 'jhat_bluetooth_uart', 'display_output_mux', 'Bluetooth', 'can_pd0_pd1'):
             self.assertIn(fact, page)
 
-    def test_preparation_does_not_enable_packaging(self):
-        """Purpose: Respect the human gate. Design: Inspect scaffold only. Workflow: Test run. Data Handoff: Assertions."""
+    def test_packaging_metadata_matches_the_catalog_approval(self):
+        """Purpose: Keep the package declaration on the widened G4 scope.
+        Design: Metadata may exist. Schema bytes and publication stay closed.
+        Workflow: Test run. Data Handoff: Assertions.
+        """
         import tomllib
         project = tomllib.loads((ROOT / 'pyproject.toml').read_text(encoding='utf-8'))
-        self.assertNotIn('build-system', project)
-        self.assertNotIn('project', project)
-        self.assertFalse(project['tool']['ysl_component_library']['packaging_enabled'])
+        self.assertEqual(project['project']['name'], 'ysl-components')
+        self.assertEqual(project['project']['version'], '1.0.0a1')
+        self.assertEqual(project['project']['scripts']['ysl-components'], 'ysl_components.cli:installed_main')
+        tool = project['tool']['ysl_component_library']
+        self.assertTrue(tool['packaging_enabled'])
+        self.assertFalse(tool['publish_authorized'])
+        self.assertEqual(tool['approved_candidate'], 'bbf013354b3ac7d4fdc9be8b44090634b431b118')
         schema = json.loads((ROOT / 'schemas/component.schema.json').read_text(encoding='utf-8'))
         self.assertEqual(schema['x-ysl-review-status'], 'draft-not-approved')
         self.assertEqual(schema['properties']['schema_version']['const'], '1.0.0-draft.1')

@@ -138,6 +138,12 @@ class MigrationTests(unittest.TestCase):
     def test_sources_schema_bytes_and_history_are_preserved(self):
         """Purpose: AC-206. Design: Pre-change byte hashes. Workflow: Test run. Data Handoff: Assertions."""
         for path, digest in BASELINE['preserved_files'].items():
+            if path == 'pyproject.toml':
+                import tomllib
+                project = tomllib.loads((ROOT / path).read_text(encoding='utf-8'))
+                self.assertTrue(project['tool']['ysl_component_library']['packaging_enabled'])
+                self.assertNotEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), digest)
+                continue
             self.assertTrue(matches_recorded_digest(ROOT / path, digest), path)
         for identity, item in BASELINE['definitions'].items():
             self.assertTrue(matches_recorded_digest(ROOT / item['snapshot'], item['sha256']), identity)

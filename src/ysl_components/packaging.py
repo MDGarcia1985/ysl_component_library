@@ -2,17 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 """File: src/ysl_components/packaging.py
-Purpose: Refuse package builds until a later human G4 decision.
+Purpose: Admit a package build only for the human-approved G4 candidate.
 Author: Cursor cloud agent; contact: Pending confirmation; license: MPL-2.0.
-Constraints: This module has no success path. It must not call a builder or write a distribution.
-Related decision: DEV-2026-11-19-009.
+Constraints: A local approved flag is not authorization. This module does not upload.
+Related decision: DEV-2026-11-19-012.
 """
+
+# The widened G4 statement binds the catalog package to this commit.
+APPROVED_CANDIDATE = 'bbf013354b3ac7d4fdc9be8b44090634b431b118'
 
 
 def denial_reason(approval, candidate_digest):
-    """Purpose: Classify why a package request stays closed. Design: A local approved flag is never authorization.
-    External G4 wording still does not open packaging in this phase. See the page contract.
-    Workflow: request_package_build. Data Handoff: One reason code.
+    """Purpose: Classify a closed packaging request. Design: External G4 wording is not enough
+    unless the digest is the approved commit. A repository flag never opens the gate.
+    Workflow: request_package_build. Data Handoff: A reason code, or None when the request matches.
     """
     if not isinstance(approval, dict):
         return 'approval_absent'
@@ -22,19 +25,33 @@ def denial_reason(approval, candidate_digest):
         return 'wrong_gate'
     if approval.get('candidate') != candidate_digest:
         return 'candidate_mismatch'
-    return 'packaging_closed_until_external_g4'
+    if candidate_digest != APPROVED_CANDIDATE:
+        return 'candidate_not_approved'
+    return None
 
 
 def request_package_build(approval, candidate_digest, builder=None):
-    """Purpose: Accept a packaging request and deny it. Design: The builder argument is ignored on purpose.
-    A caller cannot pass a builder and have this phase invoke it. Workflow: AC-501.
-    Data Handoff: A denial record. No files are written.
+    """Purpose: Deny every request except the approved candidate, then optionally call a builder.
+    Design: The builder is ignored unless the digest is the human-approved commit.
+    The function does not choose an upload target and does not read a local approval file.
+    Workflow: AC-501 for denials, and the P5 success boundary for the approved digest.
+    Data Handoff: A result record. distribution_written is true only after the builder returns.
     """
-    del builder
+    reason = denial_reason(approval, candidate_digest)
+    if reason is not None:
+        return {
+            'authorized': False,
+            'built': False,
+            'reason': reason,
+            'candidate_digest': candidate_digest,
+            'distribution_written': False,
+        }
+    if builder is not None:
+        builder(candidate_digest)
     return {
-        'authorized': False,
-        'built': False,
-        'reason': denial_reason(approval, candidate_digest),
+        'authorized': True,
+        'built': builder is not None,
+        'reason': 'approved',
         'candidate_digest': candidate_digest,
-        'distribution_written': False,
+        'distribution_written': builder is not None,
     }

@@ -4,8 +4,9 @@
 """File: src/ysl_components/loader.py
 Purpose: Load a local catalog and report schema, reference, and index diagnostics.
 Author: Cursor cloud agent; contact: Pending confirmation; license: MPL-2.0.
-Constraints: Read-only. Schemas resolve from the local tree. No network retrieval.
-Related decision: DEV-2026-11-19-006.
+Constraints: Read-only. Installed schemas come from package data. A source checkout uses schemas/ beside src.
+No network retrieval.
+Related decision: DEV-2026-11-19-006, DEV-2026-11-19-012.
 """
 
 from pathlib import Path
@@ -102,10 +103,25 @@ def load_yaml_text(text):
 
 
 def schema_directory():
-    """Purpose: Find the approved schemas. Design: Repository layout beside src, not the catalog.
+    """Purpose: Find the approved schemas. Design: Prefer files shipped inside the installed package.
+    A source checkout has no data directory, so it keeps the repository schemas directory.
     Workflow: Validator construction. Data Handoff: Directory path.
     """
+    packaged = Path(__file__).resolve().parent / 'data' / 'schemas'
+    if (packaged / 'component.schema.json').is_file():
+        return packaged
     return Path(__file__).resolve().parents[2] / 'schemas'
+
+
+def packaged_catalog_directory():
+    """Purpose: Find the catalog shipped with the installed command.
+    Design: Absent in a source checkout, so development invocation cannot grow a silent default.
+    Workflow: ysl-components when --catalog is omitted. Data Handoff: Directory or None.
+    """
+    path = Path(__file__).resolve().parent / 'data' / 'catalog'
+    if path.is_dir():
+        return path
+    return None
 
 
 def component_validator():
